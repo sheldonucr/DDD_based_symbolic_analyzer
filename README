@@ -4,32 +4,31 @@
                    April 20, 2015
 
                    University of California at Riverside
-                   Authoer: Sheldon Tan
+                   Author: Sheldon Tan
 
 
 
-     This document describes the installation of SCAD3 1.1 on SUN UNIX.
-(Solaris 2.x or SUNoS)
+This document describes the installation of SCAD3 1.1 on linux system.
 
-     SCAD3 1.1 includes a main programs and examples
+SCAD3 1.1 includes a main programs and examples
 in the software release package -- most of which like to live in their
 own directories.  The install script will build a standard hierarchy.
 Or, if you get the tar file off the ftp site, the hierarchy will be
 constructed automatically by tar.
 
-     The SCAD3 executables (scad3) may be placed anywhere the user
+     The SCAD3 executable (scad3) may be placed anywhere the user
 wishes but the install script places them in the bin directory created
 during installation.
 
-1.0 INVIORNMENT SETUP
+1.0 ENVIRONMENT SETUP
 
 SCAD3 system requires the SUN WorkShop(2.0) development package. 
-You need to make sure the C++ compiler is put in your seaching
+You need to make sure the C++ compiler is put in your searching
 path. But it should compile for latest gnu C++ compiler.  
 To be able to use the SCAD3, you also need put "isad/bin" 
 in your searching path since all the executable files are
-located in this directory. Note "scad3" is the root direactory where
-all the source code and exmaple files are organzied under this
+located in this directory. Note "scad3" is the root directory where
+all the source code and example files are organized under this
 directory. You also can use different name for this default name.
 
 2.0 INSTALLATION
@@ -53,7 +52,7 @@ pccts, come to pccts subdirectory and simply type
 
 which will build the standard PCCTS directory hierarchy (under the
 directory where you ran the install script) and build executable
-versions of antlr and dlg. Compliation of PCCTS package is not
+versions of antlr and dlg. Compilation of PCCTS package is not
 necessary as long as no modification is made to the source code. 
 
 After the installation of PCCTS, come back the src sub-directory
@@ -63,8 +62,8 @@ and type
 
 The executable file scad3 will be generated in scad3/bin directory.
 
-Note:  another exectuable file needed for SCAD3 is the plot display
+Note:  another executable file needed for SCAD3 is the plot display
 program `xgraph` which is in the scad3/bin directory
 
-For directory hierachical discripation and usage of SCAD3 system,
+For directory hierarchical discripation and usage of SCAD3 system,
 refer to the ~scad3/doc/manul
