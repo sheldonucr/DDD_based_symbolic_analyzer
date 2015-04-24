@@ -1,0 +1,490 @@
+Exact DDD expansion result
+Building coefficient for numerator
+ 
+ Statisitic for numerator coefficient list
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 1537
+ #paths (DDD): 2.09601e+11
+ order:0, fcoeff: r:-2.77831e-57i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 5426
+ #paths (DDD): 3.54581e+12
+ order:1, fcoeff: r:-0i:-4.76339e-63
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 11034
+ #paths (DDD): 2.81501e+13
+ order:2, fcoeff: r:3.25597e-69i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 17554
+ #paths (DDD): 1.39731e+14
+ order:3, fcoeff: r:-0i:1.19236e-75
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 24265
+ #paths (DDD): 4.87155e+14
+ order:4, fcoeff: r:-2.63834e-82i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 30790
+ #paths (DDD): 1.26975e+15
+ order:5, fcoeff: r:-0i:-3.48369e-89
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 36743
+ #paths (DDD): 2.57039e+15
+ order:6, fcoeff: r:2.47919e-96i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 41653
+ #paths (DDD): 4.14294e+15
+ order:7, fcoeff: r:-0i:5.25676e-104
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 45298
+ #paths (DDD): 5.40642e+15
+ order:8, fcoeff: r:5.8475e-111i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 47694
+ #paths (DDD): 5.77663e+15
+ order:9, fcoeff: r:0i:6.10022e-118
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 48981
+ #paths (DDD): 5.09003e+15
+ order:10, fcoeff: r:-2.91555e-125i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 49260
+ #paths (DDD): 3.71341e+15
+ order:11, fcoeff: r:0i:-8.26489e-133
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 48475
+ #paths (DDD): 2.2457e+15
+ order:12, fcoeff: r:1.28394e-140i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 46566
+ #paths (DDD): 1.12419e+15
+ order:13, fcoeff: r:0i:1.98392e-149
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 43462
+ #paths (DDD): 4.63897e+14
+ order:14, fcoeff: r:3.88715e-156i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 39095
+ #paths (DDD): 1.56649e+14
+ order:15, fcoeff: r:-0i:9.24621e-164
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 33588
+ #paths (DDD): 4.28033e+13
+ order:16, fcoeff: r:-1.08445e-171i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 27306
+ #paths (DDD): 9.30837e+12
+ order:17, fcoeff: r:-0i:-7.14173e-180
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 20660
+ #paths (DDD): 1.57206e+12
+ order:18, fcoeff: r:2.59645e-188i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 13882
+ #paths (DDD): 1.98607e+11
+ order:19, fcoeff: r:-0i:4.84914e-197
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 7407
+ #paths (DDD): 1.76507e+10
+ order:20, fcoeff: r:-4.32873e-206i:-0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 2603
+ #paths (DDD): 9.83746e+08
+ order:21, fcoeff: r:-0i:-1.506e-215
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 422
+ #paths (DDD): 2.58582e+07
+ order:22, fcoeff: r:4.73966e-226i:-0
+  
+Building coefficient for denominator
+ 
+ Statisitic for denominator coefficient list
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 1668
+ #paths (DDD): 2.61709e+13
+ order:0, fcoeff: r:2.83194e-60i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 9770
+ #paths (DDD): 5.76984e+14
+ order:1, fcoeff: r:0i:2.42053e-63
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 25467
+ #paths (DDD): 5.90929e+15
+ order:2, fcoeff: r:-4.45411e-69i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 45250
+ #paths (DDD): 3.74192e+16
+ order:3, fcoeff: r:0i:-3.38118e-75
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 65798
+ #paths (DDD): 1.64502e+17
+ order:4, fcoeff: r:1.4337e-81i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 85553
+ #paths (DDD): 5.34446e+17
+ order:5, fcoeff: r:0i:3.87486e-88
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 103373
+ #paths (DDD): 1.33364e+18
+ order:6, fcoeff: r:-6.99472e-95i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 118219
+ #paths (DDD): 2.62228e+18
+ order:7, fcoeff: r:0i:-8.65561e-102
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 129476
+ #paths (DDD): 4.13495e+18
+ order:8, fcoeff: r:7.57079e-109i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 137106
+ #paths (DDD): 5.29292e+18
+ order:9, fcoeff: r:0i:4.85916e-116
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 141482
+ #paths (DDD): 5.54493e+18
+ order:10, fcoeff: r:-2.36187e-123i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 143123
+ #paths (DDD): 4.77755e+18
+ order:11, fcoeff: r:0i:-8.81694e-131
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 142484
+ #paths (DDD): 3.39256e+18
+ order:12, fcoeff: r:2.54165e-138i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 139344
+ #paths (DDD): 1.98421e+18
+ order:13, fcoeff: r:0i:5.62811e-146
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 132919
+ #paths (DDD): 9.52537e+17
+ order:14, fcoeff: r:-9.39437e-154i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 122782
+ #paths (DDD): 3.72817e+17
+ order:15, fcoeff: r:0i:-1.14467e-161
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 109118
+ #paths (DDD): 1.17698e+17
+ order:16, fcoeff: r:9.63561e-170i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 92351
+ #paths (DDD): 2.94896e+16
+ order:17, fcoeff: r:0i:5.20102e-178
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 73283
+ #paths (DDD): 5.72373e+15
+ order:18, fcoeff: r:-1.64145e-186i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 53058
+ #paths (DDD): 8.29112e+14
+ order:19, fcoeff: r:0i:-2.69983e-195
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 32726
+ #paths (DDD): 8.43012e+13
+ order:20, fcoeff: r:2.14188e-204i:0
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 14245
+ #paths (DDD): 5.36358e+12
+ order:21, fcoeff: r:0i:6.71908e-214
+ STATISTIC INFO FOR THE DDD
+ #nodes (DDD): 2930
+ #paths (DDD): 1.60581e+11
+ order:22, fcoeff: r:-2.22104e-224i:0
+ total constrction time: 24.34
+ total coeff evaluation time: 342.25
+
+
+-- after redbranch with 0.1 error criterion
+Building coefficient for numerator
+ 
+Statisitic for numerator coefficient list
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 306
+#paths (DDD): 108864
+order:0, fcoeff: r:-2.50913e-57i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 775
+#paths (DDD): 822528
+order:1, fcoeff: r:-0i:-4.14217e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1161
+#paths (DDD): 2.44123e+06
+order:2, fcoeff: r:2.49347e-69i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1391
+#paths (DDD): 3.86597e+06
+order:3, fcoeff: r:-0i:6.73136e-76
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1413
+#paths (DDD): 3.64781e+06
+order:4, fcoeff: r:-8.14962e-83i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1283
+#paths (DDD): 2.12803e+06
+order:5, fcoeff: r:-0i:-3.92242e-90
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1001
+#paths (DDD): 756432
+order:6, fcoeff: r:3.92239e-98i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 601
+#paths (DDD): 150768
+order:7, fcoeff: r:0i:-5.57501e-120
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 201
+#paths (DDD): 12960
+order:8, fcoeff: r:0i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 0
+order:9, fcoeff: r:0i:0
+
+Building coefficient for denominator
+ 
+Statisitic for denominator coefficient list
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 307
+#paths (DDD): 3.55795e+06
+order:0, fcoeff: r:2.56088e-60i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 960
+#paths (DDD): 5.78399e+07
+order:1, fcoeff: r:0i:2.18843e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1843
+#paths (DDD): 4.17727e+08
+order:2, fcoeff: r:-3.87021e-69i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2815
+#paths (DDD): 1.78211e+09
+order:3, fcoeff: r:0i:-2.61075e-75
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3695
+#paths (DDD): 5.03253e+09
+order:4, fcoeff: r:8.58179e-82i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4379
+#paths (DDD): 9.97601e+09
+order:5, fcoeff: r:0i:1.48431e-88
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4793
+#paths (DDD): 1.43443e+10
+order:6, fcoeff: r:-1.39116e-95i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4908
+#paths (DDD): 1.52231e+10
+order:7, fcoeff: r:0i:-6.9542e-103
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4742
+#paths (DDD): 1.19985e+10
+order:8, fcoeff: r:1.76687e-110i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4300
+#paths (DDD): 6.9976e+09
+order:9, fcoeff: r:0i:2.3134e-118
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3634
+#paths (DDD): 2.97556e+09
+order:10, fcoeff: r:-1.49394e-126i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2814
+#paths (DDD): 8.954e+08
+order:11, fcoeff: r:0i:-3.83226e-135
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1892
+#paths (DDD): 1.80395e+08
+order:12, fcoeff: r:6.39803e-145i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 961
+#paths (DDD): 2.17961e+07
+order:13, fcoeff: r:-0i:-2.96766e-165
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 261
+#paths (DDD): 1.19232e+06
+order:14, fcoeff: r:-5.29615e-177i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 0
+order:15, fcoeff: r:0i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+
+
+***
+after cancaling term elination
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 84
+#paths (DDD): 960
+order:0, fcoeff: r:-2.50913e-57i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 330
+#paths (DDD): 13824
+order:1, fcoeff: r:-0i:-4.14217e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 599
+#paths (DDD): 66672
+order:2, fcoeff: r:2.49347e-69i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 782
+#paths (DDD): 147600
+order:3, fcoeff: r:-0i:6.73136e-76
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 794
+#paths (DDD): 169488
+order:4, fcoeff: r:-8.14962e-83i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 673
+#paths (DDD): 104112
+order:5, fcoeff: r:-0i:-3.92242e-90
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 418
+#paths (DDD): 32448
+order:6, fcoeff: r:3.92239e-98i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 125
+#paths (DDD): 4032
+order:7, fcoeff: r:0i:-1.19134e-120
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 0
+order:8, fcoeff: r:0i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 0
+
+order:0, fcoeff: r:2.56088e-60i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1276
+#paths (DDD): 2.6495e+06
+order:1, fcoeff: r:0i:2.18843e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3390
+#paths (DDD): 2.18189e+07
+order:2, fcoeff: r:-3.87021e-69i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 6548
+#paths (DDD): 1.00788e+08
+order:3, fcoeff: r:0i:-2.61075e-75
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9727
+#paths (DDD): 2.89051e+08
+order:4, fcoeff: r:8.58179e-82i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 12212
+#paths (DDD): 5.38246e+08
+order:5, fcoeff: r:0i:1.48431e-88
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 13134
+#paths (DDD): 6.61148e+08
+order:6, fcoeff: r:-1.39116e-95i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 12179
+#paths (DDD): 5.33133e+08
+order:7, fcoeff: r:0i:-6.9542e-103
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 10047
+#paths (DDD): 2.75212e+08
+order:8, fcoeff: r:1.76687e-110i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 7293
+#paths (DDD): 8.63225e+07
+order:9, fcoeff: r:0i:2.3134e-118
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4103
+#paths (DDD): 1.48926e+07
+order:10, fcoeff: r:-1.49394e-126i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1552
+#paths (DDD): 1.13856e+06
+order:11, fcoeff: r:0i:-3.83226e-135
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 308
+#paths (DDD): 18432
+order:12, fcoeff: r:6.39803e-145i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 0
+order:13, fcoeff: r:0i:0
+
+
+****** with freq range 1 to 2meg
+after decan and suppres
+EXPLICITLY DC DONE
+End of DDD decancellation
+FREQUENCY SWEEPING ...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 92
+#paths (DDD): 2880
+order:0, fcoeff: r:-2.51276e-57i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 468
+#paths (DDD): 71232
+order:1, fcoeff: r:-0i:-4.32856e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1182
+#paths (DDD): 718056
+order:2, fcoeff: r:2.93655e-69i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2079
+#paths (DDD): 4.0358e+06
+order:3, fcoeff: r:-0i:1.05464e-75
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2917
+#paths (DDD): 1.4373e+07
+order:4, fcoeff: r:-2.2745e-82i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3556
+#paths (DDD): 3.47005e+07
+order:5, fcoeff: r:-0i:-2.9442e-89
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3983
+#paths (DDD): 5.905e+07
+order:6, fcoeff: r:2.22994e-96i:-0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4199
+#paths (DDD): 7.23728e+07
+order:7, fcoeff: r:-0i:9.88945e-104
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 681
+#paths (DDD): 234432
+order:0, fcoeff: r:2.55898e-60i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3306
+#paths (DDD): 9.50314e+06
+order:1, fcoeff: r:0i:2.18718e-63
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 11075
+#paths (DDD): 1.70871e+08
+order:2, fcoeff: r:-4.01085e-69i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 27058
+#paths (DDD): 1.80783e+09
+order:3, fcoeff: r:0i:-2.98739e-75
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 50061
+#paths (DDD): 1.25903e+10
+order:4, fcoeff: r:1.21963e-81i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 75126
+#paths (DDD): 6.11533e+10
+order:5, fcoeff: r:0i:3.0991e-88
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 98263
+#paths (DDD): 2.14091e+11
+order:6, fcoeff: r:-5.06343e-95i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 117949
+#paths (DDD): 5.50513e+11
+order:7, fcoeff: r:0i:-5.36636e-102
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 132854
+#paths (DDD): 1.05007e+12
+order:8, fcoeff: r:3.73235e-109i:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 141478
+#paths (DDD): 1.49089e+12
+order:9, fcoeff: r:0i:1.74372e-116
+END OF FREQUENCY SWEEPING 
+[35:34.0u 0:02.7s 63096k]
+
+

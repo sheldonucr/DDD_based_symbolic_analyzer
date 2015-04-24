@@ -1,0 +1,50 @@
+CMOS cascode opamp from Q. Yu paper in ICCAD 1994 
+*
+m1 1 4 2 0 nmos w=2.00u l=1.00u ad=480.00p as=280.00p pd=184.00u
++  ps=94.00u
+m2 2 5 3 0 nmos w=2.00u l=1.00u ad=280.00p as=280.00p pd=94.00u
++  ps=94.00u
+m3 3 6 0 0 nmos w=2.00u l=1.00u ad=1800.00p as=1050.00p
++  pd=624.00u ps=314.00u
+v1 4 0 6v
+v2 5 0 3v
+v3 6 0 5v
+v4 1 0 5v
+ 
+*
+* model definition
+*
+.model nmos nmos
++  level = 2            vto = 0.829         uo = 605.2
++    tox = 3.75e-08    nsub = 2.788e+16     xj = 4.752e-07
++     ld = 1.356e-07  delta = 1.621       vmax = 61220
++    nfs = 7.1070e+12    cj = 0.0003352   cjsw = 2.403e-09
++     mj = 0.2841      mjsw = 0.7155        pb = 0.8092
++   cgso = 1.102e-10   cgdo = 1.102e-10   cgbo = 1.387e-10
++  ucrit = 164400      uexp = 0.3855      neff = 0.6787
++    tpg = 1
+
+.model pmos pmos
++  level = 2            vto = -0.844        uo = 199.5
++    tox = 3.75e-08    nsub = 4.371e+15     xj = 3.05e-07
++     ld = 1.033e-07  delta = 1.35        vmax = 235900
++    nfs = 8.2890e+11    cj = 0.0002316   cjsw = 5.872e-11
++     mj = 0.3295      mjsw = 0.1869        pb = 0.7072
++   cgso = 8.39e-11    cgdo = 8.39e-11    cgbo = 1.241e-10
++  ucrit = 116400      uexp = 0.1855      neff = 0.6639
++    tpg = -1
+*+ capop=0
+
+*.options list limpts=4000 itl5=0 numdgt=6
+ 
+.op
+ 
+*.dc vinnon 10.100800mv 10.100820mv 0.001uv
+*.plot dc v(5) v(7)
+*.print dc v(5) v(7)
+ 
+*.ac dec 5 1 800meg
+*.plot ac vdb(7)
+*.plot ac vp(7)
+.end
+ 

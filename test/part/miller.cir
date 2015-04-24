@@ -1,0 +1,45 @@
+Standard n-Well CMOS Operational Amplifier with External Biasing
+* This circuit is from Michael J. Ohletz paper
+M1 Ibias Ibias Vdd   Vdd   CMOSP2 W=100u L=25u
+M2 1     Ibias Vdd   Vdd   CMOSP2 W=100u L=25u
+M3 OUT   Ibias Vdd   Vdd   CMOSP2 W=100u L=25u
+M4 2     Vinp  1     Vdd   CMOSP1 W=50u  L=25u
+M5 3     Vinm  1     Vdd   CMOSP1 W=50u  L=25u
+M6 2     2     Vss   Vss   CMOSN W=50u  L=25u
+M7 3     2     Vss   Vss   CMOSN W=50u  L=25u
+M8 OUT   3     Vss   Vss   CMOSN W=90u  L=25u
+COMP     3     OUT   0.7pF
+VDD      Vdd   0     DC    5V
+VSS      Vss   0     DC    -5V
+IBIAS    Ibias Vss   DC    3.41E-5
+*.MODEL   CMOSN NMOS  LD=0.5u   LEVEL=2
+*.MODEL   CMOSP PMOS  LD=0.5u   LEVEL=2
+.model CMOSP1 pmos level = 2  vto = -0.9  kp = 1.5e-05 gamma = 0.59 phi = 0.66
++ cgso = 4e-10 cgdo = 4e-10  cgbo = 1.47e-10  cj = 0.0002 cjsw = 4.5e-10
++ js = 0.0001  tox = 5e-08 nsub = 5e+15 tpg = -1  xj = 4e-07 ld = 5e-07
++ uo = 200 ucrit = 8e+04 uexp = 0.15  vmax = 5e+04 lambda = 0.037 mj = 0.5
++ rsh = 95  kf = 3e-24
+
+.model CMOSP2 pmos level = 2  vto = -0.9  kp = 1.5e-05 gamma = 0.59 phi = 0.66
++ cgso = 4e-10 cgdo = 4e-10  cgbo = 1.47e-10  cj = 0.0002 cjsw = 4.5e-10
++ js = 0.0001  tox = 5e-08 nsub = 5e+15 tpg = -1  xj = 4e-07 ld = 5e-07
++ uo = 200 ucrit = 8e+04 uexp = 0.15  vmax = 5e+04 lambda = 0.0222 mj = 0.5
++ rsh = 95 kf = 3e-24
+
+.model CMOSN nmos level = 2  vto = 0.9  kp = 3e-05 gamma = 1.36 phi = 0.747
++ cgso = 5.2e-10 cgdo = 5.2e-10  cgbo = 1.47e-10  cj = 0.00032 cjsw = 9e-10
++ js = 0.0001  tox = 5e-08 nsub = 2.5e+16 tpg = 1  xj = 4e-07 ld = 4e-07
++ uo = 450 ucrit = 8e+04 uexp = 0.15  vmax = 5e+04 lambda = 0.045 mj = 0.5
++ rsh = 20 kf = 6e-24
+
+VIN      100   0     PULSE(-1 1 1u 1n 1n 1u 2u ) AC 1 DC 0
+* diff mode
+EVINP    Vinp  0     100 0 0.5
+EVINM    Vinm  0     100 0 -0.5
+* com mode
+*EVINP     Vinp  0     100 0 1.0
+*EVINM     Vinm  0     100 0 1.0
+.OP
+.AC DEC 20 1 1G
+.END
+

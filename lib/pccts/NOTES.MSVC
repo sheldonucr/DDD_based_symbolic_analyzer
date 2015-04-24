@@ -1,0 +1,854 @@
+                        Microsoft Visual C Stuff
+
+[Modified by Terence Parr (September 1995) to change .C to .cpp]
+
+[This file contains notes on MSVC for Windows NT console execs by Dave
+ Seidel and an explanation of flags etc.. by John Hall; good luck,
+ Terence]
+
+Date: Sat, 31 Dec 1994 11:40:36 -0500 (EST)
+From: David Seidel <75342.2034@compuserve.com>
+
+I've succesfully build 1.31b3 with djgpp for DOS and MSVC 2.0 for Windows 
+NT.  The only (minor) problem I had was that GNU make (version 3.71, in the 
+djgpp port) complained about "multiple targets" in both the antlr and dlg 
+makefiles.  I got around the error by, in each makefile, commenting out the 
+$(SRC) dependency, for example:
+
+   antlr: $(OBJ) #$(SRC)
+
+I don't know why this is happenning, since you haven't changed that part of 
+the makefile at all, and I think this used to work ok...
+
+Here are the makefiles I built from within the MSVC 2.0 environment for antlr 
+and dlg and Windows NT console executables.  Please feel free to pass them 
+on.  Of course, as soon as 1.31 "goes gold", I will send you nice new 
+binaries.  I'm not going to bother to keep doing both Borland and djgpp for 
+DOS however.  Instead, I'll just keep the djgpp version up to date and also 
+provide WinNT binaries.
+
+Dave
+
+------ File antlr.mak: --------------
+
+# Microsoft Visual C++ Generated NMAKE File, Format Version 2.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Console Application" 0x0103
+
+!IF "$(CFG)" == ""
+CFG=Win32 Debug
+!MESSAGE No configuration specified.  Defaulting to Win32 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "Win32 Release" && "$(CFG)" != "Win32 Debug"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE on this makefile
+!MESSAGE by defining the macro CFG on the command line.  For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "ANTLR.MAK" CFG="Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "Win32 Release" (based on "Win32 (x86) Console Application")
+!MESSAGE "Win32 Debug" (based on "Win32 (x86) Console Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+################################################################################
+# Begin Project
+# PROP Target_Last_Scanned "Win32 Release"
+CPP=cl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "Win32 Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "WinRel"
+# PROP BASE Intermediate_Dir "WinRel"
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "WinRel"
+# PROP Intermediate_Dir "WinRel"
+OUTDIR=.\WinRel
+INTDIR=.\WinRel
+
+ALL : $(OUTDIR)/ANTLR.exe $(OUTDIR)/ANTLR.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /W3 /GX /YX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /FR /c
+# ADD CPP /nologo /W2 /YX /O2 /I "..\h" /I "..\support\set" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /c
+# SUBTRACT CPP /Fr
+CPP_PROJ=/nologo /W2 /YX /O2 /I "..\h" /I "..\support\set" /D "WIN32" /D\
+ "NDEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /Fp$(OUTDIR)/"ANTLR.pch"\
+ /Fo$(INTDIR)/ /c 
+CPP_OBJS=.\WinRel/
+# ADD BASE RSC /l 0x409 /d "NDEBUG"
+# ADD RSC /l 0x409 /d "NDEBUG"
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"ANTLR.bsc" 
+
+$(OUTDIR)/ANTLR.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /MACHINE:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /MACHINE:I386
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib\
+ advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib\
+ odbccp32.lib /NOLOGO /SUBSYSTEM:console /INCREMENTAL:no\
+ /PDB:$(OUTDIR)/"ANTLR.pdb" /MACHINE:I386 /OUT:$(OUTDIR)/"ANTLR.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/HASH.OBJ \
+	$(INTDIR)/MISC.OBJ \
+	$(INTDIR)/BUILD.OBJ \
+	$(INTDIR)/ANTLR.OBJ \
+	$(INTDIR)/GLOBALS.OBJ \
+	$(INTDIR)/PRED.OBJ \
+	$(INTDIR)/FSET.OBJ \
+	$(INTDIR)/FSET2.OBJ \
+	$(INTDIR)/GEN.OBJ \
+	$(INTDIR)/MAIN.OBJ \
+	$(INTDIR)/SCAN.OBJ \
+	$(INTDIR)/LEX.OBJ \
+	$(INTDIR)/ERR.OBJ \
+	$(INTDIR)/BITS.OBJ \
+	$(INTDIR)/SET.OBJ
+
+$(OUTDIR)/ANTLR.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "Win32 Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "WinDebug"
+# PROP BASE Intermediate_Dir "WinDebug"
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "WinDebug"
+# PROP Intermediate_Dir "WinDebug"
+OUTDIR=.\WinDebug
+INTDIR=.\WinDebug
+
+ALL : $(OUTDIR)/ANTLR.exe $(OUTDIR)/ANTLR.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /W3 /GX /Zi /YX /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /FR /c
+# ADD CPP /nologo /MD /W2 /Zi /YX /Od /I "..\h" /I "..\support\set" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /c
+# SUBTRACT CPP /Gf /Fr
+CPP_PROJ=/nologo /MD /W2 /Zi /YX /Od /I "..\h" /I "..\support\set" /D "WIN32"\
+ /D "_DEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /Fp$(OUTDIR)/"ANTLR.pch"\
+ /Fo$(INTDIR)/ /Fd$(OUTDIR)/"ANTLR.pdb" /c 
+CPP_OBJS=.\WinDebug/
+# ADD BASE RSC /l 0x409 /d "_DEBUG"
+# ADD RSC /l 0x409 /d "_DEBUG"
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"ANTLR.bsc" 
+
+$(OUTDIR)/ANTLR.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /DEBUG /MACHINE:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /PDB:none /DEBUG /MACHINE:I386
+# SUBTRACT LINK32 /MAP
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib\
+ advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib\
+ odbccp32.lib /NOLOGO /SUBSYSTEM:console /PDB:none /DEBUG /MACHINE:I386\
+ /OUT:$(OUTDIR)/"ANTLR.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/HASH.OBJ \
+	$(INTDIR)/MISC.OBJ \
+	$(INTDIR)/BUILD.OBJ \
+	$(INTDIR)/ANTLR.OBJ \
+	$(INTDIR)/GLOBALS.OBJ \
+	$(INTDIR)/PRED.OBJ \
+	$(INTDIR)/FSET.OBJ \
+	$(INTDIR)/FSET2.OBJ \
+	$(INTDIR)/GEN.OBJ \
+	$(INTDIR)/MAIN.OBJ \
+	$(INTDIR)/SCAN.OBJ \
+	$(INTDIR)/LEX.OBJ \
+	$(INTDIR)/ERR.OBJ \
+	$(INTDIR)/BITS.OBJ \
+	$(INTDIR)/SET.OBJ
+
+$(OUTDIR)/ANTLR.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+.c{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cpp{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cxx{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+################################################################################
+# Begin Group "Source Files"
+
+################################################################################
+# Begin Source File
+
+SOURCE=.\HASH.C
+DEP_HASH_=\
+	.\HASH.H
+
+$(INTDIR)/HASH.OBJ :  $(SOURCE)  $(DEP_HASH_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\MISC.C
+DEP_MISC_=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/MISC.OBJ :  $(SOURCE)  $(DEP_MISC_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\BUILD.C
+DEP_BUILD=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/BUILD.OBJ :  $(SOURCE)  $(DEP_BUILD) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\ANTLR.C
+DEP_ANTLR=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/ANTLR.OBJ :  $(SOURCE)  $(DEP_ANTLR) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\GLOBALS.C
+DEP_GLOBA=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/GLOBALS.OBJ :  $(SOURCE)  $(DEP_GLOBA) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\PRED.C
+DEP_PRED_=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/PRED.OBJ :  $(SOURCE)  $(DEP_PRED_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\FSET.C
+DEP_FSET_=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/FSET.OBJ :  $(SOURCE)  $(DEP_FSET_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\FSET2.C
+DEP_FSET2=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/FSET2.OBJ :  $(SOURCE)  $(DEP_FSET2) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\GEN.C
+DEP_GEN_C=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/GEN.OBJ :  $(SOURCE)  $(DEP_GEN_C) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\MAIN.C
+DEP_MAIN_=\
+	.\STDPCCTS.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/MAIN.OBJ :  $(SOURCE)  $(DEP_MAIN_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\SCAN.C
+DEP_SCAN_=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\H\DLGAUTO.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/SCAN.OBJ :  $(SOURCE)  $(DEP_SCAN_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\LEX.C
+DEP_LEX_C=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/LEX.OBJ :  $(SOURCE)  $(DEP_LEX_C) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\ERR.C
+DEP_ERR_C=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\ERR.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/ERR.OBJ :  $(SOURCE)  $(DEP_ERR_C) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\BITS.C
+DEP_BITS_=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	.\SYN.H\
+	.\HASH.H\
+	.\GENERIC.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\CONFIG.H\
+	.\PROTO.H
+
+$(INTDIR)/BITS.OBJ :  $(SOURCE)  $(DEP_BITS_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=\PCCTS\SUPPORT\SET\SET.C
+DEP_SET_C=\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/SET.OBJ :  $(SOURCE)  $(DEP_SET_C) $(INTDIR)
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+# End Group
+# End Project
+################################################################################
+------ File dlg.mak: ----------------
+
+# Microsoft Visual C++ Generated NMAKE File, Format Version 2.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Console Application" 0x0103
+
+!IF "$(CFG)" == ""
+CFG=Win32 Debug
+!MESSAGE No configuration specified.  Defaulting to Win32 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "Win32 Release" && "$(CFG)" != "Win32 Debug"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE on this makefile
+!MESSAGE by defining the macro CFG on the command line.  For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "DLG.MAK" CFG="Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "Win32 Release" (based on "Win32 (x86) Console Application")
+!MESSAGE "Win32 Debug" (based on "Win32 (x86) Console Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+################################################################################
+# Begin Project
+# PROP Target_Last_Scanned "Win32 Debug"
+CPP=cl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "Win32 Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "WinRel"
+# PROP BASE Intermediate_Dir "WinRel"
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "WinRel"
+# PROP Intermediate_Dir "WinRel"
+OUTDIR=.\WinRel
+INTDIR=.\WinRel
+
+ALL : $(OUTDIR)/DLG.exe $(OUTDIR)/DLG.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /W3 /GX /YX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /FR /c
+# ADD CPP /nologo /W2 /YX /O2 /I "..\h" /I "..\support\set" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /c
+# SUBTRACT CPP /Fr
+CPP_PROJ=/nologo /W2 /YX /O2 /I "..\h" /I "..\support\set" /D "WIN32" /D\
+ "NDEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /Fp$(OUTDIR)/"DLG.pch"\
+ /Fo$(INTDIR)/ /c 
+CPP_OBJS=.\WinRel/
+# ADD BASE RSC /l 0x409 /d "NDEBUG"
+# ADD RSC /l 0x409 /d "NDEBUG"
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"DLG.bsc" 
+
+$(OUTDIR)/DLG.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /MACHINE:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /MACHINE:I386
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib\
+ advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib\
+ odbccp32.lib /NOLOGO /SUBSYSTEM:console /INCREMENTAL:no\
+ /PDB:$(OUTDIR)/"DLG.pdb" /MACHINE:I386 /OUT:$(OUTDIR)/"DLG.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/SET.OBJ \
+	$(INTDIR)/AUTOMATA.OBJ \
+	$(INTDIR)/SUPPORT.OBJ \
+	$(INTDIR)/DLG_P.OBJ \
+	$(INTDIR)/ERR.OBJ \
+	$(INTDIR)/MAIN.OBJ \
+	$(INTDIR)/DLG_A.OBJ \
+	$(INTDIR)/RELABEL.OBJ \
+	$(INTDIR)/OUTPUT.OBJ
+
+$(OUTDIR)/DLG.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "Win32 Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "WinDebug"
+# PROP BASE Intermediate_Dir "WinDebug"
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "WinDebug"
+# PROP Intermediate_Dir "WinDebug"
+OUTDIR=.\WinDebug
+INTDIR=.\WinDebug
+
+ALL : $(OUTDIR)/DLG.exe $(OUTDIR)/DLG.bsc
+
+$(OUTDIR) : 
+    if not exist $(OUTDIR)/nul mkdir $(OUTDIR)
+
+# ADD BASE CPP /nologo /W3 /GX /Zi /YX /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /FR /c
+# ADD CPP /nologo /MD /W2 /Zi /YX /Od /I "..\h" /I "..\support\set" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /c
+# SUBTRACT CPP /Fr
+CPP_PROJ=/nologo /MD /W2 /Zi /YX /Od /I "..\h" /I "..\support\set" /D "WIN32"\
+ /D "_DEBUG" /D "_CONSOLE" /D "USER_ZZSYN" /D "PC" /Fp$(OUTDIR)/"DLG.pch"\
+ /Fo$(INTDIR)/ /Fd$(OUTDIR)/"DLG.pdb" /c 
+CPP_OBJS=.\WinDebug/
+# ADD BASE RSC /l 0x409 /d "_DEBUG"
+# ADD RSC /l 0x409 /d "_DEBUG"
+BSC32=bscmake.exe
+BSC32_SBRS= \
+	
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+BSC32_FLAGS=/nologo /o$(OUTDIR)/"DLG.bsc" 
+
+$(OUTDIR)/DLG.bsc : $(OUTDIR)  $(BSC32_SBRS)
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /DEBUG /MACHINE:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NOLOGO /SUBSYSTEM:console /PDB:none /DEBUG /MACHINE:I386
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib\
+ advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib\
+ odbccp32.lib /NOLOGO /SUBSYSTEM:console /PDB:none /DEBUG /MACHINE:I386\
+ /OUT:$(OUTDIR)/"DLG.exe" 
+DEF_FILE=
+LINK32_OBJS= \
+	$(INTDIR)/SET.OBJ \
+	$(INTDIR)/AUTOMATA.OBJ \
+	$(INTDIR)/SUPPORT.OBJ \
+	$(INTDIR)/DLG_P.OBJ \
+	$(INTDIR)/ERR.OBJ \
+	$(INTDIR)/MAIN.OBJ \
+	$(INTDIR)/DLG_A.OBJ \
+	$(INTDIR)/RELABEL.OBJ \
+	$(INTDIR)/OUTPUT.OBJ
+
+$(OUTDIR)/DLG.exe : $(OUTDIR)  $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+.c{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cpp{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+.cxx{$(CPP_OBJS)}.obj:
+   $(CPP) $(CPP_PROJ) $<  
+
+################################################################################
+# Begin Group "Source Files"
+
+################################################################################
+# Begin Source File
+
+SOURCE=\PCCTS\SUPPORT\SET\SET.C
+
+$(INTDIR)/SET.OBJ :  $(SOURCE)  $(INTDIR)
+   $(CPP) $(CPP_PROJ)  $(SOURCE) 
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\AUTOMATA.C
+DEP_AUTOM=\
+	.\DLG.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/AUTOMATA.OBJ :  $(SOURCE)  $(DEP_AUTOM) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\SUPPORT.C
+DEP_SUPPO=\
+	.\DLG.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/SUPPORT.OBJ :  $(SOURCE)  $(DEP_SUPPO) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\DLG_P.C
+DEP_DLG_P=\
+	.\DLG.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/DLG_P.OBJ :  $(SOURCE)  $(DEP_DLG_P) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\ERR.C
+DEP_ERR_C=\
+	.\DLG.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	\PCCTS\H\ERR.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/ERR.OBJ :  $(SOURCE)  $(DEP_ERR_C) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\MAIN.C
+DEP_MAIN_=\
+	.\STDPCCTS.H\
+	.\DLG.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/MAIN.OBJ :  $(SOURCE)  $(DEP_MAIN_) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\DLG_A.C
+DEP_DLG_A=\
+	.\DLG.H\
+	\PCCTS\H\ANTLR.H\
+	.\TOKENS.H\
+	\PCCTS\H\DLGDEF.H\
+	.\MODE.H\
+	\PCCTS\H\DLGAUTO.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/DLG_A.OBJ :  $(SOURCE)  $(DEP_DLG_A) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\RELABEL.C
+DEP_RELAB=\
+	.\DLG.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/RELABEL.OBJ :  $(SOURCE)  $(DEP_RELAB) $(INTDIR)
+
+# End Source File
+################################################################################
+# Begin Source File
+
+SOURCE=.\OUTPUT.C
+DEP_OUTPU=\
+	.\DLG.H\
+	\PCCTS\SUPPORT\SET\SET.H\
+	\PCCTS\H\CONFIG.H
+
+$(INTDIR)/OUTPUT.OBJ :  $(SOURCE)  $(DEP_OUTPU) $(INTDIR)
+
+# End Source File
+# End Group
+# End Project
+################################################################################
+-------------------------------------
+
+         How to port PCCTS 1.10 (and 1.32 hopefully) to Visual C++
+
+                                   By
+
+                       John Hall <jhall@ivy.wpi.edu>
+
+Here is how to compile an ANTLR grammar in Visual C++.  These steps
+describe how to have your ANTLR grammar parse the input file the user
+selects when they choose File Open in your Windows application.  (Even
+if you aren't using Visual C++, the steps should be portable enough to
+other compilers.)
+
+ * Make sure that ANTLR and DLG generate ANSI code (use the -ga
+   switch).
+
+ * Set the following compiler flags in Visual C++ (these are in the
+   Memory Model category of the compiler options in the Project
+   Options menu):
+
+   FLAG MEANING
+   ==== ==============================================================
+   /AL	Large memory model (multiple data segments; data items must be
+	smaller than 64K).
+
+   /Gtn	Allocates all items whose size is greater than or equal to n
+	in a new data segment.  (I let n be 256: /Gt256.)
+
+   /Gx-	All references to data items are done with far addressing in
+	case they are placed in a far segment.
+
+ * Add the following member variable to the attributes section of your
+   derived CDocument class (you will need to make sure you also
+   include stdio.h):
+
+   FILE *fp;
+
+ * Add the following method to your derived CDocument class:
+
+   BOOL CAppDoc::OnOpenDocument(const char* pszPathName)
+   {
+       // Call CDocument's OnOpenDocument to do housekeeping for us
+       // DON'T add anything to the loading section of Serialize
+       if (!CDocument::OnOpenDocument(pszPathName))
+           return FALSE;
+   
+       // Open input file
+       if ((fp = fopen(pszPathName, "r")) == NULL)
+           return FALSE;
+   
+       // Parse input file
+       ANTLR(start(), fp);
+   
+       // Close input file
+       fclose(fp);
+       return TRUE;
+   }
+
+   (Note: additional code may be necessary, depending on your parser.
+   For example, if your parser uses PCCTS's symbol table library, you
+   will need to insert calls to zzs_init and zzs_done.)
+
+ * Compile the generated C files as C++ files.  (I renamed the files
+   to have a .CPP extension to fool Visual C++ into thinking they were
+   C++ files.  One might also use the /Tp switch, but that switch
+   requires you separately include the filename.)  [I used this step
+   as an easy out for all the external linking errors I was getting
+   that I couldn't fix by declaring things extern "C".]
+
+ * Make sure the __STDC__ portion of the generated files gets
+   compiled.  (Either define __STDC__ yourself or else change all
+   occurrences of __STDC__ to __cplusplus in the generated files.  You
+   can define __STDC__ in the Preprocessor category of the compiler
+   options.)
+
+That last step is important for Visual C++, but may not apply to other
+compilers.  For C++ compilers, whether __STDC__ is defined is
+implementation dependent (ARM, page 379).  Apparently, Visual C++ does
+not to define it; it also does not support "old style" C function
+definitions (which is okay, according to page 404 of the ARM).  Those
+two things together caused problems when trying to port the code.
+When it saw this:
+
+#ifdef __STDC__
+void
+globals(AST **_root)
+#else
+globals(_root)
+AST **_root;
+#endif
+
+it skipped the __STDC__ section and tried to process the "old style"
+function definition, where it choked.
+
+When you finally get your parser to compile and link without error,
+you may get General Protection Fault errors at run time.  The problem
+I had was that a NULL was passed to a variable argument function
+without an explicit cast.  The function grabbed a pointer (32-bits)
+off the stack using va_arg, but the NULL was passed silently as the
+integer 0 (16 bits), making the resulting pointer was invalid.  (This
+was in PCCTS's sample C parser.)
+
+There is one other thing I might suggest to help you avoid a run-time
+error.  Make sure you redefine the default error reporting function,
+zzsyn.  To do this, put "#define USER_ZZSYN" in your #header section
+and put your own zzsyn somewhere.  You can then pop up a MessageBox or
+print the error to some output window.
+ 

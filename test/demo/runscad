@@ -1,0 +1,17 @@
+scad3 $1.sp << end > $1.out
+! 'run' is to perform the symbolic and numerical analysis.
+! It first builds the MNA matrix and then derives the symbolic
+! expressions required in terms of DDDs. Finally, it perferm
+! the numerical evluation on the resulting symbolic expressions.
+! The times used for DDD construation and numerical evluation
+! are also printed out.
+! We do twice as we have some problems with the first run.
+run
+run
+! 'plot' uses xgraph to display the numerical evluation results.
+plot
+! 'status' displays some statisitic information. You can
+! find the #DDD information here.
+stat
+! 'exit' quits from scad3
+end

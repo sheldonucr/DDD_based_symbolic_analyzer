@@ -1,0 +1,472 @@
+Welcome to [1m SCAD3[m $Revision: 1.1 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998, XiangDong (Sheldon) Tan 
+	'h' for help
+: source lp_miller.sp
+subckt: opamp
+8 
+7 
+6 
+change current ckt
+subckt: fdnr
+1 
+begin cktcall -- 
+2 
+4 
+5 
+begin cktcall -- 
+6 
+4 
+3 
+change current ckt
+begin cktcall -- 
+1 
+begin cktcall -- 
+2 
+begin cktcall -- 
+3 
+begin cktcall -- 
+4 
+0.030000
+[0:00.0u 0:00.1s 2552k]
+: ! 'run' is to perform the symbolic and numerical analysis.
+: ! It first builds the MNA matrix and then derives the symbolic
+: ! expressions required in terms of DDDs. Finally, it performs
+: ! the numerical evluation on the resulting symbolic expressions.
+: ! The times used for DDD construation and numerical evluation
+: ! are also printed out.
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+
+Building MNA for subckt: opamp
+number of element is: 8
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   4   2   0 ]
+(5) [  0   0   0   6   5   8 ]
+(6) [  0   0   0   3   1   7 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+row(real, index)
+---------------------
+row(8,1)  (1,1)+cgs1b;(1,5)-cgs1b;
+row(7,2)  (2,2)+cgs1a;(2,5)-cgs1a;
+row(6,3)  (3,6)+gm3-cc;(3,3)+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;
+row(4,4)  (4,2)+gm1a;(4,4)+rds1a+cbd1a+gm2a+rds2a+cbd2a+cgs2a+cgs2b;(4,5)-gm1a-rds1a-cbd1a;
+row(3,5)  (5,2)-gm1a-cgs1a;(5,1)-gm1b-cgs1b;(5,4)-rds1a-cbd1a;(5,5)+gm1a+rds1a+cbd1a+cgs1a+gm1b+rds1b+cbd1b+cgs1b+rds5+cbd5;(5,6)-rds1b-cbd1b;
+row(5,6)  (6,1)+gm1b;(6,3)-cc;(6,4)+gm2b;(6,5)-gm1b-rds1b-cbd1b;(6,6)+rds1b+cbd1b+rds2b+cbd2b+cgs3+cc;
+---------------------
+
+
+end of build subckt: opamp
+
+Building MNA for subckt: fdnr
+
+Process subckt call xop1
+Expand xop1(opamp) ...
+gm1a_xop1 104 103 4 103
+rds1a_xop1 104 103
+cbd1a_xop1 103 104
+cgs1a_xop1 4 103
+gm1b_xop1 105 103 2 103
+rds1b_xop1 105 103
+cbd1b_xop1 103 105
+cgs1b_xop1 2 103
+gm2a_xop1 104 100 104 100
+rds2a_xop1 104 100
+cbd2a+cgs2a+cgs2b_xop1 100 104
+gm2b_xop1 105 100 104 100
+rds2b_xop1 105 100
+cbd2b+cgs3_xop1 100 105
+gm3_xop1 5 100 105 100
+rds3+rds4+rl_xop1 5 100
+cbd3+cbd4+cgd4+cl_xop1 100 5
+rds5_xop1 103 100
+cbd5_xop1 100 103
+cc_xop1 105 5
+build composite expression for (2,2)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (2,4)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (2,5)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,2)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,4)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,5)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (5,2)
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (5,4)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (5,5)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+
+Process subckt call xop2
+Expand xop2(opamp) ...
+gm1a_xop2 204 203 4 203
+rds1a_xop2 204 203
+cbd1a_xop2 203 204
+cgs1a_xop2 4 203
+gm1b_xop2 205 203 6 203
+rds1b_xop2 205 203
+cbd1b_xop2 203 205
+cgs1b_xop2 6 203
+gm2a_xop2 204 200 204 200
+rds2a_xop2 204 200
+cbd2a+cgs2a+cgs2b_xop2 200 204
+gm2b_xop2 205 200 204 200
+rds2b_xop2 205 200
+cbd2b+cgs3_xop2 200 205
+gm3_xop2 3 200 205 200
+rds3+rds4+rl_xop2 3 200
+cbd3+cbd4+cgd4+cl_xop2 200 3
+rds5_xop2 203 200
+cbd5_xop2 200 203
+cc_xop2 205 3
+build composite expression for (6,6)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (6,4)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (6,3)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,6)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,4)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (4,3)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (3,6)
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (3,4)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (3,3)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+number of element is: 21
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   1   1   1   1   0 ]
+(3) [  0   1   1   1   0   1 ]
+(4) [  0   1   1   1   1   1 ]
+(5) [  0   1   0   1   1   1 ]
+(6) [  0   0   1   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0  21  17  16  15   0 ]
+(3) [  0  20  14  11   0  10 ]
+(4) [  0  18  13   9   6   5 ]
+(5) [  0  19   0   8   4   2 ]
+(6) [  0   0  12   7   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 75
+#paths (DDD): 53
+row(real, index)
+---------------------
+row(1,1)  (1,1)+r1;(1,2)-r1;
+row(2,2)  (2,2)+r1+c1+cgs1b;(2,1)-r1;(2,3)-c1;(2,4);(2,5);
+row(3,3)  (3,3)+c1+r2+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(3,2)-c1;(3,4)-r2;(3,6);
+row(4,4)  (4,4)+r2+r3+cgs1a+cgs1a;(4,2);(4,3)-r2;(4,5)-r3;(4,6);
+row(5,5)  (5,5)+r3+r4+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(5,2);(5,4)-r3;(5,6)-r4;
+row(6,6)  (6,6)+r4+c2+cgs1b;(6,3);(6,4);(6,5)-r4;
+---------------------
+
+
+end of build subckt: fdnr
+
+Process subckt call x1
+Expand x1(fdnr) ...
+r1_x1 1 302
+c1_x1 302 303
+r2_x1 303 304
+r3_x1 304 305
+r4_x1 305 306
+c2_x1 306 300
+build composite expression for (1,1)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+
+Process subckt call x2
+Expand x2(fdnr) ...
+r1_x2 2 402
+c1_x2 402 403
+r2_x2 403 404
+r3_x2 404 405
+r4_x2 405 406
+c2_x2 406 400
+build composite expression for (2,2)
+
+Process subckt call x3
+Expand x3(fdnr) ...
+r1_x3 3 502
+c1_x3 502 503
+r2_x3 503 504
+r3_x3 504 505
+r4_x3 505 506
+c2_x3 506 500
+build composite expression for (3,3)
+
+Process subckt call x4
+Expand x4(fdnr) ...
+r1_x4 4 602
+c1_x4 602 603
+r2_x4 603 604
+r3_x4 604 605
+r4_x4 605 606
+c2_x4 606 600
+build composite expression for (4,4)
+number of element is: 16
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0 ]
+(2) [  1   1   1   0   0   0 ]
+(3) [  0   1   1   1   0   0 ]
+(4) [  0   0   1   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 16  14   0   0   0   0 ]
+(2) [ 15  13  11   0   0   0 ]
+(3) [  0  12  10   8   0   0 ]
+(4) [  0   0   9   7   5   0 ]
+(5) [  0   0   0   6   4   2 ]
+(6) [  0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 16
+#paths (DDD): 13
+row(real, index)
+---------------------
+row(10,1)  (1,1)+rs;(1,2)-rs;
+row(1,2)  (2,2)+rs+r12+r1;(2,1)-rs;(2,3)-r12;
+row(2,3)  (3,3)+r12+r23+r1;(3,2)-r12;(3,4)-r23;
+row(3,4)  (4,4)+r23+r34+r1;(4,3)-r23;(4,5)-r34;
+row(4,5)  (5,5)+r34+r45+r1;(5,4)-r34;(5,6)-r45;
+row(20,6)  (6,6)+r45+c5;(6,5)-r45;
+---------------------
+
+DDD construction time: 0.03
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 13
+#paths (DDD): 8
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.73
+END OF NUMERICAL AC ANALYSIS
+0.760000
+[0:01.3u 0:00.0s 2688k]
+: ! 'plot' uses xgraph to display the numerical evluation results.
+: plot
+0.030000
+[0:00.0u 0:00.0s 2712k]
+: ! 'status' displays some statisitic information. You can
+: ! find the #DDD information here.
+: stat
+----------------------
+Ckt: lp_miller.sp
+Title: * file flp9th.sp----9th order low-pass filter
+#nodes: 14
+#branch: 12
+#stimula: 1
+#output node: 1
+----------------------
+magnitude error(magerr): 0.1
+phase error(phserr): 0.1
+Rel_Threshold(relth): 0.9
+Rel_Threshold(for num coeff)(nrelth): 0.01
+Rel_Threshold(for den coeff)(drelth): 0.01
+coeff suppress th(alpha): 0.01
+---------------------
+#(top level)total nodes (DDD): 18
+#(top level)total paths (DDD): 0
+#total nodes (DDD): 17
+#total paths (DDD): 0
+#total nodes (DDD): 75
+#total paths (DDD): 0
+#total overall nodes (DDD): 110
+#total overall pathes (DDD): 0
+---------------------
+0.020000
+[0:00.0u 0:00.0s 2712k]
+: ! 'exit' quits from scad3
+[0:01.3u 0:00.1s 2712k] SCAD3 done.

@@ -1,0 +1,858 @@
+******  H S P I C E  --    H93A.01         22:57:04  95/01/14    sun10        
+ Copyright 1993 (C) by Meta-Software,Inc.                                     
+   This computer program is protected by copyright law and
+   international treaties. Any dissemination or use of this
+   program, other than that permitted by Meta-Software, Inc.,
+   is unlawful and may result in prosecution under the law.
+ Input File: folded                                                            
+lic: USER: qiyu HOSTNAME: watt HOSTID: 7260d1d8 
+lic: contacting server: stefan 
+lic: Server permit path: /usr/local/meta/h93a/permit.hsp 
+lic: Site: u_of_washington_ee Created: 941228 Order#: 45717 
+lic: token number 229 allocated_SJF 
+Init: read install configuration file: /usr/local/meta/h93a/meta.cfg
+******  
+pmos input folded cascode cmos opamp                                          
+                                                                              
+******  
+* reading file:  /usr/local/meta/h93a/hspice.ini
+ 
+* this circuit is from prof. helms.
+ 
+m1 16 5 13 3 pmos w=80.00u l=5.00u ad=480.00p as=280.00p pd=184.00u
++  ps=94.00u
+m2 17 6 13 3 pmos w=80.00u l=5.00u ad=280.00p as=280.00p pd=94.00u
++  ps=94.00u
+m3 16 12 4 4 nmos w=300.00u l=5.00u ad=1800.00p as=1050.00p
++  pd=624.00u ps=314.00u
+m4 17 12 4 4 nmos w=300.00u l=5.00u ad=1050.00p as=1050.00p
++  pd=314.00u ps=314.00u
+c1 5 6 1.9857e-15
+c2 16 3 6.5607e-15
+m5 13 9 3 3 pmos w=380.00u l=10.00u ad=1330.00p as=2280.00p
++  pd=394.00u ps=784.00u
+mn 15 11 16 4 nmos w=150.00u l=5.00u ad=600.00p as=600.00p pd=220.00u
++  ps=220.00u
+cgb 11 4 7.80378e-15
+cgd 11 15 4.13687e-15
+m6 7 11 17 4 nmos w=150.00u l=5.00u ad=600.00p as=600.00p pd=220.00u
++  ps=220.00u
+c3 11 4 7.80378e-15
+c4 11 7 4.13687e-15
+m8 15 10 18 3 pmos w=200.00u l=5.00u ad=700.00p as=1200.00p
++  pd=214.00u ps=424.00u
+m9 7 10 19 3 pmos w=200.00u l=5.00u ad=700.00p as=1200.00p pd=214.00u
++  ps=424.00u
+m10 18 14 3 3 pmos w=200.00u l=5.00u ad=1200.00p as=700.00p
++  pd=424.00u ps=214.00u
+m11 19 14 3 3 pmos w=200.00u l=5.00u ad=700.00p as=700.00p pd=214.00u
++  ps=214.00u
+m7 16 16 12 4 nmos w=10.00u l=2.50u ad=77.50p as=77.50p pd=35.50u
++  ps=35.50u
+cp 10 16 1.05904e-15
+c5 16 4 3.19403e-15
+m12 17 17 12 4 nmos w=10.00u l=2.50u ad=77.50p as=77.50p pd=35.50u
++  ps=35.50u
+c6 10 17 1.05904e-15
+c7 17 4 3.19403e-15
+mp 10 10 3 3 pmos w=14.00u l=10.00u ad=84.00p as=84.00p pd=40.00u
++  ps=40.00u
+c8 10 3 6.73335e-15
+m13 9 9 3 3 pmos w=40.00u l=10.00u ad=240.00p as=140.00p pd=92.00u
++  ps=47.00u
+m14 11 9 3 3 pmos w=40.00u l=10.00u ad=240.00p as=140.00p pd=92.00u
++  ps=47.00u
+m15 12 4 9 3 pmos w=5.00u l=18.50u ad=30.00p as=30.00p pd=22.00u
++  ps=22.00u
+m16 11 11 4 4 nmos w=6.00u l=10.00u ad=36.00p as=36.00p pd=24.00u
++  ps=24.00u
+c9 11 4 6.73335e-15
+m17 12 12 4 4 nmos w=40.00u l=5.00u ad=240.00p as=140.00p pd=92.00u
++  ps=47.00u
+c10 12 4 3.97095e-15
+m18 10 12 4 4 nmos w=40.00u l=5.00u ad=240.00p as=140.00p pd=92.00u
++  ps=47.00u
+m19 4 15 14 3 pmos w=100.00u l=7.50u ad=350.00p as=600.00p pd=107.00u
++  ps=212.00u
+m20 14 14 3 3 pmos w=300.00u l=2.50u ad=1300.00p as=1300.00p
++  pd=426.00u ps=426.00u
+c11 14 3 5.1795e-15
+ 
+*.equiv vdd = 1
+*.equiv gnd = 2
+*.equiv avdd = 3
+*.equiv avss = 4
+*.equiv non = 5
+*.equiv inv = 6
+*.equiv out = 7
+* opamp1 1 2 3 4 5 6 7
+ 
+vdd 3 0 dc 12.0v
+vss 0 4 dc 12.0v
+vininv 6 0 dc 0.0v
+vinnon 5 0 dc 10.100810mv ac 1.0v 0
+ 
+.width out=80
+.options list limpts=4000 itl5=0 numdgt=6
+ 
+.op
+ 
+.dc vinnon 10.100800mv 10.100820mv 0.001uv
+.plot dc v(5) v(7)
+.print dc v(5) v(7)
+ 
+.ac dec 5 1.0hz 800.0meghz
+.plot ac vdb(7)
+.plot ac vp(7)
+ 
+****************************************************************
+ 
+* this is the output voltage meter:
+ 
+iout   7       0       0.0
+ 
+*% matchdevice  m1        m2
+*% matchdevice  m3        m4
+*% matchdevice  m7        m12
+*% matchdevice  mn        m6
+*% matchdevice  m8        m9
+*% matchdevice  m10       m11
+ 
+*% sampledc     on
+*% sampleac     on
+*% samplefrequencies           dec     3       1.0hz   220meghz
+ 
+*% compdc       on
+*% compac       on
+*% compfrequencies             dec     20      1.0hz   220meghz
+ 
+*% matroidintersection          on
+ 
+*%   senpreminnumnodes           8
+*%   cancelminnumnodes           6
+ 
+*%   symbremcumerrorlimit        0.40
+*%   symbsencondevilimit         0.40
+*%   symbremerrorlimit           0.04
+ 
+*%   symbcancumerrorlimit        0.40
+*%   symbcancondevilimit         8.80
+*%   symbcanerrorlimit           0.20
+*%   symbdericanconlimit         0.04
+ 
+*%   cancelmincontri             0.04
+ 
+*%   maxnumlwstspertreetree      100000
+*%   threshfactorinit            0.01
+*%   threshfactorchange          0.98
+*%   threshfactormin             0.002
+ 
+*%   magnerrordblimit            3.2db
+*%   phaserrordeglimit           10.0deg
+ 
+*% activesource        vinnon
+*% v(iout)/v(vinnon)
+ 
+****************************************************************
+ 
+* creating nmos model for process case: pmax  ruleset: orb2u2m2p
+.model nmos nmos
++  level = 2            vto = 0.829         uo = 605.2
++    tox = 3.75e-08    nsub = 2.788e+16     xj = 4.752e-07
++     ld = 1.356e-07  delta = 1.621       vmax = 61220
++    nfs = 7.1070e+12    cj = 0.0003352   cjsw = 2.403e-09
++     mj = 0.2841      mjsw = 0.7155        pb = 0.8092
++   cgso = 1.102e-10   cgdo = 1.102e-10   cgbo = 1.387e-10
++  ucrit = 164400      uexp = 0.3855      neff = 0.6787
++    tpg = 1
+*+ capop=0
+*
+* creating pmos model for process case: pmax  ruleset: orb2u2m2p
+.model pmos pmos
++  level = 2            vto = -0.844        uo = 199.5
++    tox = 3.75e-08    nsub = 4.371e+15     xj = 3.05e-07
++     ld = 1.033e-07  delta = 1.35        vmax = 235900
++    nfs = 8.2890e+11    cj = 0.0002316   cjsw = 5.872e-11
++     mj = 0.3295      mjsw = 0.1869        pb = 0.7072
++   cgso = 8.39e-11    cgdo = 8.39e-11    cgbo = 1.241e-10
++  ucrit = 116400      uexp = 0.1855      neff = 0.6639
++    tpg = -1
+*+ capop=0
+ 
+.end
+scientific notation:
+f=10**-15  p=10**-12  n=10**-9  u=10**-6  m=10**-3
+k=10**3    x=10**6    g=10**9 
+
+constants  - tnom         kt           vt           gapsi        ni
+           298.1500     4.116e-21     25.6918m      1.1156     1.256e+16  
+ ******  H S P I C E  --    H93A.01         22:57:04  95/01/14    sun10        
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  mos   model parameters           tnom=  25.000 temp=  25.000         
+******  
+***************************************************************************
+*** common model parameters  model name:   0:nmos     model type:nmos   ***
+***************************************************************************
+    names  values   units     names  values   units     names  values   units
+    -----  ------   -----     -----  ------   -----     -----  ------   -----
+
+  1*** geometry parameters ***
+      ld= 135.60n meters      lmlt=   1.00                wd=   0.    meters 
+    wmlt=   1.00                xl=   0.    meters        xw=   0.    meters 
+    lref=   0.    meters      wref=   0.    meters      lref=   0.    meters 
+    wref=   0.    meters     xlref=   0.    meters     xwref=   0.    meters 
+    lmin=   0.    meters      wmin=   0.    meters      lmax=   0.    meters 
+    wmax=   0.    meters 
+
+  2*** threshold voltage parameters ***
+     vto= 829.00m volts        nss=   0.    1/cm**2      tpg=   1.00         
+     phi= 750.84m volts      gamma=   1.04  v**0.5      bulk=  gnd           
+   ngate=   0.    cm**3       nsub= 2.7e+16 1/cm**3   delvto=   0.    volts  
+
+  3*** gate overlap capacitance parameters ***
+    cgbo= 138.70p f/meter     cgdo= 110.20p f/meter     cgso= 110.20p f/meter
+    meto=   0.    meters 
+
+  4*** gate capacitance parameters ***
+   capop=   2.00               cf1=   0.    volts        cf2= 100.00m volts  
+     cf3=   1.00  volts        cf4=  50.00               cf5= 666.67m        
+     cf6= 500.00               xqc= 500.00m              tox=  37.50n meters 
+     cox= 920.84u f/m**2 
+
+  5*** diffusion parasitic parameters ***
+     acm=   0.                  is=  10.00f amps          js=   0.    a/m**2 
+     jsw=   0.    amp/m        nds=   1.00               cbd=   0.    farad  
+     cbs=   0.    farad         cj= 335.20u f/m**2      cjsw=   2.40n f/m    
+  cjgate=   2.40n f/m           mj= 284.10m             mjsw= 715.50m        
+      pb= 809.20m volts        php= 809.20m volts         tt=   0.    secs   
+    hdif=   0.    meters      ldif=   0.    meters        rd=   0.    ohms   
+      rs=   0.    ohms         rsh=   0.    ohms/sq       fc=   0.           
+   alpha=   0.                 vcr=   0.    volts      iirat=   0.           
+     rdc=   0.    ohms         rsc=   0.    ohms           n=   1.00         
+    vnds=  -1.00  volts  
+
+  6*** temperature effect parameters ***
+    tlev=   0.               tlevc=   0.                  eg=   1.11  ev     
+    gap1= 702.00u ev/deg      gap2=   1.11k deg          xti=   0.           
+     bex=  -1.50               tcv=   0.    v/deg k      trd=   0.    /deg   
+     trs=   0.    /deg         cta=   0.    /deg         ctp=   0.    /deg   
+
+  7*** noise parameters ***
+      kf=   0.                  af=   1.00              nlev=   2.00         
+  gdsnoi=   1.00         
+
+  ***  level  2  model parameters  ***
+
+   delta=   1.62             ecrit=   0.    v/m       lambda=   0.    /v     
+     nfs= 7.1e+12 1/cm**2    ucrit= 164.40k v/cm        uexp= 385.50m        
+    utra=   0.                  uo= 605.20 cm**2/vs       xj= 475.20n meters 
+    neff= 678.70m             vmax=  61.22k  m/sec        kp=  55.73u a/v**2 
+     mob=   0.               deriv=   0.           
+***************************************************************************
+*** common model parameters  model name:   0:pmos     model type:pmos   ***
+***************************************************************************
+    names  values   units     names  values   units     names  values   units
+    -----  ------   -----     -----  ------   -----     -----  ------   -----
+
+  1*** geometry parameters ***
+      ld= 103.30n meters      lmlt=   1.00                wd=   0.    meters 
+    wmlt=   1.00                xl=   0.    meters        xw=   0.    meters 
+    lref=   0.    meters      wref=   0.    meters      lref=   0.    meters 
+    wref=   0.    meters     xlref=   0.    meters     xwref=   0.    meters 
+    lmin=   0.    meters      wmin=   0.    meters      lmax=   0.    meters 
+    wmax=   0.    meters 
+
+  2*** threshold voltage parameters ***
+     vto=-844.00m volts        nss=   0.    1/cm**2      tpg=  -1.00         
+     phi= 655.63m volts      gamma= 413.66m v**0.5      bulk=  gnd           
+   ngate=   0.    cm**3       nsub= 4.3e+15 1/cm**3   delvto=   0.    volts  
+
+  3*** gate overlap capacitance parameters ***
+    cgbo= 124.10p f/meter     cgdo=  83.90p f/meter     cgso=  83.90p f/meter
+    meto=   0.    meters 
+
+  4*** gate capacitance parameters ***
+   capop=   2.00               cf1=   0.    volts        cf2= 100.00m volts  
+     cf3=   1.00  volts        cf4=  50.00               cf5= 666.67m        
+     cf6= 500.00               xqc= 500.00m              tox=  37.50n meters 
+     cox= 920.84u f/m**2 
+
+  5*** diffusion parasitic parameters ***
+     acm=   0.                  is=  10.00f amps          js=   0.    a/m**2 
+     jsw=   0.    amp/m        nds=   1.00               cbd=   0.    farad  
+     cbs=   0.    farad         cj= 231.60u f/m**2      cjsw=  58.72p f/m    
+  cjgate=  58.72p f/m           mj= 329.50m             mjsw= 186.90m        
+      pb= 707.20m volts        php= 707.20m volts         tt=   0.    secs   
+    hdif=   0.    meters      ldif=   0.    meters        rd=   0.    ohms   
+      rs=   0.    ohms         rsh=   0.    ohms/sq       fc=   0.           
+   alpha=   0.                 vcr=   0.    volts      iirat=   0.           
+     rdc=   0.    ohms         rsc=   0.    ohms           n=   1.00         
+    vnds=  -1.00  volts  
+
+  6*** temperature effect parameters ***
+    tlev=   0.               tlevc=   0.                  eg=   1.11  ev     
+    gap1= 702.00u ev/deg      gap2=   1.11k deg          xti=   0.           
+     bex=  -1.50               tcv=   0.    v/deg k      trd=   0.    /deg   
+     trs=   0.    /deg         cta=   0.    /deg         ctp=   0.    /deg   
+
+  7*** noise parameters ***
+      kf=   0.                  af=   1.00              nlev=   2.00         
+  gdsnoi=   1.00         
+
+  ***  level  2  model parameters  ***
+
+   delta=   1.35             ecrit=   0.    v/m       lambda=   0.    /v     
+     nfs= 828.90g 1/cm**2    ucrit= 116.40k v/cm        uexp= 185.50m        
+    utra=   0.                  uo= 199.50 cm**2/vs       xj= 305.00n meters 
+    neff= 663.90m             vmax= 235.90k  m/sec        kp=  18.37u a/v**2 
+     mob=   0.               deriv=   0.           
+ ******  H S P I C E  --    H93A.01         22:57:04  95/01/14    sun10        
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  circuit element summary          tnom=  25.000 temp=  25.000         
+******  
+
+
+**** capacitors
+ 
+element name       0:c1          0:c2          0:cgb         0:cgd     
+  node1            0:5           0:16          0:11          0:11      
+  node2            0:6           0:3           0:4           0:15      
+  model                                                                
+  cap eff          1.9857f       6.5607f       7.8038f       4.1369f   
+  tc1              0.            0.            0.            0.        
+  tc2              0.            0.            0.            0.        
+  scale            1.0000        1.0000        1.0000        1.0000    
+  ic               0.            0.            0.            0.        
+  m                1.0000        1.0000        1.0000        1.0000    
+  w                0.            0.            0.            0.        
+  l                0.            0.            0.            0.        
+  temp            25.0000       25.0000       25.0000       25.0000    
+ 
+element name       0:c3          0:c4          0:cp          0:c5      
+  node1            0:11          0:11          0:10          0:16      
+  node2            0:4           0:7           0:16          0:4       
+  model                                                                
+  cap eff          7.8038f       4.1369f       1.0590f       3.1940f   
+  tc1              0.            0.            0.            0.        
+  tc2              0.            0.            0.            0.        
+  scale            1.0000        1.0000        1.0000        1.0000    
+  ic               0.            0.            0.            0.        
+  m                1.0000        1.0000        1.0000        1.0000    
+  w                0.            0.            0.            0.        
+  l                0.            0.            0.            0.        
+  temp            25.0000       25.0000       25.0000       25.0000    
+ 
+element name       0:c6          0:c7          0:c8          0:c9      
+  node1            0:10          0:17          0:10          0:11      
+  node2            0:17          0:4           0:3           0:4       
+  model                                                                
+  cap eff          1.0590f       3.1940f       6.7334f       6.7334f   
+  tc1              0.            0.            0.            0.        
+  tc2              0.            0.            0.            0.        
+  scale            1.0000        1.0000        1.0000        1.0000    
+  ic               0.            0.            0.            0.        
+  m                1.0000        1.0000        1.0000        1.0000    
+  w                0.            0.            0.            0.        
+  l                0.            0.            0.            0.        
+  temp            25.0000       25.0000       25.0000       25.0000    
+ 
+element name       0:c10         0:c11     
+  node1            0:12          0:14      
+  node2            0:4           0:3       
+  model                                    
+  cap eff          3.9710f       5.1795f   
+  tc1              0.            0.        
+  tc2              0.            0.        
+  scale            1.0000        1.0000    
+  ic               0.            0.        
+  m                1.0000        1.0000    
+  w                0.            0.        
+  l                0.            0.        
+  temp            25.0000       25.0000    
+
+
+**** independent sources
+
+    name         node1        node2      dc volt    ac mag    ac phase    type
+   0:vdd        0:3          0:0          12.0000     0.         0.      dc   
+   0:vss        0:0          0:4          12.0000     0.         0.      dc   
+   0:vininv     0:6          0:0           0.         0.         0.      dc   
+   0:vinnon     0:5          0:0          10.1008m    1.0000     0.      dc   
+   0:iout       0:7          0:0           0.         0.         0.      dc   
+
+
+**** mosfets
+ 
+element name       0:m1          0:m2          0:m3          0:m4      
+  drain            0:16          0:17          0:16          0:17      
+  gate             0:5           0:6           0:12          0:12      
+  source           0:13          0:13          0:4           0:4       
+  bulk             0:3           0:3           0:4           0:4       
+  model            0:pmos        0:pmos        0:nmos        0:nmos    
+  w eff           80.0000u      80.0000u     300.0000u     300.0000u   
+  l eff            4.7934u       4.7934u       4.7288u       4.7288u   
+  rd eff           0.            0.            0.            0.        
+  rs eff           0.            0.            0.            0.        
+  cdsat           10.0000f      10.0000f      10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f      10.0000f      10.0000f   
+  capbd          121.9725f      70.3677f       2.1028p       1.1065p   
+  capbs           70.3677f      70.3677f       1.1065p       1.1065p   
+  aic                                                                  
+ 
+element name       0:m5          0:mn          0:m6          0:m8      
+  drain            0:13          0:15          0:7           0:15      
+  gate             0:9           0:11          0:11          0:10      
+  source           0:3           0:16          0:17          0:18      
+  bulk             0:3           0:4           0:4           0:3       
+  model            0:pmos        0:nmos        0:nmos        0:pmos    
+  w eff          380.0000u     150.0000u     150.0000u     200.0000u   
+  l eff            9.7934u       4.7288u       4.7288u       4.7934u   
+  rd eff           0.            0.            0.            0.        
+  rs eff           0.            0.            0.            0.        
+  cdsat           10.0000f      10.0000f      10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f      10.0000f      10.0000f   
+  capbd          331.1637f     729.7800f     729.7800f     174.6861f   
+  capbs          574.0845f     729.7800f     729.7800f     302.8173f   
+  aic                                                                  
+ 
+element name       0:m9          0:m10         0:m11         0:m7      
+  drain            0:7           0:18          0:19          0:16      
+  gate             0:10          0:14          0:14          0:16      
+  source           0:19          0:3           0:3           0:12      
+  bulk             0:3           0:3           0:3           0:4       
+  model            0:pmos        0:pmos        0:pmos        0:nmos    
+  w eff          200.0000u     200.0000u     200.0000u      10.0000u   
+  l eff            4.7934u       4.7934u       4.7934u       2.2288u   
+  rd eff           0.            0.            0.            0.        
+  rs eff           0.            0.            0.            0.        
+  cdsat           10.0000f      10.0000f      10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f      10.0000f      10.0000f   
+  capbd          174.6861f     302.8173f     174.6861f     111.2845f   
+  capbs          302.8173f     174.6861f     174.6861f     111.2845f   
+  aic                                                                  
+ 
+element name       0:m12         0:mp          0:m13         0:m14     
+  drain            0:17          0:10          0:9           0:11      
+  gate             0:17          0:10          0:9           0:9       
+  source           0:12          0:3           0:3           0:3       
+  bulk             0:4           0:3           0:3           0:3       
+  model            0:nmos        0:pmos        0:pmos        0:pmos    
+  w eff           10.0000u      14.0000u      40.0000u      40.0000u   
+  l eff            2.2288u       9.7934u       9.7934u       9.7934u   
+  rd eff           0.            0.            0.            0.        
+  rs eff           0.            0.            0.            0.        
+  cdsat           10.0000f      10.0000f      10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f      10.0000f      10.0000f   
+  capbd          111.2845f      21.8032f      60.9862f      60.9862f   
+  capbs          111.2845f      21.8032f      35.1838f      35.1838f   
+  aic                                                                  
+ 
+element name       0:m15         0:m16         0:m17         0:m18     
+  drain            0:12          0:11          0:12          0:10      
+  gate             0:4           0:11          0:12          0:12      
+  source           0:9           0:4           0:4           0:4       
+  bulk             0:3           0:4           0:4           0:4       
+  model            0:pmos        0:nmos        0:nmos        0:nmos    
+  w eff            5.0000u       6.0000u      40.0000u      40.0000u   
+  l eff           18.2934u       9.7288u       4.7288u       4.7288u   
+  rd eff           0.            0.            0.            0.        
+  rs eff           0.            0.            0.            0.        
+  cdsat           10.0000f      10.0000f      10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f      10.0000f      10.0000f   
+  capbd            8.2398f      69.7392f     301.5240f     301.5240f   
+  capbs            8.2398f      69.7392f     159.8690f     159.8690f   
+  aic                                                                  
+ 
+element name       0:m19         0:m20     
+  drain            0:4           0:14      
+  gate             0:15          0:14      
+  source           0:14          0:3       
+  bulk             0:3           0:3       
+  model            0:pmos        0:pmos    
+  w eff          100.0000u     300.0000u   
+  l eff            7.2934u       2.2934u   
+  rd eff           0.            0.        
+  rs eff           0.            0.        
+  cdsat           10.0000f      10.0000f   
+  cssat           10.0000f      10.0000f   
+  capbd           87.3430f     326.0947f   
+  capbs          151.4086f     326.0947f   
+  aic                                      
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  dc transfer curves               tnom=  25.000 temp=  25.000         
+******  
+
+legend:
+
+ a: v(5)
+ b: v(7)
+
+     volt  
+
+(ab      )      -5.0000m       0.            5.0000m      10.0000m     15.0000m
+                     +             +             +             +             + 
+  10.100800m        -+------+------b------+------+------+------a------+------+-
+  10.100801m         +      +      b      +      +      +      a      +      + 
+  10.100802m         +      +      b      +      +      +      a      +      + 
+  10.100803m         +      +      b      +      +      +      a      +      + 
+  10.100804m         +      +      b      +      +      +      a      +      + 
+  10.100805m         +      +      b      +      +      +      a      +      + 
+  10.100806m         +      +      b      +      +      +      a      +      + 
+  10.100807m         +      +      b      +      +      +      a      +      + 
+  10.100808m         +      +      b      +      +      +      a      +      + 
+  10.100809m         +      +      b      +      +      +      a      +      + 
+  10.100810m        -+------+------b------+------+------+------a------+------+-
+  10.100811m         +      +      b      +      +      +      a      +      + 
+  10.100812m         +      +      b      +      +      +      a      +      + 
+  10.100813m         +      +      b      +      +      +      a      +      + 
+  10.100814m         +      +      b      +      +      +      a      +      + 
+  10.100815m         +      +      b      +      +      +      a      +      + 
+  10.100816m         +      +      b      +      +      +      a      +      + 
+  10.100817m         +      +      b      +      +      +      a      +      + 
+  10.100818m         +      +      b      +      +      +      a      +      + 
+  10.100819m         +      +      b      +      +      +      a      +      + 
+  10.100820m        -+------+------b------+------+------+------a------+------+-
+                     +             +             +             +             + 
+
+
+       volt    voltage      voltage    
+                    5            7     
+  10.1008000m   10.100800m   -1.950414u
+  10.1008010m   10.100801m   -1.743429u
+  10.1008020m   10.100802m   -1.544531u
+  10.1008030m   10.100803m   -1.345457u
+  10.1008040m   10.100804m   -1.146377u
+  10.1008050m   10.100805m -947.297869n
+  10.1008060m   10.100806m -748.215900n
+  10.1008070m   10.100807m -549.142609n
+  10.1008080m   10.100808m    0.       
+  10.1008090m   10.100809m    0.       
+  10.1008100m   10.100810m    0.       
+  10.1008110m   10.100811m    0.       
+  10.1008120m   10.100812m    0.       
+  10.1008130m   10.100813m  645.307859n
+  10.1008140m   10.100814m  844.392142n
+  10.1008150m   10.100815m    1.043466u
+  10.1008160m   10.100816m    1.242540u
+  10.1008170m   10.100817m    1.441622u
+  10.1008180m   10.100818m    1.640694u
+  10.1008190m   10.100819m    1.839772u
+  10.1008200m   10.100820m    2.038843u
+
+ ******  H S P I C E  --    H93A.01         22:57:04  95/01/14    sun10        
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  operating point information      tnom=  25.000 temp=  25.000         
+******  
+***** operating point status is all       simulation time is     0.       
+   node    =voltage        node    =voltage        node    =voltage
+
+
++0:3       =  12.000000  0:4       = -12.000000  0:5       =  10.100810m
++0:6       =   0.        0:7       =  40.353605n 0:9       =   7.104322 
++0:10      =   2.175755  0:11      =  -3.216271  0:12      =  -9.395264 
++0:13      =   5.426415  0:14      =   8.415234  0:15      =  -1.955485 
++0:16      =  -7.106323  0:17      =  -7.078718  0:18      =   6.165499 
++0:19      =   6.209153 
+
+
+
+
+****  voltage sources
+
+
+subckt                                                      
+element    0:vdd        0:vss        0:vininv     0:vinnon  
+ volts     12.000000    12.000000     0.          10.100810m
+ current  -17.926418m  -17.926418m    0.           0.       
+ power    215.117016m  215.117016m    0.           0.       
+
+
+
+
+
+    total voltage source power dissipation=  430.234032m     watts
+
+***** current sources
+
+
+subckt               
+element    0:iout    
+ volts     40.353605n
+ current    0.       
+ power      0.       
+
+
+
+
+
+    total current source power dissipation=   0.            watts
+
+
+**** mosfets
+
+
+subckt                                                                   
+element    0:m1         0:m2         0:m3         0:m4         0:m5      
+model      0:pmos       0:pmos       0:nmos       0:nmos       0:pmos    
+ id        -2.110208m   -2.118702m    4.388085m    4.390424m   -4.228910m
+ ibs       65.735851f   65.735851f    0.           0.           0.       
+ ibd      191.063227f  190.787178f  -48.936773f  -49.212822f   65.735851f
+ vgs       -5.416314    -5.426415     2.604736     2.604736    -4.895678 
+ vds      -12.532738   -12.505133     4.893677     4.921282    -6.573585 
+ vbs        6.573585     6.573585     0.           0.           0.       
+ vth       -1.442402    -1.442450   778.778123m  778.710792m -827.379923m
+ vdsat     -3.652030    -3.661096     1.103563     1.103624    -3.577003 
+ beta     283.664663u  283.369865u    3.930812m    3.932515m  591.539323u
+ gam eff  343.126368m  343.144126m  986.355476m  986.277773m  392.883397m
+ gm       936.790720u  938.137521u    4.800214m    4.802700m    1.894398m
+ gds       31.323172u   31.436609u   82.960382u   82.739943u   30.661833u
+ gmb       48.771808u   48.827615u    2.012546m    2.013436m  226.561837u
+ cdtot     55.480849f   37.196880f  758.863742f  429.411097f  219.746440f
+ cgtot    255.457534f  255.444220f  951.519300f  951.567188f    2.383033p
+ cstot    275.770425f  275.770425f    2.010458p    2.010458p    2.890573p
+ cbtot     77.236080f   58.964791f    1.829761p    1.500260p  736.539155f
+ cgs      242.123659f  242.123659f  903.956429f  903.956429f    2.316488p
+ cgd       12.612705f   12.599708f   41.583772f   41.631854f   61.918110f
+
+
+
+subckt                                                                   
+element    0:mn         0:m6         0:m8         0:m9         0:m10     
+model      0:nmos       0:nmos       0:pmos       0:pmos       0:pmos    
+ id         2.332655m    2.330991m   -2.332655m   -2.330991m   -2.332655m
+ ibs      -48.936773f  -49.212822f   58.345011f   57.908475f    0.       
+ ibd     -100.445145f -120.000000f  139.554855f  120.000000f   58.345011f
+ vgs        3.890052     3.862447    -3.989744    -4.033398    -3.584766 
+ vds        5.150837     7.078718    -8.120984    -6.209152    -5.834501 
+ vbs       -4.893677    -4.921282     5.834501     5.790847     0.       
+ vth        2.190421     2.187810    -1.399081    -1.400428  -810.848349m
+ vdsat      1.218705     1.204516    -2.389666    -2.427131    -2.420965 
+ beta       1.969772m    2.024637m  740.643003u  716.838135u  705.681008u
+ gam eff  951.797511m  948.371508m  347.843944m  349.560234m  372.238000m
+ gm         2.673226m    2.716233m    1.599877m    1.572449m    1.517987m
+ gds       47.043958u   40.284691u   38.968692u   39.559224u   38.387360u
+ gmb      479.890404u  486.234283u   90.626182u   89.301419u  189.234404u
+ cdtot    199.701229f  187.737354f   93.171896f   93.998141f  173.603798f
+ cgtot    475.019147f  476.715550f  632.750718f  630.493844f  630.837331f
+ cstot    698.202756f  697.593504f  755.265397f  755.580879f  779.995227f
+ cbtot    426.935011f  412.700318f  217.891974f  221.277501f  326.522967f
+ cgs      451.978215f  451.978215f  605.309147f  605.309147f  605.309147f
+ cgd       21.015846f   22.694830f   26.338872f   24.088534f   23.647548f
+
+
+
+subckt                                                                   
+element    0:m11        0:m7         0:m12        0:mp         0:m13     
+model      0:pmos       0:nmos       0:nmos       0:pmos       0:pmos    
+ id        -2.330991m   54.777908u   59.269624u -663.973339u -438.342155u
+ ibs        0.         -26.047360f  -26.047360f    0.           0.       
+ ibd       57.908475f  -48.936773f  -49.212822f   98.242454f   48.956777f
+ vgs       -3.584766     2.288941     2.316546    -9.824245    -4.895678 
+ vds       -5.790847     2.288941     2.316546    -9.824245    -4.895678 
+ vbs        0.          -2.604736    -2.604736     0.           0.       
+ vth     -810.899741m    1.598523     1.598221  -831.258730m -830.108137m
+ vdsat     -2.420864   486.271203m  503.316499m   -7.753157    -3.564462 
+ beta     705.221708u  291.672548u  291.828581u   18.625334u   61.572155u
+ gam eff  372.301469m  888.038921m  887.874060m  391.029059m  394.092331m
+ gm         1.516929m  155.121418u  161.099776u  132.988823u  196.445613u
+ gds       38.385546u    4.386820u    4.661304u    4.088315u    3.287560u
+ gmb      189.125636u   34.546388u   35.828495u   11.944799u   24.084071u
+ cdtot    109.961566f   37.178040f   37.085581f   12.235965f   37.484188f
+ cgtot    630.785972f   16.386474f   16.382384f   89.445083f  251.126214f
+ cstot    779.995227f   62.496871f   62.496871f  107.147511f  279.024729f
+ cbtot    262.932142f   84.163114f   84.065054f   32.483121f   68.532007f
+ cgs      605.309147f   14.784498f   14.784498f   85.344311f  243.840889f
+ cgd       23.596165f    1.164637f    1.165392f    2.828408f    5.710673f
+
+
+
+subckt                                                                   
+element    0:m14        0:m15        0:m16        0:m17        0:m18     
+model      0:pmos       0:pmos       0:nmos       0:nmos       0:nmos    
+ id      -470.603650u -438.342153u  470.603663u  552.389717u  663.973330u
+ ibs        0.          48.956777f    0.           0.           0.       
+ ibd      152.162712f  213.952640f  -87.837288f  -26.047360f -141.757546f
+ vgs       -4.895678   -19.104322     8.783729     2.604736     2.604736 
+ vds      -15.216271   -16.499586     8.783729     2.604736    14.175755 
+ vbs        0.           4.895678     0.           0.           0.       
+ vth     -825.761267m   -1.573233   818.507758m  787.691469m  765.371360m
+ vdsat     -3.574510   -14.912859     4.975397     1.094251     1.114319 
+ beta      65.833936u    3.119289u   20.901894u  502.039343u  583.865665u
+ gam eff  388.723906m  395.457714m    1.011935   993.952952m  968.194348m
+ gm       210.914496u   44.672304u   93.232249u  605.016767u  722.805430u
+ gds        3.049855u    1.260754u    3.550310u   15.627723u    7.356857u
+ gmb       25.603277u    3.385161u   21.777782u  257.654904u  299.884624u
+ cdtot     33.613681f    9.400605f   17.099025f  137.380978f   70.195751f
+ cgtot    256.089726f   65.161855f   39.186733f  126.909535f  129.588216f
+ cstot    279.024729f   60.787733f  106.235188f  280.396524f  280.396524f
+ cbtot     59.697224f    9.582395f   86.947518f  293.606147f  223.725116f
+ cgs      243.840889f   56.397272f   36.495988f  120.527524f  120.527524f
+ cgd       10.674567f    6.486626f    1.290726f    5.012921f    7.700164f
+
+
+
+subckt                            
+element    0:m19        0:m20     
+model      0:pmos       0:pmos    
+ id        -7.460943m   -7.460943m
+ ibs       35.847659f    0.       
+ ibd      240.000000f   35.847659f
+ vgs      -10.370720    -3.584766 
+ vds      -20.415234    -3.584766 
+ vbs        3.584766     0.       
+ vth       -1.273064  -780.550436m
+ vdsat     -8.163663    -2.380684 
+ beta     193.715369u    2.179179m
+ gam eff  368.563419m  334.980773m
+ gm         1.444163m    4.680093m
+ gds       58.172922u  270.975829u
+ gmb       86.263188u  448.770147u
+ cdtot     55.041255f  212.261834f
+ cgtot    483.839342f  476.937936f
+ cstot    541.725764f  773.636965f
+ cbtot    115.006827f  511.355823f
+ cgs      456.128398f  447.542245f
+ cgd       26.671368f   28.198211f
+
+
+
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  ac analysis                      tnom=  25.000 temp=  25.000         
+******  
+
+     freq  
+
+(a       )    -100.0000      -50.0000        0.           50.0000     100.0000 
+                     +             +             +             +             + 
+   1.000000         -+------+------+------+------+------+-----a+------+------+-
+   1.584893          +      +      +      +      +      +     a+      +      + 
+   2.511886          +      +      +      +      +      +     a+      +      + 
+   3.981072          +      +      +      +      +      +     a+      +      + 
+   6.309573          +      +      +      +      +      +     a+      +      + 
+  10.000000          +      +      +      +      +      +     a+      +      + 
+  15.848932          +      +      +      +      +      +     a+      +      + 
+  25.118864          +      +      +      +      +      +     a+      +      + 
+  39.810717          +      +      +      +      +      +     a+      +      + 
+  63.095734          +      +      +      +      +      +     a+      +      + 
+ 100.000000         -+------+------+------+------+------+-----a+------+------+-
+ 158.489319          +      +      +      +      +      +     a+      +      + 
+ 251.188643          +      +      +      +      +      +     a+      +      + 
+ 398.107171          +      +      +      +      +      +     a+      +      + 
+ 630.957344          +      +      +      +      +      +     a+      +      + 
+   1.000000k         +      +      +      +      +      +     a+      +      + 
+   1.584893k         +      +      +      +      +      +     a+      +      + 
+   2.511886k         +      +      +      +      +      +     a+      +      + 
+   3.981072k         +      +      +      +      +      +     a+      +      + 
+   6.309573k         +      +      +      +      +      +     a+      +      + 
+  10.000000k        -+------+------+------+------+------+-----a+------+------+-
+  15.848932k         +      +      +      +      +      +     a+      +      + 
+  25.118864k         +      +      +      +      +      +     a+      +      + 
+  39.810717k         +      +      +      +      +      +     a+      +      + 
+  63.095734k         +      +      +      +      +      +     a+      +      + 
+ 100.000000k         +      +      +      +      +      +     a+      +      + 
+ 158.489319k         +      +      +      +      +      +     a+      +      + 
+ 251.188643k         +      +      +      +      +      +     a+      +      + 
+ 398.107171k         +      +      +      +      +      +     a+      +      + 
+ 630.957344k         +      +      +      +      +      +     a+      +      + 
+   1.000000x        -+------+------+------+------+------+-----a+------+------+-
+   1.584893x         +      +      +      +      +      +    a +      +      + 
+   2.511886x         +      +      +      +      +      +    a +      +      + 
+   3.981072x         +      +      +      +      +      +   a  +      +      + 
+   6.309573x         +      +      +      +      +      +  a   +      +      + 
+  10.000000x         +      +      +      +      +      + a    +      +      + 
+  15.848932x         +      +      +      +      +      +a     +      +      + 
+  25.118864x         +      +      +      +      +     a+      +      +      + 
+  39.810717x         +      +      +      +      +    a +      +      +      + 
+  63.095734x         +      +      +      +      +   a  +      +      +      + 
+ 100.000000x        -+------+------+------+------+-a----+------+------+------+-
+ 158.489319x         +      +      +      +      a      +      +      +      + 
+ 251.188643x         +      +      +      +     a+      +      +      +      + 
+ 398.107171x         +      +      +      +   a  +      +      +      +      + 
+ 630.957344x         +      +      +      +  a   +      +      +      +      + 
+   1.000000g         +      +      +      +a     +      +      +      +      + 
+                     +             +             +             +             + 
+
+     freq  
+
+(a       )    -200.0000     -150.0000     -100.0000      -50.0000       0.     
+                     +             +             +             +             + 
+   1.000000         -+------+------+------+------+------+------+------+------a-
+   1.584893          +      +      +      +      +      +      +      +      a 
+   2.511886          +      +      +      +      +      +      +      +      a 
+   3.981072          +      +      +      +      +      +      +      +      a 
+   6.309573          +      +      +      +      +      +      +      +      a 
+  10.000000          +      +      +      +      +      +      +      +      a 
+  15.848932          +      +      +      +      +      +      +      +      a 
+  25.118864          +      +      +      +      +      +      +      +      a 
+  39.810717          +      +      +      +      +      +      +      +      a 
+  63.095734          +      +      +      +      +      +      +      +      a 
+ 100.000000         -+------+------+------+------+------+------+------+------a-
+ 158.489319          +      +      +      +      +      +      +      +      a 
+ 251.188643          +      +      +      +      +      +      +      +      a 
+ 398.107171          +      +      +      +      +      +      +      +      a 
+ 630.957344          +      +      +      +      +      +      +      +      a 
+   1.000000k         +      +      +      +      +      +      +      +      a 
+   1.584893k         +      +      +      +      +      +      +      +      a 
+   2.511886k         +      +      +      +      +      +      +      +      a 
+   3.981072k         +      +      +      +      +      +      +      +      a 
+   6.309573k         +      +      +      +      +      +      +      +      a 
+  10.000000k        -+------+------+------+------+------+------+------+------a-
+  15.848932k         +      +      +      +      +      +      +      +      a 
+  25.118864k         +      +      +      +      +      +      +      +      a 
+  39.810717k         +      +      +      +      +      +      +      +      a 
+  63.095734k         +      +      +      +      +      +      +      +     a+ 
+ 100.000000k         +      +      +      +      +      +      +      +     a+ 
+ 158.489319k         +      +      +      +      +      +      +      +     a+ 
+ 251.188643k         +      +      +      +      +      +      +      +    a + 
+ 398.107171k         +      +      +      +      +      +      +      +   a  + 
+ 630.957344k         +      +      +      +      +      +      +      + a    + 
+   1.000000x        -+------+------+------+------+------+------+-----a+------+-
+   1.584893x         +      +      +      +      +      +      +  a   +      + 
+   2.511886x         +      +      +      +      +      +     a+      +      + 
+   3.981072x         +      +      +      +      +      + a    +      +      + 
+   6.309573x         +      +      +      +      +     a+      +      +      + 
+  10.000000x         +      +      +      +      +  a   +      +      +      + 
+  15.848932x         +      +      +      +      +a     +      +      +      + 
+  25.118864x         +      +      +      +      a      +      +      +      + 
+  39.810717x         +      +      +      +    a +      +      +      +      + 
+  63.095734x         +      +      +      + a    +      +      +      +      + 
+ 100.000000x        -+------+------+----a-+------+------+------+------+------+-
+ 158.489319x         +      +      +    a +      +      +      +      +      + 
+ 251.188643x         +      +      +     a+      +      +      +      +      + 
+ 398.107171x         +      +      +   a  +      +      +      +      +      + 
+ 630.957344x         +      +      +a     +      +      +      +      +      + 
+   1.000000g         +      +   a  +      +      +      +      +      +      + 
+                     +             +             +             +             + 
+
+         ***** job concluded
+ ******  H S P I C E  --    H93A.01         22:57:04  95/01/14    sun10        
+******  
+pmos input folded cascode cmos opamp                                          
+ ******  job statistics summary           tnom=  25.000 temp=  25.000         
+******  
+
+          total memory used        185 kbytes
+
+ # nodes =    17 # elements=    41
+ # diodes=     0 # bjts    =     0 # jfets   =     0 # mosfets =    22
+
+    analysis      time      # points  tot. iter  conv.iter
+
+    op point          0.27         1        46
+    dc sweep          0.37        21        86
+    ac analysis       0.08        46        46
+    readin            0.22
+    errchk            0.10
+    setup             0.00
+    output            0.02
+          total cpu time          1.05 seconds
+              job started at  22:57:04  95/01/14
+              job ended   at  22:57:08  95/01/14
+
+
+lic: Releasing license for hspice 

@@ -1,0 +1,112 @@
+2003-03-05  Sheldon Tan  <stan@ee.ucr.edu>
+
+	* Add a hashfunc in globals.h and start to use hash_map instead of
+	map in STL to improve speed.
+
+2002-11-20  Sheldon Tan  <stan@ee.ucr.edu>
+
+	* Added the dynamic reordering codes for doing semi-symbolic
+	analsys (semi_symb.cc). Also add a new command "semisymb" for
+	performing the semi symbolic analysis. Add a new command
+	"loadsymb" to load the information regarding which branch is
+	symbolic branch.
+
+2002-10-09  Sheldon Tan  <stan@ee.ucr.edu>
+
+	* Add a new command "transfer {file}" to dump the numerically
+	s-expanded transfer function in matlab format.
+
+2002-09-30  Sheldon Tan  <stan@ee.ucr.edu>
+
+	* Add a approximation method to reduce the DDD size of fcoeff
+	DDD. But the effect is not very significant. Our method is based
+	on removing some 0-edge linked DDD vertices. But the magnitude of
+	each vertices vary without any abvious pattern. The resduction
+	effects is not very clear. Related files: fcoeff.cc v1.10
+	buildexp.cc v1.11 ddd_base.h v1.13 fcoeff.h v1.6.
+
+2002-09-29  Sheldon Tan  <stan@ee.ucr.edu>
+
+	* Add mutual indutance "Kxxx l1 l2 value" statement. But we still
+	cann't deal situation where two coupling indutances are share
+	a common node. Need more work on this.
+
+2002-09-03    <stan@ee.ucr.edu>
+
+	* fcoeff.cc, fcoeff.h, approx.cc, buildexp.cc
+	Allow the negative order of s to consider the inductance elements.
+	Also, we automatically multiply the 2*pi to all the capacitance
+	and divide -2*pi to all the indutance. So, we display the 
+	symbolic transfer fucntion H(s), we need to those 2*pi away as 
+	we still use 's' as the only variable. Mainly changes are in
+	the fcoeff.cc.x
+
+2002-06-15  X.-D. Sheldon Tan  <xiangdong_tan@yahoo.com>
+
+	* Add the a new shortest path term generation algorithm (method4) 
+	To turn it on, uncommon
+	//#define __USE_FOURTH_TERM_GENERATION in ddd_base.h file.
+	The algorithm is based on reverse DDD graph and we only need
+	to relax all the newly generated DDD vertices. So, it 
+	outperforms G.Gielen DAC01 method.
+
+
+2002-05-28  Sheldon Tan  <stan@altera.com>
+
+	* Remove gloabl variable "UseSimpExpr" and "EnBrachElim". But
+	the code works for both simple and hierarical design without
+	recompilation( the problem in 2001-12-02 memo is gone).
+
+2002-05-19  X.-D. Sheldon Tan  <xiangdong_tan@yahoo.com>
+
+	* Add the second dominant term generation method according to
+	G. Geilen DAC01 paper. 
+
+	But by default, the method is hidden from users. It can be turned
+ 	on by uncommenting line 
+
+	//#define __USE_SECOND_TERM_GENERATION in ddd_base.h file.
+	
+	I added new cc file: new_term_gen.cc to implement this method.
+
+	In general, the second method is fast than the previous one
+ 	(shortest path one), but it will take more memory than the
+ 	shortest path one when GC is used. GC is turned off by default.
+
+	* Also remove many compilation warnings.
+
+2001-12-02  X.-D. Sheldon Tan  <xiangdong_tan@yahoo.com>
+
+	* When doing approximation, in detcalc.cc, 
+	we need to use 
+	
+	V = (label2elem->get_elem(P->index)->get_cvalue() ^ freq) + Czero;
+
+	to do the calculation of the value of DDD node.
+
+	But, when in hierarchical analysis, we need to use
+
+	V = label2elem->get_elem(P->index)->elem_value(freq);
+
+	to do the calculation.
+	
+2001-11-24  X.-D. Sheldon Tan  <xiangdong_tan@yahoo.com>
+
+	* New decancellation feature:
+	
+	add decancallation feature which take place during the
+	construction of fcoeff DDD instead of after the construction of
+	foceff DDD.  file: cancel_flab_map.{h,cc} command expddd and
+	expsddd have an option - "decancel"
+
+2001-11-24  X.-D. Sheldon Tan  <xiangdong_tan@yahoo.com>
+
+	* circuits.cc (statistic): 
+	* acan.cc
+	* buildexp.cc
+	* fcoeff.cc
+	* coeff.cc
+	
+	COLLECT_COEFF_DATA is moved in circuits.h. So if defined, we can
+	collect data for fcoeff or coeff ddd at same time.
+

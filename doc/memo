@@ -1,0 +1,32 @@
+Yet Another Symolic cIrcuit Simulator (YASIS)
+************************************************
+max_order calculation change list. Modified on May 14, 1998
+
+in Cofactor::simp_fcofactor(double _freq, double mag_ref)
+
+in FCoeffList::FCoeffList()
+
+in FCoeffList::first_fcoefflist
+
+in CoeffList::CoeffList()
+
+in CoeffList::first_coefflist()
+
+*************************************************
+When isad is for hierarchical analysis,
+we change the code in determ_calc.c
+function: GetDetermValueR()
+V = label2elem->get_elem(P->index)->elem_value(freq);
+
+When isad is for simplication operation
+V = (label2elem->get_elem(P->index)->get_cvalue() ^ freq) + Czero;
+
+This because, in elem_value(freq), we have 
+-----------
+if (prev_freq == freq)
+	return prev_value;
+-----------
+This state will affect the simplication operations.
+I still think how to deal with the problem.(May, 14, 1998)
+
+

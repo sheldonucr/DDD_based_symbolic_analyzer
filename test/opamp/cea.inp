@@ -1,0 +1,12 @@
+common emitter amp
+
+Q1 2 1 0 0 NPN
+RL 2 4 50
+RS 5 1 1K
+
+VIN 5 0 
+VDD 4 0 
+
+.MODEL NPN NPN 
++ BF=120 IS=1.84E-17 VAF=50 
++ CJE=6.14E-14 CJC=4.93E-14 TF=8.00E-12 CJS=5E-14

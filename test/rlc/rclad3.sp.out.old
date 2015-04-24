@@ -1,0 +1,3186 @@
+Welcome to [1m SCAD3[m $Revision: 1.6 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998 - 2002 X.-D. Sheldon Tan 
+	'h' for help
+: source rclad3.sp
+[0:00.0u 0:00.0s 880k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+number of element is: 10
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0 ]
+(2) [  1   1   1   0 ]
+(3) [  0   1   1   1 ]
+(4) [  0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 10   8   0   0 ]
+(2) [  9   7   5   0 ]
+(3) [  0   6   4   2 ]
+(4) [  0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 10
+#paths (DDD): 5
+row(real, index)
+---------------------
+row(1,1)  (1,1)( + s*(c1)  + 1/r2 );(1,2)( - 1/r2 );
+row(2,2)  (2,2)( + 1/r2  + s*(c3)  + 1/r4 );(2,1)( - 1/r2 );(2,3)( - 1/r4 );
+row(3,3)  (3,3)( + 1/r4  + s*(c5)  + 1/r6 );(3,2)( - 1/r4 );(3,4)( - 1/r6 );
+row(4,4)  (4,4)( + 1/r6  + 1/r7 );(4,3)( - 1/r6 );
+---------------------
+
+DDD construction time: 0.01
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 7
+#paths (DDD): 3
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.1
+END OF NUMERICAL AC ANALYSIS
+[0:00.2u 0:00.0s 952k]
+: expddd
+Construct fcoeff ddd from ddd ...
+Max branch number: 3
+
+Building coefficient for numerator
+
+Statisitic for numerator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 1
+
+fcoefficient of order: 1
+#paths (DDD): 0
+
+fcoefficient of order: 2
+#paths (DDD): 0
+
+fcoefficient of order: 3
+#paths (DDD): 0
+
+fcoefficient of order: 4
+#paths (DDD): 0
+The total paths is 1
+########## end of fcoefficient list
+
+Building coefficient for denominator
+
+Statisitic for denominator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 12
+
+fcoefficient of order: 1
+#paths (DDD): 9
+
+fcoefficient of order: 2
+#paths (DDD): 2
+
+fcoefficient of order: 3
+#paths (DDD): 0
+
+fcoefficient of order: 4
+#paths (DDD): 0
+The total paths is 23
+########## end of fcoefficient list
+total constrction time: 0
+total coeff evaluation time: 0
+[0:00.0u 0:00.0s 960k]
+: simpcoeff
+Simplify fcoefficient ddd list ... 
+Use the first term generation method (shortest path)...
+freq[0]: 1.000000
+	+ (-1/r2) (37) (-1/r4) (28) (-1/r6) (19) ,-2.22222e-12
+number of terms generated: 1
+
+Explicitly force GC for all ddds ...
+number of terms generated: 1
+	+ (1/r2) (31) (1/r4) (22) (1/r6) (13) ,2.22222e-12
+	- (1/r2) (31) (-1/r6) (19) (-1/r6) (16) ,-1.48148e-12
+	+ (1/r2) (31) (1/r6) (24) (1/r6) (13) ,1.48148e-12
+	+ (1/r2) (31) (1/r4) (22) (1/r7) (14) ,7.40741e-13
+	+ (-1/r4) (28) (-1/r4) (25) (1/r6) (13) ,-6.66667e-13
+	+ (1/r4) (33) (1/r4) (22) (1/r6) (13) ,6.66667e-13
+	+ (1/r2) (31) (1/r6) (24) (1/r7) (14) ,4.93827e-13
+	- (1/r4) (33) (-1/r6) (19) (-1/r6) (16) ,-4.44444e-13
+	+ (1/r4) (33) (1/r6) (24) (1/r6) (13) ,4.44444e-13
+	+ (-1/r4) (28) (-1/r4) (25) (1/r7) (14) ,-2.22222e-13
+	+ (1/r4) (33) (1/r4) (22) (1/r7) (14) ,2.22222e-13
+	+ (1/r4) (33) (1/r6) (24) (1/r7) (14) ,1.48148e-13
+number of terms generated: 13
+
+Explicitly force GC for all ddds ...
+	+ (1/r2) (31) (c5) (23) (1/r6) (13) ,4.18879e-18
+	+ (1/r2) (31) (c5) (23) (1/r7) (14) ,1.39626e-18
+	+ (1/r4) (33) (c5) (23) (1/r6) (13) ,1.25664e-18
+	+ (1/r4) (33) (c5) (23) (1/r7) (14) ,4.18879e-19
+	+ (c3) (32) (1/r4) (22) (1/r6) (13) ,1.67552e-19
+	- (c3) (32) (-1/r6) (19) (-1/r6) (16) ,-1.11701e-19
+	+ (c3) (32) (1/r6) (24) (1/r6) (13) ,1.11701e-19
+	+ (c3) (32) (1/r4) (22) (1/r7) (14) ,5.58505e-20
+	+ (c3) (32) (1/r6) (24) (1/r7) (14) ,3.72337e-20
+number of terms generated: 22
+
+Explicitly force GC for all ddds ...
+	+ (c3) (32) (c5) (23) (1/r6) (13) ,3.15827e-25
+	+ (c3) (32) (c5) (23) (1/r7) (14) ,1.05276e-25
+number of terms generated: 24
+
+Explicitly force GC for all ddds ...
+number of terms generated: 24
+freq[1]: 1.002305
+number of terms generated: 24
+number of terms generated: 24
+freq[2]: 1.004616
+number of terms generated: 24
+number of terms generated: 24
+freq[3]: 1.006932
+number of terms generated: 24
+number of terms generated: 24
+freq[4]: 1.009253
+number of terms generated: 24
+number of terms generated: 24
+freq[5]: 1.011579
+number of terms generated: 24
+number of terms generated: 24
+freq[6]: 1.013911
+number of terms generated: 24
+number of terms generated: 24
+freq[7]: 1.016249
+number of terms generated: 24
+number of terms generated: 24
+freq[8]: 1.018591
+number of terms generated: 24
+number of terms generated: 24
+freq[9]: 1.020939
+number of terms generated: 24
+number of terms generated: 24
+freq[10]: 1.023293
+number of terms generated: 24
+number of terms generated: 24
+freq[11]: 1.025652
+number of terms generated: 24
+number of terms generated: 24
+freq[12]: 1.028016
+number of terms generated: 24
+number of terms generated: 24
+freq[13]: 1.030386
+number of terms generated: 24
+number of terms generated: 24
+freq[14]: 1.032761
+number of terms generated: 24
+number of terms generated: 24
+freq[15]: 1.035142
+number of terms generated: 24
+number of terms generated: 24
+freq[16]: 1.037528
+number of terms generated: 24
+number of terms generated: 24
+freq[17]: 1.039920
+number of terms generated: 24
+number of terms generated: 24
+freq[18]: 1.042317
+number of terms generated: 24
+number of terms generated: 24
+freq[19]: 1.044720
+number of terms generated: 24
+number of terms generated: 24
+freq[20]: 1.047129
+number of terms generated: 24
+number of terms generated: 24
+freq[21]: 1.049542
+number of terms generated: 24
+number of terms generated: 24
+freq[22]: 1.051962
+number of terms generated: 24
+number of terms generated: 24
+freq[23]: 1.054387
+number of terms generated: 24
+number of terms generated: 24
+freq[24]: 1.056818
+number of terms generated: 24
+number of terms generated: 24
+freq[25]: 1.059254
+number of terms generated: 24
+number of terms generated: 24
+freq[26]: 1.061696
+number of terms generated: 24
+number of terms generated: 24
+freq[27]: 1.064143
+number of terms generated: 24
+number of terms generated: 24
+freq[28]: 1.066596
+number of terms generated: 24
+number of terms generated: 24
+freq[29]: 1.069055
+number of terms generated: 24
+number of terms generated: 24
+freq[30]: 1.071519
+number of terms generated: 24
+number of terms generated: 24
+freq[31]: 1.073989
+number of terms generated: 24
+number of terms generated: 24
+freq[32]: 1.076465
+number of terms generated: 24
+number of terms generated: 24
+freq[33]: 1.078947
+number of terms generated: 24
+number of terms generated: 24
+freq[34]: 1.081434
+number of terms generated: 24
+number of terms generated: 24
+freq[35]: 1.083927
+number of terms generated: 24
+number of terms generated: 24
+freq[36]: 1.086426
+number of terms generated: 24
+number of terms generated: 24
+freq[37]: 1.088930
+number of terms generated: 24
+number of terms generated: 24
+freq[38]: 1.091440
+number of terms generated: 24
+number of terms generated: 24
+freq[39]: 1.093956
+number of terms generated: 24
+number of terms generated: 24
+freq[40]: 1.096478
+number of terms generated: 24
+number of terms generated: 24
+freq[41]: 1.099006
+number of terms generated: 24
+number of terms generated: 24
+freq[42]: 1.101539
+number of terms generated: 24
+number of terms generated: 24
+freq[43]: 1.104079
+number of terms generated: 24
+number of terms generated: 24
+freq[44]: 1.106624
+number of terms generated: 24
+number of terms generated: 24
+freq[45]: 1.109175
+number of terms generated: 24
+number of terms generated: 24
+freq[46]: 1.111732
+number of terms generated: 24
+number of terms generated: 24
+freq[47]: 1.114295
+number of terms generated: 24
+number of terms generated: 24
+freq[48]: 1.116863
+number of terms generated: 24
+number of terms generated: 24
+freq[49]: 1.119438
+number of terms generated: 24
+number of terms generated: 24
+freq[50]: 1.122018
+number of terms generated: 24
+number of terms generated: 24
+freq[51]: 1.124605
+number of terms generated: 24
+number of terms generated: 24
+freq[52]: 1.127197
+number of terms generated: 24
+number of terms generated: 24
+freq[53]: 1.129796
+number of terms generated: 24
+number of terms generated: 24
+freq[54]: 1.132400
+number of terms generated: 24
+number of terms generated: 24
+freq[55]: 1.135011
+number of terms generated: 24
+number of terms generated: 24
+freq[56]: 1.137627
+number of terms generated: 24
+number of terms generated: 24
+freq[57]: 1.140250
+number of terms generated: 24
+number of terms generated: 24
+freq[58]: 1.142878
+number of terms generated: 24
+number of terms generated: 24
+freq[59]: 1.145513
+number of terms generated: 24
+number of terms generated: 24
+freq[60]: 1.148154
+number of terms generated: 24
+number of terms generated: 24
+freq[61]: 1.150800
+number of terms generated: 24
+number of terms generated: 24
+freq[62]: 1.153453
+number of terms generated: 24
+number of terms generated: 24
+freq[63]: 1.156112
+number of terms generated: 24
+number of terms generated: 24
+freq[64]: 1.158777
+number of terms generated: 24
+number of terms generated: 24
+freq[65]: 1.161449
+number of terms generated: 24
+number of terms generated: 24
+freq[66]: 1.164126
+number of terms generated: 24
+number of terms generated: 24
+freq[67]: 1.166810
+number of terms generated: 24
+number of terms generated: 24
+freq[68]: 1.169499
+number of terms generated: 24
+number of terms generated: 24
+freq[69]: 1.172195
+number of terms generated: 24
+number of terms generated: 24
+freq[70]: 1.174898
+number of terms generated: 24
+number of terms generated: 24
+freq[71]: 1.177606
+number of terms generated: 24
+number of terms generated: 24
+freq[72]: 1.180321
+number of terms generated: 24
+number of terms generated: 24
+freq[73]: 1.183042
+number of terms generated: 24
+number of terms generated: 24
+freq[74]: 1.185769
+number of terms generated: 24
+number of terms generated: 24
+freq[75]: 1.188502
+number of terms generated: 24
+number of terms generated: 24
+freq[76]: 1.191242
+number of terms generated: 24
+number of terms generated: 24
+freq[77]: 1.193988
+number of terms generated: 24
+number of terms generated: 24
+freq[78]: 1.196741
+number of terms generated: 24
+number of terms generated: 24
+freq[79]: 1.199499
+number of terms generated: 24
+number of terms generated: 24
+freq[80]: 1.202264
+number of terms generated: 24
+number of terms generated: 24
+freq[81]: 1.205036
+number of terms generated: 24
+number of terms generated: 24
+freq[82]: 1.207814
+number of terms generated: 24
+number of terms generated: 24
+freq[83]: 1.210598
+number of terms generated: 24
+number of terms generated: 24
+freq[84]: 1.213389
+number of terms generated: 24
+number of terms generated: 24
+freq[85]: 1.216186
+number of terms generated: 24
+number of terms generated: 24
+freq[86]: 1.218990
+number of terms generated: 24
+number of terms generated: 24
+freq[87]: 1.221800
+number of terms generated: 24
+number of terms generated: 24
+freq[88]: 1.224616
+number of terms generated: 24
+number of terms generated: 24
+freq[89]: 1.227439
+number of terms generated: 24
+number of terms generated: 24
+freq[90]: 1.230269
+number of terms generated: 24
+number of terms generated: 24
+freq[91]: 1.233105
+number of terms generated: 24
+number of terms generated: 24
+freq[92]: 1.235947
+number of terms generated: 24
+number of terms generated: 24
+freq[93]: 1.238797
+number of terms generated: 24
+number of terms generated: 24
+freq[94]: 1.241652
+number of terms generated: 24
+number of terms generated: 24
+freq[95]: 1.244515
+number of terms generated: 24
+number of terms generated: 24
+freq[96]: 1.247384
+number of terms generated: 24
+number of terms generated: 24
+freq[97]: 1.250259
+number of terms generated: 24
+number of terms generated: 24
+freq[98]: 1.253141
+number of terms generated: 24
+number of terms generated: 24
+freq[99]: 1.256030
+number of terms generated: 24
+number of terms generated: 24
+freq[100]: 1.258925
+number of terms generated: 24
+number of terms generated: 24
+freq[101]: 1.261828
+number of terms generated: 24
+number of terms generated: 24
+freq[102]: 1.264736
+number of terms generated: 24
+number of terms generated: 24
+freq[103]: 1.267652
+number of terms generated: 24
+number of terms generated: 24
+freq[104]: 1.270574
+number of terms generated: 24
+number of terms generated: 24
+freq[105]: 1.273503
+number of terms generated: 24
+number of terms generated: 24
+freq[106]: 1.276439
+number of terms generated: 24
+number of terms generated: 24
+freq[107]: 1.279381
+number of terms generated: 24
+number of terms generated: 24
+freq[108]: 1.282331
+number of terms generated: 24
+number of terms generated: 24
+freq[109]: 1.285287
+number of terms generated: 24
+number of terms generated: 24
+freq[110]: 1.288250
+number of terms generated: 24
+number of terms generated: 24
+freq[111]: 1.291219
+number of terms generated: 24
+number of terms generated: 24
+freq[112]: 1.294196
+number of terms generated: 24
+number of terms generated: 24
+freq[113]: 1.297179
+number of terms generated: 24
+number of terms generated: 24
+freq[114]: 1.300170
+number of terms generated: 24
+number of terms generated: 24
+freq[115]: 1.303167
+number of terms generated: 24
+number of terms generated: 24
+freq[116]: 1.306171
+number of terms generated: 24
+number of terms generated: 24
+freq[117]: 1.309182
+number of terms generated: 24
+number of terms generated: 24
+freq[118]: 1.312200
+number of terms generated: 24
+number of terms generated: 24
+freq[119]: 1.315225
+number of terms generated: 24
+number of terms generated: 24
+freq[120]: 1.318257
+number of terms generated: 24
+number of terms generated: 24
+freq[121]: 1.321296
+number of terms generated: 24
+number of terms generated: 24
+freq[122]: 1.324342
+number of terms generated: 24
+number of terms generated: 24
+freq[123]: 1.327394
+number of terms generated: 24
+number of terms generated: 24
+freq[124]: 1.330454
+number of terms generated: 24
+number of terms generated: 24
+freq[125]: 1.333521
+number of terms generated: 24
+number of terms generated: 24
+freq[126]: 1.336596
+number of terms generated: 24
+number of terms generated: 24
+freq[127]: 1.339677
+number of terms generated: 24
+number of terms generated: 24
+freq[128]: 1.342765
+number of terms generated: 24
+number of terms generated: 24
+freq[129]: 1.345860
+number of terms generated: 24
+number of terms generated: 24
+freq[130]: 1.348963
+number of terms generated: 24
+number of terms generated: 24
+freq[131]: 1.352073
+number of terms generated: 24
+number of terms generated: 24
+freq[132]: 1.355189
+number of terms generated: 24
+number of terms generated: 24
+freq[133]: 1.358313
+number of terms generated: 24
+number of terms generated: 24
+freq[134]: 1.361445
+number of terms generated: 24
+number of terms generated: 24
+freq[135]: 1.364583
+number of terms generated: 24
+number of terms generated: 24
+freq[136]: 1.367729
+number of terms generated: 24
+number of terms generated: 24
+freq[137]: 1.370882
+number of terms generated: 24
+number of terms generated: 24
+freq[138]: 1.374042
+number of terms generated: 24
+number of terms generated: 24
+freq[139]: 1.377209
+number of terms generated: 24
+number of terms generated: 24
+freq[140]: 1.380384
+number of terms generated: 24
+number of terms generated: 24
+freq[141]: 1.383566
+number of terms generated: 24
+number of terms generated: 24
+freq[142]: 1.386756
+number of terms generated: 24
+number of terms generated: 24
+freq[143]: 1.389953
+number of terms generated: 24
+number of terms generated: 24
+freq[144]: 1.393157
+number of terms generated: 24
+number of terms generated: 24
+freq[145]: 1.396368
+number of terms generated: 24
+number of terms generated: 24
+freq[146]: 1.399587
+number of terms generated: 24
+number of terms generated: 24
+freq[147]: 1.402814
+number of terms generated: 24
+number of terms generated: 24
+freq[148]: 1.406048
+number of terms generated: 24
+number of terms generated: 24
+freq[149]: 1.409289
+number of terms generated: 24
+number of terms generated: 24
+freq[150]: 1.412538
+number of terms generated: 24
+number of terms generated: 24
+freq[151]: 1.415794
+number of terms generated: 24
+number of terms generated: 24
+freq[152]: 1.419058
+number of terms generated: 24
+number of terms generated: 24
+freq[153]: 1.422329
+number of terms generated: 24
+number of terms generated: 24
+freq[154]: 1.425608
+number of terms generated: 24
+number of terms generated: 24
+freq[155]: 1.428894
+number of terms generated: 24
+number of terms generated: 24
+freq[156]: 1.432188
+number of terms generated: 24
+number of terms generated: 24
+freq[157]: 1.435489
+number of terms generated: 24
+number of terms generated: 24
+freq[158]: 1.438799
+number of terms generated: 24
+number of terms generated: 24
+freq[159]: 1.442115
+number of terms generated: 24
+number of terms generated: 24
+freq[160]: 1.445440
+number of terms generated: 24
+number of terms generated: 24
+freq[161]: 1.448772
+number of terms generated: 24
+number of terms generated: 24
+freq[162]: 1.452112
+number of terms generated: 24
+number of terms generated: 24
+freq[163]: 1.455459
+number of terms generated: 24
+number of terms generated: 24
+freq[164]: 1.458814
+number of terms generated: 24
+number of terms generated: 24
+freq[165]: 1.462177
+number of terms generated: 24
+number of terms generated: 24
+freq[166]: 1.465548
+number of terms generated: 24
+number of terms generated: 24
+freq[167]: 1.468926
+number of terms generated: 24
+number of terms generated: 24
+freq[168]: 1.472313
+number of terms generated: 24
+number of terms generated: 24
+freq[169]: 1.475707
+number of terms generated: 24
+number of terms generated: 24
+freq[170]: 1.479108
+number of terms generated: 24
+number of terms generated: 24
+freq[171]: 1.482518
+number of terms generated: 24
+number of terms generated: 24
+freq[172]: 1.485936
+number of terms generated: 24
+number of terms generated: 24
+freq[173]: 1.489361
+number of terms generated: 24
+number of terms generated: 24
+freq[174]: 1.492794
+number of terms generated: 24
+number of terms generated: 24
+freq[175]: 1.496236
+number of terms generated: 24
+number of terms generated: 24
+freq[176]: 1.499685
+number of terms generated: 24
+number of terms generated: 24
+freq[177]: 1.503142
+number of terms generated: 24
+number of terms generated: 24
+freq[178]: 1.506607
+number of terms generated: 24
+number of terms generated: 24
+freq[179]: 1.510080
+number of terms generated: 24
+number of terms generated: 24
+freq[180]: 1.513561
+number of terms generated: 24
+number of terms generated: 24
+freq[181]: 1.517050
+number of terms generated: 24
+number of terms generated: 24
+freq[182]: 1.520548
+number of terms generated: 24
+number of terms generated: 24
+freq[183]: 1.524053
+number of terms generated: 24
+number of terms generated: 24
+freq[184]: 1.527566
+number of terms generated: 24
+number of terms generated: 24
+freq[185]: 1.531087
+number of terms generated: 24
+number of terms generated: 24
+freq[186]: 1.534617
+number of terms generated: 24
+number of terms generated: 24
+freq[187]: 1.538155
+number of terms generated: 24
+number of terms generated: 24
+freq[188]: 1.541700
+number of terms generated: 24
+number of terms generated: 24
+freq[189]: 1.545254
+number of terms generated: 24
+number of terms generated: 24
+freq[190]: 1.548817
+number of terms generated: 24
+number of terms generated: 24
+freq[191]: 1.552387
+number of terms generated: 24
+number of terms generated: 24
+freq[192]: 1.555966
+number of terms generated: 24
+number of terms generated: 24
+freq[193]: 1.559553
+number of terms generated: 24
+number of terms generated: 24
+freq[194]: 1.563148
+number of terms generated: 24
+number of terms generated: 24
+freq[195]: 1.566751
+number of terms generated: 24
+number of terms generated: 24
+freq[196]: 1.570363
+number of terms generated: 24
+number of terms generated: 24
+freq[197]: 1.573983
+number of terms generated: 24
+number of terms generated: 24
+freq[198]: 1.577611
+number of terms generated: 24
+number of terms generated: 24
+freq[199]: 1.581248
+number of terms generated: 24
+number of terms generated: 24
+freq[200]: 1.584893
+number of terms generated: 24
+number of terms generated: 24
+freq[201]: 1.588547
+number of terms generated: 24
+number of terms generated: 24
+freq[202]: 1.592209
+number of terms generated: 24
+number of terms generated: 24
+freq[203]: 1.595879
+number of terms generated: 24
+number of terms generated: 24
+freq[204]: 1.599558
+number of terms generated: 24
+number of terms generated: 24
+freq[205]: 1.603245
+number of terms generated: 24
+number of terms generated: 24
+freq[206]: 1.606941
+number of terms generated: 24
+number of terms generated: 24
+freq[207]: 1.610646
+number of terms generated: 24
+number of terms generated: 24
+freq[208]: 1.614359
+number of terms generated: 24
+number of terms generated: 24
+freq[209]: 1.618080
+number of terms generated: 24
+number of terms generated: 24
+freq[210]: 1.621810
+number of terms generated: 24
+number of terms generated: 24
+freq[211]: 1.625549
+number of terms generated: 24
+number of terms generated: 24
+freq[212]: 1.629296
+number of terms generated: 24
+number of terms generated: 24
+freq[213]: 1.633052
+number of terms generated: 24
+number of terms generated: 24
+freq[214]: 1.636817
+number of terms generated: 24
+number of terms generated: 24
+freq[215]: 1.640590
+number of terms generated: 24
+number of terms generated: 24
+freq[216]: 1.644372
+number of terms generated: 24
+number of terms generated: 24
+freq[217]: 1.648162
+number of terms generated: 24
+number of terms generated: 24
+freq[218]: 1.651962
+number of terms generated: 24
+number of terms generated: 24
+freq[219]: 1.655770
+number of terms generated: 24
+number of terms generated: 24
+freq[220]: 1.659587
+number of terms generated: 24
+number of terms generated: 24
+freq[221]: 1.663413
+number of terms generated: 24
+number of terms generated: 24
+freq[222]: 1.667247
+number of terms generated: 24
+number of terms generated: 24
+freq[223]: 1.671091
+number of terms generated: 24
+number of terms generated: 24
+freq[224]: 1.674943
+number of terms generated: 24
+number of terms generated: 24
+freq[225]: 1.678804
+number of terms generated: 24
+number of terms generated: 24
+freq[226]: 1.682674
+number of terms generated: 24
+number of terms generated: 24
+freq[227]: 1.686553
+number of terms generated: 24
+number of terms generated: 24
+freq[228]: 1.690441
+number of terms generated: 24
+number of terms generated: 24
+freq[229]: 1.694338
+number of terms generated: 24
+number of terms generated: 24
+freq[230]: 1.698244
+number of terms generated: 24
+number of terms generated: 24
+freq[231]: 1.702159
+number of terms generated: 24
+number of terms generated: 24
+freq[232]: 1.706082
+number of terms generated: 24
+number of terms generated: 24
+freq[233]: 1.710015
+number of terms generated: 24
+number of terms generated: 24
+freq[234]: 1.713957
+number of terms generated: 24
+number of terms generated: 24
+freq[235]: 1.717908
+number of terms generated: 24
+number of terms generated: 24
+freq[236]: 1.721869
+number of terms generated: 24
+number of terms generated: 24
+freq[237]: 1.725838
+number of terms generated: 24
+number of terms generated: 24
+freq[238]: 1.729816
+number of terms generated: 24
+number of terms generated: 24
+freq[239]: 1.733804
+number of terms generated: 24
+number of terms generated: 24
+freq[240]: 1.737801
+number of terms generated: 24
+number of terms generated: 24
+freq[241]: 1.741807
+number of terms generated: 24
+number of terms generated: 24
+freq[242]: 1.745822
+number of terms generated: 24
+number of terms generated: 24
+freq[243]: 1.749847
+number of terms generated: 24
+number of terms generated: 24
+freq[244]: 1.753881
+number of terms generated: 24
+number of terms generated: 24
+freq[245]: 1.757924
+number of terms generated: 24
+number of terms generated: 24
+freq[246]: 1.761976
+number of terms generated: 24
+number of terms generated: 24
+freq[247]: 1.766038
+number of terms generated: 24
+number of terms generated: 24
+freq[248]: 1.770109
+number of terms generated: 24
+number of terms generated: 24
+freq[249]: 1.774189
+number of terms generated: 24
+number of terms generated: 24
+freq[250]: 1.778279
+number of terms generated: 24
+number of terms generated: 24
+freq[251]: 1.782379
+number of terms generated: 24
+number of terms generated: 24
+freq[252]: 1.786488
+number of terms generated: 24
+number of terms generated: 24
+freq[253]: 1.790606
+number of terms generated: 24
+number of terms generated: 24
+freq[254]: 1.794734
+number of terms generated: 24
+number of terms generated: 24
+freq[255]: 1.798871
+number of terms generated: 24
+number of terms generated: 24
+freq[256]: 1.803018
+number of terms generated: 24
+number of terms generated: 24
+freq[257]: 1.807174
+number of terms generated: 24
+number of terms generated: 24
+freq[258]: 1.811340
+number of terms generated: 24
+number of terms generated: 24
+freq[259]: 1.815516
+number of terms generated: 24
+number of terms generated: 24
+freq[260]: 1.819701
+number of terms generated: 24
+number of terms generated: 24
+freq[261]: 1.823896
+number of terms generated: 24
+number of terms generated: 24
+freq[262]: 1.828100
+number of terms generated: 24
+number of terms generated: 24
+freq[263]: 1.832314
+number of terms generated: 24
+number of terms generated: 24
+freq[264]: 1.836538
+number of terms generated: 24
+number of terms generated: 24
+freq[265]: 1.840772
+number of terms generated: 24
+number of terms generated: 24
+freq[266]: 1.845015
+number of terms generated: 24
+number of terms generated: 24
+freq[267]: 1.849269
+number of terms generated: 24
+number of terms generated: 24
+freq[268]: 1.853532
+number of terms generated: 24
+number of terms generated: 24
+freq[269]: 1.857804
+number of terms generated: 24
+number of terms generated: 24
+freq[270]: 1.862087
+number of terms generated: 24
+number of terms generated: 24
+freq[271]: 1.866380
+number of terms generated: 24
+number of terms generated: 24
+freq[272]: 1.870682
+number of terms generated: 24
+number of terms generated: 24
+freq[273]: 1.874995
+number of terms generated: 24
+number of terms generated: 24
+freq[274]: 1.879317
+number of terms generated: 24
+number of terms generated: 24
+freq[275]: 1.883649
+number of terms generated: 24
+number of terms generated: 24
+freq[276]: 1.887991
+number of terms generated: 24
+number of terms generated: 24
+freq[277]: 1.892344
+number of terms generated: 24
+number of terms generated: 24
+freq[278]: 1.896706
+number of terms generated: 24
+number of terms generated: 24
+freq[279]: 1.901078
+number of terms generated: 24
+number of terms generated: 24
+freq[280]: 1.905461
+number of terms generated: 24
+number of terms generated: 24
+freq[281]: 1.909853
+number of terms generated: 24
+number of terms generated: 24
+freq[282]: 1.914256
+number of terms generated: 24
+number of terms generated: 24
+freq[283]: 1.918669
+number of terms generated: 24
+number of terms generated: 24
+freq[284]: 1.923092
+number of terms generated: 24
+number of terms generated: 24
+freq[285]: 1.927525
+number of terms generated: 24
+number of terms generated: 24
+freq[286]: 1.931968
+number of terms generated: 24
+number of terms generated: 24
+freq[287]: 1.936422
+number of terms generated: 24
+number of terms generated: 24
+freq[288]: 1.940886
+number of terms generated: 24
+number of terms generated: 24
+freq[289]: 1.945360
+number of terms generated: 24
+number of terms generated: 24
+freq[290]: 1.949845
+number of terms generated: 24
+number of terms generated: 24
+freq[291]: 1.954339
+number of terms generated: 24
+number of terms generated: 24
+freq[292]: 1.958845
+number of terms generated: 24
+number of terms generated: 24
+freq[293]: 1.963360
+number of terms generated: 24
+number of terms generated: 24
+freq[294]: 1.967886
+number of terms generated: 24
+number of terms generated: 24
+freq[295]: 1.972423
+number of terms generated: 24
+number of terms generated: 24
+freq[296]: 1.976970
+number of terms generated: 24
+number of terms generated: 24
+freq[297]: 1.981527
+number of terms generated: 24
+number of terms generated: 24
+freq[298]: 1.986095
+number of terms generated: 24
+number of terms generated: 24
+freq[299]: 1.990673
+number of terms generated: 24
+number of terms generated: 24
+freq[300]: 1.995262
+number of terms generated: 24
+number of terms generated: 24
+freq[301]: 1.999862
+number of terms generated: 24
+number of terms generated: 24
+freq[302]: 2.004472
+number of terms generated: 24
+number of terms generated: 24
+freq[303]: 2.009093
+number of terms generated: 24
+number of terms generated: 24
+freq[304]: 2.013724
+number of terms generated: 24
+number of terms generated: 24
+freq[305]: 2.018366
+number of terms generated: 24
+number of terms generated: 24
+freq[306]: 2.023019
+number of terms generated: 24
+number of terms generated: 24
+freq[307]: 2.027683
+number of terms generated: 24
+number of terms generated: 24
+freq[308]: 2.032357
+number of terms generated: 24
+number of terms generated: 24
+freq[309]: 2.037042
+number of terms generated: 24
+number of terms generated: 24
+freq[310]: 2.041738
+number of terms generated: 24
+number of terms generated: 24
+freq[311]: 2.046445
+number of terms generated: 24
+number of terms generated: 24
+freq[312]: 2.051162
+number of terms generated: 24
+number of terms generated: 24
+freq[313]: 2.055891
+number of terms generated: 24
+number of terms generated: 24
+freq[314]: 2.060630
+number of terms generated: 24
+number of terms generated: 24
+freq[315]: 2.065380
+number of terms generated: 24
+number of terms generated: 24
+freq[316]: 2.070141
+number of terms generated: 24
+number of terms generated: 24
+freq[317]: 2.074914
+number of terms generated: 24
+number of terms generated: 24
+freq[318]: 2.079697
+number of terms generated: 24
+number of terms generated: 24
+freq[319]: 2.084491
+number of terms generated: 24
+number of terms generated: 24
+freq[320]: 2.089296
+number of terms generated: 24
+number of terms generated: 24
+freq[321]: 2.094112
+number of terms generated: 24
+number of terms generated: 24
+freq[322]: 2.098940
+number of terms generated: 24
+number of terms generated: 24
+freq[323]: 2.103778
+number of terms generated: 24
+number of terms generated: 24
+freq[324]: 2.108628
+number of terms generated: 24
+number of terms generated: 24
+freq[325]: 2.113489
+number of terms generated: 24
+number of terms generated: 24
+freq[326]: 2.118361
+number of terms generated: 24
+number of terms generated: 24
+freq[327]: 2.123244
+number of terms generated: 24
+number of terms generated: 24
+freq[328]: 2.128139
+number of terms generated: 24
+number of terms generated: 24
+freq[329]: 2.133045
+number of terms generated: 24
+number of terms generated: 24
+freq[330]: 2.137962
+number of terms generated: 24
+number of terms generated: 24
+freq[331]: 2.142891
+number of terms generated: 24
+number of terms generated: 24
+freq[332]: 2.147830
+number of terms generated: 24
+number of terms generated: 24
+freq[333]: 2.152782
+number of terms generated: 24
+number of terms generated: 24
+freq[334]: 2.157744
+number of terms generated: 24
+number of terms generated: 24
+freq[335]: 2.162719
+number of terms generated: 24
+number of terms generated: 24
+freq[336]: 2.167704
+number of terms generated: 24
+number of terms generated: 24
+freq[337]: 2.172701
+number of terms generated: 24
+number of terms generated: 24
+freq[338]: 2.177710
+number of terms generated: 24
+number of terms generated: 24
+freq[339]: 2.182730
+number of terms generated: 24
+number of terms generated: 24
+freq[340]: 2.187762
+number of terms generated: 24
+number of terms generated: 24
+freq[341]: 2.192805
+number of terms generated: 24
+number of terms generated: 24
+freq[342]: 2.197860
+number of terms generated: 24
+number of terms generated: 24
+freq[343]: 2.202926
+number of terms generated: 24
+number of terms generated: 24
+freq[344]: 2.208005
+number of terms generated: 24
+number of terms generated: 24
+freq[345]: 2.213095
+number of terms generated: 24
+number of terms generated: 24
+freq[346]: 2.218196
+number of terms generated: 24
+number of terms generated: 24
+freq[347]: 2.223310
+number of terms generated: 24
+number of terms generated: 24
+freq[348]: 2.228435
+number of terms generated: 24
+number of terms generated: 24
+freq[349]: 2.233572
+number of terms generated: 24
+number of terms generated: 24
+freq[350]: 2.238721
+number of terms generated: 24
+number of terms generated: 24
+freq[351]: 2.243882
+number of terms generated: 24
+number of terms generated: 24
+freq[352]: 2.249055
+number of terms generated: 24
+number of terms generated: 24
+freq[353]: 2.254239
+number of terms generated: 24
+number of terms generated: 24
+freq[354]: 2.259436
+number of terms generated: 24
+number of terms generated: 24
+freq[355]: 2.264644
+number of terms generated: 24
+number of terms generated: 24
+freq[356]: 2.269865
+number of terms generated: 24
+number of terms generated: 24
+freq[357]: 2.275097
+number of terms generated: 24
+number of terms generated: 24
+freq[358]: 2.280342
+number of terms generated: 24
+number of terms generated: 24
+freq[359]: 2.285599
+number of terms generated: 24
+number of terms generated: 24
+freq[360]: 2.290868
+number of terms generated: 24
+number of terms generated: 24
+freq[361]: 2.296149
+number of terms generated: 24
+number of terms generated: 24
+freq[362]: 2.301442
+number of terms generated: 24
+number of terms generated: 24
+freq[363]: 2.306747
+number of terms generated: 24
+number of terms generated: 24
+freq[364]: 2.312065
+number of terms generated: 24
+number of terms generated: 24
+freq[365]: 2.317395
+number of terms generated: 24
+number of terms generated: 24
+freq[366]: 2.322737
+number of terms generated: 24
+number of terms generated: 24
+freq[367]: 2.328091
+number of terms generated: 24
+number of terms generated: 24
+freq[368]: 2.333458
+number of terms generated: 24
+number of terms generated: 24
+freq[369]: 2.338837
+number of terms generated: 24
+number of terms generated: 24
+freq[370]: 2.344229
+number of terms generated: 24
+number of terms generated: 24
+freq[371]: 2.349633
+number of terms generated: 24
+number of terms generated: 24
+freq[372]: 2.355049
+number of terms generated: 24
+number of terms generated: 24
+freq[373]: 2.360478
+number of terms generated: 24
+number of terms generated: 24
+freq[374]: 2.365920
+number of terms generated: 24
+number of terms generated: 24
+freq[375]: 2.371374
+number of terms generated: 24
+number of terms generated: 24
+freq[376]: 2.376840
+number of terms generated: 24
+number of terms generated: 24
+freq[377]: 2.382319
+number of terms generated: 24
+number of terms generated: 24
+freq[378]: 2.387811
+number of terms generated: 24
+number of terms generated: 24
+freq[379]: 2.393316
+number of terms generated: 24
+number of terms generated: 24
+freq[380]: 2.398833
+number of terms generated: 24
+number of terms generated: 24
+freq[381]: 2.404363
+number of terms generated: 24
+number of terms generated: 24
+freq[382]: 2.409905
+number of terms generated: 24
+number of terms generated: 24
+freq[383]: 2.415461
+number of terms generated: 24
+number of terms generated: 24
+freq[384]: 2.421029
+number of terms generated: 24
+number of terms generated: 24
+freq[385]: 2.426610
+number of terms generated: 24
+number of terms generated: 24
+freq[386]: 2.432204
+number of terms generated: 24
+number of terms generated: 24
+freq[387]: 2.437811
+number of terms generated: 24
+number of terms generated: 24
+freq[388]: 2.443431
+number of terms generated: 24
+number of terms generated: 24
+freq[389]: 2.449063
+number of terms generated: 24
+number of terms generated: 24
+freq[390]: 2.454709
+number of terms generated: 24
+number of terms generated: 24
+freq[391]: 2.460368
+number of terms generated: 24
+number of terms generated: 24
+freq[392]: 2.466039
+number of terms generated: 24
+number of terms generated: 24
+freq[393]: 2.471724
+number of terms generated: 24
+number of terms generated: 24
+freq[394]: 2.477422
+number of terms generated: 24
+number of terms generated: 24
+freq[395]: 2.483133
+number of terms generated: 24
+number of terms generated: 24
+freq[396]: 2.488857
+number of terms generated: 24
+number of terms generated: 24
+freq[397]: 2.494595
+number of terms generated: 24
+number of terms generated: 24
+freq[398]: 2.500345
+number of terms generated: 24
+number of terms generated: 24
+freq[399]: 2.506109
+number of terms generated: 24
+number of terms generated: 24
+freq[400]: 2.511886
+number of terms generated: 24
+number of terms generated: 24
+freq[401]: 2.517677
+number of terms generated: 24
+number of terms generated: 24
+freq[402]: 2.523481
+number of terms generated: 24
+number of terms generated: 24
+freq[403]: 2.529298
+number of terms generated: 24
+number of terms generated: 24
+freq[404]: 2.535129
+number of terms generated: 24
+number of terms generated: 24
+freq[405]: 2.540973
+number of terms generated: 24
+number of terms generated: 24
+freq[406]: 2.546830
+number of terms generated: 24
+number of terms generated: 24
+freq[407]: 2.552701
+number of terms generated: 24
+number of terms generated: 24
+freq[408]: 2.558586
+number of terms generated: 24
+number of terms generated: 24
+freq[409]: 2.564484
+number of terms generated: 24
+number of terms generated: 24
+freq[410]: 2.570396
+number of terms generated: 24
+number of terms generated: 24
+freq[411]: 2.576321
+number of terms generated: 24
+number of terms generated: 24
+freq[412]: 2.582260
+number of terms generated: 24
+number of terms generated: 24
+freq[413]: 2.588213
+number of terms generated: 24
+number of terms generated: 24
+freq[414]: 2.594179
+number of terms generated: 24
+number of terms generated: 24
+freq[415]: 2.600160
+number of terms generated: 24
+number of terms generated: 24
+freq[416]: 2.606154
+number of terms generated: 24
+number of terms generated: 24
+freq[417]: 2.612161
+number of terms generated: 24
+number of terms generated: 24
+freq[418]: 2.618183
+number of terms generated: 24
+number of terms generated: 24
+freq[419]: 2.624219
+number of terms generated: 24
+number of terms generated: 24
+freq[420]: 2.630268
+number of terms generated: 24
+number of terms generated: 24
+freq[421]: 2.636331
+number of terms generated: 24
+number of terms generated: 24
+freq[422]: 2.642409
+number of terms generated: 24
+number of terms generated: 24
+freq[423]: 2.648500
+number of terms generated: 24
+number of terms generated: 24
+freq[424]: 2.654606
+number of terms generated: 24
+number of terms generated: 24
+freq[425]: 2.660725
+number of terms generated: 24
+number of terms generated: 24
+freq[426]: 2.666859
+number of terms generated: 24
+number of terms generated: 24
+freq[427]: 2.673006
+number of terms generated: 24
+number of terms generated: 24
+freq[428]: 2.679168
+number of terms generated: 24
+number of terms generated: 24
+freq[429]: 2.685344
+number of terms generated: 24
+number of terms generated: 24
+freq[430]: 2.691535
+number of terms generated: 24
+number of terms generated: 24
+freq[431]: 2.697739
+number of terms generated: 24
+number of terms generated: 24
+freq[432]: 2.703958
+number of terms generated: 24
+number of terms generated: 24
+freq[433]: 2.710192
+number of terms generated: 24
+number of terms generated: 24
+freq[434]: 2.716439
+number of terms generated: 24
+number of terms generated: 24
+freq[435]: 2.722701
+number of terms generated: 24
+number of terms generated: 24
+freq[436]: 2.728978
+number of terms generated: 24
+number of terms generated: 24
+freq[437]: 2.735269
+number of terms generated: 24
+number of terms generated: 24
+freq[438]: 2.741574
+number of terms generated: 24
+number of terms generated: 24
+freq[439]: 2.747894
+number of terms generated: 24
+number of terms generated: 24
+freq[440]: 2.754229
+number of terms generated: 24
+number of terms generated: 24
+freq[441]: 2.760578
+number of terms generated: 24
+number of terms generated: 24
+freq[442]: 2.766942
+number of terms generated: 24
+number of terms generated: 24
+freq[443]: 2.773320
+number of terms generated: 24
+number of terms generated: 24
+freq[444]: 2.779713
+number of terms generated: 24
+number of terms generated: 24
+freq[445]: 2.786121
+number of terms generated: 24
+number of terms generated: 24
+freq[446]: 2.792544
+number of terms generated: 24
+number of terms generated: 24
+freq[447]: 2.798981
+number of terms generated: 24
+number of terms generated: 24
+freq[448]: 2.805434
+number of terms generated: 24
+number of terms generated: 24
+freq[449]: 2.811901
+number of terms generated: 24
+number of terms generated: 24
+freq[450]: 2.818383
+number of terms generated: 24
+number of terms generated: 24
+freq[451]: 2.824880
+number of terms generated: 24
+number of terms generated: 24
+freq[452]: 2.831392
+number of terms generated: 24
+number of terms generated: 24
+freq[453]: 2.837919
+number of terms generated: 24
+number of terms generated: 24
+freq[454]: 2.844461
+number of terms generated: 24
+number of terms generated: 24
+freq[455]: 2.851018
+number of terms generated: 24
+number of terms generated: 24
+freq[456]: 2.857591
+number of terms generated: 24
+number of terms generated: 24
+freq[457]: 2.864178
+number of terms generated: 24
+number of terms generated: 24
+freq[458]: 2.870781
+number of terms generated: 24
+number of terms generated: 24
+freq[459]: 2.877398
+number of terms generated: 24
+number of terms generated: 24
+freq[460]: 2.884032
+number of terms generated: 24
+number of terms generated: 24
+freq[461]: 2.890680
+number of terms generated: 24
+number of terms generated: 24
+freq[462]: 2.897344
+number of terms generated: 24
+number of terms generated: 24
+freq[463]: 2.904023
+number of terms generated: 24
+number of terms generated: 24
+freq[464]: 2.910717
+number of terms generated: 24
+number of terms generated: 24
+freq[465]: 2.917427
+number of terms generated: 24
+number of terms generated: 24
+freq[466]: 2.924152
+number of terms generated: 24
+number of terms generated: 24
+freq[467]: 2.930893
+number of terms generated: 24
+number of terms generated: 24
+freq[468]: 2.937650
+number of terms generated: 24
+number of terms generated: 24
+freq[469]: 2.944422
+number of terms generated: 24
+number of terms generated: 24
+freq[470]: 2.951209
+number of terms generated: 24
+number of terms generated: 24
+freq[471]: 2.958012
+number of terms generated: 24
+number of terms generated: 24
+freq[472]: 2.964831
+number of terms generated: 24
+number of terms generated: 24
+freq[473]: 2.971666
+number of terms generated: 24
+number of terms generated: 24
+freq[474]: 2.978516
+number of terms generated: 24
+number of terms generated: 24
+freq[475]: 2.985383
+number of terms generated: 24
+number of terms generated: 24
+freq[476]: 2.992265
+number of terms generated: 24
+number of terms generated: 24
+freq[477]: 2.999163
+number of terms generated: 24
+number of terms generated: 24
+freq[478]: 3.006076
+number of terms generated: 24
+number of terms generated: 24
+freq[479]: 3.013006
+number of terms generated: 24
+number of terms generated: 24
+freq[480]: 3.019952
+number of terms generated: 24
+number of terms generated: 24
+freq[481]: 3.026913
+number of terms generated: 24
+number of terms generated: 24
+freq[482]: 3.033891
+number of terms generated: 24
+number of terms generated: 24
+freq[483]: 3.040885
+number of terms generated: 24
+number of terms generated: 24
+freq[484]: 3.047895
+number of terms generated: 24
+number of terms generated: 24
+freq[485]: 3.054921
+number of terms generated: 24
+number of terms generated: 24
+freq[486]: 3.061963
+number of terms generated: 24
+number of terms generated: 24
+freq[487]: 3.069022
+number of terms generated: 24
+number of terms generated: 24
+freq[488]: 3.076097
+number of terms generated: 24
+number of terms generated: 24
+freq[489]: 3.083188
+number of terms generated: 24
+number of terms generated: 24
+freq[490]: 3.090295
+number of terms generated: 24
+number of terms generated: 24
+freq[491]: 3.097419
+number of terms generated: 24
+number of terms generated: 24
+freq[492]: 3.104560
+number of terms generated: 24
+number of terms generated: 24
+freq[493]: 3.111716
+number of terms generated: 24
+number of terms generated: 24
+freq[494]: 3.118890
+number of terms generated: 24
+number of terms generated: 24
+freq[495]: 3.126079
+number of terms generated: 24
+number of terms generated: 24
+freq[496]: 3.133286
+number of terms generated: 24
+number of terms generated: 24
+freq[497]: 3.140509
+number of terms generated: 24
+number of terms generated: 24
+freq[498]: 3.147748
+number of terms generated: 24
+number of terms generated: 24
+freq[499]: 3.155005
+number of terms generated: 24
+number of terms generated: 24
+freq[500]: 3.162278
+number of terms generated: 24
+number of terms generated: 24
+freq[501]: 3.169567
+number of terms generated: 24
+number of terms generated: 24
+freq[502]: 3.176874
+number of terms generated: 24
+number of terms generated: 24
+freq[503]: 3.184198
+number of terms generated: 24
+number of terms generated: 24
+freq[504]: 3.191538
+number of terms generated: 24
+number of terms generated: 24
+freq[505]: 3.198895
+number of terms generated: 24
+number of terms generated: 24
+freq[506]: 3.206269
+number of terms generated: 24
+number of terms generated: 24
+freq[507]: 3.213661
+number of terms generated: 24
+number of terms generated: 24
+freq[508]: 3.221069
+number of terms generated: 24
+number of terms generated: 24
+freq[509]: 3.228494
+number of terms generated: 24
+number of terms generated: 24
+freq[510]: 3.235937
+number of terms generated: 24
+number of terms generated: 24
+freq[511]: 3.243396
+number of terms generated: 24
+number of terms generated: 24
+freq[512]: 3.250873
+number of terms generated: 24
+number of terms generated: 24
+freq[513]: 3.258367
+number of terms generated: 24
+number of terms generated: 24
+freq[514]: 3.265878
+number of terms generated: 24
+number of terms generated: 24
+freq[515]: 3.273407
+number of terms generated: 24
+number of terms generated: 24
+freq[516]: 3.280953
+number of terms generated: 24
+number of terms generated: 24
+freq[517]: 3.288516
+number of terms generated: 24
+number of terms generated: 24
+freq[518]: 3.296097
+number of terms generated: 24
+number of terms generated: 24
+freq[519]: 3.303695
+number of terms generated: 24
+number of terms generated: 24
+freq[520]: 3.311311
+number of terms generated: 24
+number of terms generated: 24
+freq[521]: 3.318945
+number of terms generated: 24
+number of terms generated: 24
+freq[522]: 3.326596
+number of terms generated: 24
+number of terms generated: 24
+freq[523]: 3.334264
+number of terms generated: 24
+number of terms generated: 24
+freq[524]: 3.341950
+number of terms generated: 24
+number of terms generated: 24
+freq[525]: 3.349654
+number of terms generated: 24
+number of terms generated: 24
+freq[526]: 3.357376
+number of terms generated: 24
+number of terms generated: 24
+freq[527]: 3.365116
+number of terms generated: 24
+number of terms generated: 24
+freq[528]: 3.372873
+number of terms generated: 24
+number of terms generated: 24
+freq[529]: 3.380648
+number of terms generated: 24
+number of terms generated: 24
+freq[530]: 3.388442
+number of terms generated: 24
+number of terms generated: 24
+freq[531]: 3.396253
+number of terms generated: 24
+number of terms generated: 24
+freq[532]: 3.404082
+number of terms generated: 24
+number of terms generated: 24
+freq[533]: 3.411929
+number of terms generated: 24
+number of terms generated: 24
+freq[534]: 3.419794
+number of terms generated: 24
+number of terms generated: 24
+freq[535]: 3.427678
+number of terms generated: 24
+number of terms generated: 24
+freq[536]: 3.435579
+number of terms generated: 24
+number of terms generated: 24
+freq[537]: 3.443499
+number of terms generated: 24
+number of terms generated: 24
+freq[538]: 3.451437
+number of terms generated: 24
+number of terms generated: 24
+freq[539]: 3.459394
+number of terms generated: 24
+number of terms generated: 24
+freq[540]: 3.467369
+number of terms generated: 24
+number of terms generated: 24
+freq[541]: 3.475362
+number of terms generated: 24
+number of terms generated: 24
+freq[542]: 3.483373
+number of terms generated: 24
+number of terms generated: 24
+freq[543]: 3.491403
+number of terms generated: 24
+number of terms generated: 24
+freq[544]: 3.499452
+number of terms generated: 24
+number of terms generated: 24
+freq[545]: 3.507519
+number of terms generated: 24
+number of terms generated: 24
+freq[546]: 3.515604
+number of terms generated: 24
+number of terms generated: 24
+freq[547]: 3.523709
+number of terms generated: 24
+number of terms generated: 24
+freq[548]: 3.531832
+number of terms generated: 24
+number of terms generated: 24
+freq[549]: 3.539973
+number of terms generated: 24
+number of terms generated: 24
+freq[550]: 3.548134
+number of terms generated: 24
+number of terms generated: 24
+freq[551]: 3.556313
+number of terms generated: 24
+number of terms generated: 24
+freq[552]: 3.564511
+number of terms generated: 24
+number of terms generated: 24
+freq[553]: 3.572728
+number of terms generated: 24
+number of terms generated: 24
+freq[554]: 3.580964
+number of terms generated: 24
+number of terms generated: 24
+freq[555]: 3.589219
+number of terms generated: 24
+number of terms generated: 24
+freq[556]: 3.597493
+number of terms generated: 24
+number of terms generated: 24
+freq[557]: 3.605786
+number of terms generated: 24
+number of terms generated: 24
+freq[558]: 3.614099
+number of terms generated: 24
+number of terms generated: 24
+freq[559]: 3.622430
+number of terms generated: 24
+number of terms generated: 24
+freq[560]: 3.630781
+number of terms generated: 24
+number of terms generated: 24
+freq[561]: 3.639150
+number of terms generated: 24
+number of terms generated: 24
+freq[562]: 3.647539
+number of terms generated: 24
+number of terms generated: 24
+freq[563]: 3.655948
+number of terms generated: 24
+number of terms generated: 24
+freq[564]: 3.664376
+number of terms generated: 24
+number of terms generated: 24
+freq[565]: 3.672823
+number of terms generated: 24
+number of terms generated: 24
+freq[566]: 3.681290
+number of terms generated: 24
+number of terms generated: 24
+freq[567]: 3.689776
+number of terms generated: 24
+number of terms generated: 24
+freq[568]: 3.698282
+number of terms generated: 24
+number of terms generated: 24
+freq[569]: 3.706807
+number of terms generated: 24
+number of terms generated: 24
+freq[570]: 3.715352
+number of terms generated: 24
+number of terms generated: 24
+freq[571]: 3.723917
+number of terms generated: 24
+number of terms generated: 24
+freq[572]: 3.732502
+number of terms generated: 24
+number of terms generated: 24
+freq[573]: 3.741106
+number of terms generated: 24
+number of terms generated: 24
+freq[574]: 3.749730
+number of terms generated: 24
+number of terms generated: 24
+freq[575]: 3.758374
+number of terms generated: 24
+number of terms generated: 24
+freq[576]: 3.767038
+number of terms generated: 24
+number of terms generated: 24
+freq[577]: 3.775722
+number of terms generated: 24
+number of terms generated: 24
+freq[578]: 3.784426
+number of terms generated: 24
+number of terms generated: 24
+freq[579]: 3.793150
+number of terms generated: 24
+number of terms generated: 24
+freq[580]: 3.801894
+number of terms generated: 24
+number of terms generated: 24
+freq[581]: 3.810658
+number of terms generated: 24
+number of terms generated: 24
+freq[582]: 3.819443
+number of terms generated: 24
+number of terms generated: 24
+freq[583]: 3.828247
+number of terms generated: 24
+number of terms generated: 24
+freq[584]: 3.837072
+number of terms generated: 24
+number of terms generated: 24
+freq[585]: 3.845918
+number of terms generated: 24
+number of terms generated: 24
+freq[586]: 3.854784
+number of terms generated: 24
+number of terms generated: 24
+freq[587]: 3.863670
+number of terms generated: 24
+number of terms generated: 24
+freq[588]: 3.872576
+number of terms generated: 24
+number of terms generated: 24
+freq[589]: 3.881504
+number of terms generated: 24
+number of terms generated: 24
+freq[590]: 3.890451
+number of terms generated: 24
+number of terms generated: 24
+freq[591]: 3.899420
+number of terms generated: 24
+number of terms generated: 24
+freq[592]: 3.908409
+number of terms generated: 24
+number of terms generated: 24
+freq[593]: 3.917419
+number of terms generated: 24
+number of terms generated: 24
+freq[594]: 3.926449
+number of terms generated: 24
+number of terms generated: 24
+freq[595]: 3.935501
+number of terms generated: 24
+number of terms generated: 24
+freq[596]: 3.944573
+number of terms generated: 24
+number of terms generated: 24
+freq[597]: 3.953666
+number of terms generated: 24
+number of terms generated: 24
+freq[598]: 3.962780
+number of terms generated: 24
+number of terms generated: 24
+freq[599]: 3.971915
+number of terms generated: 24
+number of terms generated: 24
+freq[600]: 3.981072
+number of terms generated: 24
+number of terms generated: 24
+freq[601]: 3.990249
+number of terms generated: 24
+number of terms generated: 24
+freq[602]: 3.999447
+number of terms generated: 24
+number of terms generated: 24
+freq[603]: 4.008667
+number of terms generated: 24
+number of terms generated: 24
+freq[604]: 4.017908
+number of terms generated: 24
+number of terms generated: 24
+freq[605]: 4.027170
+number of terms generated: 24
+number of terms generated: 24
+freq[606]: 4.036454
+number of terms generated: 24
+number of terms generated: 24
+freq[607]: 4.045759
+number of terms generated: 24
+number of terms generated: 24
+freq[608]: 4.055085
+number of terms generated: 24
+number of terms generated: 24
+freq[609]: 4.064433
+number of terms generated: 24
+number of terms generated: 24
+freq[610]: 4.073803
+number of terms generated: 24
+number of terms generated: 24
+freq[611]: 4.083194
+number of terms generated: 24
+number of terms generated: 24
+freq[612]: 4.092607
+number of terms generated: 24
+number of terms generated: 24
+freq[613]: 4.102041
+number of terms generated: 24
+number of terms generated: 24
+freq[614]: 4.111497
+number of terms generated: 24
+number of terms generated: 24
+freq[615]: 4.120975
+number of terms generated: 24
+number of terms generated: 24
+freq[616]: 4.130475
+number of terms generated: 24
+number of terms generated: 24
+freq[617]: 4.139997
+number of terms generated: 24
+number of terms generated: 24
+freq[618]: 4.149540
+number of terms generated: 24
+number of terms generated: 24
+freq[619]: 4.159106
+number of terms generated: 24
+number of terms generated: 24
+freq[620]: 4.168694
+number of terms generated: 24
+number of terms generated: 24
+freq[621]: 4.178304
+number of terms generated: 24
+number of terms generated: 24
+freq[622]: 4.187936
+number of terms generated: 24
+number of terms generated: 24
+freq[623]: 4.197590
+number of terms generated: 24
+number of terms generated: 24
+freq[624]: 4.207266
+number of terms generated: 24
+number of terms generated: 24
+freq[625]: 4.216965
+number of terms generated: 24
+number of terms generated: 24
+freq[626]: 4.226686
+number of terms generated: 24
+number of terms generated: 24
+freq[627]: 4.236430
+number of terms generated: 24
+number of terms generated: 24
+freq[628]: 4.246196
+number of terms generated: 24
+number of terms generated: 24
+freq[629]: 4.255984
+number of terms generated: 24
+number of terms generated: 24
+freq[630]: 4.265795
+number of terms generated: 24
+number of terms generated: 24
+freq[631]: 4.275629
+number of terms generated: 24
+number of terms generated: 24
+freq[632]: 4.285485
+number of terms generated: 24
+number of terms generated: 24
+freq[633]: 4.295364
+number of terms generated: 24
+number of terms generated: 24
+freq[634]: 4.305266
+number of terms generated: 24
+number of terms generated: 24
+freq[635]: 4.315191
+number of terms generated: 24
+number of terms generated: 24
+freq[636]: 4.325138
+number of terms generated: 24
+number of terms generated: 24
+freq[637]: 4.335109
+number of terms generated: 24
+number of terms generated: 24
+freq[638]: 4.345102
+number of terms generated: 24
+number of terms generated: 24
+freq[639]: 4.355119
+number of terms generated: 24
+number of terms generated: 24
+freq[640]: 4.365158
+number of terms generated: 24
+number of terms generated: 24
+freq[641]: 4.375221
+number of terms generated: 24
+number of terms generated: 24
+freq[642]: 4.385307
+number of terms generated: 24
+number of terms generated: 24
+freq[643]: 4.395416
+number of terms generated: 24
+number of terms generated: 24
+freq[644]: 4.405549
+number of terms generated: 24
+number of terms generated: 24
+freq[645]: 4.415704
+number of terms generated: 24
+number of terms generated: 24
+freq[646]: 4.425884
+number of terms generated: 24
+number of terms generated: 24
+freq[647]: 4.436086
+number of terms generated: 24
+number of terms generated: 24
+freq[648]: 4.446313
+number of terms generated: 24
+number of terms generated: 24
+freq[649]: 4.456562
+number of terms generated: 24
+number of terms generated: 24
+freq[650]: 4.466836
+number of terms generated: 24
+number of terms generated: 24
+freq[651]: 4.477133
+number of terms generated: 24
+number of terms generated: 24
+freq[652]: 4.487454
+number of terms generated: 24
+number of terms generated: 24
+freq[653]: 4.497799
+number of terms generated: 24
+number of terms generated: 24
+freq[654]: 4.508167
+number of terms generated: 24
+number of terms generated: 24
+freq[655]: 4.518559
+number of terms generated: 24
+number of terms generated: 24
+freq[656]: 4.528976
+number of terms generated: 24
+number of terms generated: 24
+freq[657]: 4.539416
+number of terms generated: 24
+number of terms generated: 24
+freq[658]: 4.549881
+number of terms generated: 24
+number of terms generated: 24
+freq[659]: 4.560369
+number of terms generated: 24
+number of terms generated: 24
+freq[660]: 4.570882
+number of terms generated: 24
+number of terms generated: 24
+freq[661]: 4.581419
+number of terms generated: 24
+number of terms generated: 24
+freq[662]: 4.591980
+number of terms generated: 24
+number of terms generated: 24
+freq[663]: 4.602566
+number of terms generated: 24
+number of terms generated: 24
+freq[664]: 4.613176
+number of terms generated: 24
+number of terms generated: 24
+freq[665]: 4.623810
+number of terms generated: 24
+number of terms generated: 24
+freq[666]: 4.634469
+number of terms generated: 24
+number of terms generated: 24
+freq[667]: 4.645153
+number of terms generated: 24
+number of terms generated: 24
+freq[668]: 4.655861
+number of terms generated: 24
+number of terms generated: 24
+freq[669]: 4.666594
+number of terms generated: 24
+number of terms generated: 24
+freq[670]: 4.677351
+number of terms generated: 24
+number of terms generated: 24
+freq[671]: 4.688134
+number of terms generated: 24
+number of terms generated: 24
+freq[672]: 4.698941
+number of terms generated: 24
+number of terms generated: 24
+freq[673]: 4.709773
+number of terms generated: 24
+number of terms generated: 24
+freq[674]: 4.720630
+number of terms generated: 24
+number of terms generated: 24
+freq[675]: 4.731513
+number of terms generated: 24
+number of terms generated: 24
+freq[676]: 4.742420
+number of terms generated: 24
+number of terms generated: 24
+freq[677]: 4.753352
+number of terms generated: 24
+number of terms generated: 24
+freq[678]: 4.764310
+number of terms generated: 24
+number of terms generated: 24
+freq[679]: 4.775293
+number of terms generated: 24
+number of terms generated: 24
+freq[680]: 4.786301
+number of terms generated: 24
+number of terms generated: 24
+freq[681]: 4.797334
+number of terms generated: 24
+number of terms generated: 24
+freq[682]: 4.808393
+number of terms generated: 24
+number of terms generated: 24
+freq[683]: 4.819478
+number of terms generated: 24
+number of terms generated: 24
+freq[684]: 4.830588
+number of terms generated: 24
+number of terms generated: 24
+freq[685]: 4.841724
+number of terms generated: 24
+number of terms generated: 24
+freq[686]: 4.852885
+number of terms generated: 24
+number of terms generated: 24
+freq[687]: 4.864072
+number of terms generated: 24
+number of terms generated: 24
+freq[688]: 4.875285
+number of terms generated: 24
+number of terms generated: 24
+freq[689]: 4.886524
+number of terms generated: 24
+number of terms generated: 24
+freq[690]: 4.897788
+number of terms generated: 24
+number of terms generated: 24
+freq[691]: 4.909079
+number of terms generated: 24
+number of terms generated: 24
+freq[692]: 4.920395
+number of terms generated: 24
+number of terms generated: 24
+freq[693]: 4.931738
+number of terms generated: 24
+number of terms generated: 24
+freq[694]: 4.943107
+number of terms generated: 24
+number of terms generated: 24
+freq[695]: 4.954502
+number of terms generated: 24
+number of terms generated: 24
+freq[696]: 4.965923
+number of terms generated: 24
+number of terms generated: 24
+freq[697]: 4.977371
+number of terms generated: 24
+number of terms generated: 24
+freq[698]: 4.988845
+number of terms generated: 24
+number of terms generated: 24
+freq[699]: 5.000345
+number of terms generated: 24
+number of terms generated: 24
+freq[700]: 5.011872
+number of terms generated: 24
+number of terms generated: 24
+freq[701]: 5.023426
+number of terms generated: 24
+number of terms generated: 24
+freq[702]: 5.035006
+number of terms generated: 24
+number of terms generated: 24
+freq[703]: 5.046613
+number of terms generated: 24
+number of terms generated: 24
+freq[704]: 5.058247
+number of terms generated: 24
+number of terms generated: 24
+freq[705]: 5.069907
+number of terms generated: 24
+number of terms generated: 24
+freq[706]: 5.081594
+number of terms generated: 24
+number of terms generated: 24
+freq[707]: 5.093309
+number of terms generated: 24
+number of terms generated: 24
+freq[708]: 5.105050
+number of terms generated: 24
+number of terms generated: 24
+freq[709]: 5.116818
+number of terms generated: 24
+number of terms generated: 24
+freq[710]: 5.128614
+number of terms generated: 24
+number of terms generated: 24
+freq[711]: 5.140437
+number of terms generated: 24
+number of terms generated: 24
+freq[712]: 5.152286
+number of terms generated: 24
+number of terms generated: 24
+freq[713]: 5.164164
+number of terms generated: 24
+number of terms generated: 24
+freq[714]: 5.176068
+number of terms generated: 24
+number of terms generated: 24
+freq[715]: 5.188000
+number of terms generated: 24
+number of terms generated: 24
+freq[716]: 5.199960
+number of terms generated: 24
+number of terms generated: 24
+freq[717]: 5.211947
+number of terms generated: 24
+number of terms generated: 24
+freq[718]: 5.223962
+number of terms generated: 24
+number of terms generated: 24
+freq[719]: 5.236004
+number of terms generated: 24
+number of terms generated: 24
+freq[720]: 5.248075
+number of terms generated: 24
+number of terms generated: 24
+freq[721]: 5.260173
+number of terms generated: 24
+number of terms generated: 24
+freq[722]: 5.272299
+number of terms generated: 24
+number of terms generated: 24
+freq[723]: 5.284453
+number of terms generated: 24
+number of terms generated: 24
+freq[724]: 5.296634
+number of terms generated: 24
+number of terms generated: 24
+freq[725]: 5.308844
+number of terms generated: 24
+number of terms generated: 24
+freq[726]: 5.321083
+number of terms generated: 24
+number of terms generated: 24
+freq[727]: 5.333349
+number of terms generated: 24
+number of terms generated: 24
+freq[728]: 5.345644
+number of terms generated: 24
+number of terms generated: 24
+freq[729]: 5.357967
+number of terms generated: 24
+number of terms generated: 24
+freq[730]: 5.370318
+number of terms generated: 24
+number of terms generated: 24
+freq[731]: 5.382698
+number of terms generated: 24
+number of terms generated: 24
+freq[732]: 5.395106
+number of terms generated: 24
+number of terms generated: 24
+freq[733]: 5.407543
+number of terms generated: 24
+number of terms generated: 24
+freq[734]: 5.420009
+number of terms generated: 24
+number of terms generated: 24
+freq[735]: 5.432503
+number of terms generated: 24
+number of terms generated: 24
+freq[736]: 5.445027
+number of terms generated: 24
+number of terms generated: 24
+freq[737]: 5.457579
+number of terms generated: 24
+number of terms generated: 24
+freq[738]: 5.470160
+number of terms generated: 24
+number of terms generated: 24
+freq[739]: 5.482770
+number of terms generated: 24
+number of terms generated: 24
+freq[740]: 5.495409
+number of terms generated: 24
+number of terms generated: 24
+freq[741]: 5.508077
+number of terms generated: 24
+number of terms generated: 24
+freq[742]: 5.520774
+number of terms generated: 24
+number of terms generated: 24
+freq[743]: 5.533501
+number of terms generated: 24
+number of terms generated: 24
+freq[744]: 5.546257
+number of terms generated: 24
+number of terms generated: 24
+freq[745]: 5.559043
+number of terms generated: 24
+number of terms generated: 24
+freq[746]: 5.571857
+number of terms generated: 24
+number of terms generated: 24
+freq[747]: 5.584702
+number of terms generated: 24
+number of terms generated: 24
+freq[748]: 5.597576
+number of terms generated: 24
+number of terms generated: 24
+freq[749]: 5.610480
+number of terms generated: 24
+number of terms generated: 24
+freq[750]: 5.623413
+number of terms generated: 24
+number of terms generated: 24
+freq[751]: 5.636377
+number of terms generated: 24
+number of terms generated: 24
+freq[752]: 5.649370
+number of terms generated: 24
+number of terms generated: 24
+freq[753]: 5.662393
+number of terms generated: 24
+number of terms generated: 24
+freq[754]: 5.675446
+number of terms generated: 24
+number of terms generated: 24
+freq[755]: 5.688529
+number of terms generated: 24
+number of terms generated: 24
+freq[756]: 5.701643
+number of terms generated: 24
+number of terms generated: 24
+freq[757]: 5.714786
+number of terms generated: 24
+number of terms generated: 24
+freq[758]: 5.727960
+number of terms generated: 24
+number of terms generated: 24
+freq[759]: 5.741165
+number of terms generated: 24
+number of terms generated: 24
+freq[760]: 5.754399
+number of terms generated: 24
+number of terms generated: 24
+freq[761]: 5.767665
+number of terms generated: 24
+number of terms generated: 24
+freq[762]: 5.780960
+number of terms generated: 24
+number of terms generated: 24
+freq[763]: 5.794287
+number of terms generated: 24
+number of terms generated: 24
+freq[764]: 5.807644
+number of terms generated: 24
+number of terms generated: 24
+freq[765]: 5.821032
+number of terms generated: 24
+number of terms generated: 24
+freq[766]: 5.834451
+number of terms generated: 24
+number of terms generated: 24
+freq[767]: 5.847901
+number of terms generated: 24
+number of terms generated: 24
+freq[768]: 5.861382
+number of terms generated: 24
+number of terms generated: 24
+freq[769]: 5.874894
+number of terms generated: 24
+number of terms generated: 24
+freq[770]: 5.888437
+number of terms generated: 24
+number of terms generated: 24
+freq[771]: 5.902011
+number of terms generated: 24
+number of terms generated: 24
+freq[772]: 5.915616
+number of terms generated: 24
+number of terms generated: 24
+freq[773]: 5.929253
+number of terms generated: 24
+number of terms generated: 24
+freq[774]: 5.942922
+number of terms generated: 24
+number of terms generated: 24
+freq[775]: 5.956621
+number of terms generated: 24
+number of terms generated: 24
+freq[776]: 5.970353
+number of terms generated: 24
+number of terms generated: 24
+freq[777]: 5.984116
+number of terms generated: 24
+number of terms generated: 24
+freq[778]: 5.997911
+number of terms generated: 24
+number of terms generated: 24
+freq[779]: 6.011737
+number of terms generated: 24
+number of terms generated: 24
+freq[780]: 6.025596
+number of terms generated: 24
+number of terms generated: 24
+freq[781]: 6.039486
+number of terms generated: 24
+number of terms generated: 24
+freq[782]: 6.053409
+number of terms generated: 24
+number of terms generated: 24
+freq[783]: 6.067363
+number of terms generated: 24
+number of terms generated: 24
+freq[784]: 6.081350
+number of terms generated: 24
+number of terms generated: 24
+freq[785]: 6.095369
+number of terms generated: 24
+number of terms generated: 24
+freq[786]: 6.109420
+number of terms generated: 24
+number of terms generated: 24
+freq[787]: 6.123504
+number of terms generated: 24
+number of terms generated: 24
+freq[788]: 6.137620
+number of terms generated: 24
+number of terms generated: 24
+freq[789]: 6.151769
+number of terms generated: 24
+number of terms generated: 24
+freq[790]: 6.165950
+number of terms generated: 24
+number of terms generated: 24
+freq[791]: 6.180164
+number of terms generated: 24
+number of terms generated: 24
+freq[792]: 6.194411
+number of terms generated: 24
+number of terms generated: 24
+freq[793]: 6.208690
+number of terms generated: 24
+number of terms generated: 24
+freq[794]: 6.223003
+number of terms generated: 24
+number of terms generated: 24
+freq[795]: 6.237348
+number of terms generated: 24
+number of terms generated: 24
+freq[796]: 6.251727
+number of terms generated: 24
+number of terms generated: 24
+freq[797]: 6.266139
+number of terms generated: 24
+number of terms generated: 24
+freq[798]: 6.280584
+number of terms generated: 24
+number of terms generated: 24
+freq[799]: 6.295062
+number of terms generated: 24
+number of terms generated: 24
+freq[800]: 6.309573
+number of terms generated: 24
+number of terms generated: 24
+freq[801]: 6.324119
+number of terms generated: 24
+number of terms generated: 24
+freq[802]: 6.338697
+number of terms generated: 24
+number of terms generated: 24
+freq[803]: 6.353309
+number of terms generated: 24
+number of terms generated: 24
+freq[804]: 6.367955
+number of terms generated: 24
+number of terms generated: 24
+freq[805]: 6.382635
+number of terms generated: 24
+number of terms generated: 24
+freq[806]: 6.397348
+number of terms generated: 24
+number of terms generated: 24
+freq[807]: 6.412096
+number of terms generated: 24
+number of terms generated: 24
+freq[808]: 6.426877
+number of terms generated: 24
+number of terms generated: 24
+freq[809]: 6.441693
+number of terms generated: 24
+number of terms generated: 24
+freq[810]: 6.456542
+number of terms generated: 24
+number of terms generated: 24
+freq[811]: 6.471426
+number of terms generated: 24
+number of terms generated: 24
+freq[812]: 6.486344
+number of terms generated: 24
+number of terms generated: 24
+freq[813]: 6.501297
+number of terms generated: 24
+number of terms generated: 24
+freq[814]: 6.516284
+number of terms generated: 24
+number of terms generated: 24
+freq[815]: 6.531306
+number of terms generated: 24
+number of terms generated: 24
+freq[816]: 6.546362
+number of terms generated: 24
+number of terms generated: 24
+freq[817]: 6.561453
+number of terms generated: 24
+number of terms generated: 24
+freq[818]: 6.576578
+number of terms generated: 24
+number of terms generated: 24
+freq[819]: 6.591739
+number of terms generated: 24
+number of terms generated: 24
+freq[820]: 6.606934
+number of terms generated: 24
+number of terms generated: 24
+freq[821]: 6.622165
+number of terms generated: 24
+number of terms generated: 24
+freq[822]: 6.637431
+number of terms generated: 24
+number of terms generated: 24
+freq[823]: 6.652732
+number of terms generated: 24
+number of terms generated: 24
+freq[824]: 6.668068
+number of terms generated: 24
+number of terms generated: 24
+freq[825]: 6.683439
+number of terms generated: 24
+number of terms generated: 24
+freq[826]: 6.698846
+number of terms generated: 24
+number of terms generated: 24
+freq[827]: 6.714289
+number of terms generated: 24
+number of terms generated: 24
+freq[828]: 6.729767
+number of terms generated: 24
+number of terms generated: 24
+freq[829]: 6.745280
+number of terms generated: 24
+number of terms generated: 24
+freq[830]: 6.760830
+number of terms generated: 24
+number of terms generated: 24
+freq[831]: 6.776415
+number of terms generated: 24
+number of terms generated: 24
+freq[832]: 6.792036
+number of terms generated: 24
+number of terms generated: 24
+freq[833]: 6.807694
+number of terms generated: 24
+number of terms generated: 24
+freq[834]: 6.823387
+number of terms generated: 24
+number of terms generated: 24
+freq[835]: 6.839116
+number of terms generated: 24
+number of terms generated: 24
+freq[836]: 6.854882
+number of terms generated: 24
+number of terms generated: 24
+freq[837]: 6.870684
+number of terms generated: 24
+number of terms generated: 24
+freq[838]: 6.886523
+number of terms generated: 24
+number of terms generated: 24
+freq[839]: 6.902398
+number of terms generated: 24
+number of terms generated: 24
+freq[840]: 6.918310
+number of terms generated: 24
+number of terms generated: 24
+freq[841]: 6.934258
+number of terms generated: 24
+number of terms generated: 24
+freq[842]: 6.950243
+number of terms generated: 24
+number of terms generated: 24
+freq[843]: 6.966265
+number of terms generated: 24
+number of terms generated: 24
+freq[844]: 6.982324
+number of terms generated: 24
+number of terms generated: 24
+freq[845]: 6.998420
+number of terms generated: 24
+number of terms generated: 24
+freq[846]: 7.014553
+number of terms generated: 24
+number of terms generated: 24
+freq[847]: 7.030723
+number of terms generated: 24
+number of terms generated: 24
+freq[848]: 7.046931
+number of terms generated: 24
+number of terms generated: 24
+freq[849]: 7.063176
+number of terms generated: 24
+number of terms generated: 24
+freq[850]: 7.079458
+number of terms generated: 24
+number of terms generated: 24
+freq[851]: 7.095778
+number of terms generated: 24
+number of terms generated: 24
+freq[852]: 7.112135
+number of terms generated: 24
+number of terms generated: 24
+freq[853]: 7.128530
+number of terms generated: 24
+number of terms generated: 24
+freq[854]: 7.144963
+number of terms generated: 24
+number of terms generated: 24
+freq[855]: 7.161434
+number of terms generated: 24
+number of terms generated: 24
+freq[856]: 7.177943
+number of terms generated: 24
+number of terms generated: 24
+freq[857]: 7.194490
+number of terms generated: 24
+number of terms generated: 24
+freq[858]: 7.211075
+number of terms generated: 24
+number of terms generated: 24
+freq[859]: 7.227698
+number of terms generated: 24
+number of terms generated: 24
+freq[860]: 7.244360
+number of terms generated: 24
+number of terms generated: 24
+freq[861]: 7.261060
+number of terms generated: 24
+number of terms generated: 24
+freq[862]: 7.277798
+number of terms generated: 24
+number of terms generated: 24
+freq[863]: 7.294575
+number of terms generated: 24
+number of terms generated: 24
+freq[864]: 7.311391
+number of terms generated: 24
+number of terms generated: 24
+freq[865]: 7.328245
+number of terms generated: 24
+number of terms generated: 24
+freq[866]: 7.345139
+number of terms generated: 24
+number of terms generated: 24
+freq[867]: 7.362071
+number of terms generated: 24
+number of terms generated: 24
+freq[868]: 7.379042
+number of terms generated: 24
+number of terms generated: 24
+freq[869]: 7.396053
+number of terms generated: 24
+number of terms generated: 24
+freq[870]: 7.413102
+number of terms generated: 24
+number of terms generated: 24
+freq[871]: 7.430191
+number of terms generated: 24
+number of terms generated: 24
+freq[872]: 7.447320
+number of terms generated: 24
+number of terms generated: 24
+freq[873]: 7.464488
+number of terms generated: 24
+number of terms generated: 24
+freq[874]: 7.481695
+number of terms generated: 24
+number of terms generated: 24
+freq[875]: 7.498942
+number of terms generated: 24
+number of terms generated: 24
+freq[876]: 7.516229
+number of terms generated: 24
+number of terms generated: 24
+freq[877]: 7.533556
+number of terms generated: 24
+number of terms generated: 24
+freq[878]: 7.550922
+number of terms generated: 24
+number of terms generated: 24
+freq[879]: 7.568329
+number of terms generated: 24
+number of terms generated: 24
+freq[880]: 7.585776
+number of terms generated: 24
+number of terms generated: 24
+freq[881]: 7.603263
+number of terms generated: 24
+number of terms generated: 24
+freq[882]: 7.620790
+number of terms generated: 24
+number of terms generated: 24
+freq[883]: 7.638358
+number of terms generated: 24
+number of terms generated: 24
+freq[884]: 7.655966
+number of terms generated: 24
+number of terms generated: 24
+freq[885]: 7.673615
+number of terms generated: 24
+number of terms generated: 24
+freq[886]: 7.691304
+number of terms generated: 24
+number of terms generated: 24
+freq[887]: 7.709035
+number of terms generated: 24
+number of terms generated: 24
+freq[888]: 7.726806
+number of terms generated: 24
+number of terms generated: 24
+freq[889]: 7.744618
+number of terms generated: 24
+number of terms generated: 24
+freq[890]: 7.762471
+number of terms generated: 24
+number of terms generated: 24
+freq[891]: 7.780366
+number of terms generated: 24
+number of terms generated: 24
+freq[892]: 7.798301
+number of terms generated: 24
+number of terms generated: 24
+freq[893]: 7.816278
+number of terms generated: 24
+number of terms generated: 24
+freq[894]: 7.834296
+number of terms generated: 24
+number of terms generated: 24
+freq[895]: 7.852356
+number of terms generated: 24
+number of terms generated: 24
+freq[896]: 7.870458
+number of terms generated: 24
+number of terms generated: 24
+freq[897]: 7.888601
+number of terms generated: 24
+number of terms generated: 24
+freq[898]: 7.906786
+number of terms generated: 24
+number of terms generated: 24
+freq[899]: 7.925013
+number of terms generated: 24
+number of terms generated: 24
+freq[900]: 7.943282
+number of terms generated: 24
+number of terms generated: 24
+freq[901]: 7.961594
+number of terms generated: 24
+number of terms generated: 24
+freq[902]: 7.979947
+number of terms generated: 24
+number of terms generated: 24
+freq[903]: 7.998343
+number of terms generated: 24
+number of terms generated: 24
+freq[904]: 8.016781
+number of terms generated: 24
+number of terms generated: 24
+freq[905]: 8.035261
+number of terms generated: 24
+number of terms generated: 24
+freq[906]: 8.053784
+number of terms generated: 24
+number of terms generated: 24
+freq[907]: 8.072350
+number of terms generated: 24
+number of terms generated: 24
+freq[908]: 8.090959
+number of terms generated: 24
+number of terms generated: 24
+freq[909]: 8.109611
+number of terms generated: 24
+number of terms generated: 24
+freq[910]: 8.128305
+number of terms generated: 24
+number of terms generated: 24
+freq[911]: 8.147043
+number of terms generated: 24
+number of terms generated: 24
+freq[912]: 8.165824
+number of terms generated: 24
+number of terms generated: 24
+freq[913]: 8.184648
+number of terms generated: 24
+number of terms generated: 24
+freq[914]: 8.203515
+number of terms generated: 24
+number of terms generated: 24
+freq[915]: 8.222426
+number of terms generated: 24
+number of terms generated: 24
+freq[916]: 8.241381
+number of terms generated: 24
+number of terms generated: 24
+freq[917]: 8.260379
+number of terms generated: 24
+number of terms generated: 24
+freq[918]: 8.279422
+number of terms generated: 24
+number of terms generated: 24
+freq[919]: 8.298508
+number of terms generated: 24
+number of terms generated: 24
+freq[920]: 8.317638
+number of terms generated: 24
+number of terms generated: 24
+freq[921]: 8.336812
+number of terms generated: 24
+number of terms generated: 24
+freq[922]: 8.356030
+number of terms generated: 24
+number of terms generated: 24
+freq[923]: 8.375293
+number of terms generated: 24
+number of terms generated: 24
+freq[924]: 8.394600
+number of terms generated: 24
+number of terms generated: 24
+freq[925]: 8.413951
+number of terms generated: 24
+number of terms generated: 24
+freq[926]: 8.433348
+number of terms generated: 24
+number of terms generated: 24
+freq[927]: 8.452788
+number of terms generated: 24
+number of terms generated: 24
+freq[928]: 8.472274
+number of terms generated: 24
+number of terms generated: 24
+freq[929]: 8.491805
+number of terms generated: 24
+number of terms generated: 24
+freq[930]: 8.511380
+number of terms generated: 24
+number of terms generated: 24
+freq[931]: 8.531001
+number of terms generated: 24
+number of terms generated: 24
+freq[932]: 8.550667
+number of terms generated: 24
+number of terms generated: 24
+freq[933]: 8.570378
+number of terms generated: 24
+number of terms generated: 24
+freq[934]: 8.590135
+number of terms generated: 24
+number of terms generated: 24
+freq[935]: 8.609938
+number of terms generated: 24
+number of terms generated: 24
+freq[936]: 8.629785
+number of terms generated: 24
+number of terms generated: 24
+freq[937]: 8.649679
+number of terms generated: 24
+number of terms generated: 24
+freq[938]: 8.669619
+number of terms generated: 24
+number of terms generated: 24
+freq[939]: 8.689604
+number of terms generated: 24
+number of terms generated: 24
+freq[940]: 8.709636
+number of terms generated: 24
+number of terms generated: 24
+freq[941]: 8.729714
+number of terms generated: 24
+number of terms generated: 24
+freq[942]: 8.749838
+number of terms generated: 24
+number of terms generated: 24
+freq[943]: 8.770008
+number of terms generated: 24
+number of terms generated: 24
+freq[944]: 8.790225
+number of terms generated: 24
+number of terms generated: 24
+freq[945]: 8.810489
+number of terms generated: 24
+number of terms generated: 24
+freq[946]: 8.830799
+number of terms generated: 24
+number of terms generated: 24
+freq[947]: 8.851156
+number of terms generated: 24
+number of terms generated: 24
+freq[948]: 8.871560
+number of terms generated: 24
+number of terms generated: 24
+freq[949]: 8.892011
+number of terms generated: 24
+number of terms generated: 24
+freq[950]: 8.912509
+number of terms generated: 24
+number of terms generated: 24
+freq[951]: 8.933055
+number of terms generated: 24
+number of terms generated: 24
+freq[952]: 8.953648
+number of terms generated: 24
+number of terms generated: 24
+freq[953]: 8.974288
+number of terms generated: 24
+number of terms generated: 24
+freq[954]: 8.994976
+number of terms generated: 24
+number of terms generated: 24
+freq[955]: 9.015711
+number of terms generated: 24
+number of terms generated: 24
+freq[956]: 9.036495
+number of terms generated: 24
+number of terms generated: 24
+freq[957]: 9.057326
+number of terms generated: 24
+number of terms generated: 24
+freq[958]: 9.078205
+number of terms generated: 24
+number of terms generated: 24
+freq[959]: 9.099133
+number of terms generated: 24
+number of terms generated: 24
+freq[960]: 9.120108
+number of terms generated: 24
+number of terms generated: 24
+freq[961]: 9.141132
+number of terms generated: 24
+number of terms generated: 24
+freq[962]: 9.162205
+number of terms generated: 24
+number of terms generated: 24
+freq[963]: 9.183326
+number of terms generated: 24
+number of terms generated: 24
+freq[964]: 9.204496
+number of terms generated: 24
+number of terms generated: 24
+freq[965]: 9.225714
+number of terms generated: 24
+number of terms generated: 24
+freq[966]: 9.246982
+number of terms generated: 24
+number of terms generated: 24
+freq[967]: 9.268298
+number of terms generated: 24
+number of terms generated: 24
+freq[968]: 9.289664
+number of terms generated: 24
+number of terms generated: 24
+freq[969]: 9.311079
+number of terms generated: 24
+number of terms generated: 24
+freq[970]: 9.332543
+number of terms generated: 24
+number of terms generated: 24
+freq[971]: 9.354057
+number of terms generated: 24
+number of terms generated: 24
+freq[972]: 9.375620
+number of terms generated: 24
+number of terms generated: 24
+freq[973]: 9.397233
+number of terms generated: 24
+number of terms generated: 24
+freq[974]: 9.418896
+number of terms generated: 24
+number of terms generated: 24
+freq[975]: 9.440609
+number of terms generated: 24
+number of terms generated: 24
+freq[976]: 9.462372
+number of terms generated: 24
+number of terms generated: 24
+freq[977]: 9.484185
+number of terms generated: 24
+number of terms generated: 24
+freq[978]: 9.506048
+number of terms generated: 24
+number of terms generated: 24
+freq[979]: 9.527962
+number of terms generated: 24
+number of terms generated: 24
+freq[980]: 9.549926
+number of terms generated: 24
+number of terms generated: 24
+freq[981]: 9.571941
+number of terms generated: 24
+number of terms generated: 24
+freq[982]: 9.594006
+number of terms generated: 24
+number of terms generated: 24
+freq[983]: 9.616123
+number of terms generated: 24
+number of terms generated: 24
+freq[984]: 9.638290
+number of terms generated: 24
+number of terms generated: 24
+freq[985]: 9.660509
+number of terms generated: 24
+number of terms generated: 24
+freq[986]: 9.682779
+number of terms generated: 24
+number of terms generated: 24
+freq[987]: 9.705100
+number of terms generated: 24
+number of terms generated: 24
+freq[988]: 9.727472
+number of terms generated: 24
+number of terms generated: 24
+freq[989]: 9.749896
+number of terms generated: 24
+number of terms generated: 24
+freq[990]: 9.772372
+number of terms generated: 24
+number of terms generated: 24
+freq[991]: 9.794900
+number of terms generated: 24
+number of terms generated: 24
+freq[992]: 9.817479
+number of terms generated: 24
+number of terms generated: 24
+freq[993]: 9.840111
+number of terms generated: 24
+number of terms generated: 24
+freq[994]: 9.862795
+number of terms generated: 24
+number of terms generated: 24
+freq[995]: 9.885531
+number of terms generated: 24
+number of terms generated: 24
+freq[996]: 10.000000
+number of terms generated: 24
+number of terms generated: 24
+End of simplification 
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+[0:00.2u 0:00.1s 968k]
+: print
+Simplified Symbolic Expression
+numerator:
+(-) * [
+	s^0(-2.22222e-12
+	+ (-1/r2) (37) (-1/r4) (28) (-1/r6) (19) ,-2.22222e-12
+	) + 
+	number of terms:1
+]
+-----------------------------
+denominator:
+(+) * [
+	s^0(3.60494e-12
+	+ (1/r2) (31) (1/r4) (22) (1/r6) (13) ,2.22222e-12
+	- (1/r2) (31) (-1/r6) (19) (-1/r6) (16) ,-1.48148e-12
+	+ (1/r2) (31) (1/r6) (24) (1/r6) (13) ,1.48148e-12
+	+ (1/r2) (31) (1/r4) (22) (1/r7) (14) ,7.40741e-13
+	+ (-1/r4) (28) (-1/r4) (25) (1/r6) (13) ,-6.66667e-13
+	+ (1/r4) (33) (1/r4) (22) (1/r6) (13) ,6.66667e-13
+	+ (1/r2) (31) (1/r6) (24) (1/r7) (14) ,4.93827e-13
+	- (1/r4) (33) (-1/r6) (19) (-1/r6) (16) ,-4.44444e-13
+	+ (1/r4) (33) (1/r6) (24) (1/r6) (13) ,4.44444e-13
+	+ (-1/r4) (28) (-1/r4) (25) (1/r7) (14) ,-2.22222e-13
+	+ (1/r4) (33) (1/r4) (22) (1/r7) (14) ,2.22222e-13
+	+ (1/r4) (33) (1/r6) (24) (1/r7) (14) ,1.48148e-13
+	) + 
+	s^1(7.52121e-18
+	+ (1/r2) (31) (c5) (23) (1/r6) (13) ,4.18879e-18
+	+ (1/r2) (31) (c5) (23) (1/r7) (14) ,1.39626e-18
+	+ (1/r4) (33) (c5) (23) (1/r6) (13) ,1.25664e-18
+	+ (1/r4) (33) (c5) (23) (1/r7) (14) ,4.18879e-19
+	+ (c3) (32) (1/r4) (22) (1/r6) (13) ,1.67552e-19
+	- (c3) (32) (-1/r6) (19) (-1/r6) (16) ,-1.11701e-19
+	+ (c3) (32) (1/r6) (24) (1/r6) (13) ,1.11701e-19
+	+ (c3) (32) (1/r4) (22) (1/r7) (14) ,5.58505e-20
+	+ (c3) (32) (1/r6) (24) (1/r7) (14) ,3.72337e-20
+	) + 
+	s^2(4.21103e-25
+	+ (c3) (32) (c5) (23) (1/r6) (13) ,3.15827e-25
+	+ (c3) (32) (c5) (23) (1/r7) (14) ,1.05276e-25
+	) + 
+	number of terms:23
+]
+[0:00.0u 0:00.0s 968k]
+[0:00.4u 0:00.2s 968k] SCAD3 done.

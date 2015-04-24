@@ -1,0 +1,65 @@
+
+	#####  Final partition report: ua741 ####
+	Total input nets: 26	real nets: 26
+	Total cells: 38
+	Total cell sizes: 38
+	Total pins : 97
+	Maximum deviation 0.300000
+	Average cells on a net: 3.730769
+	Overall net density: 0.286704
+	AveSetSize: 13	 MaxCellSize:4
+	MaxSetSize: 16	 MinSetSize:10
+	Total Span : 17	Total cut net: 7
+	The size and cells of every partition
+		size(0) : 16;	 cells: 16;
+		size(1) : 11;	 cells: 11;
+		size(2) : 11;	 cells: 11;
+Boundary Signals for Partition: 0 
+I13 ,I26 ,I22 ,I8 ,I27 ,I17 ,I7 ,The number of cuts is 7
+Q24 
+Q23B 
+Q22 
+Q17 
+Q16 
+Q13B 
+Q7 
+Q6 
+Q5 
+COMP 
+R11 
+R9 
+R8 
+R3 
+R2 
+R1 
+total #cell: 16
+Boundary Signals for Partition: 1 
+I26 ,I8 ,I27 ,I17 ,I7 ,The number of cuts is 5
+Q12 
+Q11 
+Q10 
+Q9 
+Q8 
+Q4 
+Q3 
+Q2 
+Q1 
+R5 
+R4 
+total #cell: 11
+Boundary Signals for Partition: 2 
+I13 ,I26 ,I22 ,I27 ,I17 ,The number of cuts is 5
+Q23A 
+Q21 
+Q20 
+Q19 
+Q18 
+Q15 
+Q14 
+Q13A 
+R10 
+R7 
+R6 
+total #cell: 11
+All the boundary signals:
+I13 ,I26 ,I22 ,I8 ,I27 ,I17 ,I7 ,The tolal number of cuts is 7

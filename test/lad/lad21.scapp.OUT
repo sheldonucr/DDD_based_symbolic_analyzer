@@ -1,0 +1,954 @@
+
+/* SCAPP 9.0 */
+
+/* OUTPUT FILE FOR SYMBOLIC SIMULATION OF FILE lad21.scapp.OUT */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "data_complex.h"
+#include "data_active.h"
+#include "outputL.h"
+#include "sources.h"
+
+#ifdef MAKE_LIB
+
+outputList *MAKE_LIB(struct complex *s,struct mos_instance *m1)
+
+   {
+#else /* ifdef MAKE_LIB */
+int num_o_functions = 1;
+
+int analysisType = 0;
+double t;
+
+int modelOrder = 1;
+
+char *funct_names[1] = {  "v4v1" };
+
+#endif /* ifdef MAKE_LIB else */
+#define ANSWERS ((struct complex *)(answers->values))
+#define PREV_ANSWERS ((struct complex *)(answers->next->values))
+
+outputList *answers;
+outputList *model_source;
+int numModelNames = 0;
+/*FSTUC-------------------------*/
+struct complex cadd(),cmul(),chs(),cdiv();
+struct complex zero,one,omega;
+struct complex r4kk;
+struct complex r4jj;
+struct complex r4ii;
+struct complex r4hh;
+struct complex r4gg;
+struct complex r4ee;
+struct complex r4ff;
+struct complex r4abc;
+struct complex r4dd;
+struct complex r4cc;
+struct complex r4bb;
+struct complex r4aa;
+struct complex r4z;
+struct complex r4y;
+struct complex r4x;
+struct complex r4w;
+struct complex r4t;
+struct complex r4s;
+struct complex r4r;
+struct complex r4q;
+struct complex r4p;
+struct complex l4o;
+struct complex r4n;
+struct complex r4m;
+struct complex r4l;
+struct complex c4k;
+struct complex r3j;
+struct complex r3i;
+struct complex r3h;
+struct complex r3g;
+struct complex r3f;
+struct complex r4e;
+struct complex r3d;
+struct complex r4c;
+struct complex r3b;
+struct complex r4a;
+struct complex r3;
+struct complex r4;
+struct complex r3mm;
+struct complex l2;
+struct complex c1;
+struct complex P0R_2F0;
+struct complex PC_2X_1F0;
+struct complex T_1X_1F0;
+struct complex T_1X_3F0;
+struct complex PC_2X_3F0;
+struct complex T_3X_1F0;
+struct complex T_3X_3F0;
+struct complex P0R_3F0;
+struct complex PC_3X_1F0;
+struct complex T_1X_4F0;
+struct complex PC_3X_4F0;
+struct complex T_4X_1F0;
+struct complex T_4X_4F0;
+struct complex P0R_5F0;
+struct complex PC_5X_4F0;
+struct complex T_4X_6F0;
+struct complex PC_5X_6F0;
+struct complex T_6X_4F0;
+struct complex T_6X_6F0;
+struct complex P0R_6F0;
+struct complex PC_6X_4F0;
+struct complex T_4X_7F0;
+struct complex PC_6X_7F0;
+struct complex T_7X_4F0;
+struct complex T_7X_7F0;
+struct complex P0R_7F0;
+struct complex PC_7X_4F0;
+struct complex T_4X_8F0;
+struct complex PC_7X_8F0;
+struct complex T_8X_4F0;
+struct complex T_8X_8F0;
+struct complex P0R_8F0;
+struct complex PC_8X_4F0;
+struct complex T_4X_9F0;
+struct complex PC_8X_9F0;
+struct complex T_9X_4F0;
+struct complex T_9X_9F0;
+struct complex P0R_9F0;
+struct complex PC_9X_4F0;
+struct complex T_4X_10F0;
+struct complex PC_9X_10F0;
+struct complex T_10X_4F0;
+struct complex T_10X_10F0;
+struct complex P0R_10F0;
+struct complex PC_10X_4F0;
+struct complex T_4X_11F0;
+struct complex PC_10X_11F0;
+struct complex T_11X_4F0;
+struct complex T_11X_11F0;
+struct complex P0R_11F0;
+struct complex PC_11X_4F0;
+struct complex T_4X_12F0;
+struct complex PC_11X_12F0;
+struct complex T_12X_4F0;
+struct complex T_12X_12F0;
+struct complex P0R_12F0;
+struct complex PC_12X_4F0;
+struct complex T_4X_13F0;
+struct complex PC_12X_13F0;
+struct complex T_13X_4F0;
+struct complex T_13X_13F0;
+struct complex P0R_13F0;
+struct complex PC_13X_4F0;
+struct complex T_4X_14F0;
+struct complex PC_13X_14F0;
+struct complex T_14X_4F0;
+struct complex T_14X_14F0;
+struct complex P0R_14F0;
+struct complex PC_14X_4F0;
+struct complex T_4X_15F0;
+struct complex PC_14X_15F0;
+struct complex T_15X_4F0;
+struct complex T_15X_15F0;
+struct complex P0R_15F0;
+struct complex PC_15X_4F0;
+struct complex T_4X_16F0;
+struct complex PC_15X_16F0;
+struct complex T_16X_4F0;
+struct complex T_16X_16F0;
+struct complex P0R_16F0;
+struct complex PC_16X_4F0;
+struct complex T_4X_17F0;
+struct complex PC_16X_17F0;
+struct complex T_17X_4F0;
+struct complex T_17X_17F0;
+struct complex P0R_17F0;
+struct complex PC_17X_4F0;
+struct complex T_4X_18F0;
+struct complex PC_17X_18F0;
+struct complex T_18X_4F0;
+struct complex T_18X_18F0;
+struct complex P0R_18F0;
+struct complex PC_18X_4F0;
+struct complex T_4X_19F0;
+struct complex PC_18X_19F0;
+struct complex T_19X_4F0;
+struct complex T_19X_19F0;
+struct complex P0R_19F0;
+struct complex PC_19X_4F0;
+struct complex T_4X_20F0;
+struct complex PC_19X_20F0;
+struct complex T_20X_4F0;
+struct complex T_20X_20F0;
+struct complex P0R_20F0;
+struct complex PC_20X_4F0;
+struct complex T_4X_21F0;
+struct complex PC_20X_21F0;
+struct complex T_21X_4F0;
+struct complex T_21X_21F0;
+struct complex P0R_21F0;
+struct complex PC_21X_4F0;
+struct complex T_4X_22F0;
+struct complex PC_21X_22F0;
+struct complex T_22X_4F0;
+struct complex T_22X_22F0;
+struct complex P0R_22F0;
+struct complex PC_22X_4F0;
+/*FDEF-------------------------*/
+
+
+#ifndef MAKE_LIB
+
+void initVariables( tstep ) 
+double tstep;
+{
+#endif /* ifdef MAKE_LIB*/
+
+  int i;  c1.real =  1.000000e+03 ;
+  c1.imag =  0.000000e+00 ;
+  l2.real =  1.000000e+03 ;
+  l2.imag =  0.000000e+00 ;
+  r3mm.real =  1.000000e+03 ;
+  r3mm.imag =  0.000000e+00 ;
+  r4.real =  1.000000e+03 ;
+  r4.imag =  0.000000e+00 ;
+  r3.real =  1.000000e+03 ;
+  r3.imag =  0.000000e+00 ;
+  r4a.real =  1.000000e+03 ;
+  r4a.imag =  0.000000e+00 ;
+  r3b.real =  1.000000e+03 ;
+  r3b.imag =  0.000000e+00 ;
+  r4c.real =  1.000000e+03 ;
+  r4c.imag =  0.000000e+00 ;
+  r3d.real =  1.000000e+03 ;
+  r3d.imag =  0.000000e+00 ;
+  r4e.real =  1.000000e+03 ;
+  r4e.imag =  0.000000e+00 ;
+  r3f.real =  1.000000e+03 ;
+  r3f.imag =  0.000000e+00 ;
+  r3g.real =  1.000000e+03 ;
+  r3g.imag =  0.000000e+00 ;
+  r3h.real =  1.000000e+03 ;
+  r3h.imag =  0.000000e+00 ;
+  r3i.real =  1.000000e+03 ;
+  r3i.imag =  0.000000e+00 ;
+  r3j.real =  1.000000e+03 ;
+  r3j.imag =  0.000000e+00 ;
+  c4k.real =  1.000000e+03 ;
+  c4k.imag =  0.000000e+00 ;
+  r4l.real =  1.000000e+03 ;
+  r4l.imag =  0.000000e+00 ;
+  r4m.real =  1.000000e+03 ;
+  r4m.imag =  0.000000e+00 ;
+  r4n.real =  1.000000e+03 ;
+  r4n.imag =  0.000000e+00 ;
+  l4o.real =  1.000000e+03 ;
+  l4o.imag =  0.000000e+00 ;
+  r4p.real =  1.000000e+03 ;
+  r4p.imag =  0.000000e+00 ;
+  r4q.real =  1.000000e+03 ;
+  r4q.imag =  0.000000e+00 ;
+  r4r.real =  1.000000e+03 ;
+  r4r.imag =  0.000000e+00 ;
+  r4s.real =  1.000000e+03 ;
+  r4s.imag =  0.000000e+00 ;
+  r4t.real =  1.000000e+03 ;
+  r4t.imag =  0.000000e+00 ;
+  r4w.real =  1.000000e+03 ;
+  r4w.imag =  0.000000e+00 ;
+  r4x.real =  1.000000e+03 ;
+  r4x.imag =  0.000000e+00 ;
+  r4y.real =  1.000000e+03 ;
+  r4y.imag =  0.000000e+00 ;
+  r4z.real =  1.000000e+03 ;
+  r4z.imag =  0.000000e+00 ;
+  r4aa.real =  1.000000e+03 ;
+  r4aa.imag =  0.000000e+00 ;
+  r4bb.real =  1.000000e+03 ;
+  r4bb.imag =  0.000000e+00 ;
+  r4cc.real =  1.000000e+03 ;
+  r4cc.imag =  0.000000e+00 ;
+  r4dd.real =  1.000000e+03 ;
+  r4dd.imag =  0.000000e+00 ;
+  r4abc.real =  1.000000e+03 ;
+  r4abc.imag =  0.000000e+00 ;
+  r4ff.real =  1.000000e+03 ;
+  r4ff.imag =  0.000000e+00 ;
+  r4ee.real =  1.000000e+03 ;
+  r4ee.imag =  0.000000e+00 ;
+  r4gg.real =  1.000000e+03 ;
+  r4gg.imag =  0.000000e+00 ;
+  r4hh.real =  1.000000e+03 ;
+  r4hh.imag =  0.000000e+00 ;
+  r4ii.real =  1.000000e+03 ;
+  r4ii.imag =  0.000000e+00 ;
+  r4jj.real =  1.000000e+03 ;
+  r4jj.imag =  0.000000e+00 ;
+  r4kk.real =  1.000000e+03 ;
+  r4kk.imag =  0.000000e+00 ;
+
+  answers = (outputList *) malloc( sizeof(outputList));
+  answers->values = (void *)malloc( 1 * sizeof(struct complex));
+  answers->next = NULL;
+
+  zero.real = 0.0;
+  zero.imag = 0.0;
+  one.real = 1.0;
+  one.imag = 0.0;
+
+#ifdef MAKE_LIB
+
+   omega.real = 0.0;
+   omega.imag = s->imag;
+#endif
+
+/*FIC-------------------------*/
+
+
+
+#ifndef MAKE_LIB
+}
+
+/*FOUT2-------------------------*/
+
+void unDoSources( step )
+   double step;
+ {
+ }
+
+double checkSourceBreaks( t )
+   double t;
+ {
+ }
+
+void setSymbolValue(symName, value) 
+	char* symName;
+	double value;
+{
+if(!strcmp(symName,"r4kk")) {
+	r4kk.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4jj")) {
+	r4jj.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4ii")) {
+	r4ii.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4hh")) {
+	r4hh.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4gg")) {
+	r4gg.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4ee")) {
+	r4ee.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4ff")) {
+	r4ff.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4abc")) {
+	r4abc.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4dd")) {
+	r4dd.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4cc")) {
+	r4cc.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4bb")) {
+	r4bb.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4aa")) {
+	r4aa.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4z")) {
+	r4z.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4y")) {
+	r4y.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4x")) {
+	r4x.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4w")) {
+	r4w.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4t")) {
+	r4t.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4s")) {
+	r4s.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4r")) {
+	r4r.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4q")) {
+	r4q.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4p")) {
+	r4p.real = value;
+	return;
+ }
+if(!strcmp(symName,"l4o")) {
+	l4o.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4n")) {
+	r4n.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4m")) {
+	r4m.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4l")) {
+	r4l.real = value;
+	return;
+ }
+if(!strcmp(symName,"c4k")) {
+	c4k.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3j")) {
+	r3j.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3i")) {
+	r3i.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3h")) {
+	r3h.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3g")) {
+	r3g.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3f")) {
+	r3f.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4e")) {
+	r4e.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3d")) {
+	r3d.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4c")) {
+	r4c.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3b")) {
+	r3b.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4a")) {
+	r4a.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3")) {
+	r3.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4")) {
+	r4.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3mm")) {
+	r3mm.real = value;
+	return;
+ }
+if(!strcmp(symName,"l2")) {
+	l2.real = value;
+	return;
+ }
+if(!strcmp(symName,"c1")) {
+	c1.real = value;
+	return;
+ }
+
+
+}
+
+void evaluate(struct complex *s)
+
+{
+
+omega.real = 0.0;
+omega.imag = s->imag;
+
+#endif /* ifndef MAKE_LIB*/
+/* Mosfet Initialization goes here */
+/*FOUT-------------------------*/
+
+
+/* TERMINAL BLOCK ANALYSIS OF CIRCUIT 0 */
+
+
+/* REDUCING ROW 2 (v2) */
+
+P0R_2F0 = (cadd(cmul(*s,c1),cadd(cdiv(one,cmul(*s,l2)),cdiv(one,r3mm)))) ;
+
+
+      /* PROCESSING ROW _1 */
+
+PC_2X_1F0 = cdiv(((chs(cmul(*s,c1)))),(P0R_2F0)) ;
+T_1X_1F0 = cadd((cmul(*s,c1)), chs( cmul(PC_2X_1F0,((chs(cmul(*s,c1))))) ));
+T_1X_3F0 =  chs( cmul(PC_2X_1F0,((chs(cdiv(one,r3mm))))) );
+
+
+      /* PROCESSING ROW _3 */
+
+PC_2X_3F0 = cdiv(((chs(cdiv(one,r3mm)))),(P0R_2F0)) ;
+T_3X_1F0 =  chs( cmul(PC_2X_3F0,((chs(cmul(*s,c1))))) );
+T_3X_3F0 = cadd((cadd(cdiv(one,r3mm),cadd(cdiv(one,r4),cdiv(one,r3)))), chs( cmul(PC_2X_3F0,((chs(cdiv(one,r3mm))))) ));
+
+
+/* REDUCING ROW 3 (v3) */
+
+P0R_3F0 = (T_3X_3F0) ;
+
+
+      /* PROCESSING ROW _1 */
+
+PC_3X_1F0 = cdiv(((T_1X_3F0)),(P0R_3F0)) ;
+T_1X_1F0 = cadd((T_1X_1F0), chs( cmul(PC_3X_1F0,((T_3X_1F0))) ));
+T_1X_4F0 =  chs( cmul(PC_3X_1F0,((chs(cdiv(one,r3))))) );
+
+
+      /* PROCESSING ROW _4 */
+
+PC_3X_4F0 = cdiv(((chs(cdiv(one,r3)))),(P0R_3F0)) ;
+T_4X_1F0 =  chs( cmul(PC_3X_4F0,((T_3X_1F0))) );
+T_4X_4F0 = cadd((cadd(cdiv(one,r3),cadd(cdiv(one,r4a),cdiv(one,r3b)))), chs( cmul(PC_3X_4F0,((chs(cdiv(one,r3))))) ));
+
+
+/* REDUCING ROW 5 (v5) */
+
+P0R_5F0 = (cadd(cdiv(one,r3b),cadd(cdiv(one,r4c),cdiv(one,r3d)))) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_5X_4F0 = cdiv(((chs(cdiv(one,r3b)))),(P0R_5F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_5X_4F0,((chs(cdiv(one,r3b))))) ));
+T_4X_6F0 =  chs( cmul(PC_5X_4F0,((chs(cdiv(one,r3d))))) );
+
+
+      /* PROCESSING ROW _6 */
+
+PC_5X_6F0 = cdiv(((chs(cdiv(one,r3d)))),(P0R_5F0)) ;
+T_6X_4F0 =  chs( cmul(PC_5X_6F0,((chs(cdiv(one,r3b))))) );
+T_6X_6F0 = cadd((cadd(cdiv(one,r3d),cadd(cdiv(one,r4e),cdiv(one,r3f)))), chs( cmul(PC_5X_6F0,((chs(cdiv(one,r3d))))) ));
+
+
+/* REDUCING ROW 6 (v6) */
+
+P0R_6F0 = (T_6X_6F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_6X_4F0 = cdiv(((T_4X_6F0)),(P0R_6F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_6X_4F0,((T_6X_4F0))) ));
+T_4X_7F0 =  chs( cmul(PC_6X_4F0,((chs(cdiv(one,r3f))))) );
+
+
+      /* PROCESSING ROW _7 */
+
+PC_6X_7F0 = cdiv(((chs(cdiv(one,r3f)))),(P0R_6F0)) ;
+T_7X_4F0 =  chs( cmul(PC_6X_7F0,((T_6X_4F0))) );
+T_7X_7F0 = cadd((cadd(cdiv(one,r3f),cadd(cdiv(one,r3g),cdiv(one,r3h)))), chs( cmul(PC_6X_7F0,((chs(cdiv(one,r3f))))) ));
+
+
+/* REDUCING ROW 7 (v7) */
+
+P0R_7F0 = (T_7X_7F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_7X_4F0 = cdiv(((T_4X_7F0)),(P0R_7F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_7X_4F0,((T_7X_4F0))) ));
+T_4X_8F0 =  chs( cmul(PC_7X_4F0,((chs(cdiv(one,r3h))))) );
+
+
+      /* PROCESSING ROW _8 */
+
+PC_7X_8F0 = cdiv(((chs(cdiv(one,r3h)))),(P0R_7F0)) ;
+T_8X_4F0 =  chs( cmul(PC_7X_8F0,((T_7X_4F0))) );
+T_8X_8F0 = cadd((cadd(cdiv(one,r3h),cadd(cdiv(one,r3i),cdiv(one,r3j)))), chs( cmul(PC_7X_8F0,((chs(cdiv(one,r3h))))) ));
+
+
+/* REDUCING ROW 8 (v8) */
+
+P0R_8F0 = (T_8X_8F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_8X_4F0 = cdiv(((T_4X_8F0)),(P0R_8F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_8X_4F0,((T_8X_4F0))) ));
+T_4X_9F0 =  chs( cmul(PC_8X_4F0,((chs(cdiv(one,r3j))))) );
+
+
+      /* PROCESSING ROW _9 */
+
+PC_8X_9F0 = cdiv(((chs(cdiv(one,r3j)))),(P0R_8F0)) ;
+T_9X_4F0 =  chs( cmul(PC_8X_9F0,((T_8X_4F0))) );
+T_9X_9F0 = cadd((cadd(cdiv(one,r3j),cadd(cmul(*s,c4k),cdiv(one,r4l)))), chs( cmul(PC_8X_9F0,((chs(cdiv(one,r3j))))) ));
+
+
+/* REDUCING ROW 9 (v9) */
+
+P0R_9F0 = (T_9X_9F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_9X_4F0 = cdiv(((T_4X_9F0)),(P0R_9F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_9X_4F0,((T_9X_4F0))) ));
+T_4X_10F0 =  chs( cmul(PC_9X_4F0,((chs(cdiv(one,r4l))))) );
+
+
+      /* PROCESSING ROW _10 */
+
+PC_9X_10F0 = cdiv(((chs(cdiv(one,r4l)))),(P0R_9F0)) ;
+T_10X_4F0 =  chs( cmul(PC_9X_10F0,((T_9X_4F0))) );
+T_10X_10F0 = cadd((cadd(cdiv(one,r4l),cadd(cdiv(one,r4m),cdiv(one,r4n)))), chs( cmul(PC_9X_10F0,((chs(cdiv(one,r4l))))) ));
+
+
+/* REDUCING ROW 10 (v10) */
+
+P0R_10F0 = (T_10X_10F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_10X_4F0 = cdiv(((T_4X_10F0)),(P0R_10F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_10X_4F0,((T_10X_4F0))) ));
+T_4X_11F0 =  chs( cmul(PC_10X_4F0,((chs(cdiv(one,r4n))))) );
+
+
+      /* PROCESSING ROW _11 */
+
+PC_10X_11F0 = cdiv(((chs(cdiv(one,r4n)))),(P0R_10F0)) ;
+T_11X_4F0 =  chs( cmul(PC_10X_11F0,((T_10X_4F0))) );
+T_11X_11F0 = cadd((cadd(cdiv(one,r4n),cdiv(one,cmul(*s,l4o)))), chs( cmul(PC_10X_11F0,((chs(cdiv(one,r4n))))) ));
+
+
+/* REDUCING ROW 11 (v11) */
+
+P0R_11F0 = (T_11X_11F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_11X_4F0 = cdiv(((T_4X_11F0)),(P0R_11F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_11X_4F0,((T_11X_4F0))) ));
+T_4X_12F0 =  chs( cmul(PC_11X_4F0,((chs(cdiv(one,cmul(*s,l4o)))))) );
+
+
+      /* PROCESSING ROW _12 */
+
+PC_11X_12F0 = cdiv(((chs(cdiv(one,cmul(*s,l4o))))),(P0R_11F0)) ;
+T_12X_4F0 =  chs( cmul(PC_11X_12F0,((T_11X_4F0))) );
+T_12X_12F0 = cadd((cadd(cdiv(one,cmul(*s,l4o)),cadd(cdiv(one,r4p),cdiv(one,r4q)))), chs( cmul(PC_11X_12F0,((chs(cdiv(one,cmul(*s,l4o)))))) ));
+
+
+/* REDUCING ROW 12 (v12) */
+
+P0R_12F0 = (T_12X_12F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_12X_4F0 = cdiv(((T_4X_12F0)),(P0R_12F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_12X_4F0,((T_12X_4F0))) ));
+T_4X_13F0 =  chs( cmul(PC_12X_4F0,((chs(cdiv(one,r4q))))) );
+
+
+      /* PROCESSING ROW _13 */
+
+PC_12X_13F0 = cdiv(((chs(cdiv(one,r4q)))),(P0R_12F0)) ;
+T_13X_4F0 =  chs( cmul(PC_12X_13F0,((T_12X_4F0))) );
+T_13X_13F0 = cadd((cadd(cdiv(one,r4q),cadd(cdiv(one,r4r),cdiv(one,r4s)))), chs( cmul(PC_12X_13F0,((chs(cdiv(one,r4q))))) ));
+
+
+/* REDUCING ROW 13 (v13) */
+
+P0R_13F0 = (T_13X_13F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_13X_4F0 = cdiv(((T_4X_13F0)),(P0R_13F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_13X_4F0,((T_13X_4F0))) ));
+T_4X_14F0 =  chs( cmul(PC_13X_4F0,((chs(cdiv(one,r4s))))) );
+
+
+      /* PROCESSING ROW _14 */
+
+PC_13X_14F0 = cdiv(((chs(cdiv(one,r4s)))),(P0R_13F0)) ;
+T_14X_4F0 =  chs( cmul(PC_13X_14F0,((T_13X_4F0))) );
+T_14X_14F0 = cadd((cadd(cdiv(one,r4s),cadd(cdiv(one,r4t),cdiv(one,r4w)))), chs( cmul(PC_13X_14F0,((chs(cdiv(one,r4s))))) ));
+
+
+/* REDUCING ROW 14 (v14) */
+
+P0R_14F0 = (T_14X_14F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_14X_4F0 = cdiv(((T_4X_14F0)),(P0R_14F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_14X_4F0,((T_14X_4F0))) ));
+T_4X_15F0 =  chs( cmul(PC_14X_4F0,((chs(cdiv(one,r4w))))) );
+
+
+      /* PROCESSING ROW _15 */
+
+PC_14X_15F0 = cdiv(((chs(cdiv(one,r4w)))),(P0R_14F0)) ;
+T_15X_4F0 =  chs( cmul(PC_14X_15F0,((T_14X_4F0))) );
+T_15X_15F0 = cadd((cadd(cdiv(one,r4w),cadd(cdiv(one,r4x),cdiv(one,r4y)))), chs( cmul(PC_14X_15F0,((chs(cdiv(one,r4w))))) ));
+
+
+/* REDUCING ROW 15 (v15) */
+
+P0R_15F0 = (T_15X_15F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_15X_4F0 = cdiv(((T_4X_15F0)),(P0R_15F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_15X_4F0,((T_15X_4F0))) ));
+T_4X_16F0 =  chs( cmul(PC_15X_4F0,((chs(cdiv(one,r4y))))) );
+
+
+      /* PROCESSING ROW _16 */
+
+PC_15X_16F0 = cdiv(((chs(cdiv(one,r4y)))),(P0R_15F0)) ;
+T_16X_4F0 =  chs( cmul(PC_15X_16F0,((T_15X_4F0))) );
+T_16X_16F0 = cadd((cadd(cdiv(one,r4y),cadd(cdiv(one,r4z),cdiv(one,r4aa)))), chs( cmul(PC_15X_16F0,((chs(cdiv(one,r4y))))) ));
+
+
+/* REDUCING ROW 16 (v16) */
+
+P0R_16F0 = (T_16X_16F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_16X_4F0 = cdiv(((T_4X_16F0)),(P0R_16F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_16X_4F0,((T_16X_4F0))) ));
+T_4X_17F0 =  chs( cmul(PC_16X_4F0,((chs(cdiv(one,r4aa))))) );
+
+
+      /* PROCESSING ROW _17 */
+
+PC_16X_17F0 = cdiv(((chs(cdiv(one,r4aa)))),(P0R_16F0)) ;
+T_17X_4F0 =  chs( cmul(PC_16X_17F0,((T_16X_4F0))) );
+T_17X_17F0 = cadd((cadd(cdiv(one,r4aa),cadd(cdiv(one,r4bb),cdiv(one,r4cc)))), chs( cmul(PC_16X_17F0,((chs(cdiv(one,r4aa))))) ));
+
+
+/* REDUCING ROW 17 (v17) */
+
+P0R_17F0 = (T_17X_17F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_17X_4F0 = cdiv(((T_4X_17F0)),(P0R_17F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_17X_4F0,((T_17X_4F0))) ));
+T_4X_18F0 =  chs( cmul(PC_17X_4F0,((chs(cdiv(one,r4cc))))) );
+
+
+      /* PROCESSING ROW _18 */
+
+PC_17X_18F0 = cdiv(((chs(cdiv(one,r4cc)))),(P0R_17F0)) ;
+T_18X_4F0 =  chs( cmul(PC_17X_18F0,((T_17X_4F0))) );
+T_18X_18F0 = cadd((cadd(cdiv(one,r4cc),cadd(cdiv(one,r4dd),cdiv(one,r4abc)))), chs( cmul(PC_17X_18F0,((chs(cdiv(one,r4cc))))) ));
+
+
+/* REDUCING ROW 18 (v18) */
+
+P0R_18F0 = (T_18X_18F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_18X_4F0 = cdiv(((T_4X_18F0)),(P0R_18F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_18X_4F0,((T_18X_4F0))) ));
+T_4X_19F0 =  chs( cmul(PC_18X_4F0,((chs(cdiv(one,r4abc))))) );
+
+
+      /* PROCESSING ROW _19 */
+
+PC_18X_19F0 = cdiv(((chs(cdiv(one,r4abc)))),(P0R_18F0)) ;
+T_19X_4F0 =  chs( cmul(PC_18X_19F0,((T_18X_4F0))) );
+T_19X_19F0 = cadd((cadd(cdiv(one,r4abc),cadd(cdiv(one,r4ff),cdiv(one,r4ee)))), chs( cmul(PC_18X_19F0,((chs(cdiv(one,r4abc))))) ));
+
+
+/* REDUCING ROW 19 (v19) */
+
+P0R_19F0 = (T_19X_19F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_19X_4F0 = cdiv(((T_4X_19F0)),(P0R_19F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_19X_4F0,((T_19X_4F0))) ));
+T_4X_20F0 =  chs( cmul(PC_19X_4F0,((chs(cdiv(one,r4ee))))) );
+
+
+      /* PROCESSING ROW _20 */
+
+PC_19X_20F0 = cdiv(((chs(cdiv(one,r4ee)))),(P0R_19F0)) ;
+T_20X_4F0 =  chs( cmul(PC_19X_20F0,((T_19X_4F0))) );
+T_20X_20F0 = cadd((cadd(cdiv(one,r4ee),cadd(cdiv(one,r4gg),cdiv(one,r4hh)))), chs( cmul(PC_19X_20F0,((chs(cdiv(one,r4ee))))) ));
+
+
+/* REDUCING ROW 20 (v20) */
+
+P0R_20F0 = (T_20X_20F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_20X_4F0 = cdiv(((T_4X_20F0)),(P0R_20F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_20X_4F0,((T_20X_4F0))) ));
+T_4X_21F0 =  chs( cmul(PC_20X_4F0,((chs(cdiv(one,r4hh))))) );
+
+
+      /* PROCESSING ROW _21 */
+
+PC_20X_21F0 = cdiv(((chs(cdiv(one,r4hh)))),(P0R_20F0)) ;
+T_21X_4F0 =  chs( cmul(PC_20X_21F0,((T_20X_4F0))) );
+T_21X_21F0 = cadd((cadd(cdiv(one,r4hh),cadd(cdiv(one,r4ii),cdiv(one,r4jj)))), chs( cmul(PC_20X_21F0,((chs(cdiv(one,r4hh))))) ));
+
+
+/* REDUCING ROW 21 (v21) */
+
+P0R_21F0 = (T_21X_21F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_21X_4F0 = cdiv(((T_4X_21F0)),(P0R_21F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_21X_4F0,((T_21X_4F0))) ));
+T_4X_22F0 =  chs( cmul(PC_21X_4F0,((chs(cdiv(one,r4jj))))) );
+
+
+      /* PROCESSING ROW _22 */
+
+PC_21X_22F0 = cdiv(((chs(cdiv(one,r4jj)))),(P0R_21F0)) ;
+T_22X_4F0 =  chs( cmul(PC_21X_22F0,((T_21X_4F0))) );
+T_22X_22F0 = cadd((cadd(cdiv(one,r4jj),cdiv(one,r4kk))), chs( cmul(PC_21X_22F0,((chs(cdiv(one,r4jj))))) ));
+
+
+/* REDUCING ROW 22 (v22) */
+
+P0R_22F0 = (T_22X_22F0) ;
+
+
+      /* PROCESSING ROW _4 */
+
+PC_22X_4F0 = cdiv(((T_4X_22F0)),(P0R_22F0)) ;
+T_4X_4F0 = cadd((T_4X_4F0), chs( cmul(PC_22X_4F0,((T_22X_4F0))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 79
+Number of Multiplications = 116
+Number of Equations = 136
+
+*/
+
+
+ /* DUPLICATED FINAL RESULTS */
+
+
+
+ /* FINAL RESULTS */
+
+T_1X_1F0 = cadd((T_1X_1F0),zero);
+T_1X_4F0 = cadd((T_1X_4F0),zero);
+T_4X_1F0 = cadd((T_4X_1F0),zero);
+T_4X_4F0 = cadd((T_4X_4F0),zero);
+
+/*  STATISTICS 
+
+Number of Additions = 79
+Number of Multiplications = 116
+Number of Equations = 140
+
+*/
+
+/* Processing v4/v1 solution... */
+
+
+
+ /* MNA MATRIX FOR REDUCTION 
+
+ {1,2}    (v1)=T_1X_1F0, (v4)=T_1X_4F0,
+ {4,5}    (v1)=T_4X_1F0, (v4)=T_4X_4F0,
+
+*/
+
+
+/*  STATISTICS 
+
+Number of Additions = 0
+Number of Multiplications = 0
+Number of Equations = 0
+
+*/
+
+
+ /* MNA MATRIX AFTER REDUCTION 
+
+ {1,2}    (v1)=T_1X_1F0, (v4)=T_1X_4F0,
+ {4,5}    (v1)=T_4X_1F0, (v4)=T_4X_4F0,
+
+*/
+
+
+ ANSWERS[0] = (chs(cdiv(T_4X_1F0,T_4X_4F0)));
+
+}
+
+/*  STATISTICS 
+
+Number of Additions = 79
+Number of Multiplications = 116
+Number of Equations = 140
+
+*/
+
+#ifndef MAKE_LIB
+void evaluate_dc() { }
+#endif /* ifndef MAKE_LIB*/

@@ -1,0 +1,91 @@
+
+
+	#####  Final partitioning report: starzyk.net ####
+	Total input nets: 33	real nets: 32
+	Total vertices: 57
+	Total pins : 127
+	Deviation Factor: 0
+	Average vertices on a net: 3.848485
+	Overall net density: 0.154509
+	Total Span : 17	Total cut nets: 5
+
+ 	** the #internal nets and #vertices in each subset.
+	set: 0 #internal nets : 10; vertices: 19;
+	set: 1 #internal nets : 2; vertices: 4;
+	set: 2 #internal nets : 10; vertices: 22;
+	set: 3 #internal nets : 2; vertices: 4;
+	set: 4 #internal nets : 3; vertices: 8;
+Boundary Signals for Partition: 0 
+0 ,19 ,22 ,The number of cuts is 3
+Op13 
+r40 
+r39 
+r38 
+r37 
+Op12 
+Op11 
+Op10 
+r36 
+c35 
+r34 
+c33 
+r33 
+r32 
+r31 
+r30 
+r29 
+r28 
+r20 
+total #cell: 19
+Boundary Signals for Partition: 1 
+0 ,19 ,22 ,The number of cuts is 3
+Op9 
+r27 
+c26 
+r25 
+total #cell: 4
+Boundary Signals for Partition: 2 
+0 ,19 ,22 ,5 ,8 ,The number of cuts is 5
+Op8 
+Op7 
+c24 
+r24 
+r23 
+r22 
+r21 
+r19 
+Op6 
+Op5 
+Op4 
+r18 
+c17 
+r16 
+c15 
+r15 
+r14 
+r13 
+r12 
+r11 
+r10 
+r2 
+total #cell: 22
+Boundary Signals for Partition: 3 
+0 ,5 ,8 ,The number of cuts is 3
+Op3 
+r9 
+c8 
+r7 
+total #cell: 4
+Boundary Signals for Partition: 4 
+0 ,5 ,8 ,The number of cuts is 3
+Op2 
+Op1 
+c6 
+r6 
+R5 
+r4 
+r3 
+r1 
+total #cell: 8
+All the boundary signals:
+0 ,19 ,22 ,5 ,8 ,The tolal number of cuts is 5

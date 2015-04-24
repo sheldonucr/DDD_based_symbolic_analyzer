@@ -1,0 +1,47 @@
+GETTING A COPY OF THE BOOK
+
+A Book on PCCTS (ANTLR, DLG, and SORCERER) is nearing completion.
+If you are interested in getting a prerelease version, simply
+grab
+
+	ftp://ftp.parr-research.com/pub/pccts/Book/reference.ps
+
+(there is also a gzip'd version).  I'm sorry that PostScript is the
+only way to distribute the book at the moment.  If you promise to do
+an incredible job of reviewing I might find it in my heart to USNail
+you a hardcopy :)
+
+
+REVIEWS/SUGGESTIONS
+
+[We are not interested in small problems with grammar etc... at the moment.
+ We are looking for structure problems, code bugs, totally screwed up sentences
+ and similar things.  We'll get down to the small stuff right before going
+ to press.]
+
+If you would like to send information/suggestions/bug reports etc...
+about the book that you've read, please send email to
+
+	pcctsbk@parr-research.com
+
+with a 'Subject:' line of
+
+	review VERSION
+
+where VERSION is either "initial" or whatever the header/footer says
+(should be a version number on the next version posted).  You can also
+send hardcopy reviews back to:
+
+Eli Sternheim
+interHDL, Inc.
+4984 El Camino Real, Suite 210
+Los Altos, CA. 94022-1433
+phone: 415-428-4200
+fax:   415-428-4201
+
+All other 'Subject:' lines are ignored.  Please send anything other
+than a book review to parrt@parr-research.com.
+
+Regards,
+Terence
+

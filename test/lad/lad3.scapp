@@ -1,0 +1,17 @@
+*This is a sample from Carl Sechen paper
+.opt bmin 22
+.opt noprint 0
+*.opt parts 4
+.opt maintree 0
+.opt subtree 10
+.opt auto 0
+.opt cfile
+
+R1 1 0 1k
+R2 1 2 1k
+R3 2 0 1k
+R4 2 3 1k
+R5 3 0 1k
+
+.output(V3, V1)
+.FREQ 100 1000 1000 .1 carl.TFA

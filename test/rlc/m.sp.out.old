@@ -1,0 +1,219 @@
+Welcome to [1m SCAD3[m $Revision: 1.6 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998 - 2002 X.-D. Sheldon Tan 
+	'h' for help
+: source m.sp
+[0:00.0u 0:00.0s 872k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+number of element is: 10
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0 ]
+(2) [  1   1   1   0 ]
+(3) [  0   1   1   1 ]
+(4) [  0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 10   8   0   0 ]
+(2) [  9   7   5   0 ]
+(3) [  0   6   4   2 ]
+(4) [  0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 10
+#paths (DDD): 5
+row(real, index)
+---------------------
+row(1,1)  (1,1)( + 1/r1 );(1,2)( - 1/r1 );
+row(2,2)  (2,2)( + 1/r1  + 1/r2  + s*(c1) );(2,1)( - 1/r1 );(2,3)( - s*(c1) );
+row(3,3)  (3,3)( + s*(c1)  + 1/(s*l1)  + s*(c2) );(3,2)( - s*(c1) );(3,4)( - s*(c2) );
+row(4,4)  (4,4)( + s*(c2)  + 1/(s*l2)  + 1/r3 );(4,3)( - s*(c2) );
+---------------------
+
+DDD construction time: 0.01
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 7
+#paths (DDD): 3
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0
+END OF NUMERICAL AC ANALYSIS
+[0:00.0u 0:00.0s 888k]
+: expddd
+Construct fcoeff ddd from ddd ...
+Max branch number: 3
+
+Building coefficient for numerator
+
+Statisitic for numerator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 0
+
+fcoefficient of order: 1
+#paths (DDD): 0
+
+fcoefficient of order: 2
+#paths (DDD): 1
+
+fcoefficient of order: 3
+#paths (DDD): 0
+
+fcoefficient of order: 4
+#paths (DDD): 0
+The total paths is 1
+########## end of fcoefficient list
+
+Building coefficient for denominator
+
+Statisitic for denominator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 2
+
+fcoefficient of order: 1
+#paths (DDD): 5
+
+fcoefficient of order: 2
+#paths (DDD): 11
+
+fcoefficient of order: 3
+#paths (DDD): 5
+
+fcoefficient of order: 4
+#paths (DDD): 4
+The total paths is 27
+########## end of fcoefficient list
+total constrction time: 0.01
+total coeff evaluation time: 0
+[0:00.0u 0:00.0s 896k]
+: simpcoeff
+Simplify fcoefficient ddd list ... 
+Use the first term generation method (shortest path)...
+freq[0]: 1.000000
+	+ (-1/r1) (37) (-c1) (28) (-c2) (19) ,-3.55306e-18
+number of terms generated: 1
+
+Explicitly force GC for all ddds ...
+number of terms generated: 1
+	+ (1/r2) (32) (1/l1) (23) (c2) (13) ,6.66667e-11
+	+ (1/r1) (31) (1/l1) (23) (c2) (13) ,1.33333e-13
+number of terms generated: 3
+
+Explicitly force GC for all ddds ...
+	+ (c1) (33) (1/l1) (23) (c2) (13) ,6.28319e-11
+	+ (1/r2) (32) (c1) (22) (1/r3) (15) ,4.71239e-14
+	+ (1/r1) (31) (c1) (22) (1/r3) (15) ,9.42478e-17
+	+ (1/r2) (32) (c2) (24) (1/r3) (15) ,9.42478e-17
+	+ (1/r1) (31) (c2) (24) (1/r3) (15) ,1.88496e-19
+number of terms generated: 8
+
+Explicitly force GC for all ddds ...
+	+ (1/r2) (32) (1/l1) (23) (1/l2) (14) ,0.00562895
+	+ (1/r1) (31) (1/l1) (23) (1/l2) (14) ,1.12579e-05
+	- (-c1) (28) (-c1) (25) (1/r3) (15) ,-4.44132e-14
+	+ (c1) (33) (c1) (22) (1/r3) (15) ,4.44132e-14
+	+ (1/r2) (32) (c1) (22) (c2) (13) ,1.77653e-15
+	+ (c1) (33) (c2) (24) (1/r3) (15) ,8.88264e-17
+	- (1/r2) (32) (-c2) (19) (-c2) (16) ,-3.55306e-18
+	+ (1/r1) (31) (c1) (22) (c2) (13) ,3.55306e-18
+	+ (1/r2) (32) (c2) (24) (c2) (13) ,3.55306e-18
+	- (1/r1) (31) (-c2) (19) (-c2) (16) ,-7.10612e-21
+	+ (1/r1) (31) (c2) (24) (c2) (13) ,7.10612e-21
+number of terms generated: 19
+
+Explicitly force GC for all ddds ...
+	+ (c1) (33) (1/l1) (23) (1/l2) (14) ,0.00530516
+	- (-c1) (28) (-c1) (25) (c2) (13) ,-1.67434e-15
+	+ (c1) (33) (c1) (22) (c2) (13) ,1.67434e-15
+	- (c1) (33) (-c2) (19) (-c2) (16) ,-3.34868e-18
+	+ (c1) (33) (c2) (24) (c2) (13) ,3.34868e-18
+number of terms generated: 24
+
+Explicitly force GC for all ddds ...
+	+ (1/r2) (32) (c1) (22) (1/l2) (14) ,1.5e-07
+	+ (1/r1) (31) (c1) (22) (1/l2) (14) ,3e-10
+	+ (1/r2) (32) (c2) (24) (1/l2) (14) ,3e-10
+	+ (1/r1) (31) (c2) (24) (1/l2) (14) ,6e-13
+number of terms generated: 28
+
+Explicitly force GC for all ddds ...
+number of terms generated: 28
+freq[1]: 10.000000
+number of terms generated: 28
+number of terms generated: 28
+End of simplification 
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+[0:00.1u 0:00.0s 896k]
+: print
+Simplified Symbolic Expression
+numerator:
+(-) * [
+	s^2(-3.55306e-18
+	+ (-1/r1) (37) (-c1) (28) (-c2) (19) ,-3.55306e-18
+	) + 
+	number of terms:1
+]
+-----------------------------
+denominator:
+(+) * [
+	s^0(6.68e-11
+	+ (1/r2) (32) (1/l1) (23) (c2) (13) ,6.66667e-11
+	+ (1/r1) (31) (1/l1) (23) (c2) (13) ,1.33333e-13
+	) + 
+	s^1(6.28792e-11
+	+ (c1) (33) (1/l1) (23) (c2) (13) ,6.28319e-11
+	+ (1/r2) (32) (c1) (22) (1/r3) (15) ,4.71239e-14
+	+ (1/r1) (31) (c1) (22) (1/r3) (15) ,9.42478e-17
+	+ (1/r2) (32) (c2) (24) (1/r3) (15) ,9.42478e-17
+	+ (1/r1) (31) (c2) (24) (1/r3) (15) ,1.88496e-19
+	) + 
+	s^2(0.00564021
+	+ (1/r2) (32) (1/l1) (23) (1/l2) (14) ,0.00562895
+	+ (1/r1) (31) (1/l1) (23) (1/l2) (14) ,1.12579e-05
+	- (-c1) (28) (-c1) (25) (1/r3) (15) ,-4.44132e-14
+	+ (c1) (33) (c1) (22) (1/r3) (15) ,4.44132e-14
+	+ (1/r2) (32) (c1) (22) (c2) (13) ,1.77653e-15
+	+ (c1) (33) (c2) (24) (1/r3) (15) ,8.88264e-17
+	- (1/r2) (32) (-c2) (19) (-c2) (16) ,-3.55306e-18
+	+ (1/r1) (31) (c1) (22) (c2) (13) ,3.55306e-18
+	+ (1/r2) (32) (c2) (24) (c2) (13) ,3.55306e-18
+	- (1/r1) (31) (-c2) (19) (-c2) (16) ,-7.10612e-21
+	+ (1/r1) (31) (c2) (24) (c2) (13) ,7.10612e-21
+	) + 
+	s^3(0.00530516
+	+ (c1) (33) (1/l1) (23) (1/l2) (14) ,0.00530516
+	- (-c1) (28) (-c1) (25) (c2) (13) ,-1.67434e-15
+	+ (c1) (33) (c1) (22) (c2) (13) ,1.67434e-15
+	- (c1) (33) (-c2) (19) (-c2) (16) ,-3.34868e-18
+	+ (c1) (33) (c2) (24) (c2) (13) ,3.34868e-18
+	) + 
+	s^4(1.50601e-07
+	+ (1/r2) (32) (c1) (22) (1/l2) (14) ,1.5e-07
+	+ (1/r1) (31) (c1) (22) (1/l2) (14) ,3e-10
+	+ (1/r2) (32) (c2) (24) (1/l2) (14) ,3e-10
+	+ (1/r1) (31) (c2) (24) (1/l2) (14) ,6e-13
+	) + 
+	number of terms:27
+]
+[0:00.0u 0:00.0s 896k]
+[0:00.1u 0:00.1s 896k] SCAD3 done.

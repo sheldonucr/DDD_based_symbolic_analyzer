@@ -1,0 +1,279 @@
+NUMERICAL AC ANALYSIS ...
+Building MNA for subckt: opamp
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+#total nodes (DDD): 3
+#total paths (DDD): 0
+#total inputs (DDD): 2
+#total node struture
+row(real, index)
+---------------------
+row(2,1)  (1,1)+rii+ri1;(1,2)-rii;
+row(3,2)  (2,2)+rii+ri2;(2,1)-rii;
+row(4,3)  (3,4)+g2;(3,3)+rld;
+row(1,4)  (4,1)+g1;(4,2)-g1;(4,4)+c1+r1;
+---------------------
+
+end of build subckt: opamp
+Building MNA for subckt: fdnr
+process xop1
+build expression for (2,2)
+NULL return!
+build expression for (2,4)
+NULL return!
+build expression for (2,5)
+NULL return!
+build expression for (4,2)
+NULL return!
+build expression for (4,4)
+NULL return!
+build expression for (4,5)
+NULL return!
+build expression for (5,2)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 1
+#total nodes (DDD): 3
+#total paths (DDD): 0
+#total inputs (DDD): 2
+#total node struture
+Cofactor(4,4) sign:1
+
+build expression for (5,4)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 1
+#total nodes (DDD): 3
+#total paths (DDD): 0
+#total inputs (DDD): 2
+#total node struture
+Cofactor(4,4) sign:1
+
+build expression for (5,5)
+NULL return!
+process xop2
+build expression for (6,6)
+NULL return!
+build expression for (6,4)
+NULL return!
+build expression for (6,3)
+NULL return!
+build expression for (4,6)
+NULL return!
+build expression for (4,4)
+NULL return!
+build expression for (4,3)
+NULL return!
+build expression for (3,6)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 1
+#total nodes (DDD): 3
+#total paths (DDD): 0
+#total inputs (DDD): 2
+#total node struture
+Cofactor(4,4) sign:1
+
+build expression for (3,4)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 1
+#total nodes (DDD): 3
+#total paths (DDD): 0
+#total inputs (DDD): 2
+#total node struture
+Cofactor(4,4) sign:1
+
+build expression for (3,3)
+NULL return!
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 75
+#paths (DDD): 53
+#total nodes (DDD): 224
+#total paths (DDD): 0
+#total inputs (DDD): 22
+#total node struture
+row(real, index)
+---------------------
+row(1,1)  (1,1)+r1;(1,2)-r1;
+row(2,2)  (2,2)+r1+c1+rii+ri1;(2,1)-r1;(2,3)-c1;(2,4)-rii;(2,5);
+row(3,3)  (3,3)+c1+r2+rld;(3,2)-c1;(3,4)-r2;(3,6);
+row(4,4)  (4,4)+r2+r3+rii+ri2+rii+ri2;(4,2)-rii;(4,3)-r2;(4,5)-r3;(4,6)-rii;
+row(5,5)  (5,5)+r3+r4+rld;(5,2);(5,4)-r3;(5,6)-r4;
+row(6,6)  (6,6)+r4+c2+rii+ri1;(6,3);(6,4)-rii;(6,5)-r4;
+---------------------
+
+end of build subckt: fdnr
+process x1
+build expression for (1,1)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+#total nodes (DDD): 224
+#total paths (DDD): 0
+#total inputs (DDD): 22
+#total node struture
+Cofactor(2,2) sign:1
+
+process x2
+build expression for (2,2)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+#total nodes (DDD): 224
+#total paths (DDD): 0
+#total inputs (DDD): 22
+#total node struture
+Cofactor(2,2) sign:1
+
+process x3
+build expression for (3,3)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+#total nodes (DDD): 224
+#total paths (DDD): 0
+#total inputs (DDD): 22
+#total node struture
+Cofactor(2,2) sign:1
+
+process x4
+build expression for (4,4)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+#total nodes (DDD): 224
+#total paths (DDD): 0
+#total inputs (DDD): 22
+#total node struture
+Cofactor(2,2) sign:1
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 16
+#paths (DDD): 13
+#total nodes (DDD): 56
+#total paths (DDD): 0
+#total inputs (DDD): 17
+#total node struture
+row(real, index)
+---------------------
+row(10,1)  (1,1)+rs;(1,2)-rs;
+row(1,2)  (2,2)+rs+r12+r1;(2,1)-rs;(2,3)-r12;
+row(2,3)  (3,3)+r12+r23+r1;(3,2)-r12;(3,4)-r23;
+row(3,4)  (4,4)+r23+r34+r1;(4,3)-r23;(4,5)-r34;
+row(4,5)  (5,5)+r34+r45+r1;(5,4)-r34;(5,6)-r45;
+row(20,6)  (6,6)+r45+c5;(6,5)-r45;
+---------------------
+
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 1
+#total nodes (DDD): 60
+#total paths (DDD): 0
+#total inputs (DDD): 17
+#total node struture
+Cofactor(1,6) sign:-1
+
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 13
+#paths (DDD): 8
+#total nodes (DDD): 60
+#total paths (DDD): 0
+#total inputs (DDD): 17
+#total node struture
+Cofactor(1,1) sign:1
+
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+END OF NUMERICAL AC ANALYSIS
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0 ]
+(2) [  0   0   0   0 ]
+(3) [  0   0   0   0 ]
+(4) [  0   0   0   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0 ]
+(2) [  0   0   0   0 ]
+(3) [  0   0   0   0 ]
+(4) [  0   0   0   1 ]
+
+
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   1   1   1   1   0 ]
+(3) [  0   1   1   1   0   1 ]
+(4) [  0   1   1   1   1   1 ]
+(5) [  0   1   0   1   1   1 ]
+(6) [  0   0   1   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0  21  17  16  15   0 ]
+(3) [  0  20  14  11   0  10 ]
+(4) [  0  18  13   9   6   5 ]
+(5) [  0  19   0   8   4   2 ]
+(6) [  0   0  12   7   3   1 ]
+
+
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0 ]
+(2) [  1   1   1   0   0   0 ]
+(3) [  0   1   1   1   0   0 ]
+(4) [  0   0   1   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 16  14   0   0   0   0 ]
+(2) [ 15  13  11   0   0   0 ]
+(3) [  0  12  10   8   0   0 ]
+(4) [  0   0   9   7   5   0 ]
+(5) [  0   0   0   6   4   2 ]
+(6) [  0   0   0   0   3   1 ]
+
+
+[0:01.4u 0:00.0s 2968k]
+: quit
+[0:01.7u 0:00.1s 2968k] ISAD done. Bye!

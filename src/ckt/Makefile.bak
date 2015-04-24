@@ -1,0 +1,1183 @@
+#
+# SCAD3 makefile 
+#
+# Created from: /home/shir/pccts/support/genmk/genmk -CC -project scad3 -class sp_parser spice_gram.g
+#
+
+#/*
+# *    $RCSfile: Makefile,v $
+# *    $Revision: 1.10 $
+# *    $Date: 2002/11/21 02:41:17 $
+# */
+
+#
+TOKENS = tokens.h
+#
+# The following filenames must be consistent with ANTLR/DLG flags
+CCC= g++ 
+CC=$(CCC)
+DLG_FILE = parser.dlg
+ERR = err
+HDR_FILE =
+SCAN = DLGLexer
+PCCTS = /home/eeprof/stan/locker/scad3/lib/pccts
+#PCCTS = /users/stan/scad3/lib/pccts
+ANTLR_H = $(PCCTS)/h
+BIN = $(PCCTS)/bin
+ANTLR = $(BIN)/antlr
+DLG = $(BIN)/dlg
+CFLAGS1 = -g -I. -I$(ANTLR_H) -I../../inc  -I../../stl
+AFLAGS = -CC
+DFLAGS = -C2 -i -CC
+
+LIBDIR = /usr/lib/
+SLIB = -lm 
+#CFLAGS = -g  -I../../inc -I/usr/include/g++ +w +p -ftrap=common -mt -DSYSV -DSVR4 -xtarget=ultra2 -xarch=v8plus 
+CFLAGS = -g  -Wall -I../../inc -I../../stl -I/usr/include/g++  -x c++
+#CFLAGS = -g  -I../../inc -I/usr/include/g++ +p 
+#CFLAGS = -g  -I../../inc -I/usr/local/SUNWspro5.0/SC5.0/include/CC
+LDFLAGS = 
+PROGRAM = ../../bin/scad3
+
+
+SRCS =  	acan.cc\
+		dtstruct.cc\
+		branch.cc\
+		circuits.cc\
+		commands.cc\
+		complex.cc\
+		control.cc\
+		subckt.cc\
+		dddbase.cc\
+		detcalc.cc\
+		hashcash.cc\
+		hasher.cc\
+		scad3.cc\
+		yainit.cc\
+		list.cc\
+		lookup.cc\
+		mxexp.cc\
+		message.cc\
+		buildmna.cc\
+		nextfield.cc\
+		node.cc\
+		parse_bch.cc\
+		parse_ctrl.cc\
+		rclcompx.cc\
+		runstats.cc\
+		signals.cc\
+		utility.cc\
+		timer.cc\
+		approx.cc\
+		coeff.cc\
+		indexmx.cc\
+		fcoeff.cc\
+		polezero.cc\
+		buildexp.cc\
+		graph.cc\
+		dddgc.cc\
+		label.cc\
+		noisean.cc\
+		noise_src.cc\
+		symb_gen.cc\
+		xdraw.cc\
+		cancel_flab_map.cc\
+		new_term_gen.cc\
+		new_term_gen2.cc\
+		new_term_gen4.cc \
+		semi_symb.cc \
+		reordering.cc 
+
+
+OBJS =  	acan.o\
+		dtstruct.o\
+		branch.o\
+		circuits.o\
+		commands.o\
+		control.o\
+		complex.o\
+		subckt.o\
+		dddbase.o\
+		detcalc.o\
+		hashcash.o\
+		hasher.o\
+		scad3.o\
+		yainit.o\
+		list.o\
+		lookup.o\
+		mxexp.o\
+		message.o\
+		buildmna.o\
+		nextfield.o\
+		node.o\
+		parse_bch.o\
+		parse_ctrl.o\
+		rclcompx.o\
+		runstats.o\
+		signals.o\
+		utility.o\
+		timer.o\
+		approx.o\
+		coeff.o\
+		indexmx.o\
+		fcoeff.o\
+		polezero.o\
+		buildexp.o\
+		graph.o\
+		dddgc.o\
+		label.o\
+		noisean.o\
+		noise_src.o\
+		symb_gen.o\
+		xdraw.o\
+		cancel_flab_map.o\
+		new_term_gen.o\
+		new_term_gen2.o\
+		new_term_gen4.o\
+		semi_symb.o\
+		reordering.o
+
+.cc.o:
+	$(CC) $(CFLAGS) -c $<
+
+GRM = spgram.g
+SRC1 = spgram.cpp \
+      sp_parser.cpp \
+      $(ANTLR_H)/AParser.cpp $(ANTLR_H)/DLexerBase.cpp $(ANTLR_H)/ATokenBuffer.cpp $(SCAN).cpp
+
+OBJ1 = spgram.o \
+	   sp_parser.o \
+       AParser.o DLexerBase.o ATokenBuffer.o $(SCAN).o
+
+ANTLR_SPAWN = spgram.cpp sp_parser.cpp \
+              sp_parser.h $(DLG_FILE) $(TOKENS)
+DLG_SPAWN = $(SCAN).cpp $(SCAN).h
+
+#$(PROGRAM) : $(OBJ1) $(SRC1)
+#	$(CCC) -o scad3 $(CFLAGS1) $(OBJ1)
+
+TOUCHFILE = .touchfl
+
+$(PROGRAM) : $(OBJS) $(OBJ1) $(TOUCHFILE)
+	@echo -n Linking $(PROGRAM) ... 
+#@$(CC) -O -o $(PROGRAM) $(OBJS) $(OBJ1) $(SLIB) 
+	@$(CCC) -o $(PROGRAM) $(OBJS) $(OBJ1) $(SLIB) 
+	@echo ""
+	@echo done
+	@touch $(TOUCHFILE)
+
+all: $(PROGRAM)
+
+spgram.o : $(TOKENS) $(SCAN).h spgram.cpp
+	$(CCC) -c $(CFLAGS1) -o spgram.o spgram.cpp
+
+sp_parser.o : $(TOKENS) $(SCAN).h sp_parser.cpp sp_parser.h
+	$(CCC) -c $(CFLAGS1) -o sp_parser.o sp_parser.cpp
+
+$(SCAN).o : $(SCAN).cpp $(TOKENS)
+	$(CCC) -c $(CFLAGS1) -o $(SCAN).o $(SCAN).cpp
+
+$(ANTLR_SPAWN) : $(GRM)
+	$(ANTLR) $(AFLAGS) $(GRM)
+
+$(DLG_SPAWN) : $(DLG_FILE)
+	$(DLG) $(DFLAGS) $(DLG_FILE)
+
+AParser.o : $(ANTLR_H)/AParser.cpp
+	$(CCC) -c $(CFLAGS1) -o AParser.o $(ANTLR_H)/AParser.cpp
+
+ATokenBuffer.o : $(ANTLR_H)/ATokenBuffer.cpp
+	$(CCC) -c $(CFLAGS1) -o ATokenBuffer.o $(ANTLR_H)/ATokenBuffer.cpp
+
+DLexerBase.o : $(ANTLR_H)/DLexerBase.cpp
+	$(CCC) -c $(CFLAGS1) -o DLexerBase.o $(ANTLR_H)/DLexerBase.cpp
+
+clean:
+	rm -f $(OBJS) $(OBJ1) core $(PROGRAM)
+
+scrub:
+	rm -f *.o core $(PROGRAM) $(ANTLR_SPAWN) $(DLG_SPAWN)
+
+depend:
+	makedepend $(CFLAGS) $(CFLAGS1) $(CCHEAD) -- $(SRCS) $(SRC1)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+acan.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+acan.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+acan.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+acan.o: ../../inc/circuits.h ../../inc/globals.h ../../inc/unixstd.h
+acan.o: /usr/include/stdio.h /usr/include/bits/types.h
+acan.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+acan.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+acan.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+acan.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+acan.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+acan.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+acan.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+acan.o: ../../inc/message.h ../../inc/utility.h ../../inc/node.h
+acan.o: ../../inc/branch.h ../../inc/rclcompx.h ../../inc/complex.h
+acan.o: /usr/include/errno.h /usr/include/bits/errno.h
+acan.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+acan.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+acan.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+acan.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+acan.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+acan.o: ../../inc/control.h ../../inc/acan.h ../../inc/xdraw.h
+acan.o: ../../inc/coeff.h ../../inc/fcoeff.h ../../inc/mxexp.h
+acan.o: ../../inc/graph_out.h ../../inc/approx.h
+dtstruct.o: ../../inc/dtstruct.h /usr/include/stdio.h /usr/include/features.h
+dtstruct.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+dtstruct.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+dtstruct.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+dtstruct.o: /usr/include/_G_config.h /usr/include/wchar.h
+dtstruct.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+dtstruct.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+dtstruct.o: ../../inc/unixstd.h /usr/include/string.h /usr/include/ctype.h
+dtstruct.o: /usr/include/endian.h /usr/include/bits/endian.h
+dtstruct.o: /usr/include/stdlib.h ../../inc/ddd_base.h ../../inc/compable.h
+dtstruct.o: ../../inc/object.h ../../inc/stddefs.h /usr/include/time.h
+dtstruct.o: /usr/include/bits/time.h ../../inc/classdef.h ../../inc/copyr.h
+dtstruct.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+dtstruct.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+dtstruct.o: ../../inc/rclcompx.h ../../inc/globals.h /usr/include/assert.h
+dtstruct.o: ../../inc/message.h ../../inc/utility.h /usr/include/math.h
+dtstruct.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+dtstruct.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+dtstruct.o: /usr/include/errno.h /usr/include/bits/errno.h
+dtstruct.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+dtstruct.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+branch.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+branch.o: /usr/include/features.h /usr/include/sys/cdefs.h
+branch.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+branch.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+branch.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+branch.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+branch.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+branch.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+branch.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+branch.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+branch.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+branch.o: ../../inc/branch.h ../../inc/node.h ../../inc/rclcompx.h
+branch.o: /usr/include/math.h /usr/include/bits/huge_val.h
+branch.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+branch.o: ../../inc/complex.h /usr/include/errno.h /usr/include/bits/errno.h
+branch.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+circuits.o: /usr/include/assert.h /usr/include/features.h
+circuits.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+circuits.o: ../../inc/circuits.h ../../inc/globals.h ../../inc/unixstd.h
+circuits.o: /usr/include/stdio.h /usr/include/bits/types.h
+circuits.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+circuits.o: /usr/include/libio.h /usr/include/_G_config.h
+circuits.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+circuits.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+circuits.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+circuits.o: /usr/include/ctype.h /usr/include/endian.h
+circuits.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+circuits.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+circuits.o: ../../inc/message.h ../../inc/utility.h ../../inc/node.h
+circuits.o: ../../inc/branch.h ../../inc/rclcompx.h /usr/include/math.h
+circuits.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+circuits.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+circuits.o: /usr/include/errno.h /usr/include/bits/errno.h
+circuits.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+circuits.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+circuits.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+circuits.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+circuits.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+circuits.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+circuits.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+circuits.o: ../../inc/ckt_call.h ../../inc/mxexp.h
+circuits.o: ../../inc/cancel_flab_map.h
+commands.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+commands.o: /usr/include/features.h /usr/include/sys/cdefs.h
+commands.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+commands.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+commands.o: /usr/include/libio.h /usr/include/_G_config.h
+commands.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+commands.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+commands.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+commands.o: /usr/include/ctype.h /usr/include/endian.h
+commands.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+commands.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+commands.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+commands.o: ../../inc/circuits.h ../../inc/node.h ../../inc/branch.h
+commands.o: ../../inc/rclcompx.h /usr/include/math.h
+commands.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+commands.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+commands.o: /usr/include/errno.h /usr/include/bits/errno.h
+commands.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+commands.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+commands.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+commands.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+commands.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+commands.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+commands.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+commands.o: /usr/include/sys/times.h ../../inc/timer.h
+commands.o: /usr/include/sys/time.h /usr/include/sys/select.h
+commands.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+commands.o: /usr/include/sys/resource.h /usr/include/bits/resource.h
+commands.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+commands.o: /usr/include/bits/confname.h ../../inc/mxexp.h
+complex.o: ../../inc/message.h /usr/include/stdio.h /usr/include/features.h
+complex.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+complex.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+complex.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+complex.o: /usr/include/_G_config.h /usr/include/wchar.h
+complex.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+complex.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+complex.o: /usr/include/limits.h ../../inc/complex.h /usr/include/math.h
+complex.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+complex.o: /usr/include/bits/mathcalls.h /usr/include/errno.h
+complex.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+complex.o: /usr/include/asm/errno.h
+control.o: ../../inc/control.h ../../inc/globals.h ../../inc/unixstd.h
+control.o: /usr/include/stdio.h /usr/include/features.h
+control.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+control.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+control.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+control.o: /usr/include/_G_config.h /usr/include/wchar.h
+control.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+control.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+control.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+control.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+control.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+control.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+subckt.o: ../../inc/circuits.h ../../inc/globals.h ../../inc/unixstd.h
+subckt.o: /usr/include/stdio.h /usr/include/features.h
+subckt.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+subckt.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+subckt.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+subckt.o: /usr/include/_G_config.h /usr/include/wchar.h
+subckt.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+subckt.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+subckt.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+subckt.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+subckt.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+subckt.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+subckt.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+subckt.o: /usr/include/math.h /usr/include/bits/huge_val.h
+subckt.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+subckt.o: ../../inc/complex.h /usr/include/errno.h /usr/include/bits/errno.h
+subckt.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+subckt.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+subckt.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+subckt.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+subckt.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+subckt.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/ckt_call.h
+subckt.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+subckt.o: ../../inc/fcoeff.h
+dddbase.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+dddbase.o: /usr/include/stdlib.h /usr/include/features.h
+dddbase.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+dddbase.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+dddbase.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+dddbase.o: /usr/include/bits/typesizes.h ../../inc/classdef.h
+dddbase.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+dddbase.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+dddbase.o: ../../inc/floatobj.h ../../inc/dtstruct.h /usr/include/stdio.h
+dddbase.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+dddbase.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+dddbase.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+dddbase.o: ../../inc/unixstd.h /usr/include/string.h /usr/include/ctype.h
+dddbase.o: /usr/include/endian.h /usr/include/bits/endian.h
+dddbase.o: ../../inc/rclcompx.h ../../inc/globals.h /usr/include/assert.h
+dddbase.o: ../../inc/message.h ../../inc/utility.h /usr/include/math.h
+dddbase.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+dddbase.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+dddbase.o: /usr/include/errno.h /usr/include/bits/errno.h
+dddbase.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+dddbase.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+detcalc.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+detcalc.o: /usr/include/features.h /usr/include/sys/cdefs.h
+detcalc.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+detcalc.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+detcalc.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+detcalc.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+detcalc.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+detcalc.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+detcalc.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+detcalc.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+detcalc.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+detcalc.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+detcalc.o: /usr/include/math.h /usr/include/bits/huge_val.h
+detcalc.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+detcalc.o: ../../inc/complex.h /usr/include/errno.h /usr/include/bits/errno.h
+detcalc.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+detcalc.o: ../../inc/mxexp.h ../../inc/ddd_base.h ../../inc/compable.h
+detcalc.o: ../../inc/object.h ../../inc/classdef.h ../../inc/copyr.h
+detcalc.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+detcalc.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+detcalc.o: ../../inc/dtstruct.h ../../inc/mna_form.h ../../inc/coeff.h
+detcalc.o: ../../inc/fcoeff.h
+hashcash.o: ../../inc/hashcach.h ../../inc/compable.h ../../inc/object.h
+hashcash.o: /usr/include/stdlib.h /usr/include/features.h
+hashcash.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+hashcash.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+hashcash.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+hashcash.o: /usr/include/bits/typesizes.h ../../inc/classdef.h
+hashcash.o: ../../inc/copyr.h ../../inc/mem.h
+hasher.o: /usr/include/string.h /usr/include/features.h
+hasher.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+hasher.o: /usr/include/stdlib.h ../../inc/list.h ../../inc/object.h
+hasher.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+hasher.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+hasher.o: /usr/include/bits/typesizes.h ../../inc/classdef.h
+hasher.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/compable.h
+hasher.o: ../../inc/hasher.h
+scad3.o: /usr/include/stdio.h /usr/include/features.h
+scad3.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+scad3.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+scad3.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+scad3.o: /usr/include/_G_config.h /usr/include/wchar.h
+scad3.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+scad3.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+scad3.o: ../../inc/yasis.h ../../inc/globals.h ../../inc/unixstd.h
+scad3.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+scad3.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+scad3.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+scad3.o: ../../inc/message.h ../../inc/utility.h
+yainit.o: /usr/include/stdlib.h /usr/include/features.h
+yainit.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+yainit.o: /usr/include/stdio.h /usr/include/bits/types.h
+yainit.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+yainit.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+yainit.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+yainit.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+yainit.o: /usr/include/ctype.h /usr/include/endian.h
+yainit.o: /usr/include/bits/endian.h /usr/include/assert.h
+yainit.o: /usr/include/string.h ../../inc/globals.h ../../inc/unixstd.h
+yainit.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+yainit.o: ../../inc/message.h ../../inc/utility.h ../../inc/branch.h
+yainit.o: ../../inc/node.h ../../inc/rclcompx.h /usr/include/math.h
+yainit.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+yainit.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+yainit.o: /usr/include/errno.h /usr/include/bits/errno.h
+yainit.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+yainit.o: ../../inc/circuits.h ../../inc/mna_form.h ../../inc/dtstruct.h
+yainit.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+yainit.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+yainit.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+yainit.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/control.h
+yainit.o: ../../inc/timer.h /usr/include/sys/time.h /usr/include/sys/select.h
+yainit.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+yainit.o: /usr/include/sys/resource.h /usr/include/bits/resource.h
+list.o: /usr/include/stdlib.h /usr/include/features.h
+list.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h ../../inc/list.h
+list.o: ../../inc/object.h ../../inc/stddefs.h /usr/include/time.h
+list.o: /usr/include/bits/time.h /usr/include/bits/types.h
+list.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+list.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+list.o: ../../inc/compable.h
+lookup.o: /usr/include/stdio.h /usr/include/features.h
+lookup.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+lookup.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+lookup.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+lookup.o: /usr/include/_G_config.h /usr/include/wchar.h
+lookup.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+lookup.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+lookup.o: /usr/include/ctype.h /usr/include/endian.h
+lookup.o: /usr/include/bits/endian.h
+mxexp.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+mxexp.o: /usr/include/features.h /usr/include/sys/cdefs.h
+mxexp.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+mxexp.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+mxexp.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+mxexp.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+mxexp.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+mxexp.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+mxexp.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+mxexp.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+mxexp.o: ../../inc/message.h ../../inc/utility.h /usr/include/math.h
+mxexp.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+mxexp.o: /usr/include/bits/mathcalls.h /usr/include/limits.h
+mxexp.o: ../../inc/circuits.h ../../inc/node.h ../../inc/branch.h
+mxexp.o: ../../inc/rclcompx.h ../../inc/complex.h /usr/include/errno.h
+mxexp.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+mxexp.o: /usr/include/asm/errno.h ../../inc/mna_form.h ../../inc/dtstruct.h
+mxexp.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+mxexp.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+mxexp.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+mxexp.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/control.h
+mxexp.o: ../../inc/mxexp.h
+message.o: ../../inc/unixstd.h /usr/include/stdio.h /usr/include/features.h
+message.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+message.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+message.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+message.o: /usr/include/_G_config.h /usr/include/wchar.h
+message.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+message.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+message.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+message.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+message.o: ../../inc/message.h
+buildmna.o: /usr/include/unistd.h /usr/include/features.h
+buildmna.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+buildmna.o: /usr/include/bits/posix_opt.h /usr/include/bits/types.h
+buildmna.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+buildmna.o: /usr/include/bits/confname.h ../../inc/circuits.h
+buildmna.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+buildmna.o: /usr/include/libio.h /usr/include/_G_config.h
+buildmna.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+buildmna.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+buildmna.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+buildmna.o: /usr/include/ctype.h /usr/include/endian.h
+buildmna.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+buildmna.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+buildmna.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+buildmna.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+buildmna.o: /usr/include/math.h /usr/include/bits/huge_val.h
+buildmna.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+buildmna.o: ../../inc/complex.h /usr/include/errno.h
+buildmna.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+buildmna.o: /usr/include/asm/errno.h ../../inc/mna_form.h
+buildmna.o: ../../inc/dtstruct.h ../../inc/ddd_base.h ../../inc/compable.h
+buildmna.o: ../../inc/object.h ../../inc/classdef.h ../../inc/copyr.h
+buildmna.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+buildmna.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+buildmna.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/ckt_call.h
+buildmna.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+buildmna.o: ../../inc/fcoeff.h
+nextfield.o: /usr/include/stdio.h /usr/include/features.h
+nextfield.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+nextfield.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+nextfield.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+nextfield.o: /usr/include/_G_config.h /usr/include/wchar.h
+nextfield.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+nextfield.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+nextfield.o: /usr/include/ctype.h /usr/include/endian.h
+nextfield.o: /usr/include/bits/endian.h
+node.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+node.o: /usr/include/features.h /usr/include/sys/cdefs.h
+node.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+node.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+node.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+node.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+node.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+node.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+node.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+node.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+node.o: ../../inc/message.h ../../inc/utility.h ../../inc/branch.h
+node.o: ../../inc/node.h ../../inc/rclcompx.h /usr/include/math.h
+node.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+node.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+node.o: /usr/include/errno.h /usr/include/bits/errno.h
+node.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+parse_bch.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+parse_bch.o: /usr/include/features.h /usr/include/sys/cdefs.h
+parse_bch.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+parse_bch.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+parse_bch.o: /usr/include/libio.h /usr/include/_G_config.h
+parse_bch.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+parse_bch.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+parse_bch.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+parse_bch.o: /usr/include/ctype.h /usr/include/endian.h
+parse_bch.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+parse_bch.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+parse_bch.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+parse_bch.o: ../../inc/rclcompx.h /usr/include/math.h
+parse_bch.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+parse_bch.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+parse_bch.o: /usr/include/errno.h /usr/include/bits/errno.h
+parse_bch.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+parse_bch.o: ../../inc/circuits.h ../../inc/node.h ../../inc/branch.h
+parse_bch.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+parse_bch.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+parse_bch.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+parse_bch.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+parse_bch.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+parse_bch.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+parse_bch.o: ../../inc/ckt_call.h
+parse_ctrl.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+parse_ctrl.o: /usr/include/features.h /usr/include/sys/cdefs.h
+parse_ctrl.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+parse_ctrl.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+parse_ctrl.o: /usr/include/libio.h /usr/include/_G_config.h
+parse_ctrl.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+parse_ctrl.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+parse_ctrl.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+parse_ctrl.o: /usr/include/ctype.h /usr/include/endian.h
+parse_ctrl.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+parse_ctrl.o: ../../inc/stddefs.h /usr/include/time.h
+parse_ctrl.o: /usr/include/bits/time.h /usr/include/assert.h
+parse_ctrl.o: ../../inc/message.h ../../inc/utility.h ../../inc/circuits.h
+parse_ctrl.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+parse_ctrl.o: /usr/include/math.h /usr/include/bits/huge_val.h
+parse_ctrl.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+parse_ctrl.o: ../../inc/complex.h /usr/include/errno.h
+parse_ctrl.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+parse_ctrl.o: /usr/include/asm/errno.h ../../inc/mna_form.h
+parse_ctrl.o: ../../inc/dtstruct.h ../../inc/ddd_base.h ../../inc/compable.h
+parse_ctrl.o: ../../inc/object.h ../../inc/classdef.h ../../inc/copyr.h
+parse_ctrl.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+parse_ctrl.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+parse_ctrl.o: ../../inc/control.h ../../inc/acan.h ../../inc/xdraw.h
+parse_ctrl.o: ../../inc/coeff.h ../../inc/fcoeff.h
+rclcompx.o: /usr/include/limits.h /usr/include/features.h
+rclcompx.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+rclcompx.o: ../../inc/rclcompx.h ../../inc/globals.h ../../inc/unixstd.h
+rclcompx.o: /usr/include/stdio.h /usr/include/bits/types.h
+rclcompx.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+rclcompx.o: /usr/include/libio.h /usr/include/_G_config.h
+rclcompx.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+rclcompx.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+rclcompx.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+rclcompx.o: /usr/include/ctype.h /usr/include/endian.h
+rclcompx.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+rclcompx.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+rclcompx.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+rclcompx.o: /usr/include/math.h /usr/include/bits/huge_val.h
+rclcompx.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+rclcompx.o: ../../inc/complex.h /usr/include/errno.h
+rclcompx.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+rclcompx.o: /usr/include/asm/errno.h
+runstats.o: /usr/include/sys/types.h /usr/include/features.h
+runstats.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+runstats.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+runstats.o: /usr/include/bits/typesizes.h /usr/include/time.h
+runstats.o: /usr/include/bits/time.h /usr/include/sys/times.h
+runstats.o: /usr/include/stdio.h /usr/include/libio.h
+runstats.o: /usr/include/_G_config.h /usr/include/wchar.h
+runstats.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+runstats.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+runstats.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+runstats.o: /usr/include/bits/confname.h
+signals.o: /usr/include/signal.h /usr/include/features.h
+signals.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+signals.o: /usr/include/bits/sigset.h /usr/include/bits/types.h
+signals.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+signals.o: /usr/include/bits/signum.h ../../inc/mxexp.h ../../inc/unixstd.h
+signals.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
+signals.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+signals.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+signals.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+signals.o: /usr/include/ctype.h /usr/include/endian.h
+signals.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+signals.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+signals.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+signals.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+signals.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+signals.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+signals.o: ../../inc/rclcompx.h ../../inc/globals.h /usr/include/assert.h
+signals.o: ../../inc/message.h ../../inc/utility.h /usr/include/math.h
+signals.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+signals.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+signals.o: /usr/include/errno.h /usr/include/bits/errno.h
+signals.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+signals.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+utility.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+utility.o: /usr/include/features.h /usr/include/sys/cdefs.h
+utility.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+utility.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+utility.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+utility.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+utility.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+utility.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+utility.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+utility.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+utility.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+utility.o: /usr/include/math.h /usr/include/bits/huge_val.h
+utility.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+utility.o: /usr/include/sys/types.h
+timer.o: ../../inc/timer.h /usr/include/sys/time.h /usr/include/features.h
+timer.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+timer.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+timer.o: /usr/include/bits/typesizes.h /usr/include/time.h
+timer.o: /usr/include/bits/time.h /usr/include/sys/select.h
+timer.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+timer.o: /usr/include/sys/resource.h /usr/include/bits/resource.h
+timer.o: ../../inc/object.h /usr/include/stdlib.h ../../inc/stddefs.h
+timer.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+approx.o: /usr/include/stdio.h /usr/include/features.h
+approx.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+approx.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+approx.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+approx.o: /usr/include/_G_config.h /usr/include/wchar.h
+approx.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+approx.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+approx.o: /usr/include/stdlib.h /usr/include/string.h /usr/include/limits.h
+approx.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/ctype.h
+approx.o: /usr/include/endian.h /usr/include/bits/endian.h
+approx.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+approx.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+approx.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+approx.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+approx.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+approx.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+approx.o: ../../inc/rclcompx.h /usr/include/math.h
+approx.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+approx.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+approx.o: /usr/include/errno.h /usr/include/bits/errno.h
+approx.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+approx.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+approx.o: ../../inc/control.h ../../inc/circuits.h ../../inc/mxexp.h
+approx.o: ../../inc/approx.h ../../inc/acan.h ../../inc/xdraw.h
+approx.o: ../../inc/coeff.h ../../inc/fcoeff.h
+coeff.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+coeff.o: /usr/include/features.h /usr/include/sys/cdefs.h
+coeff.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+coeff.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+coeff.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+coeff.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+coeff.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+coeff.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+coeff.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+coeff.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+coeff.o: ../../inc/message.h ../../inc/utility.h ../../inc/complex.h
+coeff.o: /usr/include/math.h /usr/include/bits/huge_val.h
+coeff.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+coeff.o: /usr/include/errno.h /usr/include/bits/errno.h
+coeff.o: /usr/include/linux/errno.h /usr/include/asm/errno.h ../../inc/node.h
+coeff.o: ../../inc/branch.h ../../inc/rclcompx.h ../../inc/mxexp.h
+coeff.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+coeff.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+coeff.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+coeff.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+coeff.o: ../../inc/mna_form.h ../../inc/acan.h ../../inc/xdraw.h
+coeff.o: ../../inc/coeff.h ../../inc/fcoeff.h
+indexmx.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+indexmx.o: /usr/include/features.h /usr/include/sys/cdefs.h
+indexmx.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+indexmx.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+indexmx.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+indexmx.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+indexmx.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+indexmx.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+indexmx.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+indexmx.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+indexmx.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+indexmx.o: /usr/include/math.h /usr/include/bits/huge_val.h
+indexmx.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+indexmx.o: /usr/include/limits.h ../../inc/circuits.h ../../inc/node.h
+indexmx.o: ../../inc/branch.h ../../inc/rclcompx.h ../../inc/complex.h
+indexmx.o: /usr/include/errno.h /usr/include/bits/errno.h
+indexmx.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+indexmx.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+indexmx.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+indexmx.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+indexmx.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+indexmx.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/mxexp.h
+fcoeff.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+fcoeff.o: /usr/include/features.h /usr/include/sys/cdefs.h
+fcoeff.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+fcoeff.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+fcoeff.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+fcoeff.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+fcoeff.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+fcoeff.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+fcoeff.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+fcoeff.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+fcoeff.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+fcoeff.o: ../../inc/control.h ../../inc/complex.h /usr/include/math.h
+fcoeff.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+fcoeff.o: /usr/include/bits/mathcalls.h /usr/include/errno.h
+fcoeff.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+fcoeff.o: /usr/include/asm/errno.h ../../inc/node.h ../../inc/branch.h
+fcoeff.o: ../../inc/rclcompx.h ../../inc/mxexp.h ../../inc/ddd_base.h
+fcoeff.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+fcoeff.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+fcoeff.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+fcoeff.o: ../../inc/floatobj.h ../../inc/dtstruct.h ../../inc/mna_form.h
+fcoeff.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+fcoeff.o: ../../inc/fcoeff.h ../../inc/cancel_flab_map.h
+polezero.o: /usr/include/limits.h /usr/include/features.h
+polezero.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+polezero.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+polezero.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+polezero.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+polezero.o: /usr/include/_G_config.h /usr/include/wchar.h
+polezero.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+polezero.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+polezero.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+polezero.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+polezero.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+polezero.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+polezero.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+polezero.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+polezero.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+polezero.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+polezero.o: ../../inc/rclcompx.h /usr/include/math.h
+polezero.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+polezero.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+polezero.o: /usr/include/errno.h /usr/include/bits/errno.h
+polezero.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+polezero.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+polezero.o: ../../inc/control.h ../../inc/circuits.h ../../inc/mxexp.h
+polezero.o: ../../inc/approx.h ../../inc/acan.h ../../inc/xdraw.h
+polezero.o: ../../inc/coeff.h ../../inc/fcoeff.h
+buildexp.o: /usr/include/math.h /usr/include/features.h
+buildexp.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+buildexp.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+buildexp.o: /usr/include/bits/mathcalls.h ../../inc/circuits.h
+buildexp.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+buildexp.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+buildexp.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+buildexp.o: /usr/include/_G_config.h /usr/include/wchar.h
+buildexp.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+buildexp.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+buildexp.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+buildexp.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+buildexp.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+buildexp.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+buildexp.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+buildexp.o: ../../inc/complex.h /usr/include/errno.h
+buildexp.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+buildexp.o: /usr/include/asm/errno.h ../../inc/mna_form.h
+buildexp.o: ../../inc/dtstruct.h ../../inc/ddd_base.h ../../inc/compable.h
+buildexp.o: ../../inc/object.h ../../inc/classdef.h ../../inc/copyr.h
+buildexp.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+buildexp.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+buildexp.o: ../../inc/control.h ../../inc/acan.h ../../inc/xdraw.h
+buildexp.o: ../../inc/coeff.h ../../inc/fcoeff.h ../../inc/mxexp.h
+buildexp.o: ../../inc/graph_out.h ../../inc/approx.h
+buildexp.o: ../../inc/cancel_flab_map.h
+graph.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+graph.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+graph.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+graph.o: ../../inc/circuits.h ../../inc/globals.h ../../inc/unixstd.h
+graph.o: /usr/include/stdio.h /usr/include/bits/types.h
+graph.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+graph.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+graph.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+graph.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+graph.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+graph.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+graph.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+graph.o: ../../inc/message.h ../../inc/utility.h ../../inc/node.h
+graph.o: ../../inc/branch.h ../../inc/rclcompx.h ../../inc/complex.h
+graph.o: /usr/include/errno.h /usr/include/bits/errno.h
+graph.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+graph.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+graph.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+graph.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+graph.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+graph.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+graph.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+dddgc.o: ../../inc/circuits.h ../../inc/globals.h ../../inc/unixstd.h
+dddgc.o: /usr/include/stdio.h /usr/include/features.h
+dddgc.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+dddgc.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+dddgc.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+dddgc.o: /usr/include/_G_config.h /usr/include/wchar.h
+dddgc.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+dddgc.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+dddgc.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+dddgc.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+dddgc.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+dddgc.o: ../../inc/message.h ../../inc/utility.h ../../inc/node.h
+dddgc.o: ../../inc/branch.h ../../inc/rclcompx.h /usr/include/math.h
+dddgc.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+dddgc.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+dddgc.o: /usr/include/errno.h /usr/include/bits/errno.h
+dddgc.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+dddgc.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+dddgc.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+dddgc.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+dddgc.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+dddgc.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+dddgc.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+dddgc.o: ../../inc/mxexp.h
+label.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+label.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+label.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+label.o: /usr/include/limits.h /usr/include/unistd.h
+label.o: /usr/include/bits/posix_opt.h /usr/include/bits/types.h
+label.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+label.o: /usr/include/bits/confname.h ../../inc/globals.h ../../inc/unixstd.h
+label.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
+label.o: /usr/include/wchar.h /usr/include/bits/wchar.h /usr/include/gconv.h
+label.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+label.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+label.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+label.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+label.o: ../../inc/message.h ../../inc/utility.h ../../inc/circuits.h
+label.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+label.o: ../../inc/complex.h /usr/include/errno.h /usr/include/bits/errno.h
+label.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+label.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+label.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+label.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+label.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+label.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/ckt_call.h
+label.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+label.o: ../../inc/fcoeff.h ../../inc/mxexp.h
+noisean.o: /usr/include/math.h /usr/include/features.h
+noisean.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+noisean.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+noisean.o: /usr/include/bits/mathcalls.h ../../inc/circuits.h
+noisean.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+noisean.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+noisean.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+noisean.o: /usr/include/_G_config.h /usr/include/wchar.h
+noisean.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+noisean.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+noisean.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+noisean.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+noisean.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+noisean.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+noisean.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+noisean.o: ../../inc/complex.h /usr/include/errno.h /usr/include/bits/errno.h
+noisean.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+noisean.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+noisean.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+noisean.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+noisean.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+noisean.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/acan.h
+noisean.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+noisean.o: ../../inc/mxexp.h ../../inc/approx.h
+noise_src.o: /usr/include/math.h /usr/include/features.h
+noise_src.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+noise_src.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+noise_src.o: /usr/include/bits/mathcalls.h ../../inc/acan.h
+noise_src.o: ../../inc/unixstd.h /usr/include/stdio.h
+noise_src.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+noise_src.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+noise_src.o: /usr/include/_G_config.h /usr/include/wchar.h
+noise_src.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+noise_src.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+noise_src.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+noise_src.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+noise_src.o: ../../inc/globals.h ../../inc/stddefs.h /usr/include/time.h
+noise_src.o: /usr/include/bits/time.h /usr/include/assert.h
+noise_src.o: ../../inc/message.h ../../inc/utility.h ../../inc/ddd_base.h
+noise_src.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+noise_src.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+noise_src.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+noise_src.o: ../../inc/floatobj.h ../../inc/dtstruct.h ../../inc/rclcompx.h
+noise_src.o: ../../inc/complex.h /usr/include/errno.h
+noise_src.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+noise_src.o: /usr/include/asm/errno.h ../../inc/mna_form.h ../../inc/node.h
+noise_src.o: ../../inc/branch.h ../../inc/xdraw.h ../../inc/coeff.h
+noise_src.o: ../../inc/fcoeff.h
+symb_gen.o: /usr/include/stdio.h /usr/include/features.h
+symb_gen.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+symb_gen.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+symb_gen.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+symb_gen.o: /usr/include/_G_config.h /usr/include/wchar.h
+symb_gen.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+symb_gen.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+symb_gen.o: /usr/include/stdlib.h /usr/include/string.h /usr/include/limits.h
+symb_gen.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/ctype.h
+symb_gen.o: /usr/include/endian.h /usr/include/bits/endian.h
+symb_gen.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+symb_gen.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+symb_gen.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+symb_gen.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+symb_gen.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+symb_gen.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+symb_gen.o: ../../inc/rclcompx.h /usr/include/math.h
+symb_gen.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+symb_gen.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+symb_gen.o: /usr/include/errno.h /usr/include/bits/errno.h
+symb_gen.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+symb_gen.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+symb_gen.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/acan.h
+symb_gen.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+symb_gen.o: ../../inc/circuits.h ../../inc/ckt_call.h
+xdraw.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+xdraw.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+xdraw.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+xdraw.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+xdraw.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+xdraw.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+xdraw.o: /usr/include/_G_config.h /usr/include/wchar.h
+xdraw.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+xdraw.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+xdraw.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+xdraw.o: /usr/include/bits/endian.h /usr/include/stdlib.h ../../inc/stddefs.h
+xdraw.o: /usr/include/time.h /usr/include/bits/time.h /usr/include/assert.h
+xdraw.o: ../../inc/message.h ../../inc/utility.h ../../inc/xdraw.h
+cancel_flab_map.o: ../../inc/globals.h ../../inc/unixstd.h
+cancel_flab_map.o: /usr/include/stdio.h /usr/include/features.h
+cancel_flab_map.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+cancel_flab_map.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+cancel_flab_map.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+cancel_flab_map.o: /usr/include/_G_config.h /usr/include/wchar.h
+cancel_flab_map.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+cancel_flab_map.o: /usr/include/bits/stdio_lim.h
+cancel_flab_map.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+cancel_flab_map.o: /usr/include/ctype.h /usr/include/endian.h
+cancel_flab_map.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+cancel_flab_map.o: ../../inc/stddefs.h /usr/include/time.h
+cancel_flab_map.o: /usr/include/bits/time.h /usr/include/assert.h
+cancel_flab_map.o: ../../inc/message.h ../../inc/utility.h
+cancel_flab_map.o: ../../inc/cancel_flab_map.h
+new_term_gen.o: /usr/include/stdio.h /usr/include/features.h
+new_term_gen.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+new_term_gen.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+new_term_gen.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+new_term_gen.o: /usr/include/_G_config.h /usr/include/wchar.h
+new_term_gen.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+new_term_gen.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+new_term_gen.o: /usr/include/stdlib.h /usr/include/string.h
+new_term_gen.o: /usr/include/limits.h ../../inc/globals.h ../../inc/unixstd.h
+new_term_gen.o: /usr/include/ctype.h /usr/include/endian.h
+new_term_gen.o: /usr/include/bits/endian.h ../../inc/stddefs.h
+new_term_gen.o: /usr/include/time.h /usr/include/bits/time.h
+new_term_gen.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+new_term_gen.o: ../../inc/ddd_base.h ../../inc/compable.h ../../inc/object.h
+new_term_gen.o: ../../inc/classdef.h ../../inc/copyr.h ../../inc/mem.h
+new_term_gen.o: ../../inc/hasher.h ../../inc/list.h ../../inc/hashcach.h
+new_term_gen.o: ../../inc/tnode.h ../../inc/floatobj.h ../../inc/dtstruct.h
+new_term_gen.o: ../../inc/rclcompx.h /usr/include/math.h
+new_term_gen.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+new_term_gen.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+new_term_gen.o: /usr/include/errno.h /usr/include/bits/errno.h
+new_term_gen.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+new_term_gen.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+new_term_gen.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/approx.h
+new_term_gen.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+new_term_gen.o: ../../inc/fcoeff.h
+new_term_gen2.o: /usr/include/stdio.h /usr/include/features.h
+new_term_gen2.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+new_term_gen2.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+new_term_gen2.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+new_term_gen2.o: /usr/include/_G_config.h /usr/include/wchar.h
+new_term_gen2.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+new_term_gen2.o: /usr/include/bits/stdio_lim.h
+new_term_gen2.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+new_term_gen2.o: /usr/include/string.h /usr/include/limits.h
+new_term_gen2.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/ctype.h
+new_term_gen2.o: /usr/include/endian.h /usr/include/bits/endian.h
+new_term_gen2.o: ../../inc/stddefs.h /usr/include/time.h
+new_term_gen2.o: /usr/include/bits/time.h /usr/include/assert.h
+new_term_gen2.o: ../../inc/message.h ../../inc/utility.h ../../inc/ddd_base.h
+new_term_gen2.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+new_term_gen2.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+new_term_gen2.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+new_term_gen2.o: ../../inc/floatobj.h ../../inc/dtstruct.h
+new_term_gen2.o: ../../inc/rclcompx.h /usr/include/math.h
+new_term_gen2.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+new_term_gen2.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+new_term_gen2.o: /usr/include/errno.h /usr/include/bits/errno.h
+new_term_gen2.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+new_term_gen2.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+new_term_gen2.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/approx.h
+new_term_gen2.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+new_term_gen2.o: ../../inc/fcoeff.h
+new_term_gen4.o: /usr/include/stdio.h /usr/include/features.h
+new_term_gen4.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+new_term_gen4.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+new_term_gen4.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+new_term_gen4.o: /usr/include/_G_config.h /usr/include/wchar.h
+new_term_gen4.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+new_term_gen4.o: /usr/include/bits/stdio_lim.h
+new_term_gen4.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+new_term_gen4.o: /usr/include/string.h /usr/include/limits.h
+new_term_gen4.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/ctype.h
+new_term_gen4.o: /usr/include/endian.h /usr/include/bits/endian.h
+new_term_gen4.o: ../../inc/stddefs.h /usr/include/time.h
+new_term_gen4.o: /usr/include/bits/time.h /usr/include/assert.h
+new_term_gen4.o: ../../inc/message.h ../../inc/utility.h ../../inc/ddd_base.h
+new_term_gen4.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+new_term_gen4.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+new_term_gen4.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+new_term_gen4.o: ../../inc/floatobj.h ../../inc/dtstruct.h
+new_term_gen4.o: ../../inc/rclcompx.h /usr/include/math.h
+new_term_gen4.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+new_term_gen4.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+new_term_gen4.o: /usr/include/errno.h /usr/include/bits/errno.h
+new_term_gen4.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+new_term_gen4.o: ../../inc/mna_form.h ../../inc/node.h ../../inc/branch.h
+new_term_gen4.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/approx.h
+new_term_gen4.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+new_term_gen4.o: ../../inc/fcoeff.h
+semi_symb.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+semi_symb.o: /usr/include/features.h /usr/include/sys/cdefs.h
+semi_symb.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+semi_symb.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+semi_symb.o: /usr/include/libio.h /usr/include/_G_config.h
+semi_symb.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+semi_symb.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+semi_symb.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+semi_symb.o: /usr/include/ctype.h /usr/include/endian.h
+semi_symb.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+semi_symb.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+semi_symb.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+semi_symb.o: ../../inc/circuits.h ../../inc/node.h ../../inc/branch.h
+semi_symb.o: ../../inc/rclcompx.h /usr/include/math.h
+semi_symb.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+semi_symb.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+semi_symb.o: /usr/include/errno.h /usr/include/bits/errno.h
+semi_symb.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+semi_symb.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+semi_symb.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+semi_symb.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+semi_symb.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+semi_symb.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/mxexp.h
+semi_symb.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+semi_symb.o: ../../inc/fcoeff.h
+reordering.o: ../../inc/globals.h ../../inc/unixstd.h /usr/include/stdio.h
+reordering.o: /usr/include/features.h /usr/include/sys/cdefs.h
+reordering.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+reordering.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+reordering.o: /usr/include/libio.h /usr/include/_G_config.h
+reordering.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+reordering.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+reordering.o: /usr/include/bits/sys_errlist.h /usr/include/string.h
+reordering.o: /usr/include/ctype.h /usr/include/endian.h
+reordering.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+reordering.o: ../../inc/stddefs.h /usr/include/time.h
+reordering.o: /usr/include/bits/time.h /usr/include/assert.h
+reordering.o: ../../inc/message.h ../../inc/utility.h ../../inc/circuits.h
+reordering.o: ../../inc/node.h ../../inc/branch.h ../../inc/rclcompx.h
+reordering.o: /usr/include/math.h /usr/include/bits/huge_val.h
+reordering.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+reordering.o: ../../inc/complex.h /usr/include/errno.h
+reordering.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+reordering.o: /usr/include/asm/errno.h ../../inc/mna_form.h
+reordering.o: ../../inc/dtstruct.h ../../inc/ddd_base.h ../../inc/compable.h
+reordering.o: ../../inc/object.h ../../inc/classdef.h ../../inc/copyr.h
+reordering.o: ../../inc/mem.h ../../inc/hasher.h ../../inc/list.h
+reordering.o: ../../inc/hashcach.h ../../inc/tnode.h ../../inc/floatobj.h
+reordering.o: ../../inc/control.h ../../inc/mxexp.h ../../inc/acan.h
+reordering.o: ../../inc/xdraw.h ../../inc/coeff.h ../../inc/fcoeff.h
+spgram.o: /usr/include/stdio.h /usr/include/features.h
+spgram.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+spgram.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+spgram.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+spgram.o: /usr/include/_G_config.h /usr/include/wchar.h
+spgram.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+spgram.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+spgram.o: tokens.h ../../inc/globals.h ../../inc/unixstd.h
+spgram.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+spgram.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+spgram.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+spgram.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+spgram.o: sp_parser.h DLGLexer.h ../../inc/circuits.h ../../inc/node.h
+spgram.o: ../../inc/branch.h ../../inc/rclcompx.h /usr/include/math.h
+spgram.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+spgram.o: /usr/include/bits/mathcalls.h ../../inc/complex.h
+spgram.o: /usr/include/errno.h /usr/include/bits/errno.h
+spgram.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+spgram.o: ../../inc/mna_form.h ../../inc/dtstruct.h ../../inc/ddd_base.h
+spgram.o: ../../inc/compable.h ../../inc/object.h ../../inc/classdef.h
+spgram.o: ../../inc/copyr.h ../../inc/mem.h ../../inc/hasher.h
+spgram.o: ../../inc/list.h ../../inc/hashcach.h ../../inc/tnode.h
+spgram.o: ../../inc/floatobj.h ../../inc/control.h ../../inc/ckt_call.h
+spgram.o: ../../inc/acan.h ../../inc/xdraw.h ../../inc/coeff.h
+spgram.o: ../../inc/fcoeff.h
+sp_parser.o: /usr/include/stdio.h /usr/include/features.h
+sp_parser.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+sp_parser.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+sp_parser.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+sp_parser.o: /usr/include/_G_config.h /usr/include/wchar.h
+sp_parser.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+sp_parser.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+sp_parser.o: tokens.h sp_parser.h ../../inc/globals.h ../../inc/unixstd.h
+sp_parser.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+sp_parser.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+sp_parser.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+sp_parser.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+DLGLexer.o: tokens.h ../../inc/globals.h ../../inc/unixstd.h
+DLGLexer.o: /usr/include/stdio.h /usr/include/features.h
+DLGLexer.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+DLGLexer.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+DLGLexer.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+DLGLexer.o: /usr/include/_G_config.h /usr/include/wchar.h
+DLGLexer.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+DLGLexer.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+DLGLexer.o: /usr/include/string.h /usr/include/ctype.h /usr/include/endian.h
+DLGLexer.o: /usr/include/bits/endian.h /usr/include/stdlib.h
+DLGLexer.o: ../../inc/stddefs.h /usr/include/time.h /usr/include/bits/time.h
+DLGLexer.o: /usr/include/assert.h ../../inc/message.h ../../inc/utility.h
+DLGLexer.o: DLGLexer.h

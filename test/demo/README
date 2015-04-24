@@ -1,0 +1,23 @@
+bp2_miller.** --- band-pass filter without partitoning and using miller Opamp
+                  as the implementation of the Opamps used (2 level).
+bp3_miller.** --- Manually partitioned band-pass filter using miller Opamp
+		  as the implementation of the Opamp used (3 level).
+lp_linear.**  --- low-pass filter (used as the illustrative exmaple) using
+                  u741 linear Opamp model as the implementation of the
+		  Opamp used.
+lp_miller.**  --- low-pass filter (used as the illustrative exmaple) using
+                  miller Opamp model as the implementation of the Opamp used.
+		  
+ua741h.**     --- 3-level partitioned u741 Opamp circuit (last example of 
+		  the submited jounal paper)
+utility program:
+
+calterm       --- help count the #terms from the log files of scad3
+	          Usage: calterm log.file
+		  It uses another program bb as subroutine.
+		  The number obtained should be substract the #terms 
+		  in the last circuit matrix in the log file to obtain
+		  the correct the #term used for whole circuit.
+runscad      ---- run scad3 in batch mode and generate *.out file for
+ 		  detailed analysis.
+		  Usage: runscad file_name (without .sp suffix)

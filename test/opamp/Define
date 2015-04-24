@@ -1,0 +1,56 @@
+
+#define gm1a 5.890000e-06
+
+#define rds1a 9.260000e+07
+
+#define cbd1a 2.040000e-14
+
+#define cgs1a 4.780000e-14
+
+#define gm1b 5.890000e-06
+
+#define rds1b 9.260000e+07
+
+#define cbd1b 2.040000e-14
+
+#define cgs1b 4.780000e-14
+
+#define gm2a 3.000000e-05
+
+#define rds2a 2.460000e+07
+
+#define cbd2a 1.640000e-14
+
+#define cgs2a 5.500000e-13
+
+#define gm2b 3.000000e-05
+
+#define rds2b 2.460000e+07
+
+#define cbd2b 1.640000e-14
+
+#define cgs2b 5.500000e-13
+
+#define gm3 4.060000e-04
+
+#define rds3 4.950000e+05
+
+#define cbd3 9.560000e-14
+
+#define cgs3 2.010000e-13
+
+#define rds4 3.620000e+03
+
+#define cbd4 3.050000e-13
+
+#define cgd4 6.710000e-14
+
+#define rds5 4.695000e+07
+
+#define cbd5 2.450000e-14
+
+#define cC 1.000000e-12
+
+#define cL 1.000000e-11
+
+#define rL 1.000000e+05

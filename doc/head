@@ -1,0 +1,17 @@
+/*
+*******************************************************
+ 
+       Yet Another Symbolic cIrcuit Simulator  
+                (*** YASIS V%I% ***)
+
+   Xiang-Dong (Sheldon) Tan, 1998 (c) Copyright
+
+   Electrical Engineering, Univ. of Washington
+   Electrical Computer Engineering, Univ. of Iowa
+ 
+   email: xtan@ee.washington.edu and xtan@eng.uiowa.edu
+   date: 10/26/1998 -> %G%
+*******************************************************
+*/
+
+static char *sccsid = "%W%  %U% %E%";

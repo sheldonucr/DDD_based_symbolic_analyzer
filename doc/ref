@@ -1,0 +1,49 @@
+\bibitem{ShiTan97}
+C.-J.~Shi and X.-D.~Tan,
+``Symbolic analysis of large analog circuits with
+determinant decision diagrams,"
+in {\it Proc. IEEE Int. Conf. Computer Aided Design (ICCAD)},
+pp.~366-373, Nov. 1997.
+
+
+\bibitem{ShiTan98_1}
+C.-J.~Shi and X.-D.~Tan,
+``Efficient derivation of exact s-expanded symbolic expressions
+for behavioral modeling of analog circuits,"
+in {\it Proc. IEEE Custom Integrated Circuits Conf. (CICC)},
+pp.~463-466, May 1998.
+
+\bibitem{ShiTan99_1}
+ X.-D.~Tan, C.-J.~Shi, D.~Lungeanu, J.-C.~F.~Lee, L.-P.~Yuan,
+``Reliability-contrainted area 
+optimization of VLSI power/ground networks via
+sequence of linear programming,"
+in {\it Proc. IEEE/ACM Design Automation Conf.}, 
+New Orleans, LA, June 21-25, 1999.
+
+\bibitem{TanTo97}
+X.-D.~Tan, J.-R.~Tong, P.-S.~Tang and F.~Lombardi,
+``An efficient multi-way algorithm for balanced partitioning
+of VLSI circuits,"
+{\it IEEE Int. Conf. Computer Design (ICCD)}, pp.~608-613, 1997.
+
+\bibitem{TanShi98}
+X.-D.~Tan and C.-J.~Shi,
+``Hierarchical symbolic analysis of large analog circuits
+with determinant decision diagrams,"
+in {\it Proc. IEEE Int. Symp. Circuits and Systems}, pp.~318-321,
+June 1998.
+
+\bibitem{TanShi99_1}
+X.-D.~Tan and C.-J.~Shi,
+``Balanced multi-level, multi-way
+partitioning of large analog circuits for hierarchical symbolic analysis,"
+in {\it Proc. IEEE Asia and South Pacific Design Automation Conference
+(ASP-DAC)}, Hong Kong, pp.~1-4, Jan. 1999.
+
+\bibitem{TanShi99_2}
+X.-D.~Tan and C.-J.~Shi, 
+``Interpretable symbolic small-signal characterization of large analog
+ circuits using determinant decision diagram," 
+ in {\it Proc. IEEE Design, Automation and Test in Europe (DATE)}, 
+ Munich, Germany, pp.~448-453, Mar. 1999. 

@@ -1,0 +1,163 @@
+Welcome to [1m SCAD3[m $Revision: 1.1 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998, XiangDong (Sheldon) Tan 
+	'h' for help
+: source ua741.sp
+0.030000
+[0:00.0u 0:00.0s 896k]
+: ! 'run' is to perform the symbolic and numerical analysis.
+: ! It first builds the MNA matrix and then derives the symbolic
+: ! expressions required in terms of DDDs. Finally, it perferm
+: ! the numerical evluation on the resulting symbolic expressions.
+: ! The times used for DDD construation and numerical evluation
+: ! are also printed out.
+: ! We do twice as we have some problems with the first run.
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+number of element is: 89
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(2) [  1   1   1   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0 ]
+(3) [  0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   1   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0 ]
+(6) [  0   0   0   0   1   1   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   1 ]
+(7) [  0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1 ]
+(8) [  0   0   0   0   0   0   1   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   1 ]
+(9) [  0   0   0   0   0   0   0   1   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0 ]
+(10) [  0   0   0   0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(11) [  0   0   0   0   0   0   0   0   0   1   1   0   0   0   1   1   0   0   0   0   0   0   0 ]
+(12) [  0   0   0   0   0   0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   1 ]
+(13) [  0   0   0   0   0   0   0   0   1   0   0   1   1   0   1   0   0   0   0   0   0   0   0 ]
+(14) [  0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1   0   0   0   0   0   0   0 ]
+(15) [  0   0   0   0   0   1   0   0   0   1   1   0   1   0   1   1   0   0   0   0   0   0   0 ]
+(16) [  0   1   1   0   0   0   0   0   0   0   1   0   0   1   1   1   0   0   0   1   1   0   0 ]
+(17) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1   0   0   0   0 ]
+(18) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   0   0   1   0   0 ]
+(19) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1   1   1   0   0 ]
+(20) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   0   0 ]
+(21) [  0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   1   0   1   1   1   1   1   0 ]
+(22) [  1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   1   1   0 ]
+(23) [  0   0   0   0   0   1   1   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 86  85   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(2) [ 84  65  80   0   0   0   0   0   0   0   0   0   0   0   0  61   0   0   0   0   0  62   0 ]
+(3) [  0  81  82   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0  78  77   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0  76  56  53   0   0   0   0   0   0   0   0   0   0   0   0   0   0  52   0   0 ]
+(6) [  0   0   0   0  55  51   0   0   0   0   0   0   0   0  48   0   0   0   0   0   0   0  47 ]
+(7) [  0   0   0   0   0   0  46  43   0   0   0   0   0   0   0   0   0   0   0   0   0   0  42 ]
+(8) [  0   0   0   0   0   0  45  41  39   0   0   0   0   0   0   0   0   0   0   0   0   0  38 ]
+(9) [  0   0   0   0   0   0   0  40  37   0   0   0  35   0   0   0   0   0   0   0   0   0   0 ]
+(10) [  0   0   0   0   0   0   0   0   0  74  73   0   0   0   0   0   0   0   0   0   0   0   0 ]
+(11) [  0   0   0   0   0   0   0   0   0  72  24   0   0   0  21  20   0   0   0   0   0   0   0 ]
+(12) [  0   0   0   0   0   0   0   0   0   0   0  32  31   0   0   0   0   0   0   0   0   0  34 ]
+(13) [  0   0   0   0   0   0   0   0  36   0   0  29  27   0  25   0   0   0   0   0   0   0   0 ]
+(14) [  0   0   0   0   0   0   0   0   0   0   0   0   0  89   0  87   0   0   0   0   0   0   0 ]
+(15) [  0   0   0   0   0  50   0   0   0  71  23   0  26   0  19  17   0   0   0   0   0   0   0 ]
+(16) [  0  63  79   0   0   0   0   0   0   0  22   0   0  88  18  16   0   0   0  66  14   0   0 ]
+(17) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  13  10   9   0   0   0   0 ]
+(18) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  12   4   0   0   2   0   0 ]
+(19) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  11   6   8  68   5   0   0 ]
+(20) [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  70  69   0   0 ]
+(21) [  0   0   0  75  54   0   0   0   0   0   0   0   0   0   0  15   0   3   7  67   1  59   0 ]
+(22) [ 83  64   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  58   0   0  57  60   0 ]
+(23) [  0   0   0   0   0  49  44   0   0   0   0  30  28   0   0   0   0   0   0   0   0   0  33 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 6205
+#paths (DDD): 363914
+row(real, index)
+---------------------
+row(10,1)  (1,1)+r1+rpi5+cpi5+gm5;(1,2)-rpi5-cpi5-gm5;
+row(9,2)  (2,2)+r2+rpi5+cpi5+cmu5+cpi7+rpi6+cpi6+cmu6+rpi7+gm7;(2,1)-rpi5-cpi5;(2,3)-rpi6-cpi6;(2,16)-cmu6;(2,22)-cmu5+cpi7-rpi7-gm7;
+row(11,3)  (3,3)+r3+rpi6+cpi6+gm6;(3,2)-rpi6-cpi6-gm6;
+row(12,4)  (4,4)+r4+rpi10+cpi10+gm10;(4,5)-rpi10-cpi10-gm10;
+row(15,5)  (5,5)+r5+rpi10+cpi10+cmu10+rpi11+cpi11+gm11;(5,4)-rpi10-cpi10;(5,6)-r5;(5,21)-cmu10;
+row(17,6)  (6,6)+r5+rpi12+rpi13a+rpi13b+cpi12+cpi13a+cpi13b+gm12+cmu13a+cmu13b;(6,5)-r5;(6,15)-cmu13b;(6,23)-cmu13a;
+row(23,7)  (7,7)+r6+rpi14+rpi15+cpi14+cpi15+gm14+cmu15;(7,8)-r6-cmu15;(7,23)-rpi14+rpi15-cpi14+cpi15-gm14;
+row(24,8)  (8,8)+r6+r7+rpi21+cmu15+cpi21+gm21;(8,7)-r6-cmu15+gm15;(8,9)-r7+rpi21-cpi21-gm21;(8,23)-gm15;
+row(25,9)  (9,9)+r7+rpi21+rpi20+cpi20+gm20+cpi21+gm21;(9,8)-r7+rpi21-cpi21-gm21;(9,13)-rpi20-cpi20-gm20;
+row(18,10)  (10,10)+r8+rpi17+cpi17+gm17;(10,11)-rpi17-cpi17-gm17;
+row(14,11)  (11,11)+r9+rpi16+cpi16+gm16+rpi17+cpi17+cmu17;(11,10)-rpi17-cpi17;(11,15)-cmu17;(11,16)-rpi16-cpi16-gm16;
+row(21,12)  (12,12)+r10+rpi18+cpi18+cmu18+cpi19+rpi19+gm19;(12,13)-r10+rpi18-cpi18;(12,23)-cmu18+cpi19-rpi19-gm19;
+row(20,13)  (13,13)+r10+rpi18+cpi18+gm18+rpi20+cpi20+cmu20+rpi23a+cpi23a+gm23a;(13,9)-rpi20-cpi20;(13,12)-r10+rpi18-cpi18-gm18;(13,15)-rpi23a-cpi23a-gm23a;
+row(13,14)  (14,14)+r11+rpi22+rpi24+cpi22+cpi24+cmu22+gm24;(14,16)-cmu22;
+row(22,15)  (15,15)+comp+cpi23b+cmu13b+cmu17+rpi23a+cpi23a+cmu23a+cmu23b+rpi23b;(15,13)-rpi23a-cpi23a;(15,10)-gm17;(15,11)-cmu17+gm17;(15,6)-cmu13b+gm13b;(15,16)-comp+cpi23b-rpi23b;
+row(8,16)  (16,16)+comp+cpi23b+cmu4+cmu6+rpi16+cpi16+cmu16+cmu22+rpi23b+gm23b;(16,14)-cmu22+gm22;(16,11)-rpi16-cpi16;(16,3)-gm6;(16,2)-cmu6+gm6;(16,15)-comp+cpi23b-rpi23b-gm23b;(16,20)-gm4;(16,21)-cmu4+gm4;
+row(1,17)  (17,17)+rpi1+cpi1+cmu1;(17,18)-rpi1-cpi1;(17,19)-cmu1;
+row(4,18)  (18,18)+rpi1+cpi1+gm1+rpi3+cpi3+gm3;(18,17)-rpi1-cpi1-gm1;(18,21)-rpi3-cpi3-gm3;
+row(3,19)  (19,19)+cmu1+cmu2+cpi8+cpi9+rpi8+rpi9+gm8+cmu9;(19,18)-gm1;(19,17)-cmu1+gm1;(19,20)-gm2;(19,21)-cmu9;
+row(5,20)  (20,20)+rpi2+cpi2+gm2+rpi4+cpi4+gm4;(20,21)-rpi4-cpi4-gm4;
+row(6,21)  (21,21)+rpi3+cpi3+cmu3+rpi4+cpi4+cmu4+cmu9+cmu10;(21,4)-gm10;(21,5)-cmu10+gm10;(21,19)-cmu9+gm9;(21,16)-cmu4;(21,20)-rpi4-cpi4;(21,18)-rpi3-cpi3;(21,22)-cmu3;
+row(7,22)  (22,22)+cmu3+cmu5+cpi7+rpi7+cmu7;(22,1)-gm5;(22,2)-cmu5+cpi7+gm5-rpi7;(22,18)-gm3;(22,21)-cmu3+gm3;
+row(28,23)  (23,23)+cmu13a+rpi14+rpi15+cpi14+cpi15+cmu14+gm15+cmu18+cpi19+rpi19+gm19;(23,13)-gm18;(23,12)-cmu18+cpi19+gm18-rpi19-gm19;(23,7)-rpi14+rpi15-cpi14+cpi15-gm15;(23,6)-cmu13a+gm13a;
+---------------------
+
+DDD construction time: 1.42
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (17 8) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1673
+#paths (DDD): 10970
+BUILDING COFACTOR (17 17) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4985
+#paths (DDD): 108032
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 1.41
+END OF NUMERICAL AC ANALYSIS
+2.830000
+[0:04.5u 0:00.2s 10944k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+DDD construction time: 0
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.8
+END OF NUMERICAL AC ANALYSIS
+0.800000
+[0:01.3u 0:00.0s 10944k]
+: ! 'plot' uses xgraph to display the numerical evluation results.
+: plot
+0.000000
+[0:00.0u 0:00.0s 10952k]
+: ! 'status' displays some statisitic information. You can
+: ! find the #DDD information here.
+: stat
+----------------------
+Ckt: ua741.sp
+Title: *ua741 circuit frequency response 1%
+#nodes: 48
+#branch: 184
+#stimula: 1
+#output node: 1
+----------------------
+magnitude error(magerr): 0.1
+phase error(phserr): 0.1
+Rel_Threshold(relth): 0.9
+Rel_Threshold(for num coeff)(nrelth): 0.01
+Rel_Threshold(for den coeff)(drelth): 0.01
+coeff suppress th(alpha): 0.01
+---------------------
+#(top level)total nodes (DDD): 6654
+#(top level)total paths (DDD): 0
+#total overall nodes (DDD): 6654
+#total overall pathes (DDD): 0
+---------------------
+0.760000
+[0:01.3u 0:00.0s 10952k]
+: ! 'exit' quits from scad3
+[0:07.1u 0:00.3s 10952k] SCAD3 done.

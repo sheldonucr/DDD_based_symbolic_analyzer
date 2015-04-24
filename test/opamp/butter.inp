@@ -1,0 +1,21 @@
+10th order Butterworth filter
+*
+rS  1 2 1
+c1  2 0 .0498
+rr2  2 3 .1445
+c3  3 0 .2251
+rr4  3 4 .2836
+c5  4 0 .3144
+rr6  4 5 .3144
+c7  5 0 .2836
+rr8  5 6 .2251
+c9  6 0 .1445
+rr10 6 7 .0498
+rl  7 0 1
+v1 1 0 DC 0.0 AC 1.0
+*g1 1 0 7 0 0.0
+*.output (v7,v1)
+*.freq 0.01 1000 200 0.1 butter.TFA
+.AC DEC 200 0.01 1000 
+.print vdb(7)
+.END

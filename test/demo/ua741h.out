@@ -1,0 +1,1439 @@
+Welcome to [1m SCAD3[m $Revision: 1.1 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998, XiangDong (Sheldon) Tan 
+	'h' for help
+: source ua741h.sp
+subckt: blk11
+12 
+7 
+8 
+change current ckt
+subckt: blk12
+1 
+15 
+12 
+7 
+8 
+change current ckt
+subckt: blk21
+8 
+15 
+20 
+28 
+23 
+change current ckt
+subckt: blk22
+24 
+8 
+20 
+28 
+23 
+change current ckt
+subckt: blk1
+1 
+8 
+15 
+begin cktcall -- 
+12 
+7 
+8 
+begin cktcall -- 
+1 
+15 
+12 
+7 
+8 
+change current ckt
+subckt: blk2
+24 
+8 
+15 
+begin cktcall -- 
+8 
+15 
+20 
+28 
+23 
+begin cktcall -- 
+24 
+8 
+20 
+28 
+23 
+change current ckt
+begin cktcall -- 
+1 
+8 
+15 
+begin cktcall -- 
+24 
+8 
+15 
+0.070000
+[0:00.1u 0:00.1s 5912k]
+: ! 'run' is to perform the symbolic and numerical analysis.
+: ! It first builds the MNA matrix and then derives the symbolic
+: ! expressions required in terms of DDDs. Finally, it perferm
+: ! the numerical evluation on the resulting symbolic expressions.
+: ! The times used for DDD construation and numerical evluation
+: ! are also printed out.
+: ! We do twice as we have some problems with the first run.
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+
+Building MNA for subckt: blk11
+number of element is: 7
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   7   5   0 ]
+(5) [  0   0   0   6   4   2 ]
+(6) [  0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 7
+#paths (DDD): 3
+row(real, index)
+---------------------
+row(12,1)  (1,1)+r4;
+row(7,2)  (2,2)+cmu5+cpi7+rpi7+cmu7;(2,4)-gm5;(2,5)-cmu5+cpi7+gm5-rpi7;
+row(8,3)  (3,3)+cmu6;(3,5)-cmu6+gm6;(3,6)-gm6;
+row(10,4)  (4,4)+r1+rpi5+cpi5+gm5;(4,5)-rpi5-cpi5-gm5;
+row(9,5)  (5,5)+r2+rpi5+cpi5+cmu5+cpi7+rpi6+cpi6+cmu6+rpi7+gm7;(5,3)-cmu6;(5,2)-cmu5+cpi7-rpi7-gm7;(5,4)-rpi5-cpi5;(5,6)-rpi6-cpi6;
+row(11,6)  (6,6)+r3+rpi6+cpi6+gm6;(6,5)-rpi6-cpi6-gm6;
+---------------------
+
+
+end of build subckt: blk11
+
+Building MNA for subckt: blk12
+number of element is: 12
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0   1   0   0   1 ]
+(7) [  0   0   0   0   0   1   1   1   1 ]
+(8) [  0   0   0   0   0   0   0   1   1 ]
+(9) [  0   0   0   0   0   1   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0   7   0   0   5 ]
+(7) [  0   0   0   0   0  10  12   9   8 ]
+(8) [  0   0   0   0   0   0   0   4   2 ]
+(9) [  0   0   0   0   0   6  11   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 15
+#paths (DDD): 6
+row(real, index)
+---------------------
+row(1,1)  (1,1)+rpi1+cpi1+cmu1;(1,6)-rpi1-cpi1;(1,7)-cmu1;
+row(15,2)  (2,2)+rpi10+cpi10+cmu10;(2,3)-rpi10-cpi10;(2,9)-cmu10;
+row(12,3)  (3,3)+rpi10+cpi10+gm10;(3,2)-rpi10-cpi10-gm10;
+row(7,4)  (4,4)+cmu3;(4,6)-gm3;(4,9)-cmu3+gm3;
+row(8,5)  (5,5)+cmu4;(5,8)-gm4;(5,9)-cmu4+gm4;
+row(4,6)  (6,6)+rpi1+cpi1+gm1+rpi3+cpi3+gm3;(6,1)-rpi1-cpi1-gm1;(6,9)-rpi3-cpi3-gm3;
+row(3,7)  (7,7)+cmu1+cmu2+cpi8+cpi9+rpi8+rpi9+gm8+cmu9;(7,6)-gm1;(7,1)-cmu1+gm1;(7,8)-gm2;(7,9)-cmu9;
+row(5,8)  (8,8)+rpi2+cpi2+gm2+rpi4+cpi4+gm4;(8,9)-rpi4-cpi4-gm4;
+row(6,9)  (9,9)+rpi3+cpi3+cmu3+rpi4+cpi4+cmu4+cmu9+cmu10;(9,3)-gm10;(9,2)-cmu10+gm10;(9,7)-cmu9+gm9;(9,5)-cmu4;(9,8)-rpi4-cpi4;(9,4)-cmu3;(9,6)-rpi3-cpi3;
+---------------------
+
+
+end of build subckt: blk12
+
+Building MNA for subckt: blk21
+number of element is: 11
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0   1   0   0   1 ]
+(7) [  0   0   0   0   0   0   1   1   0 ]
+(8) [  0   0   0   0   0   0   1   1   1 ]
+(9) [  0   0   0   0   0   1   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0  11   0   0   9 ]
+(7) [  0   0   0   0   0   0   4   2   0 ]
+(8) [  0   0   0   0   0   0   6   5   8 ]
+(9) [  0   0   0   0   0  10   3   1   7 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 12
+#paths (DDD): 6
+row(real, index)
+---------------------
+row(8,1)  (1,1)+comp+cpi23b+rpi16+cpi16+cmu16+rpi23b+gm23b;(1,8)-rpi16-cpi16;(1,9)-comp+cpi23b-rpi23b-gm23b;
+row(15,2)  (2,2)+r5+rpi11+cpi11+gm11;(2,6)-r5;
+row(20,3)  (3,3)+rpi23a+cpi23a+gm23a;(3,9)-rpi23a-cpi23a-gm23a;
+row(28,4)  (4,4)+cmu13a+rpi14+cpi14+cmu14;(4,5)-rpi14-cpi14;(4,6)-cmu13a+gm13a;
+row(23,5)  (5,5)+rpi14+cpi14+gm14;(5,4)-rpi14-cpi14-gm14;
+row(17,6)  (6,6)+r5+rpi12+rpi13a+rpi13b+cpi12+cpi13a+cpi13b+gm12+cmu13a+cmu13b;(6,4)-cmu13a;(6,2)-r5;(6,9)-cmu13b;
+row(18,7)  (7,7)+r8+rpi17+cpi17+gm17;(7,8)-rpi17-cpi17-gm17;
+row(14,8)  (8,8)+r9+rpi16+cpi16+gm16+rpi17+cpi17+cmu17;(8,7)-rpi17-cpi17;(8,1)-rpi16-cpi16-gm16;(8,9)-cmu17;
+row(22,9)  (9,9)+comp+cpi23b+cmu13b+cmu17+rpi23a+cpi23a+cmu23a+cmu23b+rpi23b;(9,3)-rpi23a-cpi23a;(9,7)-gm17;(9,8)-cmu17+gm17;(9,6)-cmu13b+gm13b;(9,1)-comp+cpi23b-rpi23b;
+---------------------
+
+
+end of build subckt: blk21
+
+Building MNA for subckt: blk22
+number of element is: 3
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0   1   0   0 ]
+(7) [  0   0   0   0   0   0   1   0 ]
+(8) [  0   0   0   0   0   0   0   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0   0   0 ]
+(4) [  0   0   0   0   0   0   0   0 ]
+(5) [  0   0   0   0   0   0   0   0 ]
+(6) [  0   0   0   0   0   3   0   0 ]
+(7) [  0   0   0   0   0   0   2   0 ]
+(8) [  0   0   0   0   0   0   0   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+row(real, index)
+---------------------
+row(24,1)  (1,1)+r6+r7+rpi21+cmu15+cpi21+gm21;(1,4)-gm15;(1,5)-r6-cmu15+gm15;(1,6)-r7+rpi21-cpi21-gm21;
+row(8,2)  (2,2)+cmu22;(2,8)-cmu22+gm22;
+row(20,3)  (3,3)+r10+rpi18+cpi18+gm18+rpi20+cpi20+cmu20;(3,6)-rpi20-cpi20;(3,7)-r10+rpi18-cpi18-gm18;
+row(28,4)  (4,4)+rpi15+cpi15+gm15+cmu18+cpi19+rpi19+gm19;(4,3)-gm18;(4,5)-rpi15-cpi15-gm15;(4,7)-cmu18+cpi19+gm18-rpi19-gm19;
+row(23,5)  (5,5)+r6+rpi15+cpi15+cmu15;(5,4)-rpi15-cpi15;(5,1)-r6-cmu15;
+row(25,6)  (6,6)+r7+rpi21+rpi20+cpi20+gm20+cpi21+gm21;(6,3)-rpi20-cpi20-gm20;(6,1)-r7+rpi21-cpi21-gm21;
+row(21,7)  (7,7)+r10+rpi18+cpi18+cmu18+cpi19+rpi19+gm19;(7,4)-cmu18+cpi19-rpi19-gm19;(7,3)-r10+rpi18-cpi18;
+row(13,8)  (8,8)+r11+rpi22+rpi24+cpi22+cpi24+cmu22+gm24;(8,2)-cmu22;
+---------------------
+
+
+end of build subckt: blk22
+
+Building MNA for subckt: blk1
+
+Process subckt call x11
+Expand x11(blk11) ...
+r1_x11 110 100
+r2_x11 109 100
+r3_x11 111 100
+r4_x11 12 100
+rpi5_x11 109 110
+cpi5_x11 109 110
+cmu5+cpi7_x11 109 7
+gm5_x11 7 110 109 110
+rpi6_x11 109 111
+cpi6_x11 109 111
+cmu6_x11 109 8
+gm6_x11 8 111 109 111
+rpi7_x11 7 109
+cmu7_x11 7 100
+gm7_x11 100 109 7 109
+build composite expression for (12,12)
+NULL return!
+build composite expression for (12,7)
+NULL return!
+build composite expression for (12,8)
+NULL return!
+build composite expression for (7,12)
+NULL return!
+build composite expression for (7,7)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (7,8)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,12)
+NULL return!
+build composite expression for (8,7)
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,8)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+
+Process subckt call x12
+Expand x12(blk12) ...
+rpi1_x12 1 204
+cpi1_x12 1 204
+cmu1_x12 1 203
+gm1_x12 203 204 1 204
+rpi2_x12 200 205
+cpi2_x12 200 205
+cmu2+cpi8+cpi9_x12 200 203
+gm2_x12 203 205 200 205
+rpi3_x12 206 204
+cpi3_x12 206 204
+cmu3_x12 206 7
+gm3_x12 7 204 206 204
+rpi4_x12 206 205
+cpi4_x12 206 205
+cmu4_x12 206 8
+gm4_x12 8 205 206 205
+rpi8+rpi9_x12 203 200
+gm8_x12 203 200 203 200
+cmu9_x12 203 206
+gm9_x12 206 200 203 200
+rpi10_x12 15 12
+cpi10_x12 15 12
+cmu10_x12 15 206
+gm10_x12 206 12 15 12
+build composite expression for (1,1)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+BUILDING COFACTOR (6 7) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 10
+#paths (DDD): 4
+BUILDING COFACTOR (7 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (7 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 8
+#paths (DDD): 3
+build composite expression for (1,15)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 8
+#paths (DDD): 3
+build composite expression for (1,12)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 8
+#paths (DDD): 3
+build composite expression for (1,7)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 8
+#paths (DDD): 3
+build composite expression for (1,8)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 8
+#paths (DDD): 3
+build composite expression for (15,1)
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (7 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (15,15)
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (15,12)
+build composite expression for (15,7)
+build composite expression for (15,8)
+build composite expression for (12,1)
+NULL return!
+build composite expression for (12,15)
+NULL return!
+build composite expression for (12,12)
+NULL return!
+build composite expression for (12,7)
+NULL return!
+build composite expression for (12,8)
+NULL return!
+build composite expression for (7,1)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (7 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (7 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (7,15)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (7,12)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (7,7)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (7,8)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (8,1)
+BUILDING COFACTOR (6 8) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (7 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (7 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (8,15)
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (8,12)
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+build composite expression for (8,7)
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (8,8)
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+more than one clist!!
+number of element is: 3
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0 ]
+(2) [  0   0   0   0   0 ]
+(3) [  0   0   0   0   0 ]
+(4) [  0   0   0   1   0 ]
+(5) [  0   0   0   1   1 ]
+
+
+[5,4] has been forcely assigned 
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0 ]
+(2) [  0   0   0   0   0 ]
+(3) [  0   0   0   0   0 ]
+(4) [  0   0   0   1   0 ]
+(5) [  0   0   0   3   2 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+row(real, index)
+---------------------
+row(1,1)  (1,1)+rpi1+cpi1+cmu1;(1,2);(1,3);(1,4);(1,5);
+row(8,2)  (2,5);(2,4);(2,3);(2,1);(2,2)+cmu6+cmu4;
+row(15,3)  (3,1);(3,2);(3,3)+rpi10+cpi10+cmu10;(3,4)-rpi10-cpi10;(3,5);
+row(12,4)  (4,4)+r4+rpi10+cpi10+gm10;(4,3)-rpi10-cpi10-gm10;
+row(7,5)  (5,5)+cmu5+cpi7+rpi7+cmu7+cmu3;(5,4);(5,3);(5,1);(5,2);
+---------------------
+
+
+end of build subckt: blk1
+
+Building MNA for subckt: blk2
+
+Process subckt call x21
+Expand x21(blk21) ...
+r5_x21 15 317
+r8_x21 318 300
+r9_x21 314 300
+comp+cpi23b_x21 322 8
+rpi11_x21 15 300
+cpi11_x21 15 300
+gm11_x21 15 300 15 300
+rpi12+rpi13a+rpi13b_x21 317 300
+cpi12+cpi13a+cpi13b_x21 317 300
+gm12_x21 317 300 317 300
+cmu13a_x21 317 28
+gm13a_x21 28 300 317 300
+cmu13b_x21 317 322
+gm13b_x21 322 300 317 300
+rpi14_x21 28 23
+cpi14_x21 28 23
+cmu14_x21 28 300
+gm14_x21 300 23 28 23
+rpi16_x21 8 314
+cpi16_x21 8 314
+cmu16_x21 8 300
+gm16_x21 300 314 8 314
+rpi17_x21 314 318
+cpi17_x21 314 318
+cmu17_x21 314 322
+gm17_x21 322 318 314 318
+rpi23a_x21 322 20
+cpi23a_x21 322 20
+cmu23a+cmu23b_x21 322 300
+gm23a_x21 300 20 322 20
+rpi23b_x21 322 8
+gm23b_x21 300 8 322 8
+build composite expression for (8,8)
+BUILDING COFACTOR (8 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (8 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (8,15)
+BUILDING COFACTOR (6 8) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (8,20)
+BUILDING COFACTOR (9 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (8,28)
+BUILDING COFACTOR (6 8) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 3
+#paths (DDD): 1
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (8,23)
+NULL return!
+build composite expression for (15,8)
+BUILDING COFACTOR (8 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (15,15)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+build composite expression for (15,20)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (15,28)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+build composite expression for (15,23)
+NULL return!
+build composite expression for (20,8)
+BUILDING COFACTOR (8 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (20,15)
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (20,20)
+BUILDING COFACTOR (9 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (20,28)
+BUILDING COFACTOR (6 9) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (20,23)
+NULL return!
+build composite expression for (28,8)
+BUILDING COFACTOR (8 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (28,15)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+build composite expression for (28,20)
+BUILDING COFACTOR (9 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 2
+build composite expression for (28,28)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+build composite expression for (28,23)
+NULL return!
+build composite expression for (23,8)
+NULL return!
+build composite expression for (23,15)
+NULL return!
+build composite expression for (23,20)
+NULL return!
+build composite expression for (23,28)
+NULL return!
+build composite expression for (23,23)
+NULL return!
+
+Process subckt call x22
+Expand x22(blk22) ...
+r6_x22 23 24
+r7+rpi21_x22 24 425
+r10+rpi18_x22 421 20
+r11+rpi22+rpi24_x22 413 400
+rpi15_x22 23 28
+cpi15_x22 23 28
+cmu15_x22 23 24
+gm15_x22 24 28 23 28
+cpi18_x22 421 20
+cmu18+cpi19_x22 421 28
+gm18_x22 28 20 421 20
+rpi19_x22 28 421
+gm19_x22 28 421 28 421
+rpi20_x22 20 425
+cpi20_x22 20 425
+cmu20_x22 20 400
+gm20_x22 400 425 20 425
+cpi21_x22 425 24
+gm21_x22 425 24 425 24
+cpi22+cpi24_x22 413 400
+cmu22_x22 413 8
+gm22_x22 8 400 413 400
+gm24_x22 413 400 413 400
+build composite expression for (24,24)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (24,8)
+BUILDING COFACTOR (8 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (24,20)
+BUILDING COFACTOR (7 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+build composite expression for (24,28)
+BUILDING COFACTOR (7 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (24,23)
+NULL return!
+build composite expression for (8,24)
+BUILDING COFACTOR (6 8) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (8,8)
+BUILDING COFACTOR (8 8) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (8,20)
+BUILDING COFACTOR (6 8) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (7 8) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (8,28)
+BUILDING COFACTOR (7 8) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (8,23)
+NULL return!
+build composite expression for (20,24)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+build composite expression for (20,8)
+BUILDING COFACTOR (8 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (8 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (20,20)
+BUILDING COFACTOR (6 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (7 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (7 7) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (20,28)
+BUILDING COFACTOR (7 6) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (20,23)
+NULL return!
+build composite expression for (28,24)
+BUILDING COFACTOR (6 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (28,8)
+BUILDING COFACTOR (8 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+NULL return!
+build composite expression for (28,20)
+BUILDING COFACTOR (6 7) ...
+MATRIX EXPANSION IS PERFORMED...
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (28,28)
+more than one clist!!
+build composite expression for (28,23)
+NULL return!
+build composite expression for (23,24)
+NULL return!
+build composite expression for (23,8)
+NULL return!
+build composite expression for (23,20)
+NULL return!
+build composite expression for (23,28)
+NULL return!
+build composite expression for (23,23)
+NULL return!
+number of element is: 7
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   7   5   0 ]
+(5) [  0   0   0   6   4   2 ]
+(6) [  0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 7
+#paths (DDD): 3
+row(real, index)
+---------------------
+row(24,1)  (1,1)+r6+r7+rpi21+cmu15+cpi21+gm21;(1,4);(1,5)-gm15;(1,6)-r6-cmu15+gm15;
+row(8,2)  (2,2)+comp+cpi23b+rpi16+cpi16+cmu16+rpi23b+gm23b+cmu22;(2,3);(2,4);(2,5);
+row(15,3)  (3,2);(3,3)+r5+rpi11+cpi11+gm11;(3,4);(3,5);
+row(20,4)  (4,2);(4,1);(4,3);(4,4)+rpi23a+cpi23a+gm23a+r10+rpi18+cpi18+gm18+rpi20+cpi20+cmu20;(4,5);
+row(28,5)  (5,2);(5,3);(5,4)-gm18;(5,5)+cmu13a+rpi14+cpi14+cmu14+rpi15+cpi15+gm15+cmu18+cpi19+rpi19+gm19;(5,6)-rpi14-cpi14-rpi15-cpi15-gm15;
+row(23,6)  (6,5)-rpi14-cpi14-gm14-rpi15-cpi15;(6,1)-r6-cmu15;(6,6)+rpi14+cpi14+gm14+r6+rpi15+cpi15+cmu15;
+---------------------
+
+
+end of build subckt: blk2
+
+Process subckt call x1
+Expand x1(blk1) ...
+build composite expression for (1,1)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (1,8)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (1,15)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (4 5) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+more than one clist!!
+build composite expression for (8,1)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (8,8)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (8,15)
+BUILDING COFACTOR (4 5) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (15,1)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (15,8)
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+more than one clist!!
+build composite expression for (15,15)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (4 5) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+WARNING: NULL Cofactor DDD, ignored.
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+more than one clist!!
+
+Process subckt call x2
+Expand x2(blk2) ...
+build composite expression for (24,24)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+more than one clist!!
+build composite expression for (24,8)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (24,15)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,24)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,8)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+more than one clist!!
+build composite expression for (8,15)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+more than one clist!!
+build composite expression for (15,24)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (15,8)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+more than one clist!!
+build composite expression for (15,15)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+more than one clist!!
+more than one clist!!
+number of element is: 14
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   1   0 ]
+(2) [  1   1   1   1 ]
+(3) [  1   1   1   1 ]
+(4) [  0   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 14  11  10   0 ]
+(2) [ 13   9   6   5 ]
+(3) [ 12   8   4   2 ]
+(4) [  0   7   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 25
+#paths (DDD): 14
+row(real, index)
+---------------------
+row(1,1)  (1,1)+rpi1+cpi1+cmu1;(1,2);(1,3);
+row(8,2)  (2,1);(2,2)+cmu6+cmu4+comp+cpi23b+rpi16+cpi16+cmu16+rpi23b+gm23b+cmu22;(2,3);(2,4);
+row(15,3)  (3,1);(3,2);(3,3)+rpi10+cpi10+cmu10+r5+rpi11+cpi11+gm11;(3,4);
+row(24,4)  (4,4)+r6+r7+rpi21+cmu15+cpi21+gm21;(4,3);(4,2);
+---------------------
+
+DDD construction time: 0.06
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 4) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 13
+#paths (DDD): 6
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 1.08
+END OF NUMERICAL AC ANALYSIS
+1.140000
+[0:01.8u 0:00.1s 6088k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+DDD construction time: 0
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 1.08
+END OF NUMERICAL AC ANALYSIS
+1.080000
+[0:01.8u 0:00.0s 6088k]
+: ! 'plot' uses xgraph to display the numerical evluation results.
+: plot
+0.040000
+[0:00.0u 0:00.0s 6112k]
+: ! 'status' displays some statisitic information. You can
+: ! find the #DDD information here.
+: stat
+----------------------
+Ckt: ua741h.sp
+Title: *ua741 circuit frequency response 1% 
+#nodes: 8
+#branch: 0
+#stimula: 1
+#output node: 1
+----------------------
+magnitude error(magerr): 0.1
+phase error(phserr): 0.1
+Rel_Threshold(relth): 0.9
+Rel_Threshold(for num coeff)(nrelth): 0.01
+Rel_Threshold(for den coeff)(drelth): 0.01
+coeff suppress th(alpha): 0.01
+---------------------
+#(top level)total nodes (DDD): 20
+#(top level)total paths (DDD): 0
+#total nodes (DDD): 10
+#total paths (DDD): 0
+#total nodes (DDD): 36
+#total paths (DDD): 0
+#total nodes (DDD): 23
+#total paths (DDD): 0
+#total nodes (DDD): 6
+#total paths (DDD): 0
+#total nodes (DDD): 4
+#total paths (DDD): 0
+#total nodes (DDD): 18
+#total paths (DDD): 0
+#total overall nodes (DDD): 117
+#total overall pathes (DDD): 0
+---------------------
+0.060000
+[0:00.1u 0:00.0s 6112k]
+: ! 'exit' quits from scad3
+[0:03.8u 0:00.2s 6112k] SCAD3 done.

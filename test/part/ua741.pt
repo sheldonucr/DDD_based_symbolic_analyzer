@@ -1,0 +1,68 @@
+
+
+	#####  Final partitioning report: ua741.net ####
+	Total input nets: 26	real nets: 24
+	Total vertices: 38
+	Total pins : 97
+	Deviation Factor: 4
+	Average vertices on a net: 3.730769
+	Overall net density: 0.286704
+	Total Span : 30	Total cut nets: 10
+
+ 	** the #internal nets and #vertices in each subset.
+	set: 0 #internal nets : 5; vertices: 13;
+	set: 1 #internal nets : 2; vertices: 5;
+	set: 2 #internal nets : 4; vertices: 12;
+	set: 3 #internal nets : 3; vertices: 8;
+Boundary Signals for Partition: 0 
+26 ,8 ,20 ,28 ,27 ,6 ,3 ,9 ,7 ,The number of cuts is 9
+Q24 
+Q22 
+Q21 
+Q20 
+Q15 
+Q14 
+Q7 
+Q3 
+Q1 
+R11 
+R7 
+R6 
+R2 
+total #cell: 13
+Boundary Signals for Partition: 1 
+8 ,20 ,28 ,6 ,3 ,The number of cuts is 5
+Q19 
+Q18 
+Q4 
+Q2 
+R10 
+total #cell: 5
+Boundary Signals for Partition: 2 
+26 ,8 ,22 ,20 ,28 ,27 ,6 ,9 ,7 ,The number of cuts is 9
+Q23B 
+Q23A 
+Q13B 
+Q13A 
+Q12 
+Q11 
+Q10 
+Q5 
+COMP 
+R5 
+R4 
+R1 
+total #cell: 12
+Boundary Signals for Partition: 3 
+26 ,8 ,22 ,27 ,6 ,3 ,9 ,The number of cuts is 7
+Q17 
+Q16 
+Q9 
+Q8 
+Q6 
+R9 
+R8 
+R3 
+total #cell: 8
+All the boundary signals:
+26 ,8 ,22 ,20 ,28 ,27 ,6 ,3 ,9 ,7 ,The tolal number of cuts is 10

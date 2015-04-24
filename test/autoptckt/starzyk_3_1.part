@@ -1,0 +1,84 @@
+
+	#####  Final partition report: starzyk ####
+	Total input nets: 33	real nets: 33
+	Total cells: 57
+	Total cell sizes: 57
+	Total pins : 127
+	Maximum deviation 0.200000
+	Average cells on a net: 3.848485
+	Overall net density: 0.154509
+	AveSetSize: 19	 MaxCellSize:4
+	MaxSetSize: 22	 MinSetSize:16
+	Total Span : 13	Total cut net: 6
+	The size and cells of every partition
+		size(0) : 22;	 cells: 22;
+		size(1) : 17;	 cells: 17;
+		size(2) : 18;	 cells: 18;
+Boundary Signals for Partition: 0 
+I0 ,I23 ,I22 ,I12 ,I11 ,I15 ,The number of cuts is 6
+r30 
+r28 
+Op9 
+Op8 
+Op7 
+r27 
+c26 
+r25 
+c24 
+r24 
+r23 
+r22 
+r21 
+r19 
+Op6 
+Op5 
+r18 
+c17 
+r16 
+c15 
+r15 
+r11 
+total #cell: 22
+Boundary Signals for Partition: 1 
+I0 ,I23 ,I22 ,The number of cuts is 3
+Op13 
+r40 
+r39 
+r38 
+r37 
+Op12 
+Op11 
+Op10 
+r36 
+c35 
+r34 
+c33 
+r33 
+r32 
+r31 
+r29 
+r20 
+total #cell: 17
+Boundary Signals for Partition: 2 
+I0 ,I12 ,I11 ,I15 ,The number of cuts is 4
+Op4 
+r14 
+r13 
+r12 
+r10 
+Op3 
+Op2 
+Op1 
+r9 
+c8 
+r7 
+c6 
+r6 
+R5 
+r4 
+r3 
+r2 
+r1 
+total #cell: 18
+All the boundary signals:
+I0 ,I23 ,I22 ,I12 ,I11 ,I15 ,The tolal number of cuts is 6

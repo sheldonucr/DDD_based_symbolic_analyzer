@@ -1,0 +1,1526 @@
+
+/* SCAPP 9.0 */
+
+/* OUTPUT FILE FOR SYMBOLIC SIMULATION OF FILE u741m_p.scapp.OUT */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "data_complex.h"
+#include "data_active.h"
+#include "outputL.h"
+#include "sources.h"
+
+#ifdef MAKE_LIB
+
+outputList *MAKE_LIB(struct complex *s,struct mos_instance *m1)
+
+   {
+#else /* ifdef MAKE_LIB */
+int num_o_functions = 1;
+
+int analysisType = 0;
+double t;
+
+int modelOrder = 1;
+
+char *funct_names[1] = {  "v1v24" };
+
+#endif /* ifdef MAKE_LIB else */
+#define ANSWERS ((struct complex *)(answers->values))
+#define PREV_ANSWERS ((struct complex *)(answers->next->values))
+
+outputList *answers;
+outputList *model_source;
+int numModelNames = 0;
+/*FSTUC-------------------------*/
+struct complex cadd(),cmul(),chs(),cdiv();
+struct complex zero,one,omega;
+struct complex g1;
+struct complex gm24;
+struct complex cpi24;
+struct complex rpi24;
+struct complex gm23B;
+struct complex cmu23B;
+struct complex cpi23B;
+struct complex rpi23B;
+struct complex gm23A;
+struct complex cmu23A;
+struct complex cpi23A;
+struct complex rpi23A;
+struct complex gm22;
+struct complex cmu22;
+struct complex cpi22;
+struct complex rpi22;
+struct complex gm21;
+struct complex cpi21;
+struct complex rpi21;
+struct complex gm20;
+struct complex cmu20;
+struct complex cpi20;
+struct complex rpi20;
+struct complex gm19;
+struct complex cpi19;
+struct complex rpi19;
+struct complex gm18;
+struct complex cmu18;
+struct complex cpi18;
+struct complex rpi18;
+struct complex gm17;
+struct complex cmu17;
+struct complex cpi17;
+struct complex rpi17;
+struct complex gm16;
+struct complex cmu16;
+struct complex cpi16;
+struct complex rpi16;
+struct complex gm15;
+struct complex cmu15;
+struct complex cpi15;
+struct complex rpi15;
+struct complex gm14;
+struct complex cmu14;
+struct complex cpi14;
+struct complex rpi14;
+struct complex gm13B;
+struct complex cmu13B;
+struct complex cpi13B;
+struct complex rpi13B;
+struct complex gm13A;
+struct complex cmu13A;
+struct complex cpi13A;
+struct complex rpi13A;
+struct complex gm12;
+struct complex cpi12;
+struct complex rpi12;
+struct complex gm11;
+struct complex cpi11;
+struct complex rpi11;
+struct complex gm10;
+struct complex cmu10;
+struct complex cpi10;
+struct complex rpi10;
+struct complex gm9;
+struct complex cmu9;
+struct complex cpi9;
+struct complex rpi9;
+struct complex gm8;
+struct complex cpi8;
+struct complex rpi8;
+struct complex gm7;
+struct complex cmu7;
+struct complex cpi7;
+struct complex rpi7;
+struct complex gm6;
+struct complex cmu6;
+struct complex cpi6;
+struct complex rpi6;
+struct complex gm5;
+struct complex cmu5;
+struct complex cpi5;
+struct complex rpi5;
+struct complex gm4;
+struct complex cmu4;
+struct complex cpi4;
+struct complex rpi4;
+struct complex gm3;
+struct complex cmu3;
+struct complex cpi3;
+struct complex rpi3;
+struct complex gm2;
+struct complex cmu2;
+struct complex cpi2;
+struct complex rpi2;
+struct complex gm1;
+struct complex cmu1;
+struct complex cpi1;
+struct complex rpi1;
+struct complex cOMP;
+struct complex r11;
+struct complex r10;
+struct complex r9;
+struct complex r8;
+struct complex r7;
+struct complex r6;
+struct complex r5;
+struct complex r4;
+struct complex r3;
+struct complex r2;
+struct complex r1;
+struct complex P1R_10F0;
+struct complex PC_10X_9F0;
+struct complex T_9X_9F0;
+struct complex PC_10X_7F0;
+struct complex T_7X_9F0;
+struct complex P1R_12F0;
+struct complex PC_12X_15F0;
+struct complex T_15X_15F0;
+struct complex PC_12X_6F0;
+struct complex T_6X_15F0;
+struct complex P1R_4F0;
+struct complex PC_4X_1F0;
+struct complex T_1X_1F0;
+struct complex T_1X_6F0;
+struct complex PC_4X_3F0;
+struct complex T_3X_1F0;
+struct complex T_3X_6F0;
+struct complex PC_4X_6F0;
+struct complex T_6X_1F0;
+struct complex T_6X_6F0;
+struct complex PC_4X_7F0;
+struct complex T_7X_1F0;
+struct complex T_7X_6F0;
+struct complex P1R_3F0;
+struct complex PC_3X_1F0;
+struct complex T_1X_5F0;
+struct complex PC_3X_6F0;
+struct complex T_6X_5F0;
+struct complex P1R_7F0;
+struct complex PC_7X_9F0;
+struct complex T_9X_1F0;
+struct complex T_9X_6F0;
+struct complex PC_7X_6F0;
+struct complex T_6X_9F0;
+struct complex P3R_11F0;
+struct complex PC_11X_9F0;
+struct complex T_9X_9F0;
+struct complex PC_11X_8F0;
+struct complex T_8X_9F0;
+struct complex P3R_18F0;
+struct complex PC_18X_14F0;
+struct complex T_14X_14F0;
+struct complex PC_18X_22F0;
+struct complex T_22X_14F0;
+struct complex P3R_14F0;
+struct complex PC_14X_22F0;
+struct complex T_22X_22F0;
+struct complex T_22X_8F0;
+struct complex PC_14X_8F0;
+struct complex T_8X_22F0;
+struct complex T_8X_8F0;
+struct complex P3R_13F0;
+struct complex PC_13X_8F0;
+struct complex P4R_23F0;
+struct complex PC_23X_24F0;
+struct complex T_24X_24F0;
+struct complex T_24X_28F0;
+struct complex PC_23X_28F0;
+struct complex T_28X_24F0;
+struct complex T_28X_28F0;
+struct complex P4R_25F0;
+struct complex PC_25X_24F0;
+struct complex T_24X_20F0;
+struct complex PC_25X_20F0;
+struct complex T_20X_24F0;
+struct complex T_20X_20F0;
+struct complex P4R_21F0;
+struct complex PC_21X_20F0;
+struct complex T_20X_28F0;
+struct complex PC_21X_28F0;
+struct complex T_28X_20F0;
+struct complex P4R_20F0;
+struct complex PC_20X_24F0;
+struct complex T_24X_22F0;
+struct complex PC_20X_22F0;
+struct complex T_22X_24F0;
+struct complex T_22X_22F0;
+struct complex T_22X_28F0;
+struct complex PC_20X_28F0;
+struct complex T_28X_22F0;
+struct complex P4R_28F0;
+struct complex PC_28X_17F0;
+struct complex T_17X_17F0;
+struct complex T_17X_24F0;
+struct complex T_17X_22F0;
+struct complex PC_28X_24F0;
+struct complex T_24X_17F0;
+struct complex PC_28X_22F0;
+struct complex T_22X_17F0;
+struct complex P2R_17F0;
+struct complex PC_17X_15F0;
+struct complex T_15X_15F0;
+struct complex T_15X_24F0;
+struct complex T_15X_22F0;
+struct complex PC_17X_24F0;
+struct complex T_24X_15F0;
+struct complex PC_17X_22F0;
+struct complex T_22X_15F0;
+struct complex P2R_22F0;
+struct complex PC_22X_15F0;
+struct complex T_15X_8F0;
+struct complex PC_22X_24F0;
+struct complex T_24X_8F0;
+struct complex PC_22X_8F0;
+struct complex T_8X_15F0;
+struct complex T_8X_24F0;
+struct complex P2R_8F0;
+struct complex PC_8X_9F0;
+struct complex T_9X_15F0;
+struct complex T_9X_24F0;
+struct complex T_9X_5F0;
+struct complex T_9X_6F0;
+struct complex PC_8X_15F0;
+struct complex T_15X_9F0;
+struct complex T_15X_5F0;
+struct complex T_15X_6F0;
+struct complex PC_8X_24F0;
+struct complex T_24X_9F0;
+struct complex T_24X_5F0;
+struct complex T_24X_6F0;
+struct complex PC_8X_6F0;
+struct complex T_6X_9F0;
+struct complex T_6X_15F0;
+struct complex T_6X_24F0;
+struct complex T_6X_5F0;
+struct complex T_6X_6F0;
+struct complex P0R_9F0;
+struct complex PC_9X_15F0;
+struct complex T_15X_1F0;
+struct complex T_15X_6F0;
+struct complex PC_9X_24F0;
+struct complex T_24X_1F0;
+struct complex PC_9X_6F0;
+struct complex P0R_15F0;
+struct complex PC_15X_24F0;
+struct complex PC_15X_6F0;
+struct complex P0R_5F0;
+struct complex PC_5X_24F0;
+struct complex PC_5X_1F0;
+struct complex PC_5X_6F0;
+struct complex P0R_6F0;
+struct complex PC_6X_24F0;
+struct complex PC_6X_1F0;
+struct complex T_1X_24F0;
+/*FDEF-------------------------*/
+
+
+#ifndef MAKE_LIB
+
+void initVariables( tstep ) 
+double tstep;
+{
+#endif /* ifdef MAKE_LIB*/
+
+  int i;  r1.real =  1.000000e+03 ;
+  r1.imag =  0.000000e+00 ;
+  r2.real =  5.000000e+04 ;
+  r2.imag =  0.000000e+00 ;
+  r3.real =  1.000000e+03 ;
+  r3.imag =  0.000000e+00 ;
+  r4.real =  3.000000e+03 ;
+  r4.imag =  0.000000e+00 ;
+  r5.real =  3.900000e+04 ;
+  r5.imag =  0.000000e+00 ;
+  r6.real =  5.000000e+01 ;
+  r6.imag =  0.000000e+00 ;
+  r7.real =  2.500000e+01 ;
+  r7.imag =  0.000000e+00 ;
+  r8.real =  1.000000e+02 ;
+  r8.imag =  0.000000e+00 ;
+  r9.real =  5.000000e+04 ;
+  r9.imag =  0.000000e+00 ;
+  r10.real =  4.000000e+04 ;
+  r10.imag =  0.000000e+00 ;
+  r11.real =  5.000000e+04 ;
+  r11.imag =  0.000000e+00 ;
+  cOMP.real =  3.000000e-11 ;
+  cOMP.imag =  0.000000e+00 ;
+  rpi1.real =  4.608300e+05 ;
+  rpi1.imag =  0.000000e+00 ;
+  cpi1.real =  1.640000e-12 ;
+  cpi1.imag =  0.000000e+00 ;
+  cmu1.real =  1.140000e-13 ;
+  cmu1.imag =  0.000000e+00 ;
+  gm1.real =  4.820000e-04 ;
+  gm1.imag =  0.000000e+00 ;
+  rpi2.real =  4.587200e+05 ;
+  rpi2.imag =  0.000000e+00 ;
+  cpi2.real =  1.640000e-12 ;
+  cpi2.imag =  0.000000e+00 ;
+  cmu2.real =  1.140000e-13 ;
+  cmu2.imag =  0.000000e+00 ;
+  gm2.real =  4.840000e-04 ;
+  gm2.imag =  0.000000e+00 ;
+  rpi3.real =  1.841500e+05 ;
+  rpi3.imag =  0.000000e+00 ;
+  cpi3.real =  1.300000e-11 ;
+  cpi3.imag =  0.000000e+00 ;
+  cmu3.real =  3.450000e-13 ;
+  cmu3.imag =  0.000000e+00 ;
+  gm3.real =  4.660000e-04 ;
+  gm3.imag =  0.000000e+00 ;
+  rpi4.real =  1.828300e+05 ;
+  rpi4.imag =  0.000000e+00 ;
+  cpi4.real =  1.300000e-11 ;
+  cpi4.imag =  0.000000e+00 ;
+  cmu4.real =  3.470000e-13 ;
+  cmu4.imag =  0.000000e+00 ;
+  gm4.real =  4.670000e-04 ;
+  gm4.imag =  0.000000e+00 ;
+  rpi5.real =  4.329000e+05 ;
+  rpi5.imag =  0.000000e+00 ;
+  cpi5.real =  1.630000e-12 ;
+  cpi5.imag =  0.000000e+00 ;
+  cmu5.real =  2.730000e-13 ;
+  cmu5.imag =  0.000000e+00 ;
+  gm5.real =  4.770000e-04 ;
+  gm5.imag =  0.000000e+00 ;
+  rpi6.real =  4.329000e+05 ;
+  rpi6.imag =  0.000000e+00 ;
+  cpi6.real =  1.630000e-12 ;
+  cpi6.imag =  0.000000e+00 ;
+  cmu6.real =  2.590000e-13 ;
+  cmu6.imag =  0.000000e+00 ;
+  gm6.real =  4.770000e-04 ;
+  gm6.imag =  0.000000e+00 ;
+  rpi7.real =  5.102000e+05 ;
+  rpi7.imag =  0.000000e+00 ;
+  cpi7.real =  1.620000e-12 ;
+  cpi7.imag =  0.000000e+00 ;
+  cmu7.real =  9.080000e-14 ;
+  cmu7.imag =  0.000000e+00 ;
+  gm7.real =  4.700000e-04 ;
+  gm7.imag =  0.000000e+00 ;
+  rpi8.real =  7.246400e+04 ;
+  rpi8.imag =  0.000000e+00 ;
+  cpi8.real =  2.410000e-11 ;
+  cpi8.imag =  0.000000e+00 ;
+  gm8.real =  8.730000e-04 ;
+  gm8.imag =  0.000000e+00 ;
+  rpi9.real =  7.246400e+04 ;
+  rpi9.imag =  0.000000e+00 ;
+  cpi9.real =  3.090000e-11 ;
+  cpi9.imag =  0.000000e+00 ;
+  cmu9.real =  3.230000e-13 ;
+  cmu9.imag =  0.000000e+00 ;
+  gm9.real =  1.120000e-03 ;
+  gm9.imag =  0.000000e+00 ;
+  rpi10.real =  1.798600e+05 ;
+  rpi10.imag =  0.000000e+00 ;
+  cpi10.real =  2.490000e-12 ;
+  cpi10.imag =  0.000000e+00 ;
+  cmu10.real =  1.170000e-13 ;
+  cmu10.imag =  0.000000e+00 ;
+  gm10.real =  1.200000e-03 ;
+  gm10.imag =  0.000000e+00 ;
+  rpi11.real =  5.102000e+03 ;
+  rpi11.imag =  0.000000e+00 ;
+  cpi11.real =  2.590000e-11 ;
+  cpi11.imag =  0.000000e+00 ;
+  gm11.real =  2.140000e-02 ;
+  gm11.imag =  0.000000e+00 ;
+  rpi12.real =  1.180600e+03 ;
+  rpi12.imag =  0.000000e+00 ;
+  cpi12.real =  3.460000e-10 ;
+  cpi12.imag =  0.000000e+00 ;
+  gm12.real =  1.260000e-02 ;
+  gm12.imag =  0.000000e+00 ;
+  rpi13A.real =  2.832900e+02 ;
+  rpi13A.imag =  0.000000e+00 ;
+  cpi13A.real =  1.230000e-09 ;
+  cpi13A.imag =  0.000000e+00 ;
+  cmu13A.real =  7.830000e-14 ;
+  cmu13A.imag =  0.000000e+00 ;
+  gm13A.real =  4.500000e-02 ;
+  gm13A.imag =  0.000000e+00 ;
+  rpi13B.real =  3.413000e+02 ;
+  rpi13B.imag =  0.000000e+00 ;
+  cpi13B.real =  3.060000e-10 ;
+  cpi13B.imag =  0.000000e+00 ;
+  cmu13B.real =  2.280000e-13 ;
+  cmu13B.imag =  0.000000e+00 ;
+  gm13B.real =  1.120000e-02 ;
+  gm13B.imag =  0.000000e+00 ;
+  rpi14.real =  3.246800e+04 ;
+  rpi14.imag =  0.000000e+00 ;
+  cpi14.real =  1.480000e-11 ;
+  cpi14.imag =  0.000000e+00 ;
+  cmu14.real =  4.000000e-13 ;
+  cmu14.imag =  0.000000e+00 ;
+  gm14.real =  1.280000e-02 ;
+  gm14.imag =  0.000000e+00 ;
+  rpi15.real =  1.908400e+14 ;
+  rpi15.imag =  0.000000e+00 ;
+  cpi15.real =  6.560000e-13 ;
+  cpi15.imag =  0.000000e+00 ;
+  cmu15.real =  2.630000e-13 ;
+  cmu15.imag =  0.000000e+00 ;
+  gm15.real =  8.870000e-14 ;
+  gm15.imag =  0.000000e+00 ;
+  rpi16.real =  3.039500e+05 ;
+  rpi16.imag =  0.000000e+00 ;
+  cpi16.real =  1.990000e-12 ;
+  cpi16.imag =  0.000000e+00 ;
+  cmu16.real =  9.100000e-14 ;
+  cmu16.imag =  0.000000e+00 ;
+  gm16.real =  7.800000e-04 ;
+  gm16.imag =  0.000000e+00 ;
+  rpi17.real =  5.376300e+03 ;
+  rpi17.imag =  0.000000e+00 ;
+  cpi17.real =  2.510000e-11 ;
+  cpi17.imag =  0.000000e+00 ;
+  cmu17.real =  4.060000e-13 ;
+  cmu17.imag =  0.000000e+00 ;
+  gm17.real =  2.080000e-02 ;
+  gm17.imag =  0.000000e+00 ;
+  rpi18.real =  2.217300e+03 ;
+  rpi18.imag =  0.000000e+00 ;
+  cpi18.real =  4.210000e-11 ;
+  cpi18.imag =  0.000000e+00 ;
+  cmu18.real =  3.150000e-13 ;
+  cmu18.imag =  0.000000e+00 ;
+  gm18.real =  3.550000e-02 ;
+  gm18.imag =  0.000000e+00 ;
+  rpi19.real =  1.766800e+05 ;
+  rpi19.imag =  0.000000e+00 ;
+  cpi19.real =  2.410000e-12 ;
+  cpi19.imag =  0.000000e+00 ;
+  gm19.real =  1.140000e-03 ;
+  gm19.imag =  0.000000e+00 ;
+  rpi20.real =  5.988000e+03 ;
+  rpi20.imag =  0.000000e+00 ;
+  cpi20.real =  2.690000e-10 ;
+  cpi20.imag =  0.000000e+00 ;
+  cmu20.real =  1.970000e-12 ;
+  cmu20.imag =  0.000000e+00 ;
+  gm20.real =  9.600000e-03 ;
+  gm20.imag =  0.000000e+00 ;
+  rpi21.real =  6.410300e+13 ;
+  rpi21.imag =  0.000000e+00 ;
+  cpi21.real =  1.010000e-13 ;
+  cpi21.imag =  0.000000e+00 ;
+  gm21.real =  1.300000e-13 ;
+  gm21.imag =  0.000000e+00 ;
+  rpi22.real =  1.992000e+14 ;
+  rpi22.imag =  0.000000e+00 ;
+  cpi22.real =  6.500000e-13 ;
+  cpi22.imag =  0.000000e+00 ;
+  cmu22.real =  2.260000e-13 ;
+  cmu22.imag =  0.000000e+00 ;
+  gm22.real =  4.040000e-14 ;
+  gm22.imag =  0.000000e+00 ;
+  rpi23A.real =  1.197600e+02 ;
+  rpi23A.imag =  0.000000e+00 ;
+  cpi23A.real =  6.110000e-10 ;
+  cpi23A.imag =  0.000000e+00 ;
+  cmu23A.real =  1.910000e-12 ;
+  cmu23A.imag =  0.000000e+00 ;
+  gm23A.real =  2.300000e-02 ;
+  gm23A.imag =  0.000000e+00 ;
+  rpi23B.real =  8.333300e+07 ;
+  rpi23B.imag =  0.000000e+00 ;
+  cpi23B.real =  2.710000e-12 ;
+  cpi23B.imag =  0.000000e+00 ;
+  cmu23B.real =  1.920000e-12 ;
+  cmu23B.imag =  0.000000e+00 ;
+  gm23B.real =  2.290000e-07 ;
+  gm23B.imag =  0.000000e+00 ;
+  rpi24.real =  1.992000e+14 ;
+  rpi24.imag =  0.000000e+00 ;
+  cpi24.real =  6.500000e-13 ;
+  cpi24.imag =  0.000000e+00 ;
+  gm24.real =  7.330000e-19 ;
+  gm24.imag =  0.000000e+00 ;
+  g1.real =  0.000000e+00 ;
+  g1.imag =  0.000000e+00 ;
+
+  answers = (outputList *) malloc( sizeof(outputList));
+  answers->values = (void *)malloc( 1 * sizeof(struct complex));
+  answers->next = NULL;
+
+  zero.real = 0.0;
+  zero.imag = 0.0;
+  one.real = 1.0;
+  one.imag = 0.0;
+
+#ifdef MAKE_LIB
+
+   omega.real = 0.0;
+   omega.imag = s->imag;
+#endif
+
+/*FIC-------------------------*/
+
+
+
+#ifndef MAKE_LIB
+}
+
+/*FOUT2-------------------------*/
+
+void unDoSources( step )
+   double step;
+ {
+ }
+
+double checkSourceBreaks( t )
+   double t;
+ {
+ }
+
+void setSymbolValue(symName, value) 
+	char* symName;
+	double value;
+{
+if(!strcmp(symName,"cpi24")) {
+	cpi24.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi24")) {
+	rpi24.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu23B")) {
+	cmu23B.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi23B")) {
+	cpi23B.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi23B")) {
+	rpi23B.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu23A")) {
+	cmu23A.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi23A")) {
+	cpi23A.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi23A")) {
+	rpi23A.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu22")) {
+	cmu22.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi22")) {
+	cpi22.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi22")) {
+	rpi22.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi21")) {
+	cpi21.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi21")) {
+	rpi21.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu20")) {
+	cmu20.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi20")) {
+	cpi20.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi20")) {
+	rpi20.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi19")) {
+	cpi19.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi19")) {
+	rpi19.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu18")) {
+	cmu18.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi18")) {
+	cpi18.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi18")) {
+	rpi18.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu17")) {
+	cmu17.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi17")) {
+	cpi17.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi17")) {
+	rpi17.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu16")) {
+	cmu16.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi16")) {
+	cpi16.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi16")) {
+	rpi16.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu15")) {
+	cmu15.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi15")) {
+	cpi15.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi15")) {
+	rpi15.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu14")) {
+	cmu14.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi14")) {
+	cpi14.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi14")) {
+	rpi14.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu13B")) {
+	cmu13B.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi13B")) {
+	cpi13B.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi13B")) {
+	rpi13B.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu13A")) {
+	cmu13A.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi13A")) {
+	cpi13A.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi13A")) {
+	rpi13A.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi12")) {
+	cpi12.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi12")) {
+	rpi12.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi11")) {
+	cpi11.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi11")) {
+	rpi11.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu10")) {
+	cmu10.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi10")) {
+	cpi10.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi10")) {
+	rpi10.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu9")) {
+	cmu9.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi9")) {
+	cpi9.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi9")) {
+	rpi9.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi8")) {
+	cpi8.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi8")) {
+	rpi8.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu7")) {
+	cmu7.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi7")) {
+	cpi7.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi7")) {
+	rpi7.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu6")) {
+	cmu6.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi6")) {
+	cpi6.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi6")) {
+	rpi6.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu5")) {
+	cmu5.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi5")) {
+	cpi5.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi5")) {
+	rpi5.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu4")) {
+	cmu4.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi4")) {
+	cpi4.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi4")) {
+	rpi4.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu3")) {
+	cmu3.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi3")) {
+	cpi3.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi3")) {
+	rpi3.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu2")) {
+	cmu2.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi2")) {
+	cpi2.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi2")) {
+	rpi2.real = value;
+	return;
+ }
+if(!strcmp(symName,"cmu1")) {
+	cmu1.real = value;
+	return;
+ }
+if(!strcmp(symName,"cpi1")) {
+	cpi1.real = value;
+	return;
+ }
+if(!strcmp(symName,"rpi1")) {
+	rpi1.real = value;
+	return;
+ }
+if(!strcmp(symName,"cOMP")) {
+	cOMP.real = value;
+	return;
+ }
+if(!strcmp(symName,"r11")) {
+	r11.real = value;
+	return;
+ }
+if(!strcmp(symName,"r10")) {
+	r10.real = value;
+	return;
+ }
+if(!strcmp(symName,"r9")) {
+	r9.real = value;
+	return;
+ }
+if(!strcmp(symName,"r8")) {
+	r8.real = value;
+	return;
+ }
+if(!strcmp(symName,"r7")) {
+	r7.real = value;
+	return;
+ }
+if(!strcmp(symName,"r6")) {
+	r6.real = value;
+	return;
+ }
+if(!strcmp(symName,"r5")) {
+	r5.real = value;
+	return;
+ }
+if(!strcmp(symName,"r4")) {
+	r4.real = value;
+	return;
+ }
+if(!strcmp(symName,"r3")) {
+	r3.real = value;
+	return;
+ }
+if(!strcmp(symName,"r2")) {
+	r2.real = value;
+	return;
+ }
+if(!strcmp(symName,"r1")) {
+	r1.real = value;
+	return;
+ }
+
+
+}
+
+void evaluate(struct complex *s)
+
+{
+
+omega.real = 0.0;
+omega.imag = s->imag;
+
+#endif /* ifndef MAKE_LIB*/
+/* Mosfet Initialization goes here */
+/*FOUT-------------------------*/
+
+
+/* TERMINAL BLOCK ANALYSIS OF CIRCUIT 1 */
+
+
+/* REDUCING ROW 10 (v10) */
+
+P1R_10F0 = (cadd(cdiv(one,r1),cadd(cdiv(one,rpi5),cadd(cmul(*s,cpi5),(gm5))))) ;
+
+
+      /* PROCESSING ROW _9 */
+
+PC_10X_9F0 = cdiv(((cadd(chs(cdiv(one,rpi5)),chs(cmul(*s,cpi5))))),(P1R_10F0)) ;
+T_9X_9F0 = cadd((cadd(cdiv(one,r2),cadd(cdiv(one,rpi5),cadd(cmul(*s,cpi5),cadd(cmul(*s,cmu5),cadd(cdiv(one,rpi7),cadd(cmul(*s,cpi7),(gm7)))))))), chs( cmul(PC_10X_9F0,((cadd(chs(cdiv(one,rpi5)),cadd(chs(cmul(*s,cpi5)),chs(gm5)))))) ));
+
+
+      /* PROCESSING ROW _7 */
+
+PC_10X_7F0 = cdiv(((chs(gm5))),(P1R_10F0)) ;
+T_7X_9F0 = cadd((cadd(chs(cmul(*s,cmu5)),cadd((gm5),cadd(chs(cdiv(one,rpi7)),chs(cmul(*s,cpi7)))))), chs( cmul(PC_10X_7F0,((cadd(chs(cdiv(one,rpi5)),cadd(chs(cmul(*s,cpi5)),chs(gm5)))))) ));
+
+
+/* REDUCING ROW 12 (v12) */
+
+P1R_12F0 = (cadd(cdiv(one,r4),cadd(cdiv(one,rpi10),cadd(cmul(*s,cpi10),(gm10))))) ;
+
+
+      /* PROCESSING ROW _15 */
+
+PC_12X_15F0 = cdiv(((cadd(chs(cdiv(one,rpi10)),chs(cmul(*s,cpi10))))),(P1R_12F0)) ;
+T_15X_15F0 = cadd((cadd(cdiv(one,rpi10),cadd(cmul(*s,cpi10),cadd(cmul(*s,cmu10),cadd(cdiv(one,rpi11),cadd(cmul(*s,cpi11),(gm11))))))), chs( cmul(PC_12X_15F0,((cadd(chs(cdiv(one,rpi10)),cadd(chs(cmul(*s,cpi10)),chs(gm10)))))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_12X_6F0 = cdiv(((chs(gm10))),(P1R_12F0)) ;
+T_6X_15F0 = cadd((cadd(chs(cmul(*s,cmu10)),(gm10))), chs( cmul(PC_12X_6F0,((cadd(chs(cdiv(one,rpi10)),cadd(chs(cmul(*s,cpi10)),chs(gm10)))))) ));
+
+
+/* REDUCING ROW 4 (v4) */
+
+P1R_4F0 = (cadd(cdiv(one,rpi1),cadd(cmul(*s,cpi1),cadd(cdiv(one,rpi3),cadd(cmul(*s,cpi3),(gm3)))))) ;
+
+
+      /* PROCESSING ROW _1 */
+
+PC_4X_1F0 = cdiv(((cadd(chs(cdiv(one,rpi1)),chs(cmul(*s,cpi1))))),(P1R_4F0)) ;
+T_1X_1F0 = cadd((cadd(cdiv(one,rpi1),cadd(cmul(*s,cpi1),cmul(*s,cmu1)))), chs( cmul(PC_4X_1F0,((cadd(chs(cdiv(one,rpi1)),cadd(chs(cmul(*s,cpi1)),chs(gm1)))))) ));
+T_1X_6F0 =  chs( cmul(PC_4X_1F0,((cadd(chs(cdiv(one,rpi3)),cadd(chs(cmul(*s,cpi3)),chs(gm3)))))) );
+
+
+      /* PROCESSING ROW _3 */
+
+PC_4X_3F0 = cdiv(((chs(gm1))),(P1R_4F0)) ;
+T_3X_1F0 = cadd((cadd(chs(cmul(*s,cmu1)),(gm1))), chs( cmul(PC_4X_3F0,((cadd(chs(cdiv(one,rpi1)),cadd(chs(cmul(*s,cpi1)),chs(gm1)))))) ));
+T_3X_6F0 = cadd((chs(cmul(*s,cmu9))), chs( cmul(PC_4X_3F0,((cadd(chs(cdiv(one,rpi3)),cadd(chs(cmul(*s,cpi3)),chs(gm3)))))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_4X_6F0 = cdiv(((cadd(chs(cdiv(one,rpi3)),chs(cmul(*s,cpi3))))),(P1R_4F0)) ;
+T_6X_1F0 =  chs( cmul(PC_4X_6F0,((cadd(chs(cdiv(one,rpi1)),cadd(chs(cmul(*s,cpi1)),chs(gm1)))))) );
+T_6X_6F0 = cadd((cadd(cdiv(one,rpi3),cadd(cmul(*s,cpi3),cadd(cmul(*s,cmu3),cadd(cdiv(one,rpi4),cadd(cmul(*s,cpi4),cadd(cmul(*s,cmu9),cmul(*s,cmu10)))))))), chs( cmul(PC_4X_6F0,((cadd(chs(cdiv(one,rpi3)),cadd(chs(cmul(*s,cpi3)),chs(gm3)))))) ));
+
+
+      /* PROCESSING ROW _7 */
+
+PC_4X_7F0 = cdiv(((chs(gm3))),(P1R_4F0)) ;
+T_7X_1F0 =  chs( cmul(PC_4X_7F0,((cadd(chs(cdiv(one,rpi1)),cadd(chs(cmul(*s,cpi1)),chs(gm1)))))) );
+T_7X_6F0 = cadd((cadd(chs(cmul(*s,cmu3)),(gm3))), chs( cmul(PC_4X_7F0,((cadd(chs(cdiv(one,rpi3)),cadd(chs(cmul(*s,cpi3)),chs(gm3)))))) ));
+
+
+/* REDUCING ROW 3 (v3) */
+
+P1R_3F0 = (cadd(cmul(*s,cmu1),cadd(cmul(*s,cmu2),cadd(cdiv(one,rpi8),cadd(cmul(*s,cpi8),cadd(cdiv(one,rpi9),cadd(cmul(*s,cpi9),cmul(*s,cmu9)))))))) ;
+
+
+      /* PROCESSING ROW _1 */
+
+PC_3X_1F0 = cdiv(((chs(cmul(*s,cmu1)))),(P1R_3F0)) ;
+T_1X_1F0 = cadd((T_1X_1F0), chs( cmul(PC_3X_1F0,((T_3X_1F0))) ));
+T_1X_5F0 =  chs( cmul(PC_3X_1F0,((chs(gm2)))) );
+T_1X_6F0 = cadd((T_1X_6F0), chs( cmul(PC_3X_1F0,((T_3X_6F0))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_3X_6F0 = cdiv(((cadd(chs(cmul(*s,cmu9)),(gm9)))),(P1R_3F0)) ;
+T_6X_1F0 = cadd((T_6X_1F0), chs( cmul(PC_3X_6F0,((T_3X_1F0))) ));
+T_6X_5F0 = cadd((cadd(chs(cdiv(one,rpi4)),chs(cmul(*s,cpi4)))), chs( cmul(PC_3X_6F0,((chs(gm2)))) ));
+T_6X_6F0 = cadd((T_6X_6F0), chs( cmul(PC_3X_6F0,((T_3X_6F0))) ));
+
+
+/* REDUCING ROW 7 (v7) */
+
+P1R_7F0 = (cadd(cmul(*s,cmu3),cadd(cmul(*s,cmu5),cadd(cdiv(one,rpi7),cadd(cmul(*s,cpi7),cmul(*s,cmu7)))))) ;
+
+
+      /* PROCESSING ROW _9 */
+
+PC_7X_9F0 = cdiv(((cadd(chs(cmul(*s,cmu5)),cadd(chs(cdiv(one,rpi7)),cadd(chs(cmul(*s,cpi7)),chs(gm7)))))),(P1R_7F0)) ;
+T_9X_9F0 = cadd((T_9X_9F0), chs( cmul(PC_7X_9F0,((T_7X_9F0))) ));
+T_9X_1F0 =  chs( cmul(PC_7X_9F0,((T_7X_1F0))) );
+T_9X_6F0 =  chs( cmul(PC_7X_9F0,((T_7X_6F0))) );
+
+
+      /* PROCESSING ROW _6 */
+
+PC_7X_6F0 = cdiv(((chs(cmul(*s,cmu3)))),(P1R_7F0)) ;
+T_6X_9F0 =  chs( cmul(PC_7X_6F0,((T_7X_9F0))) );
+T_6X_1F0 = cadd((T_6X_1F0), chs( cmul(PC_7X_6F0,((T_7X_1F0))) ));
+T_6X_6F0 = cadd((T_6X_6F0), chs( cmul(PC_7X_6F0,((T_7X_6F0))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 95
+Number of Multiplications = 36
+Number of Equations = 41
+
+*/
+
+
+/* TERMINAL BLOCK ANALYSIS OF CIRCUIT 3 */
+
+
+/* REDUCING ROW 11 (v11) */
+
+P3R_11F0 = (cadd(cdiv(one,r3),cadd(cdiv(one,rpi6),cadd(cmul(*s,cpi6),(gm6))))) ;
+
+
+      /* PROCESSING ROW _9 */
+
+PC_11X_9F0 = cdiv(((cadd(chs(cdiv(one,rpi6)),chs(cmul(*s,cpi6))))),(P3R_11F0)) ;
+T_9X_9F0 = cadd((cadd(cdiv(one,rpi6),cadd(cmul(*s,cpi6),cmul(*s,cmu6)))), chs( cmul(PC_11X_9F0,((cadd(chs(cdiv(one,rpi6)),cadd(chs(cmul(*s,cpi6)),chs(gm6)))))) ));
+
+
+      /* PROCESSING ROW _8 */
+
+PC_11X_8F0 = cdiv(((chs(gm6))),(P3R_11F0)) ;
+T_8X_9F0 = cadd((cadd(chs(cmul(*s,cmu6)),(gm6))), chs( cmul(PC_11X_8F0,((cadd(chs(cdiv(one,rpi6)),cadd(chs(cmul(*s,cpi6)),chs(gm6)))))) ));
+
+
+/* REDUCING ROW 18 (v18) */
+
+P3R_18F0 = (cadd(cdiv(one,r8),cadd(cdiv(one,rpi17),cadd(cmul(*s,cpi17),(gm17))))) ;
+
+
+      /* PROCESSING ROW _14 */
+
+PC_18X_14F0 = cdiv(((cadd(chs(cdiv(one,rpi17)),chs(cmul(*s,cpi17))))),(P3R_18F0)) ;
+T_14X_14F0 = cadd((cadd(cdiv(one,r9),cadd(cdiv(one,rpi16),cadd(cmul(*s,cpi16),cadd(cdiv(one,rpi17),cadd(cmul(*s,cpi17),cmul(*s,cmu17))))))), chs( cmul(PC_18X_14F0,((cadd(chs(cdiv(one,rpi17)),cadd(chs(cmul(*s,cpi17)),chs(gm17)))))) ));
+
+
+      /* PROCESSING ROW _22 */
+
+PC_18X_22F0 = cdiv(((chs(gm17))),(P3R_18F0)) ;
+T_22X_14F0 = cadd((cadd(chs(cmul(*s,cmu17)),(gm17))), chs( cmul(PC_18X_22F0,((cadd(chs(cdiv(one,rpi17)),cadd(chs(cmul(*s,cpi17)),chs(gm17)))))) ));
+
+
+/* REDUCING ROW 14 (v14) */
+
+P3R_14F0 = (T_14X_14F0) ;
+
+
+      /* PROCESSING ROW _22 */
+
+PC_14X_22F0 = cdiv(((T_22X_14F0)),(P3R_14F0)) ;
+T_22X_22F0 = cadd((cadd(cmul(*s,cOMP),cadd(cmul(*s,cmu13B),cadd(cmul(*s,cmu17),cadd(cmul(*s,cmu23A),cadd(cdiv(one,rpi23B),cadd(cmul(*s,cpi23B),cmul(*s,cmu23B)))))))), chs( cmul(PC_14X_22F0,((chs(cmul(*s,cmu17))))) ));
+T_22X_8F0 = cadd((cadd(chs(cmul(*s,cOMP)),cadd(chs(cdiv(one,rpi23B)),chs(cmul(*s,cpi23B))))), chs( cmul(PC_14X_22F0,((cadd(chs(cdiv(one,rpi16)),cadd(chs(cmul(*s,cpi16)),chs(gm16)))))) ));
+
+
+      /* PROCESSING ROW _8 */
+
+PC_14X_8F0 = cdiv(((cadd(chs(cdiv(one,rpi16)),chs(cmul(*s,cpi16))))),(P3R_14F0)) ;
+T_8X_22F0 = cadd((cadd(chs(cmul(*s,cOMP)),cadd(chs(cdiv(one,rpi23B)),cadd(chs(cmul(*s,cpi23B)),chs(gm23B))))), chs( cmul(PC_14X_8F0,((chs(cmul(*s,cmu17))))) ));
+T_8X_8F0 = cadd((cadd(cmul(*s,cOMP),cadd(cmul(*s,cmu6),cadd(cdiv(one,rpi16),cadd(cmul(*s,cpi16),cadd(cmul(*s,cmu16),cadd(cmul(*s,cmu22),cadd(cdiv(one,rpi23B),cadd(cmul(*s,cpi23B),(gm23B)))))))))), chs( cmul(PC_14X_8F0,((cadd(chs(cdiv(one,rpi16)),cadd(chs(cmul(*s,cpi16)),chs(gm16)))))) ));
+
+
+/* REDUCING ROW 13 (v13) */
+
+P3R_13F0 = (cadd(cdiv(one,r11),cadd(cdiv(one,rpi22),cadd(cmul(*s,cpi22),cadd(cmul(*s,cmu22),cadd(cdiv(one,rpi24),cadd(cmul(*s,cpi24),(gm24)))))))) ;
+
+
+      /* PROCESSING ROW _8 */
+
+PC_13X_8F0 = cdiv(((cadd(chs(cmul(*s,cmu22)),(gm22)))),(P3R_13F0)) ;
+T_8X_8F0 = cadd((T_8X_8F0), chs( cmul(PC_13X_8F0,((chs(cmul(*s,cmu22))))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 65
+Number of Multiplications = 16
+Number of Equations = 20
+
+*/
+
+
+/* TERMINAL BLOCK ANALYSIS OF CIRCUIT 4 */
+
+
+/* REDUCING ROW 23 (v23) */
+
+P4R_23F0 = (cadd(cdiv(one,r6),cadd(cdiv(one,rpi14),cadd(cmul(*s,cpi14),cadd(cdiv(one,rpi15),cadd(cmul(*s,cpi15),cmul(*s,cmu15))))))) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_23X_24F0 = cdiv(((cadd(chs(cdiv(one,r6)),cadd(chs(cmul(*s,cmu15)),(gm15))))),(P4R_23F0)) ;
+T_24X_24F0 = cadd((cadd(cdiv(one,r6),cadd(cdiv(one,r7),cadd(cmul(*s,cmu15),cadd(cdiv(one,rpi21),cadd(cmul(*s,cpi21),(gm21))))))), chs( cmul(PC_23X_24F0,((cadd(chs(cdiv(one,r6)),chs(cmul(*s,cmu15)))))) ));
+T_24X_28F0 = cadd((chs(gm15)), chs( cmul(PC_23X_24F0,((cadd(chs(cdiv(one,rpi14)),cadd(chs(cmul(*s,cpi14)),cadd(chs(gm14),cadd(chs(cdiv(one,rpi15)),chs(cmul(*s,cpi15))))))))) ));
+
+
+      /* PROCESSING ROW _28 */
+
+PC_23X_28F0 = cdiv(((cadd(chs(cdiv(one,rpi14)),cadd(chs(cmul(*s,cpi14)),cadd(chs(cdiv(one,rpi15)),cadd(chs(cmul(*s,cpi15)),chs(gm15))))))),(P4R_23F0)) ;
+T_28X_24F0 =  chs( cmul(PC_23X_28F0,((cadd(chs(cdiv(one,r6)),chs(cmul(*s,cmu15)))))) );
+T_28X_28F0 = cadd((cadd(cmul(*s,cmu13A),cadd(cdiv(one,rpi14),cadd(cmul(*s,cpi14),cadd(cmul(*s,cmu14),cadd(cdiv(one,rpi15),cadd(cmul(*s,cpi15),cadd(cmul(*s,cmu18),cadd(cdiv(one,rpi19),cadd(cmul(*s,cpi19),(gm19))))))))))), chs( cmul(PC_23X_28F0,((cadd(chs(cdiv(one,rpi14)),cadd(chs(cmul(*s,cpi14)),cadd(chs(gm14),cadd(chs(cdiv(one,rpi15)),chs(cmul(*s,cpi15))))))))) ));
+
+
+/* REDUCING ROW 25 (v25) */
+
+P4R_25F0 = (cadd(cdiv(one,r7),cadd(cdiv(one,rpi20),cadd(cmul(*s,cpi20),cadd(cdiv(one,rpi21),cadd(cmul(*s,cpi21),(gm21))))))) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_25X_24F0 = cdiv(((cadd(chs(cdiv(one,r7)),cadd(chs(cdiv(one,rpi21)),cadd(chs(cmul(*s,cpi21)),chs(gm21)))))),(P4R_25F0)) ;
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_25X_24F0,((cadd(chs(cdiv(one,r7)),cadd(chs(cdiv(one,rpi21)),cadd(chs(cmul(*s,cpi21)),chs(gm21))))))) ));
+T_24X_20F0 =  chs( cmul(PC_25X_24F0,((cadd(chs(cdiv(one,rpi20)),cadd(chs(cmul(*s,cpi20)),chs(gm20)))))) );
+
+
+      /* PROCESSING ROW _20 */
+
+PC_25X_20F0 = cdiv(((cadd(chs(cdiv(one,rpi20)),chs(cmul(*s,cpi20))))),(P4R_25F0)) ;
+T_20X_24F0 =  chs( cmul(PC_25X_20F0,((cadd(chs(cdiv(one,r7)),cadd(chs(cdiv(one,rpi21)),cadd(chs(cmul(*s,cpi21)),chs(gm21))))))) );
+T_20X_20F0 = cadd((cadd(cdiv(one,r10),cadd(cdiv(one,rpi18),cadd(cmul(*s,cpi18),cadd(cdiv(one,rpi20),cadd(cmul(*s,cpi20),cadd(cmul(*s,cmu20),cadd(cdiv(one,rpi23A),cadd(cmul(*s,cpi23A),(gm23A)))))))))), chs( cmul(PC_25X_20F0,((cadd(chs(cdiv(one,rpi20)),cadd(chs(cmul(*s,cpi20)),chs(gm20)))))) ));
+
+
+/* REDUCING ROW 21 (v21) */
+
+P4R_21F0 = (cadd(cdiv(one,r10),cadd(cdiv(one,rpi18),cadd(cmul(*s,cpi18),cadd(cmul(*s,cmu18),cadd(cdiv(one,rpi19),cadd(cmul(*s,cpi19),(gm19)))))))) ;
+
+
+      /* PROCESSING ROW _20 */
+
+PC_21X_20F0 = cdiv(((cadd(chs(cdiv(one,r10)),cadd(chs(cdiv(one,rpi18)),cadd(chs(cmul(*s,cpi18)),chs(gm18)))))),(P4R_21F0)) ;
+T_20X_20F0 = cadd((T_20X_20F0), chs( cmul(PC_21X_20F0,((cadd(chs(cdiv(one,r10)),cadd(chs(cdiv(one,rpi18)),chs(cmul(*s,cpi18))))))) ));
+T_20X_28F0 =  chs( cmul(PC_21X_20F0,((cadd(chs(cmul(*s,cmu18)),cadd(chs(cdiv(one,rpi19)),cadd(chs(cmul(*s,cpi19)),chs(gm19))))))) );
+
+
+      /* PROCESSING ROW _28 */
+
+PC_21X_28F0 = cdiv(((cadd(chs(cmul(*s,cmu18)),cadd((gm18),cadd(chs(cdiv(one,rpi19)),cadd(chs(cmul(*s,cpi19)),chs(gm19))))))),(P4R_21F0)) ;
+T_28X_20F0 = cadd((chs(gm18)), chs( cmul(PC_21X_28F0,((cadd(chs(cdiv(one,r10)),cadd(chs(cdiv(one,rpi18)),chs(cmul(*s,cpi18))))))) ));
+T_28X_28F0 = cadd((T_28X_28F0), chs( cmul(PC_21X_28F0,((cadd(chs(cmul(*s,cmu18)),cadd(chs(cdiv(one,rpi19)),cadd(chs(cmul(*s,cpi19)),chs(gm19))))))) ));
+
+
+/* REDUCING ROW 20 (v20) */
+
+P4R_20F0 = (T_20X_20F0) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_20X_24F0 = cdiv(((T_24X_20F0)),(P4R_20F0)) ;
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_20X_24F0,((T_20X_24F0))) ));
+T_24X_22F0 =  chs( cmul(PC_20X_24F0,((cadd(chs(cdiv(one,rpi23A)),cadd(chs(cmul(*s,cpi23A)),chs(gm23A)))))) );
+T_24X_28F0 = cadd((T_24X_28F0), chs( cmul(PC_20X_24F0,((T_20X_28F0))) ));
+
+
+      /* PROCESSING ROW _22 */
+
+PC_20X_22F0 = cdiv(((cadd(chs(cdiv(one,rpi23A)),chs(cmul(*s,cpi23A))))),(P4R_20F0)) ;
+T_22X_24F0 =  chs( cmul(PC_20X_22F0,((T_20X_24F0))) );
+T_22X_22F0 = cadd((cadd(cdiv(one,rpi23A),cmul(*s,cpi23A))), chs( cmul(PC_20X_22F0,((cadd(chs(cdiv(one,rpi23A)),cadd(chs(cmul(*s,cpi23A)),chs(gm23A)))))) ));
+T_22X_28F0 =  chs( cmul(PC_20X_22F0,((T_20X_28F0))) );
+
+
+      /* PROCESSING ROW _28 */
+
+PC_20X_28F0 = cdiv(((T_28X_20F0)),(P4R_20F0)) ;
+T_28X_24F0 = cadd((T_28X_24F0), chs( cmul(PC_20X_28F0,((T_20X_24F0))) ));
+T_28X_22F0 =  chs( cmul(PC_20X_28F0,((cadd(chs(cdiv(one,rpi23A)),cadd(chs(cmul(*s,cpi23A)),chs(gm23A)))))) );
+T_28X_28F0 = cadd((T_28X_28F0), chs( cmul(PC_20X_28F0,((T_20X_28F0))) ));
+
+
+/* REDUCING ROW 28 (v28) */
+
+P4R_28F0 = (T_28X_28F0) ;
+
+
+      /* PROCESSING ROW _17 */
+
+PC_28X_17F0 = cdiv(((chs(cmul(*s,cmu13A)))),(P4R_28F0)) ;
+T_17X_17F0 = cadd((cadd(cdiv(one,r5),cadd(cdiv(one,rpi13A),cadd(cmul(*s,cpi13A),cmul(*s,cmu13A))))), chs( cmul(PC_28X_17F0,((cadd(chs(cmul(*s,cmu13A)),(gm13A))))) ));
+T_17X_24F0 =  chs( cmul(PC_28X_17F0,((T_28X_24F0))) );
+T_17X_22F0 =  chs( cmul(PC_28X_17F0,((T_28X_22F0))) );
+
+
+      /* PROCESSING ROW _24 */
+
+PC_28X_24F0 = cdiv(((T_24X_28F0)),(P4R_28F0)) ;
+T_24X_17F0 =  chs( cmul(PC_28X_24F0,((cadd(chs(cmul(*s,cmu13A)),(gm13A))))) );
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_28X_24F0,((T_28X_24F0))) ));
+T_24X_22F0 = cadd((T_24X_22F0), chs( cmul(PC_28X_24F0,((T_28X_22F0))) ));
+
+
+      /* PROCESSING ROW _22 */
+
+PC_28X_22F0 = cdiv(((T_22X_28F0)),(P4R_28F0)) ;
+T_22X_17F0 =  chs( cmul(PC_28X_22F0,((cadd(chs(cmul(*s,cmu13A)),(gm13A))))) );
+T_22X_24F0 = cadd((T_22X_24F0), chs( cmul(PC_28X_22F0,((T_28X_24F0))) ));
+T_22X_22F0 = cadd((T_22X_22F0), chs( cmul(PC_28X_22F0,((T_28X_22F0))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 117
+Number of Multiplications = 42
+Number of Equations = 47
+
+*/
+
+
+/* MIDDLE BLOCK ANALYSIS OF CIRCUIT 2 */
+
+
+/* REDUCING ROW 17 (v17) */
+
+P2R_17F0 = (cadd(cdiv(one,rpi12),cadd(cmul(*s,cpi12),cadd(cdiv(one,rpi13B),cadd(cmul(*s,cpi13B),cadd(cmul(*s,cmu13B),T_17X_17F0)))))) ;
+
+
+      /* PROCESSING ROW _15 */
+
+PC_17X_15F0 = cdiv(((chs(cdiv(one,r5)))),(P2R_17F0)) ;
+T_15X_15F0 = cadd((cdiv(one,r5)), chs( cmul(PC_17X_15F0,((chs(cdiv(one,r5))))) ));
+T_15X_24F0 =  chs( cmul(PC_17X_15F0,((T_17X_24F0))) );
+T_15X_22F0 =  chs( cmul(PC_17X_15F0,((cadd(chs(cmul(*s,cmu13B)),T_17X_22F0)))) );
+
+
+      /* PROCESSING ROW _24 */
+
+PC_17X_24F0 = cdiv(((T_24X_17F0)),(P2R_17F0)) ;
+T_24X_15F0 =  chs( cmul(PC_17X_24F0,((chs(cdiv(one,r5))))) );
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_17X_24F0,((T_17X_24F0))) ));
+T_24X_22F0 = cadd((T_24X_22F0), chs( cmul(PC_17X_24F0,((cadd(chs(cmul(*s,cmu13B)),T_17X_22F0)))) ));
+
+
+      /* PROCESSING ROW _22 */
+
+PC_17X_22F0 = cdiv(((cadd(chs(cmul(*s,cmu13B)),cadd((gm13B),T_22X_17F0)))),(P2R_17F0)) ;
+T_22X_15F0 =  chs( cmul(PC_17X_22F0,((chs(cdiv(one,r5))))) );
+T_22X_24F0 = cadd((T_22X_24F0), chs( cmul(PC_17X_22F0,((T_17X_24F0))) ));
+T_22X_22F0 = cadd((cadd(T_22X_22F0,T_22X_22F0)), chs( cmul(PC_17X_22F0,((cadd(chs(cmul(*s,cmu13B)),T_17X_22F0)))) ));
+
+
+/* REDUCING ROW 22 (v22) */
+
+P2R_22F0 = (T_22X_22F0) ;
+
+
+      /* PROCESSING ROW _15 */
+
+PC_22X_15F0 = cdiv(((T_15X_22F0)),(P2R_22F0)) ;
+T_15X_15F0 = cadd((T_15X_15F0), chs( cmul(PC_22X_15F0,((T_22X_15F0))) ));
+T_15X_24F0 = cadd((T_15X_24F0), chs( cmul(PC_22X_15F0,((T_22X_24F0))) ));
+T_15X_8F0 =  chs( cmul(PC_22X_15F0,((T_22X_8F0))) );
+
+
+      /* PROCESSING ROW _24 */
+
+PC_22X_24F0 = cdiv(((T_24X_22F0)),(P2R_22F0)) ;
+T_24X_15F0 = cadd((T_24X_15F0), chs( cmul(PC_22X_24F0,((T_22X_15F0))) ));
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_22X_24F0,((T_22X_24F0))) ));
+T_24X_8F0 =  chs( cmul(PC_22X_24F0,((T_22X_8F0))) );
+
+
+      /* PROCESSING ROW _8 */
+
+PC_22X_8F0 = cdiv(((T_8X_22F0)),(P2R_22F0)) ;
+T_8X_15F0 =  chs( cmul(PC_22X_8F0,((T_22X_15F0))) );
+T_8X_24F0 =  chs( cmul(PC_22X_8F0,((T_22X_24F0))) );
+T_8X_8F0 = cadd((cadd(T_8X_8F0,cmul(*s,cmu4))), chs( cmul(PC_22X_8F0,((T_22X_8F0))) ));
+
+
+/* REDUCING ROW 8 (v8) */
+
+P2R_8F0 = (T_8X_8F0) ;
+
+
+      /* PROCESSING ROW _9 */
+
+PC_8X_9F0 = cdiv(((chs(cmul(*s,cmu6)))),(P2R_8F0)) ;
+T_9X_9F0 = cadd((T_9X_9F0), chs( cmul(PC_8X_9F0,((T_8X_9F0))) ));
+T_9X_15F0 =  chs( cmul(PC_8X_9F0,((T_8X_15F0))) );
+T_9X_24F0 =  chs( cmul(PC_8X_9F0,((T_8X_24F0))) );
+T_9X_5F0 =  chs( cmul(PC_8X_9F0,((chs(gm4)))) );
+T_9X_6F0 =  chs( cmul(PC_8X_9F0,((cadd(chs(cmul(*s,cmu4)),(gm4))))) );
+
+
+      /* PROCESSING ROW _15 */
+
+PC_8X_15F0 = cdiv(((T_15X_8F0)),(P2R_8F0)) ;
+T_15X_9F0 =  chs( cmul(PC_8X_15F0,((T_8X_9F0))) );
+T_15X_15F0 = cadd((T_15X_15F0), chs( cmul(PC_8X_15F0,((T_8X_15F0))) ));
+T_15X_24F0 = cadd((T_15X_24F0), chs( cmul(PC_8X_15F0,((T_8X_24F0))) ));
+T_15X_5F0 =  chs( cmul(PC_8X_15F0,((chs(gm4)))) );
+T_15X_6F0 =  chs( cmul(PC_8X_15F0,((cadd(chs(cmul(*s,cmu4)),(gm4))))) );
+
+
+      /* PROCESSING ROW _24 */
+
+PC_8X_24F0 = cdiv(((T_24X_8F0)),(P2R_8F0)) ;
+T_24X_9F0 =  chs( cmul(PC_8X_24F0,((T_8X_9F0))) );
+T_24X_15F0 = cadd((T_24X_15F0), chs( cmul(PC_8X_24F0,((T_8X_15F0))) ));
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_8X_24F0,((T_8X_24F0))) ));
+T_24X_5F0 =  chs( cmul(PC_8X_24F0,((chs(gm4)))) );
+T_24X_6F0 =  chs( cmul(PC_8X_24F0,((cadd(chs(cmul(*s,cmu4)),(gm4))))) );
+
+
+      /* PROCESSING ROW _6 */
+
+PC_8X_6F0 = cdiv(((chs(cmul(*s,cmu4)))),(P2R_8F0)) ;
+T_6X_9F0 =  chs( cmul(PC_8X_6F0,((T_8X_9F0))) );
+T_6X_15F0 =  chs( cmul(PC_8X_6F0,((T_8X_15F0))) );
+T_6X_24F0 =  chs( cmul(PC_8X_6F0,((T_8X_24F0))) );
+T_6X_5F0 =  chs( cmul(PC_8X_6F0,((chs(gm4)))) );
+T_6X_6F0 = cadd((cmul(*s,cmu4)), chs( cmul(PC_8X_6F0,((cadd(chs(cmul(*s,cmu4)),(gm4))))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 32
+Number of Multiplications = 48
+Number of Equations = 51
+
+*/
+
+
+/* MIDDLE BLOCK ANALYSIS OF CIRCUIT 0 */
+
+
+/* REDUCING ROW 9 (v9) */
+
+P0R_9F0 = (cadd(T_9X_9F0,T_9X_9F0)) ;
+
+
+      /* PROCESSING ROW _15 */
+
+PC_9X_15F0 = cdiv(((T_15X_9F0)),(P0R_9F0)) ;
+T_15X_15F0 = cadd((cadd(T_15X_15F0,T_15X_15F0)), chs( cmul(PC_9X_15F0,((T_9X_15F0))) ));
+T_15X_24F0 = cadd((T_15X_24F0), chs( cmul(PC_9X_15F0,((T_9X_24F0))) ));
+T_15X_1F0 =  chs( cmul(PC_9X_15F0,((T_9X_1F0))) );
+T_15X_5F0 = cadd((T_15X_5F0), chs( cmul(PC_9X_15F0,((T_9X_5F0))) ));
+T_15X_6F0 = cadd((cadd(chs(cmul(*s,cmu10)),T_15X_6F0)), chs( cmul(PC_9X_15F0,((cadd(T_9X_6F0,T_9X_6F0)))) ));
+
+
+      /* PROCESSING ROW _24 */
+
+PC_9X_24F0 = cdiv(((T_24X_9F0)),(P0R_9F0)) ;
+T_24X_15F0 = cadd((T_24X_15F0), chs( cmul(PC_9X_24F0,((T_9X_15F0))) ));
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_9X_24F0,((T_9X_24F0))) ));
+T_24X_1F0 =  chs( cmul(PC_9X_24F0,((T_9X_1F0))) );
+T_24X_5F0 = cadd((T_24X_5F0), chs( cmul(PC_9X_24F0,((T_9X_5F0))) ));
+T_24X_6F0 = cadd((T_24X_6F0), chs( cmul(PC_9X_24F0,((cadd(T_9X_6F0,T_9X_6F0)))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_9X_6F0 = cdiv(((cadd(T_6X_9F0,T_6X_9F0))),(P0R_9F0)) ;
+T_6X_15F0 = cadd((cadd(T_6X_15F0,T_6X_15F0)), chs( cmul(PC_9X_6F0,((T_9X_15F0))) ));
+T_6X_24F0 = cadd((T_6X_24F0), chs( cmul(PC_9X_6F0,((T_9X_24F0))) ));
+T_6X_1F0 = cadd((T_6X_1F0), chs( cmul(PC_9X_6F0,((T_9X_1F0))) ));
+T_6X_5F0 = cadd((cadd(T_6X_5F0,T_6X_5F0)), chs( cmul(PC_9X_6F0,((T_9X_5F0))) ));
+T_6X_6F0 = cadd((cadd(T_6X_6F0,T_6X_6F0)), chs( cmul(PC_9X_6F0,((cadd(T_9X_6F0,T_9X_6F0)))) ));
+
+
+/* REDUCING ROW 15 (v15) */
+
+P0R_15F0 = (T_15X_15F0) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_15X_24F0 = cdiv(((T_24X_15F0)),(P0R_15F0)) ;
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_15X_24F0,((T_15X_24F0))) ));
+T_24X_1F0 = cadd((T_24X_1F0), chs( cmul(PC_15X_24F0,((T_15X_1F0))) ));
+T_24X_5F0 = cadd((T_24X_5F0), chs( cmul(PC_15X_24F0,((T_15X_5F0))) ));
+T_24X_6F0 = cadd((T_24X_6F0), chs( cmul(PC_15X_24F0,((T_15X_6F0))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_15X_6F0 = cdiv(((T_6X_15F0)),(P0R_15F0)) ;
+T_6X_24F0 = cadd((T_6X_24F0), chs( cmul(PC_15X_6F0,((T_15X_24F0))) ));
+T_6X_1F0 = cadd((T_6X_1F0), chs( cmul(PC_15X_6F0,((T_15X_1F0))) ));
+T_6X_5F0 = cadd((T_6X_5F0), chs( cmul(PC_15X_6F0,((T_15X_5F0))) ));
+T_6X_6F0 = cadd((T_6X_6F0), chs( cmul(PC_15X_6F0,((T_15X_6F0))) ));
+
+
+/* REDUCING ROW 5 (v5) */
+
+P0R_5F0 = (cadd(cdiv(one,rpi2),cadd(cmul(*s,cpi2),cadd(cdiv(one,rpi4),cadd(cmul(*s,cpi4),(gm4)))))) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_5X_24F0 = cdiv(((T_24X_5F0)),(P0R_5F0)) ;
+T_24X_6F0 = cadd((T_24X_6F0), chs( cmul(PC_5X_24F0,((cadd(chs(cdiv(one,rpi4)),cadd(chs(cmul(*s,cpi4)),chs(gm4)))))) ));
+
+
+      /* PROCESSING ROW _1 */
+
+PC_5X_1F0 = cdiv(((T_1X_5F0)),(P0R_5F0)) ;
+T_1X_6F0 = cadd((T_1X_6F0), chs( cmul(PC_5X_1F0,((cadd(chs(cdiv(one,rpi4)),cadd(chs(cmul(*s,cpi4)),chs(gm4)))))) ));
+
+
+      /* PROCESSING ROW _6 */
+
+PC_5X_6F0 = cdiv(((T_6X_5F0)),(P0R_5F0)) ;
+T_6X_6F0 = cadd((T_6X_6F0), chs( cmul(PC_5X_6F0,((cadd(chs(cdiv(one,rpi4)),cadd(chs(cmul(*s,cpi4)),chs(gm4)))))) ));
+
+
+/* REDUCING ROW 6 (v6) */
+
+P0R_6F0 = (T_6X_6F0) ;
+
+
+      /* PROCESSING ROW _24 */
+
+PC_6X_24F0 = cdiv(((T_24X_6F0)),(P0R_6F0)) ;
+T_24X_24F0 = cadd((T_24X_24F0), chs( cmul(PC_6X_24F0,((T_6X_24F0))) ));
+T_24X_1F0 = cadd((T_24X_1F0), chs( cmul(PC_6X_24F0,((T_6X_1F0))) ));
+
+
+      /* PROCESSING ROW _1 */
+
+PC_6X_1F0 = cdiv(((T_1X_6F0)),(P0R_6F0)) ;
+T_1X_24F0 = cadd(((g1)), chs( cmul(PC_6X_1F0,((T_6X_24F0))) ));
+T_1X_1F0 = cadd((T_1X_1F0), chs( cmul(PC_6X_1F0,((T_6X_1F0))) ));
+
+/*  STATISTICS 
+
+Number of Additions = 48
+Number of Multiplications = 40
+Number of Equations = 44
+
+*/
+
+
+ /* DUPLICATED FINAL RESULTS */
+
+
+
+ /* FINAL RESULTS */
+
+T_24X_24F0 = cadd((T_24X_24F0),zero);
+T_24X_1F0 = cadd((T_24X_1F0),zero);
+T_1X_24F0 = cadd((T_1X_24F0),zero);
+T_1X_1F0 = cadd((T_1X_1F0),zero);
+
+/*  STATISTICS 
+
+Number of Additions = 357
+Number of Multiplications = 182
+Number of Equations = 207
+
+*/
+
+/* Processing v1/v24 solution... */
+
+
+
+ /* MNA MATRIX FOR REDUCTION 
+
+ {24,9}    (v24)=T_24X_24F0, (v1)=T_24X_1F0,
+ {1,18}    (v24)=T_1X_24F0, (v1)=T_1X_1F0,
+
+*/
+
+
+/*  STATISTICS 
+
+Number of Additions = 0
+Number of Multiplications = 0
+Number of Equations = 0
+
+*/
+
+
+ /* MNA MATRIX AFTER REDUCTION 
+
+ {24,9}    (v24)=T_24X_24F0, (v1)=T_24X_1F0,
+ {1,18}    (v24)=T_1X_24F0, (v1)=T_1X_1F0,
+
+*/
+
+
+ ANSWERS[0] = (chs(cdiv(T_1X_24F0,T_1X_1F0)));
+
+}
+
+/*  STATISTICS 
+
+Number of Additions = 357
+Number of Multiplications = 182
+Number of Equations = 207
+
+*/
+
+#ifndef MAKE_LIB
+void evaluate_dc() { }
+#endif /* ifndef MAKE_LIB*/

@@ -1,0 +1,439 @@
+%% $RCSfile$
+%% $Revison$
+%% $Date$
+%% $Auther: XiangDong Tan (c) Copyright 1999
+
+\documentstyle[11pt,psfig,spacing,subfigure,mysec]{article}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\dummy}[0]{\rule{0mm}{0mm}}
+%%\newfont{\caphelv}{rphvr scaled \magstep0}
+\newcommand{\mycaption}[1]{\caption{\small #1}}
+\newcommand{\proof}[1]{{\it Proof.\/} #1}
+
+\input macros
+\newcommand{\Xvk}{{X_{v_{k}}}}
+\newcommand{\Xvkb}{{X_{\overline{v}_{k}}}}
+\def\ba{\mbox{\bf a}}
+\def\bb{\mbox{\bf b}}
+\def\bc{\mbox{\bf c}}
+\def\bx{\mbox{\bf x}}
+\def\by{\mbox{\bf y}}
+\def\bd{\mbox{\bf d}}
+\def\be{\mbox{\bf e}}
+\def\br{\mbox{\bf r}}
+\def\bC{\mbox{\bf C}}
+\def\bA{\mbox{\bf A}}
+\def\bG{\mbox{\bf G}}
+\def\bC{\mbox{\bf C}}
+\def\bB{\mbox{\bf B}}
+\def\bT{\mbox{\bf T}}
+\def\bI{\mbox{\bf I}}
+\def\bM{\mbox{\bf M}}
+\def\bP{\mbox{\bf P}}
+\def\bY{\mbox{\bf Y}}
+\def\bu{\mbox{\bf u}}
+\def\bs{\mbox{\bf s}}
+\def\bt{\mbox{\bf t}}
+\def\br{\mbox{\bf r}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\by{\mbox{\bf y}}
+\def\bw{\mbox{\bf w}}
+\def\union{\cup}
+\def\intersect{\cap}
+\def\bif{\mbox{\bf if }}
+\def\bfor{\mbox{\bf for }}
+\def\bdo{\mbox{\bf do }}
+\def\breturn{\mbox{\bf return }}
+
+%%
+%% Picture macro (assuming postscript printer)
+%% Usage: \PSfig{filename}{caption}{label}{height}{width}
+%%
+\newcommand{\psfigure}[6]
+	 {
+         \begin{figure}[#6]
+	 \begin{center}
+	 \ \psfig{figure=#1.ps,height=#4,width=#5}
+         \vspace{-0.1in}
+         \mycaption{#2}
+         \label{#3}
+	 \end{center}
+         \vspace{-0.25in}
+         \end{figure}
+         }
+ 
+\newcounter{numberlistc}
+\newenvironment{numberlist}
+    {   \setcounter{numberlistc}{0}
+        \begin{list}{\arabic{numberlistc}.}
+        {\usecounter{numberlistc}
+        \setlength{\parsep}{0pt}
+        \setlength{\topsep}{3pt}
+        \setlength{\itemsep}{0pt}}
+        }{ \end{list} }
+\newcounter{itemlistc}
+\newcounter{enumlistc}
+%\renewcommand{\theromanlistc}{(\roman{romanlistc})} %for ref use
+%\renewcommand{\thealphlistc}{(\alph{alphlistc})}    %for ref use
+\newenvironment{itemlist}
+    {   \setcounter{itemlistc}{0}
+	\begin{list}{$\bullet$}
+        {\usecounter{itemlistc}
+        \setlength{\parsep}{0pt}
+        \setlength{\topsep}{3pt}
+        \setlength{\itemsep}{0pt}}
+        }{ \end{list} }
+
+%set dimensions of columns, gap between columns, and paragraph indent 
+\setlength{\textheight}{8.75in}
+\setlength{\columnsep}{2.0pc}
+\setlength{\textwidth}{6.8in}
+\setlength{\footheight}{0.0in}
+\setlength{\topmargin}{0.25in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\oddsidemargin}{-.19in}
+\setlength{\parindent}{1pc}
+
+\begin{document}
+
+\title{\Large\bf
+\vspace{1.5in}
+SCAD3 User Guide ($Revision$)\footnote{This work
+is sponsored by U.S. Defense Advanced Research Projects Agency
+(DARPA)
+under grant number F33615-96-1-5601 from USAF,
+Wright Laboratory, Manufacturing Technology Directorate,
+and by Rockwell Semiconductor Systems.
+}}
+
+\vspace{4.0in}
+\author{
+\begin{tabular}[t]{c@{\extracolsep{1em}}c}
+\multicolumn{2}{c}{by}\\
+\multicolumn{2}{c}{Xiang-Dong Tan \hspace{0.3in} C.-J. Richard Shi}\\
+\\
+\multicolumn{2}{c}{Department of Electrical Engineering} \\
+\multicolumn{2}{c}{University of Washington, Seattle, WA 98195} \\
+\end{tabular}}
+\date{May 5, 1999}
+
+\vspace{3in}
+\maketitle
+\section*{\centering \Large Abstract}
+\noindent
+We desribe the program SCAD3, a symbolic circuit analyzer. 
+SCAD3 stands for Symbolic Circuit Analysis with Determinant
+Decision Diagrams. Informaiton is given about
+the introduction of the program, the underlying
+algorithms, along with installing, invoking and using the program. 
+Current version is $Revision$.
+\vspace{2.0pc}
+\\
+{\bf Key words:} Symbolic analysis, circuit simulation, BDD, CAD.
+
+\newpage
+\section{Introduction}
+SCAD3 is a symbolic circuit analyzer developed at the
+Unversity of Iowa and the University of Washington. 
+It is based on a new approach to
+exact and canonical symbolic analysis of
+large analog circuits~\cite{ShiTan97}.
+The new method consists of representing the
+symbolic determinant of a circuit matrix
+by a graph---called determinant decision diagram (DDD)---and 
+performing symbolic analysis by graph manipulations.
+The program is written in C++ programming lanaguage.
+It accepts netlists in SPICE format. The nonlinear analog
+circuits have to linearized at steady operational points
+before it can be analyzed by SCAD3.
+
+Key features of SCAD3 include
+\begin{itemize}
+\item Exactly analyze large analog circuits with circuit size 
+up to 30 nodes.
+\item Perform the hierarichal symbolic circuit analysis. 
+\item Derive the exact s-expanded transfer function of analog circuit.
+\item Perform approximation on small-signal characteristics such as 
+transfer functions. 
+\item Extract poles and zeros under pole spliting conditons.
+\item Perform circuit-noise analysis and modeling.
+\end{itemize}
+
+\section{Symbolic Analysis Background}
+Symbolic analysis is to calculate the behavior or
+the characteristic of a circuit in terms of symbolic parameters.
+It offers many advantages than numerical simulation
+in many applications such as optimum topology selection, 
+design space exploration, behavioral model generation, 
+and fault detection~\cite{GiWa94}.
+However, symbolic analysis has not
+been widely used by analog designers,
+and was once judged as completely inefficient~\cite{McPe71}.
+The root of the difficulty is that:
+the number of product terms in a symbolic expression
+may increase exponentially with the size of a circuit.
+For example, for a BiCMOS amplifier that has
+about 15 nodes and 25 devices (transistors, diodes,
+resistors and capacitors), the determinant
+of the circuit matrix contains more 
+than $10^{11}$ product terms~\cite{WaGi96}.
+Any manipulation and evaluation
+of symbolic expressions will require CPU time
+at best linear in the number of terms, 
+and therefore have both the time and space complexities
+exponential in the size of a circuit.
+
+To cope with large analog circuits,
+modern symbolic analyzers~\cite{FeRo96}
+rely on two techniques---hierarchical decomposition
+and symbolic simplification---developed in the past decade.
+Hierarchical decomposition is to generate
+symbolic expressions in the nested instead of
+the expanded form~\cite{HaLi95,StKo86}.
+Symbolic simplification is to discard those insignificant
+terms based on the relative magnitudes of 
+symbolic parameters and the frequency defined at some
+nominal design points or over some ranges.
+It can be performed before/during the generation of
+symbolic terms~\cite{ChMa92,HsSe94,SeDe92,YuSe96} 
+or after the generation~\cite{FeMa92,GiSa91,WaGi96}.
+Exploitation of these techniques has enabled the use
+of symbolic simulators in several university research 
+projects~\cite{CaCa91,FeRo96,GiSa91,YoSa95}.
+However, both techniques have some major deficiencies.
+Manipulation (other than evaluation) of a nested expression
+usually requires complicated and time-consuming
+procedures; e.g., 
+sensitivity calculation in~\cite{Li92} and
+lazy approximation in~\cite{SeDe92}.
+On the other hand, simplified expressions only have a sufficient accuracy
+at some points or frequency ranges.
+Even worse, simplification often losses certain information,
+such as sensitivity with respect to parasitics, 
+which is crucial for circuit optimization and testability analysis.
+
+SCAD3 is based  on a new approach to
+exact symbolic analysis, which is capable of analyzing
+analog integrated circuits substantially 
+larger than those previously handled.
+It is based on the two observations on
+symbolic analysis of large analog circuits:
+(a) the circuit matrix is sparse
+and (b) a symbolic expression often shares many sub-expressions.
+Under the assumption that all the matrix elements are distinct,
+each product term involves a subset of all the
+symbolic parameters. Therefore, we adapt 
+Zero-suppressed Binary Decision Diagrams (ZBDDs)---introduced 
+originally for representing sparse subset systems~\cite{Mi93}---to 
+represent a symbolic determinant.
+This leads to a new interpreted graph, 
+called Determinant Decision Diagram (DDD).
+The DDD representation has several advantages over both the
+expanded and arbitrarily nested forms of a symbolic expression.
+First, similar to the nested form,
+the DDD representation is 
+compact for a large class of analog circuits.
+A ladder-structured network can be represented
+by graphs where the number of vertices (called the DDD size)
+grows linearly in the number of symbolic parameters.
+Second, similar to the expanded form,
+our representation is canonical, i.e.,
+every determinant has a unique representation.
+Finally, evaluation and manipulation of
+symbolic determinants (such as sensitivity calculation and
+approximation)
+have time complexity proportional to the DDD size.
+
+\section{Data Preparation}
+
+
+\section{Usage Guide}
+\label{sec:usage}
+
+\begin{thebibliography}{99}
+
+\bibitem{Br86}
+R.~E. Bryant,
+``Graph-based algorithms for Boolean function manipulation",
+{\it IEEE Trans. Computer}, pp.~677--691, 1986.
+
+\bibitem{CaCa91}
+R. Carmassi, M. Catelani, G. Iuculano, A. Liberatore,
+S. Manetti, and Marini,
+``Analog network testability measurement:
+a symbolic formulation approach",
+{\it IEEE Trans. Instrumentation and Measurement},
+vol.~40, pp.~930--935, Dec. 1991.
+
+\bibitem{ChMa92}
+S.-M. Chang, J.-F. MacKey, and G.~M. Wierzba,
+``Matrix reduction and numerical approximation
+during computation techniques for symbolic analog
+circuit analysis",
+pp.~1153--1156 in
+{\it Proc. IEEE Int. Symp. Circuits and Systems},
+1992.
+
+\bibitem{maple5}
+B.~W. Char, {\it et. al.},
+{\it Maple V: Language Reference Manual},
+Springer-Verlag,  1991.
+
+\bibitem{FeMa92}
+F.~V. Fern\'{a}ndez, J.D.~Mart\'{\i}n, A. Rodr\'{\i}guez-V\'{a}zquez 
+and J.~L. Huertas, 
+``On simplification techniques for symbolic
+analysis of analog integrated circuits", 
+pp.~1149--1152 in {\it Proc. IEEE Int. Symp. Circuits and Systems}, 1992.
+
+\bibitem{FeRo96}
+F.~V.~Fern\'andez and A.~Rodr\'{\i}guez-V\'azquez,
+``Symbolic analysis tools---the state of the art", pp.~798--801 in 
+{\it Proc. IEEE Int. Symposium on Circuits and System}, 1996.
+
+\bibitem{GiSa91}
+G. Gielen and W. Sansen,
+{\em Symbolic Analysis for Automated Design of Analog Integrated Circuits}, 
+Kluwer Academic Publishers, 1991.
+
+\bibitem{GiWa94}
+G.~Gielen, P.~Wambacq and W.~Sansen,
+``Symbolic analysis methods and applications for 
+analog circuits: A tutorial overview",
+{\it Proc. IEEE}, vol.~82, no.~2, pp.~287--304, Feb. 1994. 
+
+\bibitem{HaLi95}
+M.~M.~Hassoun and P.~M.~Lin,
+``A hierarchical network approach to symbolic analysis of large
+scale networks",
+{\it IEEE Trans. Circuits and Systems}, vol.~42, no.~4,
+pp.~201--211, April 1995.
+
+\bibitem{HsSe94}
+Jer-Jaw Hsu and Carl Sechen, 
+``DC small signal symbolic analysis of
+large analog integrated circuits",
+{\it IEEE Trans. Circuits and Systems}, vol.~41, no.~12,
+pp.~817--828, Dec. 1994.
+
+\bibitem{Li91}
+P.~M. Lin, 
+{\em Symbolic Network Analysis}, Elsevier Science Publishers B.V., 
+1991.
+
+\bibitem{Li92}
+P.~M. Lin, ``Sensitivity analysis of large linear networks 
+using symbolic program",
+pp.~1145--1148 in {\it Proc. IEEE Int. Symp. Circuits and Systems}, 1992.
+
+\bibitem{McPe71}
+W.~J. McCalla and D.~O. Pederson,
+``Elements of computer-aided analysis",
+{\it IEEE Trans. Circuit Theory},
+vol.~18, pp.~14--26, 1971.
+
+\bibitem{Mi93}
+S. Minato, 
+``Zero-suppressed BDDs for set manipulation in combinatorial 
+problems", pp. 272--277 in 
+{\it Proc. 30th IEEE/ACM Design Automation Conference}, Dallas, TX, June 1993.
+
+\bibitem{SeDe92}
+S.~J.~Seda, M.~G.~R.~Degrauwe and W.~Fichtner,
+``Lazy-expansion symbolic expression approximation in SYNAP",
+pp.~310--317 in 
+{\it Proc. IEEE Int. Conf. Computer Aided Design (ICCAD)}, 1992.
+
+\bibitem{StKo86}
+J.~A. Starzky and A. Konczykowska,
+``Flowgraph analysis of large electronic networks",
+{\it IEEE Trans. Circuits and Systems},
+vol.~33, no.~3, pp.~302--315, March 1986.
+
+\bibitem{ShiTan97}
+C.-J.~Shi and X.-D.~Tan,
+``Symbolic analysis of large analog circuits with
+determinant decision diagrams,"
+in {\it Proc. IEEE Int. Conf. Computer Aided Design (ICCAD)},
+pp.~366-373, Nov. 1997.
+
+
+\bibitem{ShiTan98_1}
+C.-J.~Shi and X.-D.~Tan,
+``Efficient derivation of exact s-expanded symbolic expressions
+for behavioral modeling of analog circuits,"
+in {\it Proc. IEEE Custom Integrated Circuits Conf. (CICC)},
+pp.~463-466, May 1998.
+
+\bibitem{ShiTan99_1}
+X.-D.~Tan, C.-J.~Shi, D.~Lungeanu, J.-C.~F.~Lee, L.-P.~Yuan,
+``Reliability-contrainted area 
+optimization of VLSI power/ground networks via
+sequence of linear programming,"
+in {\it Proc. IEEE/ACM Design Automation Conf.}, 
+New Orleans, LA, June 21-25, 1999.
+
+\bibitem{TanTo97}
+X.-D.~Tan, J.-R.~Tong, P.-S.~Tang and F.~Lombardi,
+``An efficient multi-way algorithm for balanced partitioning
+of VLSI circuits,"
+{\it IEEE Int. Conf. Computer Design (ICCD)}, pp.~608-613, 1997.
+
+\bibitem{TanShi98}
+X.-D.~Tan and C.-J.~Shi,
+``Hierarchical symbolic analysis of large analog circuits
+with determinant decision diagrams,"
+in {\it Proc. IEEE Int. Symp. Circuits and Systems}, pp.~318-321,
+June 1998.
+
+\bibitem{TanShi99_1}
+X.-D.~Tan and C.-J.~Shi,
+``Balanced multi-level, multi-way
+partitioning of large analog circuits for hierarchical symbolic analysis,"
+in {\it Proc. IEEE Asia and South Pacific Design Automation Conference
+(ASP-DAC)}, Hong Kong, pp.~1-4, Jan. 1999.
+
+\bibitem{TanShi99_2}
+X.-D.~Tan and C.-J.~Shi, 
+``Interpretable symbolic small-signal characterization of large analog
+ circuits using determinant decision diagram," 
+ in {\it Proc. IEEE Design, Automation and Test in Europe (DATE)}, 
+ Munich, Germany, pp.~448-453, Mar. 1999. 
+
+\bibitem{VlSi94}
+J. Vlach and K. Singhal,
+{\it Computer Methods for Circuit Analysis and
+Design}, Van Nostrand Reinhold, New York, 1994.
+
+\bibitem{WaGi92}
+P.~Wambacq, G.~Gielen and W.~Sansen,
+``A cancellation-free algorithm for the symbolic simulation
+of large analog circuits",
+pp.~1157--1160 in {\it Proc. IEEE Int. Symp. Circuits and Systems}, 1992.
+
+\bibitem{WaGi96}
+P.~Wambacq, G.~Gielen and W.~Sansen,
+``A new reliable approximation
+method for expanded symbolic network
+functions",
+pp.~584--587 in {\it Proc. IEEE Int. Symp. Circuits and Systems}, 1996.
+
+\bibitem{YoSa95}
+Z. You, E. S\'anchez-Sinencio,
+and J.~P. de Gyvez,
+``Analog system-level fault diagnosis based
+on a symbolic method in the frequency domain",
+{\it IEEE Trans. Instrumentation and Measurement},
+vol.~44, no.~1, pp.~28--35, Jan. 1995.
+
+\bibitem{YuSe96}
+Q.~Yu and C.~Sechen,
+``A unified approach to the approximate symbolic analysis of 
+large analog integrated circuits",
+{\it IEEE Trans. Circuits and Systems}, vol.~43, no.~8,
+pp.~656--669, August 1996.
+
+\end{thebibliography}
+ 
+\end{document}

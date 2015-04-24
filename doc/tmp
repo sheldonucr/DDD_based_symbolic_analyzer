@@ -1,0 +1,43 @@
+
+Hi Richard,
+	I reviewed the book "Analysis and Design of Analog integrated
+Circuits" by Paul R. Gray and Robert G. Mayer. Following is
+some typical performance charateristics:
+
+	*GBW ,
+	*input and transfer impedence,
+	power
+	*gain
+	*phase margin
+	slew rate
+	*noise
+	output range
+	input range
+	input offset voltage and current (for opamp)
+	*CMRR: comon mode rejection rate (for coamp)
+	PSRR: ?
+
+I think the items begining with * are related to 
+the calculation of determinant. As to noise
+part, different devices may have different noise 
+types( Thermal, Flicker, Burst noise etc). The noise
+is treated as independent noise generator 
+for some devices. So after we know the gain
+and input impedence, output noise can be calculated easily.
+As to other charateristics, I think the exact
+expressions are not very lengthy. So they do not
+need DDD to repsensent them. For instance, offset
+usualy is related to the input stage of opamp. 
+As to the power and slew rate, I don't have
+clear idea of how they can calculated. I need
+to look the book further.
+
+	The new data for the first two examples of optimization
+paper will be ready soon. Where is the newest version of
+the paper? I tried the single circuit yesterday and the 
+result is very promising. The steep_ga usually take 4-5
+generation to reach the optimal sulation(<2%), while
+the pure GA still need a lot of time to do it. I will
+try the miller circuit tonight.
+
+xiangdong

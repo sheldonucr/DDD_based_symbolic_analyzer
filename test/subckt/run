@@ -1,0 +1,4 @@
+scad3 $1 <<end>out
+run
+quit
+end

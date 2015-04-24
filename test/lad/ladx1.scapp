@@ -1,0 +1,44 @@
+*This is a sample from Carl Sechen paper
+.opt bmin 3
+.opt noprint 0
+*.opt parts 4
+.opt maintree 0
+.opt subtree 10
+.opt auto 0
+.opt cfile
+*.output(V100, V1)
+*.FREQ 100 1000 1000 .1 carl.TFA
+
+R1 1 0 1k
+R2 1 2 1k
+R3 2 0 1k
+R4 2 3 1k
+R5 3 0 1k
+R6 3 4 1k
+R7 4 0 1k
+R8 4 5 1k
+R9 5 0 1k
+R10 5 6 1k
+R11 6 0 1k
+R12 6 7 1k
+R13 7 0 1k
+R14 7 8 1k
+R15 8 0 1k
+R16 8 9 1k
+R17 9 0 1k
+R18 9 10 1k
+R19 10 0 1k
+R20 10 11 1k
+R21 11 0 1k
+R22 11 12 1k
+R23 12 0 1k
+R24 12 13 1k
+R25 13 0 1k
+R26 13 14 1k
+R27 14 0 1k
+R28 14 15 1k
+R29 15 0 1k
+R30 15 16 1k
+R31 16 0 1k
+.output(V16, V1)
+.FREQ 100 1000 1000 .1 carl.TFA

@@ -1,0 +1,110 @@
+#
+# ISAD makefile 
+#
+# Created from: /home/shir/pccts/support/genmk/genmk -CC -project isad -class sp_parser spice_gram.g
+#
+# PCCTS release 1.32
+# Project: isad
+# C++ output
+# DLG scanner
+# ANTLR-defined token types
+#
+TOKENS = tokens.h
+#
+# The following filenames must be consistent with ANTLR/DLG flags
+#CCC=g++
+CC=$(CCC)
+DLG_FILE = parser.dlg
+ERR = err
+HDR_FILE =
+SCAN = DLGLexer
+PCCTS = /home/shir/pccts
+ANTLR_H = $(PCCTS)/h
+BIN = $(PCCTS)/bin
+ANTLR = $(BIN)/antlr
+DLG = $(BIN)/dlg
+CFLAGS1 = -I. -I$(ANTLR_H)
+AFLAGS = -CC
+DFLAGS = -C2 -i -CC
+
+SLIB = -lm
+CFLAGS = -g -I../inc
+LDFLAGS = -g
+PROGRAM = isad
+
+SRCS = isad.cpp \
+        commands.cpp \
+        lookup.cpp \
+        nextfield.cpp \
+        runstats.cpp
+
+OBJS = isad.o \
+        commands.o \
+        lookup.o \
+        nextfield.o \
+        runstats.o
+
+.cc.o:
+	$(CC) $(CFLAGS) -c $<
+
+
+GRM = spice_gram.g
+SRC1 = spice_gram.cpp \
+      sp_parser.cpp \
+
+      $(ANTLR_H)/AParser.cpp $(ANTLR_H)/DLexerBase.cpp $(ANTLR_H)/ATokenBuffer.cpp $(SCAN).cpp
+OBJ1 = spice_gram.o \
+      sp_parser.o \
+       AParser.o DLexerBase.o ATokenBuffer.o $(SCAN).o
+ANTLR_SPAWN = spice_gram.cpp sp_parser.cpp \
+              sp_parser.h $(DLG_FILE) $(TOKENS)
+DLG_SPAWN = $(SCAN).cpp $(SCAN).h
+
+$(PROGRAM) : $(OBJ1) $(SRC1)
+	$(CCC) -o isad $(CFLAGS1) $(OBJ1)
+
+TOUCHFILE = .touchfl
+ 
+$(PROGRAM) : $(OBJS) $(OBJ1) $(TOUCHFILE)
+    @touch .touchfl
+    @echo Linking $(PROGRAM) ...
+    $(CC) -o $(PROGRAM) $(OBJS) $(OBJ1) $(SLIB) $(APPLIB)
+    @echo "^G^G"
+    @echo done
+
+all: $(PROGRAM)
+
+spice_gram.o : $(TOKENS) $(SCAN).h spice_gram.cpp
+	$(CCC) -c $(CFLAGS1) -o spice_gram.o spice_gram.cpp
+
+sp_parser.o : $(TOKENS) $(SCAN).h sp_parser.cpp sp_parser.h
+	$(CCC) -c $(CFLAGS1) -o sp_parser.o sp_parser.cpp
+
+$(SCAN).o : $(SCAN).cpp $(TOKENS)
+	$(CCC) -c $(CFLAGS1) -o $(SCAN).o $(SCAN).cpp
+
+$(ANTLR_SPAWN) : $(GRM)
+	$(ANTLR) $(AFLAGS) $(GRM)
+
+$(DLG_SPAWN) : $(DLG_FILE)
+	$(DLG) $(DFLAGS) $(DLG_FILE)
+
+AParser.o : $(ANTLR_H)/AParser.cpp
+	$(CCC) -c $(CFLAGS1) -o AParser.o $(ANTLR_H)/AParser.cpp
+
+ATokenBuffer.o : $(ANTLR_H)/ATokenBuffer.cpp
+	$(CCC) -c $(CFLAGS1) -o ATokenBuffer.o $(ANTLR_H)/ATokenBuffer.cpp
+
+DLexerBase.o : $(ANTLR_H)/DLexerBase.cpp
+	$(CCC) -c $(CFLAGS1) -o DLexerBase.o $(ANTLR_H)/DLexerBase.cpp
+
+clean:
+	rm -f $(OBJ) $(OBJ1) core #(PROGRAM)
+
+scrub:
+	rm -f *.o core isad $(ANTLR_SPAWN) $(DLG_SPAWN)
+
+depend:
+
+    makedepend $(CFLAGS) $(CFLAGS1) -- $(SRCS)
+

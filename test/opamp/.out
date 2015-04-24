@@ -1,0 +1,16 @@
+INTERNAL ERROR: Source spice file first.
+Welcome to ISAD ---
+ 	Interative Symbolic Analysis Based on Determinant Decision Diagram
+	Copyright (c) Xiangdong Tan 
+	Version 1.1, 1997
+	'h' for help
+: run
+[0:00.0u 0:00.0s 24k]
+INTERNAL ERROR: Source spice file first.
+: redboth
+[0:00.0u 0:00.0s 24k]
+INTERNAL ERROR: Source spice file first.
+: fact
+[0:00.0u 0:00.0s 24k]
+: quit
+[0:00.0u 0:00.0s 24k] ISAD done. Bye!

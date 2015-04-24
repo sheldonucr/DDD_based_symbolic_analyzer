@@ -1,0 +1,521 @@
+Welcome to [1m SCAD3[m $Revision: 1.1 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998, XiangDong (Sheldon) Tan 
+	'h' for help
+: source starzyk2_14_pino.sp
+subckt: opamp
+7 
+6 
+8 
+change current ckt
+begin cktcall -- 
+8 
+3 
+2 
+begin cktcall -- 
+4 
+5 
+0 
+begin cktcall -- 
+6 
+7 
+0 
+begin cktcall -- 
+32 
+12 
+31 
+0.030000
+[0:00.0u 0:00.0s 1720k]
+: ! 'run' is to perform the symbolic and numerical analysis.
+: ! It first builds the MNA matrix and then derives the symbolic
+: ! expressions required in terms of DDDs. Finally, it perferm
+: ! the numerical evluation on the resulting symbolic expressions.
+: ! The times used for DDD construation and numerical evluation
+: ! are also printed out.
+: ! We do twice as we have some problems with the first run.
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+
+Building MNA for subckt: opamp
+number of element is: 8
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   0   0   0   0   0 ]
+(3) [  0   0   0   0   0   0 ]
+(4) [  0   0   0   4   2   0 ]
+(5) [  0   0   0   6   5   8 ]
+(6) [  0   0   0   3   1   7 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 9
+#paths (DDD): 4
+row(real, index)
+---------------------
+row(7,1)  (1,1)+cgs1a;(1,5)-cgs1a;
+row(6,2)  (2,6)+gm3-cc;(2,2)+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;
+row(8,3)  (3,3)+cgs1b;(3,5)-cgs1b;
+row(4,4)  (4,1)+gm1a;(4,4)+rds1a+cbd1a+gm2a+rds2a+cbd2a+cgs2a+cgs2b;(4,5)-gm1a-rds1a-cbd1a;
+row(3,5)  (5,1)-gm1a-cgs1a;(5,3)-gm1b-cgs1b;(5,4)-rds1a-cbd1a;(5,5)+gm1a+rds1a+cbd1a+cgs1a+gm1b+rds1b+cbd1b+cgs1b+rds5+cbd5;(5,6)-rds1b-cbd1b;
+row(5,6)  (6,3)+gm1b;(6,2)-cc;(6,4)+gm2b;(6,5)-gm1b-rds1b-cbd1b;(6,6)+rds1b+cbd1b+rds2b+cbd2b+cgs3+cc;
+---------------------
+
+
+end of build subckt: opamp
+
+Process subckt call xo1
+Expand xo1(opamp) ...
+gm1a_xo1 104 103 8 103
+rds1a_xo1 104 103
+cbd1a_xo1 103 104
+cgs1a_xo1 8 103
+gm1b_xo1 105 103 2 103
+rds1b_xo1 105 103
+cbd1b_xo1 103 105
+cgs1b_xo1 2 103
+gm2a_xo1 104 100 104 100
+rds2a_xo1 104 100
+cbd2a+cgs2a+cgs2b_xo1 100 104
+gm2b_xo1 105 100 104 100
+rds2b_xo1 105 100
+cbd2b+cgs3_xo1 100 105
+gm3_xo1 3 100 105 100
+rds3+rds4+rl_xo1 3 100
+cbd3+cbd4+cgd4+cl_xo1 100 3
+rds5_xo1 103 100
+cbd5_xo1 100 103
+cc_xo1 105 3
+build composite expression for (8,8)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,3)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (8,2)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (3,8)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (3,3)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (3,2)
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (2,8)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (2,3)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (2,2)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+
+Process subckt call xo2
+Expand xo2(opamp) ...
+gm1a_xo2 204 203 4 203
+rds1a_xo2 204 203
+cbd1a_xo2 203 204
+cgs1a_xo2 4 203
+gm1b_xo2 205 203 0 203
+rds1b_xo2 205 203
+cbd1b_xo2 203 205
+cgs1b_xo2 0 203
+gm2a_xo2 204 200 204 200
+rds2a_xo2 204 200
+cbd2a+cgs2a+cgs2b_xo2 200 204
+gm2b_xo2 205 200 204 200
+rds2b_xo2 205 200
+cbd2b+cgs3_xo2 200 205
+gm3_xo2 5 200 205 200
+rds3+rds4+rl_xo2 5 200
+cbd3+cbd4+cgd4+cl_xo2 200 5
+rds5_xo2 203 200
+cbd5_xo2 200 203
+cc_xo2 205 5
+build composite expression for (4,4)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (4,5)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (5,4)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (5,5)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+
+Process subckt call xo3
+Expand xo3(opamp) ...
+gm1a_xo3 304 303 6 303
+rds1a_xo3 304 303
+cbd1a_xo3 303 304
+cgs1a_xo3 6 303
+gm1b_xo3 305 303 0 303
+rds1b_xo3 305 303
+cbd1b_xo3 303 305
+cgs1b_xo3 0 303
+gm2a_xo3 304 300 304 300
+rds2a_xo3 304 300
+cbd2a+cgs2a+cgs2b_xo3 300 304
+gm2b_xo3 305 300 304 300
+rds2b_xo3 305 300
+cbd2b+cgs3_xo3 300 305
+gm3_xo3 7 300 305 300
+rds3+rds4+rl_xo3 7 300
+cbd3+cbd4+cgd4+cl_xo3 300 7
+rds5_xo3 303 300
+cbd5_xo3 300 303
+cc_xo3 305 7
+build composite expression for (6,6)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (6,7)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (7,6)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (7,7)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+
+Process subckt call xo13
+Expand xo13(opamp) ...
+gm1a_xo13 404 403 32 403
+rds1a_xo13 404 403
+cbd1a_xo13 403 404
+cgs1a_xo13 32 403
+gm1b_xo13 405 403 31 403
+rds1b_xo13 405 403
+cbd1b_xo13 403 405
+cgs1b_xo13 31 403
+gm2a_xo13 404 400 404 400
+rds2a_xo13 404 400
+cbd2a+cgs2a+cgs2b_xo13 400 404
+gm2b_xo13 405 400 404 400
+rds2b_xo13 405 400
+cbd2b+cgs3_xo13 400 405
+gm3_xo13 12 400 405 400
+rds3+rds4+rl_xo13 12 400
+cbd3+cbd4+cgd4+cl_xo13 400 12
+rds5_xo13 403 400
+cbd5_xo13 400 403
+cc_xo13 405 12
+build composite expression for (32,32)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (32,12)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (32,31)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (12,32)
+BUILDING COFACTOR (4 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (12,12)
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (12,31)
+BUILDING COFACTOR (5 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (6 6) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+build composite expression for (31,32)
+BUILDING COFACTOR (4 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 4
+#paths (DDD): 2
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (31,12)
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+build composite expression for (31,31)
+BUILDING COFACTOR (5 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+BUILDING COFACTOR (6 5) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 2
+#paths (DDD): 1
+number of element is: 39
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0   0   0   0   0   0 ]
+(2) [  1   1   0   1   1   0   0   0   0   0   0 ]
+(3) [  0   0   1   1   0   0   0   0   0   1   1 ]
+(4) [  0   1   1   1   1   0   0   0   1   0   0 ]
+(5) [  0   1   0   1   1   1   0   0   0   0   0 ]
+(6) [  0   0   0   0   1   1   1   0   0   0   0 ]
+(7) [  0   0   0   0   0   1   1   1   0   1   0 ]
+(8) [  0   0   0   0   0   0   1   1   1   0   0 ]
+(9) [  0   0   0   1   0   0   0   1   1   0   0 ]
+(10) [  0   0   1   0   0   0   1   0   0   1   1 ]
+(11) [  0   0   1   0   0   0   0   0   0   1   1 ]
+
+
+[4,3] has been forcely assigned 
+
+
+THE INDEX MATRIX 
+(1) [ 39  37   0   0   0   0   0   0   0   0   0 ]
+(2) [ 38  36   0  32  33   0   0   0   0   0   0 ]
+(3) [  0   0   9  21   0   0   0   0   0   6   5 ]
+(4) [  0  34  20  23  29   0   0   0  19   0   0 ]
+(5) [  0  35   0  27  31  28   0   0   0   0   0 ]
+(6) [  0   0   0   0  30  26  24   0   0   0   0 ]
+(7) [  0   0   0   0   0  25  12  14   0  10   0 ]
+(8) [  0   0   0   0   0   0  13  15  17   0   0 ]
+(9) [  0   0   0  22   0   0   0  16  18   0   0 ]
+(10) [  0   0   8   0   0   0  11   0   0   4   2 ]
+(11) [  0   0   7   0   0   0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 107
+#paths (DDD): 558
+row(real, index)
+---------------------
+row(1,1)  (1,1)+r1;(1,2)-r1;
+row(2,2)  (2,2)+r1+r3+cgs1b;(2,1)-r1;(2,4);(2,5);
+row(12,3)  (3,3)+r2+r40+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(3,4)-r2;(3,10);(3,11)-r40;
+row(8,4)  (4,4)+r2+r4+r9+cgs1a;(4,2);(4,3)-r2;(4,5)-r4;(4,9)-r9;
+row(3,5)  (5,5)+r4+r5+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(5,2);(5,4)-r4;(5,6)-r5;
+row(4,6)  (6,6)+r5+r6+c6+cgs1a;(6,5)-r5;(6,7)-r6-c6;
+row(5,7)  (7,7)+r6+c6+r7+r37+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(7,6)-r6-c6;(7,8)-r7;(7,10)-r37;
+row(6,8)  (8,8)+r7+c8+cgs1a;(8,7)-r7;(8,9)-c8;
+row(7,9)  (9,9)+c8+r9+rds3+rds4+rl+cbd3+cbd4+cgd4+cl+cc;(9,4)-r9;(9,8)-c8;
+row(31,10)  (10,10)+r37+r39+cgs1b;(10,3);(10,7)-r37;(10,11);
+row(32,11)  (11,11)+r38+r40+cgs1a;(11,10);(11,3)-r40;
+---------------------
+
+DDD construction time: 0.04
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 3) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 50
+#paths (DDD): 50
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 104
+#paths (DDD): 386
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.99
+END OF NUMERICAL AC ANALYSIS
+1.030000
+[0:01.7u 0:00.0s 1920k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+DDD construction time: 0
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.99
+END OF NUMERICAL AC ANALYSIS
+0.990000
+[0:01.6u 0:00.0s 1920k]
+: ! 'plot' uses xgraph to display the numerical evluation results.
+: plot
+0.030000
+[0:00.0u 0:00.0s 1944k]
+: ! 'status' displays some statisitic information. You can
+: ! find the #DDD information here.
+: stat
+----------------------
+Ckt: starzyk2_14_pino.sp
+Title: * Testing Starzyk's example
+#nodes: 24
+#branch: 28
+#stimula: 1
+#output node: 1
+----------------------
+magnitude error(magerr): 0.1
+phase error(phserr): 0.1
+Rel_Threshold(relth): 0.9
+Rel_Threshold(for num coeff)(nrelth): 0.01
+Rel_Threshold(for den coeff)(drelth): 0.01
+coeff suppress th(alpha): 0.01
+---------------------
+#(top level)total nodes (DDD): 127
+#(top level)total paths (DDD): 0
+#total nodes (DDD): 17
+#total paths (DDD): 0
+#total overall nodes (DDD): 144
+#total overall pathes (DDD): 0
+---------------------
+0.020000
+[0:00.0u 0:00.0s 1944k]
+: ! 'exit' quits from scad3
+[0:03.5u 0:00.1s 1944k] SCAD3 done.
+unknown event: 7

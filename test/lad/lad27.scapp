@@ -1,0 +1,62 @@
+*resistant Ladder filter (10 section)
+.opt bmin 3
+.opt noprint 0
+.opt maintree 0
+.opt subtree 10
+.opt auto 0
+.opt cfile
+
+R1 1 2 1k
+R2 2 0 1k
+R3 2 3 1k
+R4 3 0 1k
+R5 3 4 1k
+R6 4 0 1k
+R7 4 5 1k
+R8 5 0 1k
+R9 5 6 1k
+R10 6 0 1k
+R11 6 7 1k
+R12 7 0 1k
+R13 7 8 1k
+R14 8 0 1k
+R15 8 9 1k
+R17 9 0 1k
+R19 9 10 1k
+R20 10 0 1k
+R21 10 11 1k
+R22 11 0 1k
+R23 11 12 1k
+R24 12 0 1k
+R25 12 13 1k
+R26 13 0 1k
+R27 13 14 1k
+R28 14 0 1k
+R29 14 15 1k
+R30 15 0 1k
+R31 15 16 1k
+R32 16 0 1k
+R33 16 17 1k
+R34 17 0 1k
+R35 17 18 1k
+R36 18 0 1k
+R37 18 19 1k
+R38 19 20 1k
+R39 20 0 1k
+R40 20 21 1k
+R41 21 0 1k
+R42 21 22 1k
+R43 22 0 1k
+R44 22 23 1k
+R45 23 0 1k
+R46 23 24 1k
+R47 24 0 1k
+R48 24 25 1k
+R49 25 0 1k
+R50 25 26 1k
+R51 26 0 1k
+R52 26 27 1k
+R53 27 0 1k
+*vin 1 0  DC 0 AC 1
+.output(V15,V1)
+.FREQ 0.01 1000 250 .1 ladder5.TFA

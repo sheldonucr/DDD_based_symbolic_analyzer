@@ -1,0 +1,30 @@
+**********************************************************************
+
+***                            ISAAC 4.3                           ***
+
+**********************************************************************
+
+
+  Signal transfer function analysis
+
+  Input file : /user/students/xtan/symb/test/butter.inp
+  circuit : * Another example
+
+  the signal input = V1
+  the circuit output = node 3
+
+  fully symbolic analysis
+  analysis with lumping in numerator and denominator
+
+  analysis without mismatches
+
+ 
+  maximum error percentage : 0
+  error ratio for the smallest terms : 4
+
+
+ 0
+ -
+ 0
+
+

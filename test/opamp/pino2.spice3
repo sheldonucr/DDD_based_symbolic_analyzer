@@ -1,0 +1,178 @@
+
+Circuit: PINO-MILLER-OPAMP
+
+Circuit: PINO-MILLER-OPAMP
+Date: Tue Apr  1 10:07:26  1997
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	V(1)	5.000000e+00
+	V(9)	3.000000e+00
+	V(6)	4.766587e+00
+	V(2)	-5.00000e+00
+	V(8)	0.000000e+00
+	V(5)	-3.96014e+00
+	V(3)	1.617622e+00
+	V(7)	0.000000e+00
+	V(4)	-3.96014e+00
+
+	Source	Current
+	------	-------
+
+	vdd#branch	-8.01553e-05
+	vss#branch	3.248945e-05
+	v+#branch	0.000000e+00
+	v-#branch	0.000000e+00
+	vb#branch	0.000000e+00
+
+ Capacitor models (Fixed capacitor)
+ model             C
+
+        cj         0
+      cjsw         0
+      defw     1e-05
+    narrow         0
+
+ Mos2 models (Level 2 MOSfet model with Meyer capacitance model)
+ model          pout      nout         n         p
+
+      type      pmos      nmos      nmos      pmos
+       vto      -0.9       0.9       0.9      -0.9
+        kp   1.7e-05     5e-05     5e-05   1.7e-05
+     gamma       0.5       0.3       0.3       0.5
+       phi      0.69       0.7       0.7      0.69
+    lambda     0.023     0.042     0.019     0.005
+        rd         0         0         0         0
+        rs         0         0         0         0
+       cbd         0         0         0         0
+       cbs         0         0         0         0
+        is     1e-14     1e-14     1e-14     1e-14
+        pb       0.8       0.8       0.8       0.8
+      cgso   2.8e-10  1.76e-10  1.76e-10   2.8e-10
+      cgdo   2.8e-10  1.76e-10  1.76e-10   2.8e-10
+      cgbo         0         0         0         0
+       rsh         0         0         0         0
+        cj   0.00033     7e-05     7e-05   0.00033
+        mj       0.5       0.5       0.5       0.5
+      cjsw   4.4e-10   3.9e-10   3.9e-10   4.4e-10
+      mjsw      0.33      0.33      0.33      0.33
+        js     0.001     0.001     0.001     0.001
+       tox  4.25e-08  4.25e-08  4.25e-08  4.25e-08
+        ld         0         0         0         0
+        u0       600       600       600       600
+        fc       0.5       0.5       0.5       0.5
+      nsub         0         0         0         0
+       tpg         0         0         0         0
+       nss         0         0         0         0
+     delta         0         0         0         0
+      uexp         0         0         0         0
+     ucrit     1e+04     1e+04     1e+04     1e+04
+      vmax         0         0         0         0
+        xj         0         0         0         0
+      neff         1         1         1         1
+       nfs     1e+11     1e+11     1e+11     1e+11
+        kf         0         0         0         0
+        af         1         1         1         1
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ Capacitor: Fixed capacitor
+ device           cl        cc
+ model             C         C
+capacitanc     1e-11     1e-12
+      clow     1e-11     1e-12
+      cupp     1e-11     1e-12
+         i     1e-12     1e-12
+         p     1e-12     1e-12
+
+ Isource: Independent current source
+ device         iout
+        dc         0
+     acmag         0
+         v      4.77
+         p        -0
+
+ Mos2: Level 2 MOSfet model with Meyer capacitance model
+ device           m4        m3       m2b       m2a        m5       m1b
+ model          pout      nout         n         n         p         p
+        id   7.6e-05  2.83e-05  2.09e-06  2.09e-06  4.18e-06  2.09e-06
+       ibd -7.07e-12 -6.22e-10 -3.98e-12 -3.98e-12 -1.29e-11 -2.13e-11
+       ibs        -0         0         0         0        -0        -0
+        is  -7.6e-05 -2.83e-05 -2.09e-06 -2.09e-06 -4.18e-06 -2.09e-06
+        ig         0         0         0         0         0         0
+        ib -7.07e-12 -6.22e-10 -3.98e-12 -3.98e-12 -1.29e-11 -2.13e-11
+       vgs         2      1.04      1.04      1.04         2      1.62
+       vds     0.233      9.77      1.04      1.04      3.38      5.58
+       vbs        -0         0         0         0        -0        -0
+       von    -0.939     0.936     0.936     0.936    -0.939    -0.939
+     vdsat    -0.887     0.119     0.119     0.119    -0.887    -0.571
+        rs         0         0         0         0         0         0
+        rd         0         0         0         0         0         0
+        gm     8e-05  0.000406     3e-05     3e-05  7.71e-06  5.89e-06
+       gds  0.000276  2.02e-06  4.06e-08  4.06e-08  2.13e-08  1.08e-08
+       gmb  2.23e-05  6.98e-05  5.16e-06  5.16e-06  1.85e-06  1.51e-06
+       cbd  3.05e-13  9.56e-14  1.64e-14  1.64e-14  2.45e-14  2.04e-14
+       cbs  3.43e-13  2.65e-13  2.25e-14  2.25e-14  5.03e-14  5.03e-14
+       cgs  8.23e-14  2.01e-13   5.5e-13   5.5e-13  5.61e-14  4.78e-14
+       cgd  6.71e-14         0         0         0         0         0
+       cgb         0         0         0         0         0         0
+
+ Mos2: Level 2 MOSfet model with Meyer capacitance model
+ device          m1a
+ model             p
+        id  2.09e-06
+       ibd -2.13e-11
+       ibs        -0
+        is -2.09e-06
+        ig         0
+        ib -2.13e-11
+       vgs      1.62
+       vds      5.58
+       vbs        -0
+       von    -0.939
+     vdsat    -0.571
+        rs         0
+        rd         0
+        gm  5.89e-06
+       gds  1.08e-08
+       gmb  1.51e-06
+       cbd  2.04e-14
+       cbs  5.03e-14
+       cgs  4.78e-14
+       cgd         0
+       cgb         0
+
+ Resistor: Simple linear resistor
+ device           rl
+ model             R
+resistance     1e+05
+      rlow     1e+05
+      rupp     1e+05
+         i  4.77e-05
+         p  0.000227
+
+ Vsource: Independent voltage source
+ device           vb        v-        v+       vss       vdd
+        dc        -2         0         0        -5         5
+     acmag         0         0         0         0         0
+         i         0         0         0  3.25e-05 -8.02e-05
+         p         0        -0        -0  0.000162  0.000401
+
+CPU time since last call: 0.280 seconds.
+
+Total CPU time: 0.280 seconds.
+
+Current dynamic memory usage = 180224,
+Dynamic memory limit = 2144587776.
+

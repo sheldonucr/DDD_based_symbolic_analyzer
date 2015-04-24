@@ -1,0 +1,38 @@
+*****  Star-HSPICE  --    98.4  (990128)  16:35:02  10/20/1999  solaris
+ Input File: flpo_fatten_lin.sp
+ lic:
+ lic: FLEXlm:v5.12  USER:xtan  HOSTNAME:morrobay  HOSTID:80939d81  PID:21721
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: No server for this feature (-3,121)
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: Unable to checkout hspice
+ lic:
+ lic:
+ lic: FLEXlm:v5.12  USER:xtan  HOSTNAME:morrobay  HOSTID:80939d81  PID:21721
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: No server for this feature (-3,121)
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: Unable to checkout vlsi2000
+ lic:
+ lic:
+ lic: FLEXlm:v5.12  USER:xtan  HOSTNAME:morrobay  HOSTID:80939d81  PID:21721
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: No server for this feature (-3,121)
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: Unable to checkout vlsi500
+ lic:
+ lic:
+ lic: FLEXlm:v5.12  USER:xtan  HOSTNAME:morrobay  HOSTID:80939d81  PID:21721
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: No server for this feature (-3,121)
+ lic: Using FLEXlm license file:
+ lic: /home/monterey/flexlm/license2.dat
+ lic: Unable to checkout hsptest
+ lic:

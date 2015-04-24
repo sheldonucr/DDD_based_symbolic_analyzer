@@ -1,0 +1,156 @@
+A pmos input folded cascode cmos OPAMP.
+
+begin folded cascode 
+
+# This circuit is from Prof. Helms.
+# The input sequence of capacitors is cdb, csb, cgb, cgd and cgs. 
+
+# Including cgsOVL.
+
+M1 16 5 13 3	9.34E-04 7.12E-05 3.17E-05 
+&			4.29E-14 3.40E-14 5.95E-16 6.71E-15 2.42E-13 
+M2 17 6 13 3 	9.34E-04 7.12E-05 3.17E-05
+&			2.46E-14 3.40E-14 5.95E-16 6.71E-15 2.42E-13 
+M3 16 12 4 4 	4.60E-03 2.10E-03 7.75E-05
+&			7.17E-13 1.11E-12 6.56E-16 3.31E-14 9.04E-13
+M4 17 12 4 4 	4.60E-03 2.10E-03 7.74E-05
+&			3.88E-13 1.11E-12 6.56E-16 3.31E-14 9.04E-13
+
+C1 5 6 1.9857e-15 
+C2 16 3 6.5607e-15 
+
+M5 13 9 3 3 	1.89E-03 2.49E-04 3.12E-05 
+&			1.59E-13 5.74E-13 1.22E-15 3.19E-14 2.31E-12
+MN 15 11 16 4 	2.48E-03 5.24E-04 3.75E-05
+&			1.71E-13 2.46E-13 6.56E-16 1.65E-14 4.52E-13 
+
+CGB 11 4 7.80378e-15 
+CGD 11 15 4.13687e-15 
+
+M6 7 11 17 4	2.50E-03 5.27E-04 3.50E-05 
+&			1.65E-13 2.46E-13 6.56E-16 1.65E-14 4.51E-13
+
+C3 11 4 7.80378e-15 
+C4 11 7 4.13687e-15 
+
+M8 15 10 18 3 	1.47E-03 1.21E-04 3.42E-05
+&			6.83E-14 1.52E-13 5.95E-16 1.68E-14 6.06E-13
+M9 7 10 19 3	1.46E-03 1.20E-04 3.45E-05
+&			6.99E-14 1.52E-13 5.95E-16 1.68E-14 6.06E-13
+M10 18 14 3 3 	1.40E-03 2.15E-04 3.34E-05
+&			1.52E-13 1.75E-13 5.95E-16 1.68E-14 6.06E-13
+M11 19 14 3 3 	1.40E-03 2.15E-04 3.34E-05
+&			8.72E-14 1.75E-13 5.95E-16 1.68E-14 6.06E-13
+M7 16 16 12 4 	1.24E-04 3.42E-05 3.02E-06 
+&			3.60E-14 4.79E-14 3.09E-16 1.10E-15 1.48E-14
+
+CP 10 16 1.05904e-15 
+C5 16 4 3.19403e-15 
+
+M12 17 17 12 4 	1.26E-04 3.49E-05 3.12E-06
+&			3.59E-14 4.79E-14 3.09E-16 1.10E-15 1.48E-14
+
+C6 10 17 1.05904e-15 
+C7 17 4 3.19403e-15 
+
+MP 10 10 3 3 	1.29E-04 1.22E-05 3.90E-06
+&			9.48E-15 2.18E-14 1.22E-15 1.17E-15 8.54E-14
+
+C8 10 3 6.73335e-15 
+
+M13 9 9 3 3 	1.97E-04 2.60E-05 3.34E-06
+&			3.16E-14 3.52E-14 1.22E-15 3.36E-15 2.43E-13
+M14 11 9 3 3 	2.12E-04 2.76E-05 3.11E-06
+&			2.30E-14 3.52E-14 1.22E-15 3.36E-15 2.43E-13
+M15 12 4 9 3 	4.54E-05 2.62E-06 1.30E-06
+&			2.91E-15 4.37E-15 2.27E-15 4.19E-16 5.66E-14
+M16 11 11 4 4 	9.43E-05 2.09E-05 3.62E-06
+&			1.58E-14 6.97E-14 1.35E-15 6.61E-16 3.65E-14
+
+C9 11 4 6.73335e-15 
+
+M17 12 12 4 4 	5.82E-04 2.67E-04 1.47E-05
+&			1.33E-13 1.60E-13 6.56E-16 4.41E-15 1.20E-13
+
+C10 12 4 3.97095e-15 
+
+M18 10 12 4 4 	6.97E-04 3.12E-04 6.90E-06 
+&			6.20E-14 1.60E-13 6.56E-16 4.41E-15 1.20E-13
+M19 4 15 14 3 	1.33E-03 1.03E-04 4.89E-05 
+&			2.84E-14 8.68E-14 9.05E-16 8.39E-15 4.56E-13
+M20 14 14 3 3 	4.22E-03 6.47E-04 2.30E-04
+&			1.87E-13 3.26E-13 2.85E-16 2.52E-14 4.47E-13
+
+C11 14 3 5.1795e-15 
+
+#*.EQUIV AVdd = 3 
+#*.EQUIV AVss = 4 
+#*.EQUIV Non = 5 
+#*.EQUIV Inv = 6 
+#*.EQUIV Out = 7 
+
+# AC short circuit of DC bias.
+
+s1	3	0
+s2	0	4
+
+# Input biasing.
+
+iin	5	0
+s3	6	0
+
+# Output meter.
+
+pout	7	0
+
+.matchDevice  m1      	m2
+.matchDevice  m3      	m4
+.matchDevice  m7      	m12
+.matchDevice  mn      	m6
+.matchDevice  m8      	m9
+.matchDevice  m10 	m11
+        
+**
+
+sampleDC     oN
+sampleAC     oN
+sampleFrequencies           dec     3       1.0hz   220meghz
+compDC       on
+compAC       on
+compFrequencies             dec     20      1.0hz   220meghz
+
+matroidIntersection	on
+
+#    acNumFrequencyPoints 	30
+#    compNumFrequencyPoints 	206
+
+    senPreMinNumNodes 		8	
+    cancelMinNumNodes 		6
+
+    symbRemCumErrorLimit 	0.60
+    symbSenConDeviLimit 	0.60
+    symbRemErrorLimit 		0.06
+
+    symbCanCumErrorLimit 	0.44
+    symbCanConDeviLimit 	8.80
+    symbCanErrorLimit 		8.80
+    symbDeriCanConLimit 	0.06
+
+    cancelMinContri 		0.04
+
+    maxNumLWSTsPerTreeTree 	100000
+    threshFactorInit 		0.010
+    threshFactorChange 		0.98
+    threshFactorMin 		0.002
+#    magnErrorDBLimit 		2.0
+    magnErrorDBLimit 		1.6
+
+phasErrorDegLimit         40.0
+
+activeSource            iin
+
+v(pout)/v(iin)
+#i(iin)/v(iin)
+
+end
+ 

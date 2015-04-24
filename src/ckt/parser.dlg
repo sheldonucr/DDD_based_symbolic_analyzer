@@ -1,0 +1,450 @@
+<<
+/* parser.dlg -- DLG Description of scanner
+ *
+ * Generated from: spgram.g
+ *
+ * Terence Parr, Will Cohen, and Hank Dietz: 1989-1994
+ * Purdue University Electrical Engineering
+ * With AHPCRC, University of Minnesota
+ * ANTLR Version 1.33
+ */
+
+#include "tokens.h"
+#include "AToken.h"
+#include "globals.h"  
+>>
+
+
+%%START
+
+@
+	<<
+		return (ANTLRTokenType)1;
+	>>
+
+~[\n]*
+	<<
+		mode(NORMAL); newline();  
+		return TITTLE;
+	>>
+
+
+%%PAR_STATE
+
+@
+	<<
+		return (ANTLRTokenType)1;
+	>>
+
+[\ \t]+
+	<<
+		skip();  
+		return (ANTLRTokenType)3;
+	>>
+
+{(\+|\-)}[0-9]*{[\.]}[0-9]+{[eE]{(\+ | \-)}[0-9]+}{([Tt]|[Gg]|[Mm][Ee][Gg]|[Kk]|[Mm][Ii][Ll]|[Mm]|[Uu]|[Nn]|[Pp]|[Ff]|[Vv])[a-zA-Z]*}
+	<<
+		return VALUE;
+	>>
+
+\n
+	<<
+		mode(NORMAL); newline();  
+		return NEWLINE;
+	>>
+
+\*(~[\n])*
+	<<
+		return COMMENT;
+	>>
+
+[Ii][Cc]
+	<<
+		return IC;
+	>>
+
+[Tt][Ee][Mm][Pp]
+	<<
+		return TEMP;
+	>>
+
+[Oo][Nn]
+	<<
+		return (ANTLRTokenType)10;
+	>>
+
+[Oo][Ff][Ff]
+	<<
+		return (ANTLRTokenType)11;
+	>>
+
+[Aa][Cc]
+	<<
+		return AC;
+	>>
+
+[Dd][Cc]
+	<<
+		return DC;
+	>>
+
+[Tt][Rr][Aa][Nn]
+	<<
+		return TRAN;
+	>>
+
+=
+	<<
+		return EQUAL;
+	>>
+
+,
+	<<
+		return COMMA;
+	>>
+
+\(
+	<<
+		return LEFTB;
+	>>
+
+\)
+	<<
+		return RIGHTB;
+	>>
+
+[VvIi]{([Rr] | [Ii] | [Mm] | [Pp] | [Dd][Bb])}
+	<<
+		return VAR_NAME;
+	>>
+
+[a-zA-Z][a-zA-Z0-9_\-\+\.]*
+	<<
+		return IDENTIFIER;
+	>>
+
+
+%%NORMAL
+
+@
+	<<
+		return (ANTLRTokenType)1;
+	>>
+
+[\ \t]+
+	<<
+		skip();  
+		return (ANTLRTokenType)21;
+	>>
+
+\*(~[\n])*
+	<<
+		return COMMENT;
+	>>
+
+\n
+	<<
+		newline();  
+		return NEWLINE;
+	>>
+
+{(\+|\-)}[0-9]*{[\.]}[0-9]+{[eE]{(\+ | \-)}[0-9]+}{([Tt]|[Gg]|[Mm][Ee][Gg]|[Kk]|[Mm][Ii][Ll]|[Mm]|[Uu]|[Nn]|[Pp]|[Ff]|[Vv])[a-zA-Z]*}
+	<<
+		return VALUE;
+	>>
+
+=
+	<<
+		return EQUAL;
+	>>
+
+,
+	<<
+		return COMMA;
+	>>
+
+\.
+	<<
+		return DOT;
+	>>
+
+[Tt][Ee][Mm][Pp]
+	<<
+		return TEMP;
+	>>
+
+[Aa][Cc]
+	<<
+		mode(PAR_STATE);  
+		return AC;
+	>>
+
+[Dd][Cc]
+	<<
+		return DC;
+	>>
+
+[Oo][Pp]
+	<<
+		return OP;
+	>>
+
+[Ss][Ee][Nn][Ss]
+	<<
+		mode(PAR_STATE);  
+		return SENS;
+	>>
+
+[Tt][Ff]
+	<<
+		return TF;
+	>>
+
+[Tt][Rr][Aa][Nn]
+	<<
+		return TRAN;
+	>>
+
+[Nn][Oo][Ii][Ss][Ee]
+	<<
+		mode(PAR_STATE);  
+		return NOISE;
+	>>
+
+[Ss][Aa][Vv][Ee]
+	<<
+		return SAVE;
+	>>
+
+[Pp][Rr][Ii][Nn][Tt]
+	<<
+		mode(PAR_STATE);  
+		return PRINT;
+	>>
+
+[Pp][Ll][Oo][Tt]
+	<<
+		mode(PAR_STATE);  
+		return PLOT;
+	>>
+
+[Ee][Nn][Dd]
+	<<
+		return END;
+	>>
+
+[Ee][Nn][Dd][Ss]
+	<<
+		return ENDS;
+	>>
+
+[Mm][Oo][Dd][Ee][Ll]
+	<<
+		mode(PAR_STATE);  
+		return MODEL;
+	>>
+
+[Ss][Uu][Bb][Cc][Kk][Tt]
+	<<
+		mode(PAR_STATE);  
+		return SUBCKT;
+	>>
+
+[Oo][Pp][Tt][Ii][Oo][Nn]{[Ss]}
+	<<
+		mode(PAR_STATE);  
+		return OPTION;
+	>>
+
+[Nn][Oo][Dd][Ee][Ss][Ee][Tt]
+	<<
+		mode(PAR_STATE);  
+		return NODESET;
+	>>
+
+[Ii][Cc]
+	<<
+		mode(PAR_STATE);  
+		return IC;
+	>>
+
+PULSE
+	<<
+		return (ANTLRTokenType)37;
+	>>
+
+pulse
+	<<
+		return (ANTLRTokenType)38;
+	>>
+
+SIN
+	<<
+		return (ANTLRTokenType)40;
+	>>
+
+sin
+	<<
+		return (ANTLRTokenType)41;
+	>>
+
+EXP
+	<<
+		return (ANTLRTokenType)43;
+	>>
+
+exp
+	<<
+		return (ANTLRTokenType)44;
+	>>
+
+PWL
+	<<
+		return (ANTLRTokenType)46;
+	>>
+
+pwl
+	<<
+		return (ANTLRTokenType)47;
+	>>
+
+SFFM
+	<<
+		return (ANTLRTokenType)49;
+	>>
+
+sffm
+	<<
+		return (ANTLRTokenType)50;
+	>>
+
+[Rr][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return RES;
+	>>
+
+[Cc][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return CAP;
+	>>
+
+[Ll][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return IND;
+	>>
+
+[Kk][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return MUIND;
+	>>
+
+[Vv][a-zA-Z0-9_\-\+]*
+	<<
+		return VOL;
+	>>
+
+[Ii][a-zA-Z0-9_\-\+]*
+	<<
+		return CUR;
+	>>
+
+[Gg][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return VCCS;
+	>>
+
+[Ee][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return VCVS;
+	>>
+
+[Ff][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return CCCS;
+	>>
+
+[Hh][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return CCVS;
+	>>
+
+[Dd][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return DIODE;
+	>>
+
+[Qq][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return BJT;
+	>>
+
+[Jj][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return JFET;
+	>>
+
+[Mm][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return MOSFET;
+	>>
+
+[Zz][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return MESFET;
+	>>
+
+[Xx][a-zA-Z0-9_\-\+]*
+	<<
+		mode(PAR_STATE);  
+		return CKTCALL;
+	>>
+
+[a-zA-Z][a-zA-Z0-9_\-\+]*
+	<<
+		return IDENTIFIER;
+	>>
+
+DISTOF1
+	<<
+		return (ANTLRTokenType)67;
+	>>
+
+distof1
+	<<
+		return (ANTLRTokenType)68;
+	>>
+
+DISTOF2
+	<<
+		return (ANTLRTokenType)69;
+	>>
+
+distof2
+	<<
+		return (ANTLRTokenType)70;
+	>>
+
+\(
+	<<
+		return (ANTLRTokenType)71;
+	>>
+
+\)
+	<<
+		return (ANTLRTokenType)72;
+	>>
+
+%%

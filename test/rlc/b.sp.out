@@ -1,0 +1,189 @@
+Welcome to [1m SCAD3[m $Revision: 1.6 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998 - 2002 X.-D. Sheldon Tan 
+	'h' for help
+: source b.sp
+[0:00.0u 0:00.0s 30k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+number of element is: 19
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0   0 ]
+(2) [  1   1   1   0   0   0   0 ]
+(3) [  0   1   1   1   0   0   0 ]
+(4) [  0   0   1   1   1   0   0 ]
+(5) [  0   0   0   1   1   1   0 ]
+(6) [  0   0   0   0   1   1   1 ]
+(7) [  0   0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 19  17   0   0   0   0   0 ]
+(2) [ 18  16  14   0   0   0   0 ]
+(3) [  0  15  13  11   0   0   0 ]
+(4) [  0   0  12  10   8   0   0 ]
+(5) [  0   0   0   9   7   5   0 ]
+(6) [  0   0   0   0   6   4   2 ]
+(7) [  0   0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 19
+#paths (DDD): 21
+row(real, index)
+---------------------
+row(1,1)  (1,1)( + 1/rs );(1,2)( - 1/rs );
+row(2,2)  (2,2)( + 1/rs  + s*(c1)  + 1/(s*l2) );(2,1)( - 1/rs );(2,3)( - 1/(s*l2) );
+row(3,3)  (3,3)( + 1/(s*l2)  + s*(c3)  + 1/(s*l4) );(3,2)( - 1/(s*l2) );(3,4)( - 1/(s*l4) );
+row(4,4)  (4,4)( + 1/(s*l4)  + s*(c5)  + 1/(s*l6) );(4,3)( - 1/(s*l4) );(4,5)( - 1/(s*l6) );
+row(5,5)  (5,5)( + 1/(s*l6)  + s*(c7)  + 1/(s*l8) );(5,4)( - 1/(s*l6) );(5,6)( - 1/(s*l8) );
+row(6,6)  (6,6)( + 1/(s*l8)  + s*(c9)  + 1/(s*l10) );(6,5)( - 1/(s*l8) );(6,7)( - 1/(s*l10) );
+row(7,7)  (7,7)( + 1/(s*l10)  + 1/rl );(7,6)( - 1/(s*l10) );
+---------------------
+
+DDD construction time: 0.01
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 7) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 6
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 16
+#paths (DDD): 13
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0
+END OF NUMERICAL AC ANALYSIS
+[0:00.0u 0:00.0s 38k]
+: expddd
+Construct fcoeff ddd from ddd ...
+Max branch number: 3
+
+Building coefficient for numerator
+
+Statisitic for numerator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 0
+
+fcoefficient of order: 1
+#paths (DDD): 0
+
+fcoefficient of order: 2
+#paths (DDD): 1
+
+fcoefficient of order: 3
+#paths (DDD): 0
+
+fcoefficient of order: 4
+#paths (DDD): 0
+
+fcoefficient of order: 5
+#paths (DDD): 0
+
+fcoefficient of order: 6
+#paths (DDD): 0
+
+fcoefficient of order: 7
+#paths (DDD): 0
+The total paths is 1
+########## end of fcoefficient list
+
+Building coefficient for denominator
+
+Statisitic for denominator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 9
+
+fcoefficient of order: 1
+#paths (DDD): 74
+
+fcoefficient of order: 2
+#paths (DDD): 47
+
+fcoefficient of order: 3
+#paths (DDD): 124
+
+fcoefficient of order: 4
+#paths (DDD): 59
+
+fcoefficient of order: 5
+#paths (DDD): 92
+
+fcoefficient of order: 6
+#paths (DDD): 28
+
+fcoefficient of order: 7
+#paths (DDD): 28
+The total paths is 461
+########## end of fcoefficient list
+total constrction time: 0
+total coeff evaluation time: 0
+[0:00.0u 0:00.0s 70k]
+: simpcoeff
+Simplify fcoefficient ddd list ... 
+Use the fourth term generation method (method4, reverse dynamic shortest path)...
+freq[0]: 0.100000
+order: 0, nfreq: 1
+order: 1, nfreq: 0.1
+order: 2, nfreq: 0.01
+number of terms generated: 1
+order: 3, nfreq: 0.001
+order: 4, nfreq: 0.0001
+order: 5, nfreq: 1e-05
+order: 6, nfreq: 1e-06
+order: 7, nfreq: 1e-07
+number of terms generated: 1
+order: 0, nfreq: 1
+number of terms generated: 10
+order: 1, nfreq: 0.1
+number of terms generated: 84
+order: 2, nfreq: 0.01
+number of terms generated: 131
+order: 3, nfreq: 0.001
+number of terms generated: 255
+order: 4, nfreq: 0.0001
+number of terms generated: 314
+order: 5, nfreq: 1e-05
+number of terms generated: 406
+order: 6, nfreq: 1e-06
+number of terms generated: 434
+order: 7, nfreq: 1e-07
+number of terms generated: 462
+number of terms generated: 462
+freq[1]: 1.000000
+order: 0, nfreq: 1
+order: 1, nfreq: 1
+order: 2, nfreq: 1
+order: 3, nfreq: 1
+order: 4, nfreq: 1
+order: 5, nfreq: 1
+order: 6, nfreq: 1
+order: 7, nfreq: 1
+number of terms generated: 462
+order: 0, nfreq: 1
+order: 1, nfreq: 1
+order: 2, nfreq: 1
+order: 3, nfreq: 1
+order: 4, nfreq: 1
+order: 5, nfreq: 1
+order: 6, nfreq: 1
+order: 7, nfreq: 1
+number of terms generated: 462
+End of simplification 
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+[0:00.1u 0:00.0s 534k]
+[0:00.1u 0:00.0s 534k] SCAD3 done.

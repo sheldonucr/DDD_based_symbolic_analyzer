@@ -1,0 +1,5398 @@
+Welcome to [1m SCAD3[m $Revision: 1.6 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998 - 2002 X.-D. Sheldon Tan 
+	'h' for help
+: source b.sp
+[0:00.0u 0:00.0s 880k]
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+number of element is: 19
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0   0 ]
+(2) [  1   1   1   0   0   0   0 ]
+(3) [  0   1   1   1   0   0   0 ]
+(4) [  0   0   1   1   1   0   0 ]
+(5) [  0   0   0   1   1   1   0 ]
+(6) [  0   0   0   0   1   1   1 ]
+(7) [  0   0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 19  17   0   0   0   0   0 ]
+(2) [ 18  16  14   0   0   0   0 ]
+(3) [  0  15  13  11   0   0   0 ]
+(4) [  0   0  12  10   8   0   0 ]
+(5) [  0   0   0   9   7   5   0 ]
+(6) [  0   0   0   0   6   4   2 ]
+(7) [  0   0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 19
+#paths (DDD): 21
+row(real, index)
+---------------------
+row(1,1)  (1,1)( + 1/rs );(1,2)( - 1/rs );
+row(2,2)  (2,2)( + 1/rs  + s*(c1)  + 1/(s*l2) );(2,1)( - 1/rs );(2,3)( - 1/(s*l2) );
+row(3,3)  (3,3)( + 1/(s*l2)  + s*(c3)  + 1/(s*l4) );(3,2)( - 1/(s*l2) );(3,4)( - 1/(s*l4) );
+row(4,4)  (4,4)( + 1/(s*l4)  + s*(c5)  + 1/(s*l6) );(4,3)( - 1/(s*l4) );(4,5)( - 1/(s*l6) );
+row(5,5)  (5,5)( + 1/(s*l6)  + s*(c7)  + 1/(s*l8) );(5,4)( - 1/(s*l6) );(5,6)( - 1/(s*l8) );
+row(6,6)  (6,6)( + 1/(s*l8)  + s*(c9)  + 1/(s*l10) );(6,5)( - 1/(s*l8) );(6,7)( - 1/(s*l10) );
+row(7,7)  (7,7)( + 1/(s*l10)  + 1/rl );(7,6)( - 1/(s*l10) );
+---------------------
+
+DDD construction time: 0.01
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 7) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 6
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 16
+#paths (DDD): 13
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.01
+END OF NUMERICAL AC ANALYSIS
+[0:00.0u 0:00.0s 896k]
+: expddd
+Construct fcoeff ddd from ddd ...
+Max branch number: 3
+
+Building coefficient for numerator
+
+Statisitic for numerator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 0
+
+fcoefficient of order: 1
+#paths (DDD): 0
+
+fcoefficient of order: 2
+#paths (DDD): 1
+
+fcoefficient of order: 3
+#paths (DDD): 0
+
+fcoefficient of order: 4
+#paths (DDD): 0
+
+fcoefficient of order: 5
+#paths (DDD): 0
+
+fcoefficient of order: 6
+#paths (DDD): 0
+
+fcoefficient of order: 7
+#paths (DDD): 0
+The total paths is 1
+########## end of fcoefficient list
+
+Building coefficient for denominator
+
+Statisitic for denominator coefficient list
+########## statistics for fully expanded coefficient list
+
+fcoefficient of order: 0
+#paths (DDD): 9
+
+fcoefficient of order: 1
+#paths (DDD): 74
+
+fcoefficient of order: 2
+#paths (DDD): 47
+
+fcoefficient of order: 3
+#paths (DDD): 124
+
+fcoefficient of order: 4
+#paths (DDD): 59
+
+fcoefficient of order: 5
+#paths (DDD): 92
+
+fcoefficient of order: 6
+#paths (DDD): 28
+
+fcoefficient of order: 7
+#paths (DDD): 28
+The total paths is 461
+########## end of fcoefficient list
+total constrction time: 0.01
+total coeff evaluation time: 0
+[0:00.0u 0:00.0s 928k]
+: simpcoeff
+Simplify fcoefficient ddd list ... 
+Use the first term generation method (shortest path)...
+freq[0]: 0.100000
+order: 0, nfreq: 1
+order: 1, nfreq: 0.1
+order: 2, nfreq: 0.01
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:1
+D: 29 point to one
+one stack size: 1
+D: 29 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:2
+D: 38 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:3
+D: 47 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:4
+D: 56 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:5
+D: 65 parent(1): 74 stack size:1
+D: -1 parent(0): 74 stack size:6
+v: 65-> u: 74
+v: 56-> u: 65
+v: 47-> u: 56
+v: 38-> u: 47
+v: 29-> u: 38
+v: -1-> u: 29
+Extract a new path ... 
+P: 74 == Q: 74
+P: (ptr->)DDDnode 1ea8c0 v=74 ref=0
+  true=65, 1ea658 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ea8c0 v=74 ref=0
+  true=65, 1ea658 false=-1, 10f810
+
+	+ (-1/rs) (74) (-1/l2) (65) (-1/l4) (56) (-1/l6) (47) (-1/l8) (38) (-1/l10) (29) ,0.707032
+number of terms generated: 1
+order: 3, nfreq: 0.001
+order: 4, nfreq: 0.0001
+order: 5, nfreq: 1e-05
+order: 6, nfreq: 1e-06
+order: 7, nfreq: 1e-07
+number of terms generated: 1
+order: 0, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 24 stack size:1
+D: -1 parent(0): 24 stack size:1
+D: 24 point to one
+one stack size: 1
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:3
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:4
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:1
+D: -1 parent(0): 50 stack size:5
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 42 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:6
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:7
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 59 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:8
+v: 61-> u: 68
+v: 52-> u: 61
+v: 59-> u: 61
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 42-> u: 53
+v: 42-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 42-> u: 50
+v: 33-> u: 43
+v: 41-> u: 43
+v: 24-> u: 33
+v: -1-> u: 24
+Extract a new path ... 
+P: (ptr->)DDDnode 1eeb48 v=68 ref=0
+  true=61, 1eee18 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f18e8 v=68 ref=0
+  true=59, 1f18a8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eee18 v=61 ref=4
+  true=52, 1ed3c0 false=59, 1eedd8
+
+Q: (ptr->)DDDnode 1f18a8 v=59 ref=1
+  true=51, 1f0370 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eedd8 v=59 ref=1
+  true=52, 1ed3c0 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f18a8 v=59 ref=1
+  true=51, 1f0370 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed3c0 v=52 ref=9
+  true=42, 1ebf78 false=51, 1ed1c0
+
+Q: (ptr->)DDDnode 1f0370 v=51 ref=1
+  true=43, 1ec0b8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed1c0 v=51 ref=1
+  true=43, 1ec178 false=50, 1ec5c8
+
+Q: (ptr->)DDDnode 1f0370 v=51 ref=1
+  true=43, 1ec0b8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ec178 v=43 ref=5
+  true=33, 1ea818 false=41, 1eaa40
+
+Q: (ptr->)DDDnode 1ec0b8 v=43 ref=1
+  true=33, 1ea818 false=-1, 10f810
+
+P: 33 == Q: 33
+P: (ptr->)DDDnode 1ea818 v=33 ref=5
+  true=24, 1ea6d8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ea818 v=33 ref=5
+  true=24, 1ea6d8 false=-1, 10f810
+
+Q is zero
+D: 33 stack size: 3
+D:43 is removed from 33
+D:43 is removed from 41
+f2: last pushed:(ptr->)DDDnode 1ea818 v=33 ref=5
+  true=24, 1ea6d8 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1eaa40 v=41 ref=1
+  true=33, 1ea818 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f1928 v=51 ref=0
+  true=41, 1eaa40 false=50, 1ec5c8
+
+f: pushed:(ptr->)DDDnode 1f1968 v=52 ref=0
+  true=42, 1ebf78 false=51, 1f1928
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f19a8 v=59 ref=0
+  true=52, 1f1968 false=56, 1eefa8
+
+f: pushed:(ptr->)DDDnode 1f19e8 v=61 ref=0
+  true=52, 1ed3c0 false=59, 1f19a8
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f1a28 v=68 ref=0
+  true=61, 1f19e8 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f1a28 v=68 ref=0
+  true=61, 1f19e8 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f19e8 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f19a8
+
+v: 59-> u: 61
+relaxing node:(ptr->)DDDnode 1f19a8 v=59 ref=1
+  true=52, 1f1968 false=56, 1eefa8
+
+v: 52-> u: 59
+relaxing node:(ptr->)DDDnode 1f1968 v=52 ref=1
+  true=42, 1ebf78 false=51, 1f1928
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f1928 v=51 ref=1
+  true=41, 1eaa40 false=50, 1ec5c8
+
+v: 41-> u: 51
+relaxing node:(ptr->)DDDnode 1eaa40 v=41 ref=2
+  true=33, 1ea818 false=-1, 10f810
+
+back relaxing node
+v: 33-> u: 42
+relaxing node:(ptr->)DDDnode 1ea818 v=33 ref=5
+  true=24, 1ea6d8 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (c9) (33) (1/rl) (24) ,1.39671
+Extract a new path ... 
+P: (ptr->)DDDnode 1f1a28 v=68 ref=0
+  true=61, 1f19e8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f20b0 v=68 ref=0
+  true=59, 1f2070 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f19e8 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f19a8
+
+Q: (ptr->)DDDnode 1f2070 v=59 ref=1
+  true=50, 1ec5c8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f19a8 v=59 ref=1
+  true=52, 1f1968 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f2070 v=59 ref=1
+  true=50, 1ec5c8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f1968 v=52 ref=1
+  true=42, 1ebf78 false=51, 1f1928
+
+Q: (ptr->)DDDnode 1ec5c8 v=50 ref=3
+  true=42, 1ebf78 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f1928 v=51 ref=1
+  true=41, 1eaa40 false=50, 1ec5c8
+
+Q: (ptr->)DDDnode 1ec5c8 v=50 ref=3
+  true=42, 1ebf78 false=-1, 10f810
+
+P: 50 == Q: 50
+P: (ptr->)DDDnode 1ec5c8 v=50 ref=3
+  true=42, 1ebf78 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ec5c8 v=50 ref=3
+  true=42, 1ebf78 false=-1, 10f810
+
+D:50 is removed from 42
+D:50 is removed from -1
+f1: last pushed: 42
+f: pushed:(ptr->)DDDnode 1f20f0 v=51 ref=0
+  true=41, 1eaa40 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f2130 v=52 ref=0
+  true=42, 1ebf78 false=51, 1f20f0
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f2170 v=59 ref=0
+  true=52, 1f2130 false=56, 1eefa8
+
+f: pushed:(ptr->)DDDnode 1f21b0 v=61 ref=0
+  true=52, 1ed3c0 false=59, 1f2170
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f21f0 v=68 ref=0
+  true=61, 1f21b0 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f21f0 v=68 ref=0
+  true=61, 1f21b0 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f21b0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f2170
+
+v: 59-> u: 61
+relaxing node:(ptr->)DDDnode 1f2170 v=59 ref=1
+  true=52, 1f2130 false=56, 1eefa8
+
+v: 52-> u: 59
+relaxing node:(ptr->)DDDnode 1f2130 v=52 ref=1
+  true=42, 1ebf78 false=51, 1f20f0
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f20f0 v=51 ref=1
+  true=41, 1eaa40 false=-1, 10f810
+
+back relaxing node
+v: 42-> u: 52
+relaxing node:(ptr->)DDDnode 1ebf78 v=42 ref=9
+  true=33, 1ea818 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (c7) (42) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f21f0 v=68 ref=0
+  true=61, 1f21b0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f21b0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f2170
+
+Q: (ptr->)DDDnode 1f2230 v=59 ref=1
+  true=52, 1ed300 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2170 v=59 ref=1
+  true=52, 1f2130 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f2230 v=59 ref=1
+  true=52, 1ed300 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2130 v=52 ref=1
+  true=42, 1ebf78 false=51, 1f20f0
+
+Q: (ptr->)DDDnode 1ed300 v=52 ref=1
+  true=42, 1ebf78 false=-1, 10f810
+
+P: 42 == Q: 42
+P: (ptr->)DDDnode 1ebf78 v=42 ref=9
+  true=33, 1ea818 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ebf78 v=42 ref=9
+  true=33, 1ea818 false=-1, 10f810
+
+Q is zero
+D: 42 stack size: 4
+D:52 is removed from 42
+D:52 is removed from 51
+f2: last pushed:(ptr->)DDDnode 1ebf78 v=42 ref=9
+  true=33, 1ea818 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f20f0 v=51 ref=1
+  true=41, 1eaa40 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f22b0 v=59 ref=0
+  true=51, 1f20f0 false=56, 1eefa8
+
+f: pushed:(ptr->)DDDnode 1f22f0 v=61 ref=0
+  true=52, 1ed3c0 false=59, 1f22b0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f22f0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f22b0
+
+v: 59-> u: 61
+relaxing node:(ptr->)DDDnode 1f22b0 v=59 ref=1
+  true=51, 1f20f0 false=56, 1eefa8
+
+v: 51-> u: 59
+relaxing node:(ptr->)DDDnode 1f20f0 v=51 ref=2
+  true=41, 1eaa40 false=-1, 10f810
+
+back relaxing node
+v: 42-> u: 52
+relaxing node:(ptr->)DDDnode 1ebf78 v=42 ref=9
+  true=33, 1ea818 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f22f0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f22b0
+
+Q: (ptr->)DDDnode 1f2230 v=59 ref=1
+  true=52, 1ed300 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f22b0 v=59 ref=1
+  true=51, 1f20f0 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f2230 v=59 ref=1
+  true=52, 1ed300 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f20f0 v=51 ref=2
+  true=41, 1eaa40 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ed300 v=52 ref=1
+  true=42, 1ebf78 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f20f0 v=51 ref=2
+  true=41, 1eaa40 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f22b0 v=59 ref=1
+  true=51, 1f20f0 false=56, 1eefa8
+
+f: pushed:(ptr->)DDDnode 1f22f0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f22b0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f22f0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f22b0
+
+v: 59-> u: 61
+relaxing node:(ptr->)DDDnode 1f22b0 v=59 ref=1
+  true=51, 1f20f0 false=56, 1eefa8
+
+v: 51-> u: 59
+back relaxing node
+v: 51-> u: 59
+relaxing node:(ptr->)DDDnode 1f20f0 v=51 ref=2
+  true=41, 1eaa40 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2270 v=68 ref=0
+  true=59, 1f2230 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l6) (52) (c7) (42) (c9) (33) (1/rl) (24) ,0.902036
+number of terms generated: 11
+order: 1, nfreq: 0.1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:2
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:3
+D: 23 parent(1): 32 stack size:1
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:2
+D: 32 parent(0): 34 stack size:1
+D: 23 parent(1): 35 stack size:3
+D: -1 parent(0): 35 stack size:4
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:5
+D: 34 parent(1): 41 stack size:1
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:2
+D: 41 parent(0): 43 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:6
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:7
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:8
+D: 34 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:11
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:12
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:13
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:14
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 42 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:15
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:16
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 59 parent(0): 61 stack size:1
+D: 52 parent(1): 62 stack size:3
+D: -1 parent(0): 62 stack size:17
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:18
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 52-> u: 62
+v: 52-> u: 61
+v: 59-> u: 61
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 42-> u: 53
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 42-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 42-> u: 50
+v: 33-> u: 43
+v: 41-> u: 43
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f0230 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f01f0
+
+Q: (ptr->)DDDnode 1f2dc0 v=65 ref=0
+  true=62, 1f2d80 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f01f0 v=69 ref=1
+  true=61, 1eee18 false=65, 1f0c08
+
+Q: (ptr->)DDDnode 1f2dc0 v=65 ref=0
+  true=62, 1f2d80 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0c08 v=65 ref=1
+  true=62, 1f0130 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2dc0 v=65 ref=0
+  true=62, 1f2d80 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0130 v=62 ref=1
+  true=52, 1ed7d0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f2d80 v=62 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed7d0 v=52 ref=9
+  true=43, 1ec508 false=51, 1ed790
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed790 v=51 ref=1
+  true=42, 1ebf78 false=50, 1ed750
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed750 v=50 ref=1
+  true=43, 1ec508 false=47, 1ed960
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ec508 v=43 ref=9
+  true=34, 1ea9c0 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f2d00 v=43 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea9c0 v=34 ref=8
+  true=23, 1ea698 false=32, 1ea980
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=2
+  true=26, 1ea900 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea980 v=32 ref=1
+  true=23, 1ea698 false=29, 1ea940
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=2
+  true=26, 1ea900 false=-1, 10f810
+
+P: 29 == Q: 29
+P: (ptr->)DDDnode 1ea940 v=29 ref=2
+  true=26, 1ea900 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=2
+  true=26, 1ea900 false=-1, 10f810
+
+D:29 is removed from 26
+D:29 is removed from -1
+D:26 is removed from -1
+D:26 is removed from -1
+f1: last pushed: -1
+f: pushed:(ptr->)DDDnode 1ea798 v=32 ref=1
+  true=23, 1ea698 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1eaf70 v=34 ref=0
+  true=23, 1ea698 false=32, 1ea798
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f2e00 v=43 ref=0
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f2e40 v=50 ref=0
+  true=43, 1f2e00 false=47, 1ed960
+
+f: pushed:(ptr->)DDDnode 1f2e80 v=51 ref=0
+  true=42, 1ebf78 false=50, 1f2e40
+
+f: pushed:(ptr->)DDDnode 1f2ec0 v=52 ref=0
+  true=43, 1ec508 false=51, 1f2e80
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f2f00 v=62 ref=0
+  true=52, 1f2ec0 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f2f40 v=65 ref=0
+  true=62, 1f2f00 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f2f80 v=69 ref=0
+  true=61, 1eee18 false=65, 1f2f40
+
+f: pushed:(ptr->)DDDnode 1f2fc0 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f2f80
+
+relaxing node:(ptr->)DDDnode 1f2fc0 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f2f80
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f2f80 v=69 ref=1
+  true=61, 1eee18 false=65, 1f2f40
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f2f40 v=65 ref=1
+  true=62, 1f2f00 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f2f00 v=62 ref=1
+  true=52, 1f2ec0 false=-1, 10f810
+
+v: 52-> u: 62
+relaxing node:(ptr->)DDDnode 1f2ec0 v=52 ref=1
+  true=43, 1ec508 false=51, 1f2e80
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f2e80 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f2e40
+
+v: 50-> u: 51
+relaxing node:(ptr->)DDDnode 1f2e40 v=50 ref=1
+  true=43, 1f2e00 false=47, 1ed960
+
+v: 43-> u: 50
+relaxing node:(ptr->)DDDnode 1f2e00 v=43 ref=1
+  true=34, 1eaf70 false=41, 1ec4c8
+
+v: 34-> u: 43
+relaxing node:(ptr->)DDDnode 1eaf70 v=34 ref=1
+  true=23, 1ea698 false=32, 1ea798
+
+v: 32-> u: 34
+relaxing node:(ptr->)DDDnode 1ea798 v=32 ref=1
+  true=23, 1ea698 false=-1, 10f810
+
+back relaxing node
+v: -1-> u: 23
+	- (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2fc0 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f2f80
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2f80 v=69 ref=1
+  true=61, 1eee18 false=65, 1f2f40
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2f40 v=65 ref=1
+  true=62, 1f2f00 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2f00 v=62 ref=1
+  true=52, 1f2ec0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3688 v=62 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2ec0 v=52 ref=1
+  true=43, 1ec508 false=51, 1f2e80
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e80 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f2e40
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e40 v=50 ref=1
+  true=43, 1f2e00 false=47, 1ed960
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e00 v=43 ref=1
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f3000 v=43 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eaf70 v=34 ref=1
+  true=23, 1ea698 false=32, 1ea798
+
+Q: (ptr->)DDDnode 1eaf30 v=34 ref=1
+  true=23, 1ea698 false=-1, 10f810
+
+P: 23 == Q: 23
+P: (ptr->)DDDnode 1ea698 v=23 ref=7
+  true=-1, 10f7d0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ea698 v=23 ref=7
+  true=-1, 10f7d0 false=-1, 10f810
+
+Q is zero
+D: 23 stack size: 5
+D:34 is removed from 23
+D:34 is removed from 32
+f2: last pushed:(ptr->)DDDnode 1ea698 v=23 ref=7
+  true=-1, 10f7d0 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1ea798 v=32 ref=1
+  true=23, 1ea698 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3708 v=43 ref=0
+  true=32, 1ea798 false=41, 1ec4c8
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3748 v=50 ref=0
+  true=43, 1f3708 false=47, 1ed960
+
+f: pushed:(ptr->)DDDnode 1f3788 v=51 ref=0
+  true=42, 1ebf78 false=50, 1f3748
+
+f: pushed:(ptr->)DDDnode 1f37c8 v=52 ref=0
+  true=43, 1ec508 false=51, 1f3788
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3808 v=62 ref=0
+  true=52, 1f37c8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3848 v=65 ref=0
+  true=62, 1f3808 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f3888 v=69 ref=0
+  true=61, 1eee18 false=65, 1f3848
+
+f: pushed:(ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+relaxing node:(ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f3888 v=69 ref=1
+  true=61, 1eee18 false=65, 1f3848
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f3848 v=65 ref=1
+  true=62, 1f3808 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f3808 v=62 ref=1
+  true=52, 1f37c8 false=-1, 10f810
+
+v: 52-> u: 62
+relaxing node:(ptr->)DDDnode 1f37c8 v=52 ref=1
+  true=43, 1ec508 false=51, 1f3788
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f3788 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f3748
+
+v: 50-> u: 51
+relaxing node:(ptr->)DDDnode 1f3748 v=50 ref=1
+  true=43, 1f3708 false=47, 1ed960
+
+v: 43-> u: 50
+relaxing node:(ptr->)DDDnode 1f3708 v=43 ref=1
+  true=32, 1ea798 false=41, 1ec4c8
+
+v: 32-> u: 43
+relaxing node:(ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+back relaxing node
+v: 23-> u: 32
+v: 23-> u: 34
+relaxing node:(ptr->)DDDnode 1ea698 v=23 ref=7
+  true=-1, 10f7d0 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3888 v=69 ref=1
+  true=61, 1eee18 false=65, 1f3848
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3848 v=65 ref=1
+  true=62, 1f3808 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3808 v=62 ref=1
+  true=52, 1f37c8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3688 v=62 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f37c8 v=52 ref=1
+  true=43, 1ec508 false=51, 1f3788
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3788 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f3748
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3748 v=50 ref=1
+  true=43, 1f3708 false=47, 1ed960
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3708 v=43 ref=1
+  true=32, 1ea798 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f3000 v=43 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1eaf30 v=34 ref=1
+  true=23, 1ea698 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3708 v=43 ref=1
+  true=32, 1ea798 false=41, 1ec4c8
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3748 v=50 ref=1
+  true=43, 1f3708 false=47, 1ed960
+
+f: pushed:(ptr->)DDDnode 1f3788 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f3748
+
+f: pushed:(ptr->)DDDnode 1f37c8 v=52 ref=1
+  true=43, 1ec508 false=51, 1f3788
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3808 v=62 ref=1
+  true=52, 1f37c8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3848 v=65 ref=1
+  true=62, 1f3808 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f3888 v=69 ref=1
+  true=61, 1eee18 false=65, 1f3848
+
+f: pushed:(ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+relaxing node:(ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f3888 v=69 ref=1
+  true=61, 1eee18 false=65, 1f3848
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f3848 v=65 ref=1
+  true=62, 1f3808 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f3808 v=62 ref=1
+  true=52, 1f37c8 false=-1, 10f810
+
+v: 52-> u: 62
+relaxing node:(ptr->)DDDnode 1f37c8 v=52 ref=1
+  true=43, 1ec508 false=51, 1f3788
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f3788 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f3748
+
+v: 50-> u: 51
+relaxing node:(ptr->)DDDnode 1f3748 v=50 ref=1
+  true=43, 1f3708 false=47, 1ed960
+
+v: 43-> u: 50
+relaxing node:(ptr->)DDDnode 1f3708 v=43 ref=1
+  true=32, 1ea798 false=41, 1ec4c8
+
+v: 32-> u: 43
+back relaxing node
+v: 32-> u: 43
+relaxing node:(ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f36c8 v=65 ref=0
+  true=62, 1f3688 false=-1, 10f810
+
+	+ (-1/l2) (65) (-1/l2) (62) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,-4.91637
+number of terms generated: 21
+order: 2, nfreq: 0.01
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:2
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:3
+D: 23 parent(1): 32 stack size:1
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:2
+D: 32 parent(0): 34 stack size:1
+D: 23 parent(1): 35 stack size:3
+D: -1 parent(0): 35 stack size:4
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:5
+D: 34 parent(1): 41 stack size:1
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:2
+D: 41 parent(0): 43 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:6
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:7
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:8
+D: 34 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:11
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:12
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:13
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:14
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:15
+v: 61-> u: 68
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 42-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 42-> u: 50
+v: 33-> u: 43
+v: 41-> u: 43
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1eeb88 v=68 ref=0
+  true=61, 1eeed8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eeed8 v=61 ref=8
+  true=52, 1ed7d0 false=60, 1eee98
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eee98 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1eee58
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eee58 v=59 ref=1
+  true=52, 1ed7d0 false=56, 1eefe8
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed7d0 v=52 ref=9
+  true=43, 1ec508 false=51, 1ed790
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3ac8 v=59 ref=0
+  true=52, 1f2ec0 false=56, 1eefe8
+
+f: pushed:(ptr->)DDDnode 1f3b08 v=60 ref=0
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+f: pushed:(ptr->)DDDnode 1f3b48 v=61 ref=0
+  true=52, 1ed7d0 false=60, 1f3b08
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f3b48 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f3b08
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f3b08 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f3ac8 v=59 ref=1
+  true=52, 1f2ec0 false=56, 1eefe8
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3b48 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f3b08
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3b08 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3ac8 v=59 ref=1
+  true=52, 1f2ec0 false=56, 1eefe8
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=1
+  true=50, 1f2d40 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2ec0 v=52 ref=2
+  true=43, 1ec508 false=51, 1f2e80
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e80 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f2e40
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e40 v=50 ref=1
+  true=43, 1f2e00 false=47, 1ed960
+
+Q: (ptr->)DDDnode 1f2d40 v=50 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e00 v=43 ref=1
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f2d00 v=43 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eaf70 v=34 ref=1
+  true=23, 1ea698 false=32, 1ea798
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=3
+  true=26, 1ea900 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=3
+  true=26, 1ea900 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1eaf70 v=34 ref=1
+  true=23, 1ea698 false=32, 1ea798
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f2e00 v=43 ref=1
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f2e40 v=50 ref=1
+  true=43, 1f2e00 false=47, 1ed960
+
+f: pushed:(ptr->)DDDnode 1f2e80 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f2e40
+
+f: pushed:(ptr->)DDDnode 1f2ec0 v=52 ref=2
+  true=43, 1ec508 false=51, 1f2e80
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f3ac8 v=59 ref=1
+  true=52, 1f2ec0 false=56, 1eefe8
+
+f: pushed:(ptr->)DDDnode 1f3b08 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+f: pushed:(ptr->)DDDnode 1f3b48 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f3b08
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f3b48 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f3b08
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f3b08 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f3ac8 v=59 ref=1
+  true=52, 1f2ec0 false=56, 1eefe8
+
+v: 52-> u: 59
+relaxing node:(ptr->)DDDnode 1f2ec0 v=52 ref=2
+  true=43, 1ec508 false=51, 1f2e80
+
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f2e80 v=51 ref=1
+  true=42, 1ebf78 false=50, 1f2e40
+
+v: 50-> u: 51
+relaxing node:(ptr->)DDDnode 1f2e40 v=50 ref=1
+  true=43, 1f2e00 false=47, 1ed960
+
+v: 43-> u: 50
+relaxing node:(ptr->)DDDnode 1f2e00 v=43 ref=1
+  true=34, 1eaf70 false=41, 1ec4c8
+
+v: 34-> u: 43
+relaxing node:(ptr->)DDDnode 1eaf70 v=34 ref=1
+  true=23, 1ea698 false=32, 1ea798
+
+v: 32-> u: 34
+back relaxing node
+v: 32-> u: 34
+relaxing node:(ptr->)DDDnode 1ea798 v=32 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f3a88 v=68 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.46367
+number of terms generated: 31
+order: 3, nfreq: 0.001
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:6
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:7
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:8
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:9
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:10
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:11
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:12
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:13
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:14
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:15
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:16
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:17
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:18
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:19
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:20
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 60 parent(0): 61 stack size:1
+D: 52 parent(1): 62 stack size:3
+D: -1 parent(0): 62 stack size:21
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:22
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 52-> u: 62
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 42-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 42-> u: 50
+v: 33-> u: 43
+v: 41-> u: 43
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 33-> u: 43
+v: 42-> u: 43
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f02b0 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f0270
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0270 v=69 ref=1
+  true=61, 1eeed8 false=65, 1f0c48
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0c48 v=65 ref=1
+  true=62, 1f0170 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0170 v=62 ref=1
+  true=52, 1ed890 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4010 v=62 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed890 v=52 ref=8
+  true=43, 1ec1f8 false=51, 1ed850
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed850 v=51 ref=1
+  true=43, 1ec508 false=50, 1ed810
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ec508 v=43 ref=11
+  true=34, 1ea9c0 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f2d00 v=43 ref=2
+  true=29, 1ea940 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f4698 v=51 ref=0
+  true=43, 1f2e00 false=50, 1ed810
+
+f: pushed:(ptr->)DDDnode 1f46d8 v=52 ref=0
+  true=43, 1ec1f8 false=51, 1f4698
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4718 v=62 ref=0
+  true=52, 1f46d8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4758 v=65 ref=0
+  true=62, 1f4718 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f4798 v=69 ref=0
+  true=61, 1eeed8 false=65, 1f4758
+
+f: pushed:(ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+relaxing node:(ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f4798 v=69 ref=1
+  true=61, 1eeed8 false=65, 1f4758
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f4758 v=65 ref=1
+  true=62, 1f4718 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f4718 v=62 ref=1
+  true=52, 1f46d8 false=-1, 10f810
+
+v: 52-> u: 62
+relaxing node:(ptr->)DDDnode 1f46d8 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f4698
+
+v: 51-> u: 52
+back relaxing node
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f4698 v=51 ref=1
+  true=43, 1f2e00 false=50, 1ed810
+
+v: 43-> u: 51
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4798 v=69 ref=1
+  true=61, 1eeed8 false=65, 1f4758
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4758 v=65 ref=1
+  true=62, 1f4718 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4718 v=62 ref=1
+  true=52, 1f46d8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4010 v=62 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f46d8 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f4698
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4698 v=51 ref=1
+  true=43, 1f2e00 false=50, 1ed810
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=1
+  true=43, 1f2d00 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e00 v=43 ref=2
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f2d00 v=43 ref=2
+  true=29, 1ea940 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f4698 v=51 ref=1
+  true=43, 1f2e00 false=50, 1ed810
+
+f: pushed:(ptr->)DDDnode 1f46d8 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f4698
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4718 v=62 ref=1
+  true=52, 1f46d8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4758 v=65 ref=1
+  true=62, 1f4718 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f4798 v=69 ref=1
+  true=61, 1eeed8 false=65, 1f4758
+
+f: pushed:(ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+relaxing node:(ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f4798 v=69 ref=1
+  true=61, 1eeed8 false=65, 1f4758
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f4758 v=65 ref=1
+  true=62, 1f4718 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f4718 v=62 ref=1
+  true=52, 1f46d8 false=-1, 10f810
+
+v: 52-> u: 62
+relaxing node:(ptr->)DDDnode 1f46d8 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f4698
+
+v: 51-> u: 52
+back relaxing node
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f4698 v=51 ref=1
+  true=43, 1f2e00 false=50, 1ed810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f4050 v=65 ref=0
+  true=62, 1f4010 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,17.3059
+number of terms generated: 41
+order: 4, nfreq: 0.0001
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:6
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:7
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:8
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:9
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:10
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:11
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:12
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:13
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:14
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:15
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:16
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:17
+v: 61-> u: 68
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 33-> u: 43
+v: 42-> u: 43
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1eebc8 v=68 ref=0
+  true=61, 1eeac8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eeac8 v=61 ref=7
+  true=52, 1ed890 false=60, 1eef58
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eef58 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1eef18
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eef18 v=59 ref=1
+  true=52, 1ed890 false=56, 1ef028
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed890 v=52 ref=8
+  true=43, 1ec1f8 false=51, 1ed850
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f48c0 v=59 ref=0
+  true=52, 1f46d8 false=56, 1ef028
+
+f: pushed:(ptr->)DDDnode 1f4900 v=60 ref=0
+  true=52, 1ed7d0 false=59, 1f48c0
+
+f: pushed:(ptr->)DDDnode 1f4940 v=61 ref=0
+  true=52, 1ed890 false=60, 1f4900
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f4940 v=61 ref=1
+  true=52, 1ed890 false=60, 1f4900
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f4900 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f48c0
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f48c0 v=59 ref=1
+  true=52, 1f46d8 false=56, 1ef028
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4940 v=61 ref=1
+  true=52, 1ed890 false=60, 1f4900
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4900 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f48c0
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f48c0 v=59 ref=1
+  true=52, 1f46d8 false=56, 1ef028
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=1
+  true=51, 1f3fd0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f46d8 v=52 ref=2
+  true=43, 1ec1f8 false=51, 1f4698
+
+Q: (ptr->)DDDnode 1f3fd0 v=51 ref=2
+  true=43, 1f2d00 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f48c0 v=59 ref=1
+  true=52, 1f46d8 false=56, 1ef028
+
+f: pushed:(ptr->)DDDnode 1f4900 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f48c0
+
+f: pushed:(ptr->)DDDnode 1f4940 v=61 ref=1
+  true=52, 1ed890 false=60, 1f4900
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f4940 v=61 ref=1
+  true=52, 1ed890 false=60, 1f4900
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f4900 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f48c0
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f48c0 v=59 ref=1
+  true=52, 1f46d8 false=56, 1ef028
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f4880 v=68 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-15.7123
+number of terms generated: 51
+order: 5, nfreq: 1e-05
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:11
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:12
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:13
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:14
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:15
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:16
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:17
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:18
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 60 parent(0): 61 stack size:1
+D: 51 parent(1): 62 stack size:3
+D: -1 parent(0): 62 stack size:19
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:20
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 51-> u: 62
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f0330 v=70 ref=0
+  true=61, 1eea88 false=69, 1f02f0
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f02f0 v=69 ref=1
+  true=61, 1eeac8 false=65, 1f0c88
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f0c88 v=65 ref=1
+  true=62, 1f01b0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f01b0 v=62 ref=1
+  true=51, 1ed180 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5650 v=62 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed180 v=51 ref=5
+  true=43, 1ec1f8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5610 v=51 ref=1
+  true=42, 1f4dc8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ec1f8 v=43 ref=8
+  true=33, 1eae70 false=42, 1ec038
+
+Q: (ptr->)DDDnode 1f4dc8 v=42 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ec038 v=42 ref=1
+  true=34, 1ea9c0 false=41, 1ebef8
+
+Q: (ptr->)DDDnode 1f4dc8 v=42 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea9c0 v=34 ref=8
+  true=23, 1ea698 false=32, 1ea980
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=4
+  true=26, 1ea900 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f56d0 v=42 ref=0
+  true=34, 1eaf70 false=41, 1ebef8
+
+f: pushed:(ptr->)DDDnode 1f5710 v=43 ref=0
+  true=33, 1eae70 false=42, 1f56d0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5750 v=51 ref=0
+  true=43, 1f5710 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5790 v=62 ref=0
+  true=51, 1f5750 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f57d0 v=65 ref=0
+  true=62, 1f5790 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f5810 v=69 ref=0
+  true=61, 1eeac8 false=65, 1f57d0
+
+f: pushed:(ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+relaxing node:(ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f5810 v=69 ref=1
+  true=61, 1eeac8 false=65, 1f57d0
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f57d0 v=65 ref=1
+  true=62, 1f5790 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f5790 v=62 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+v: 51-> u: 62
+relaxing node:(ptr->)DDDnode 1f5750 v=51 ref=1
+  true=43, 1f5710 false=-1, 10f810
+
+v: 43-> u: 51
+relaxing node:(ptr->)DDDnode 1f5710 v=43 ref=1
+  true=33, 1eae70 false=42, 1f56d0
+
+v: 42-> u: 43
+back relaxing node
+v: 42-> u: 43
+relaxing node:(ptr->)DDDnode 1f56d0 v=42 ref=1
+  true=34, 1eaf70 false=41, 1ebef8
+
+v: 34-> u: 42
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5810 v=69 ref=1
+  true=61, 1eeac8 false=65, 1f57d0
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f57d0 v=65 ref=1
+  true=62, 1f5790 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5790 v=62 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5650 v=62 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5750 v=51 ref=1
+  true=43, 1f5710 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5610 v=51 ref=1
+  true=42, 1f4dc8 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5710 v=43 ref=1
+  true=33, 1eae70 false=42, 1f56d0
+
+Q: (ptr->)DDDnode 1f4dc8 v=42 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f56d0 v=42 ref=1
+  true=34, 1eaf70 false=41, 1ebef8
+
+Q: (ptr->)DDDnode 1f4dc8 v=42 ref=1
+  true=29, 1ea940 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eaf70 v=34 ref=2
+  true=23, 1ea698 false=32, 1ea798
+
+Q: (ptr->)DDDnode 1ea940 v=29 ref=4
+  true=26, 1ea900 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f56d0 v=42 ref=1
+  true=34, 1eaf70 false=41, 1ebef8
+
+f: pushed:(ptr->)DDDnode 1f5710 v=43 ref=1
+  true=33, 1eae70 false=42, 1f56d0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5750 v=51 ref=1
+  true=43, 1f5710 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5790 v=62 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f57d0 v=65 ref=1
+  true=62, 1f5790 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f5810 v=69 ref=1
+  true=61, 1eeac8 false=65, 1f57d0
+
+f: pushed:(ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+relaxing node:(ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+v: 69-> u: 70
+relaxing node:(ptr->)DDDnode 1f5810 v=69 ref=1
+  true=61, 1eeac8 false=65, 1f57d0
+
+v: 65-> u: 69
+relaxing node:(ptr->)DDDnode 1f57d0 v=65 ref=1
+  true=62, 1f5790 false=-1, 10f810
+
+v: 62-> u: 65
+relaxing node:(ptr->)DDDnode 1f5790 v=62 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+v: 51-> u: 62
+relaxing node:(ptr->)DDDnode 1f5750 v=51 ref=1
+  true=43, 1f5710 false=-1, 10f810
+
+v: 43-> u: 51
+relaxing node:(ptr->)DDDnode 1f5710 v=43 ref=1
+  true=33, 1eae70 false=42, 1f56d0
+
+v: 42-> u: 43
+back relaxing node
+v: 42-> u: 43
+relaxing node:(ptr->)DDDnode 1f56d0 v=42 ref=1
+  true=34, 1eaf70 false=41, 1ebef8
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f5690 v=65 ref=0
+  true=62, 1f5650 false=-1, 10f810
+
+	- (-1/l2) (65) (-1/l2) (62) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,43.6149
+number of terms generated: 61
+order: 6, nfreq: 1e-06
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:11
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:12
+v: 61-> u: 68
+v: 51-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 51-> u: 59
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1eec08 v=68 ref=0
+  true=61, 1eea88 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eea88 v=61 ref=6
+  true=51, 1ed180 false=60, 1ee848
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ee848 v=60 ref=1
+  true=52, 1ed890 false=59, 1ee648
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ee648 v=59 ref=1
+  true=51, 1ed180 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ed180 v=51 ref=5
+  true=43, 1ec1f8 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5610 v=51 ref=2
+  true=42, 1f4dc8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5910 v=59 ref=0
+  true=51, 1f5750 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f5950 v=60 ref=0
+  true=52, 1ed890 false=59, 1f5910
+
+f: pushed:(ptr->)DDDnode 1f5990 v=61 ref=0
+  true=51, 1ed180 false=60, 1f5950
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f5990 v=61 ref=1
+  true=51, 1ed180 false=60, 1f5950
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f5950 v=60 ref=1
+  true=52, 1ed890 false=59, 1f5910
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f5910 v=59 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5990 v=61 ref=1
+  true=51, 1ed180 false=60, 1f5950
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5950 v=60 ref=1
+  true=52, 1ed890 false=59, 1f5910
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5910 v=59 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=1
+  true=51, 1f5610 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5750 v=51 ref=2
+  true=43, 1f5710 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f5610 v=51 ref=2
+  true=42, 1f4dc8 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f5910 v=59 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f5950 v=60 ref=1
+  true=52, 1ed890 false=59, 1f5910
+
+f: pushed:(ptr->)DDDnode 1f5990 v=61 ref=1
+  true=51, 1ed180 false=60, 1f5950
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f5990 v=61 ref=1
+  true=51, 1ed180 false=60, 1f5950
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f5950 v=60 ref=1
+  true=52, 1ed890 false=59, 1f5910
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f5910 v=59 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f58d0 v=68 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-39.5988
+number of terms generated: 71
+order: 7, nfreq: 1e-07
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:11
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 69 stack size:1
+D: -1 parent(0): 69 stack size:12
+v: 61-> u: 69
+v: 51-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 51-> u: 59
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 35
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1efca0 v=69 ref=0
+  true=61, 1eea88 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eea88 v=61 ref=6
+  true=51, 1ed180 false=60, 1ee848
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=2
+  true=51, 1f5610 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5990 v=61 ref=2
+  true=51, 1ed180 false=60, 1f5950
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=2
+  true=51, 1f5610 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6018 v=69 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-12.3906
+number of terms generated: 81
+number of terms generated: 81
+freq[1]: 1.000000
+order: 0, nfreq: 1
+order: 1, nfreq: 1
+order: 2, nfreq: 1
+order: 3, nfreq: 1
+order: 4, nfreq: 1
+order: 5, nfreq: 1
+order: 6, nfreq: 1
+order: 7, nfreq: 1
+number of terms generated: 81
+order: 0, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 24 stack size:1
+D: -1 parent(0): 24 stack size:1
+D: 24 point to one
+one stack size: 1
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:3
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:4
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:1
+D: -1 parent(0): 50 stack size:5
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 41 parent(1): 51 stack size:2
+D: -1 parent(0): 51 stack size:6
+D: 42 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:7
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:8
+D: 51 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 61 stack size:1
+D: 59 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:9
+v: 61-> u: 68
+v: 52-> u: 61
+v: 59-> u: 61
+v: 51-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 42-> u: 53
+v: 41-> u: 51
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 33-> u: 43
+v: 33-> u: 41
+v: 24-> u: 33
+v: -1-> u: 24
+Extract a new path ... 
+P: (ptr->)DDDnode 1f2330 v=68 ref=0
+  true=61, 1f22f0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f22f0 v=61 ref=1
+  true=52, 1ed3c0 false=59, 1f22b0
+
+Q: (ptr->)DDDnode 1f6098 v=59 ref=1
+  true=51, 1f20f0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f22b0 v=59 ref=1
+  true=51, 1f20f0 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f6098 v=59 ref=1
+  true=51, 1f20f0 false=-1, 10f810
+
+P: 51 == Q: 51
+P: (ptr->)DDDnode 1f20f0 v=51 ref=3
+  true=41, 1eaa40 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f20f0 v=51 ref=3
+  true=41, 1eaa40 false=-1, 10f810
+
+Q is zero
+D: 51 stack size: 1
+D:59 is removed from 51
+D:59 is removed from 56
+f2: last pushed:(ptr->)DDDnode 1f20f0 v=51 ref=3
+  true=41, 1eaa40 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1eefa8 v=56 ref=4
+  true=53, 1eed18 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f6118 v=61 ref=0
+  true=52, 1ed3c0 false=56, 1eefa8
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6118 v=61 ref=1
+  true=52, 1ed3c0 false=56, 1eefa8
+
+v: 56-> u: 61
+relaxing node:(ptr->)DDDnode 1eefa8 v=56 ref=5
+  true=53, 1eed18 false=-1, 10f810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f20f0 v=51 ref=3
+  true=41, 1eaa40 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6118 v=61 ref=1
+  true=52, 1ed3c0 false=56, 1eefa8
+
+Q: (ptr->)DDDnode 1f6098 v=59 ref=1
+  true=51, 1f20f0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eefa8 v=56 ref=5
+  true=53, 1eed18 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6098 v=59 ref=1
+  true=51, 1f20f0 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1eefa8 v=56 ref=5
+  true=53, 1eed18 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f6118 v=61 ref=1
+  true=52, 1ed3c0 false=56, 1eefa8
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6118 v=61 ref=1
+  true=52, 1ed3c0 false=56, 1eefa8
+
+v: 56-> u: 61
+back relaxing node
+v: 56-> u: 61
+relaxing node:(ptr->)DDDnode 1eefa8 v=56 ref=5
+  true=53, 1eed18 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6158 v=68 ref=0
+  true=61, 1f6118 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f60d8 v=68 ref=0
+  true=59, 1f6098 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l6) (41) (c9) (33) (1/rl) (24) ,1
+number of terms generated: 91
+order: 1, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:2
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:3
+D: 23 parent(1): 32 stack size:1
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:2
+D: 32 parent(0): 34 stack size:1
+D: 23 parent(1): 35 stack size:3
+D: -1 parent(0): 35 stack size:4
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:5
+D: 34 parent(1): 41 stack size:1
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:2
+D: 41 parent(0): 43 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:6
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:7
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:8
+D: 34 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:11
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:12
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:13
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:14
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 42 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:15
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:16
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 59 parent(0): 61 stack size:1
+D: 23 parent(1): 32 stack size:4
+D: -1 parent(0): 32 stack size:17
+D: 32 parent(1): 43 stack size:1
+D: 41 parent(0): 43 stack size:2
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:2
+D: 42 parent(1): 51 stack size:5
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:4
+D: 51 parent(0): 52 stack size:1
+D: 52 parent(1): 62 stack size:1
+D: -1 parent(0): 62 stack size:18
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:19
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 52-> u: 62
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 32-> u: 43
+v: 41-> u: 43
+v: 23-> u: 32
+v: 52-> u: 61
+v: 59-> u: 61
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 33-> u: 43
+v: 41-> u: 43
+v: 51-> u: 52
+v: 50-> u: 51
+v: 43-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 34-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 23-> u: 34
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f38c8 v=70 ref=0
+  true=61, 1eeed8 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eeed8 v=61 ref=9
+  true=52, 1ed7d0 false=60, 1eee98
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=2
+  true=50, 1f2d40 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3b48 v=61 ref=2
+  true=52, 1ed7d0 false=60, 1f3b08
+
+Q: (ptr->)DDDnode 1f3a48 v=59 ref=2
+  true=50, 1f2d40 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6218 v=70 ref=0
+  true=61, 1f3b48 false=69, 1f3888
+
+Q: (ptr->)DDDnode 1f61d8 v=70 ref=0
+  true=59, 1f3a48 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (1/l4) (50) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-4.91637
+number of terms generated: 101
+order: 2, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:2
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:3
+D: 23 parent(1): 32 stack size:1
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:2
+D: 32 parent(0): 34 stack size:1
+D: 23 parent(1): 35 stack size:3
+D: -1 parent(0): 35 stack size:4
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:5
+D: 34 parent(1): 41 stack size:1
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:2
+D: 41 parent(0): 43 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:6
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:7
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:8
+D: 34 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:11
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:12
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 23 parent(1): 32 stack size:4
+D: -1 parent(0): 32 stack size:13
+D: 23 parent(1): 34 stack size:5
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 43 stack size:1
+D: 41 parent(0): 43 stack size:2
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:2
+D: 42 parent(1): 51 stack size:4
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:14
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:15
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:1
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:16
+v: 61-> u: 68
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 34-> u: 43
+v: 41-> u: 43
+v: 23-> u: 34
+v: 32-> u: 34
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 33-> u: 43
+v: 41-> u: 43
+v: 51-> u: 52
+v: 50-> u: 51
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 34-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+v: -1-> u: 23
+Extract a new path ... 
+P: (ptr->)DDDnode 1f3b88 v=68 ref=0
+  true=61, 1f3b48 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3b48 v=61 ref=2
+  true=52, 1ed7d0 false=60, 1f3b08
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3b08 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f3ac8
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3ac8 v=59 ref=1
+  true=52, 1f2ec0 false=56, 1eefe8
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2ec0 v=52 ref=2
+  true=43, 1ec508 false=51, 1f2e80
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=2
+  true=43, 1f3000 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6318 v=59 ref=0
+  true=52, 1f37c8 false=56, 1eefe8
+
+f: pushed:(ptr->)DDDnode 1f6358 v=60 ref=0
+  true=52, 1ed3c0 false=59, 1f6318
+
+f: pushed:(ptr->)DDDnode 1f6398 v=61 ref=0
+  true=52, 1ed7d0 false=60, 1f6358
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6398 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f6358
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f6358 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f6318
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f6318 v=59 ref=1
+  true=52, 1f37c8 false=56, 1eefe8
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6398 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f6358
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6358 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f6318
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6318 v=59 ref=1
+  true=52, 1f37c8 false=56, 1eefe8
+
+Q: (ptr->)DDDnode 1f6298 v=59 ref=1
+  true=50, 1f3648 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f37c8 v=52 ref=2
+  true=43, 1ec508 false=51, 1f3788
+
+Q: (ptr->)DDDnode 1f3648 v=50 ref=2
+  true=43, 1f3000 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6318 v=59 ref=1
+  true=52, 1f37c8 false=56, 1eefe8
+
+f: pushed:(ptr->)DDDnode 1f6358 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f6318
+
+f: pushed:(ptr->)DDDnode 1f6398 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f6358
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6398 v=61 ref=1
+  true=52, 1ed7d0 false=60, 1f6358
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f6358 v=60 ref=1
+  true=52, 1ed3c0 false=59, 1f6318
+
+v: 59-> u: 60
+back relaxing node
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f6318 v=59 ref=1
+  true=52, 1f37c8 false=56, 1eefe8
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+Extract a new path ... 
+P: (ptr->)DDDnode 1f63d8 v=68 ref=0
+  true=61, 1f6398 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f62d8 v=68 ref=0
+  true=59, 1f6298 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (1/l4) (50) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,4.46367
+number of terms generated: 111
+order: 3, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:6
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:7
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:8
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:9
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:10
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:11
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:12
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:13
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:14
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:3
+D: -1 parent(0): 53 stack size:15
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:16
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: 33 parent(1): 41 stack size:2
+D: -1 parent(0): 41 stack size:17
+D: 33 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 42 parent(1): 50 stack size:2
+D: -1 parent(0): 50 stack size:18
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 42 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:19
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:20
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 60 parent(0): 61 stack size:1
+D: 23 parent(1): 32 stack size:5
+D: -1 parent(0): 32 stack size:21
+D: 23 parent(1): 34 stack size:6
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 43 stack size:1
+D: 41 parent(0): 43 stack size:2
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:2
+D: 43 parent(1): 52 stack size:4
+D: 51 parent(0): 52 stack size:1
+D: 52 parent(1): 62 stack size:1
+D: -1 parent(0): 62 stack size:22
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:23
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 52-> u: 62
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 34-> u: 43
+v: 41-> u: 43
+v: 23-> u: 34
+v: 32-> u: 34
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 42-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 42-> u: 50
+v: 33-> u: 43
+v: 41-> u: 43
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 51-> u: 52
+v: 43-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 33-> u: 43
+v: 42-> u: 43
+v: 41-> u: 42
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f47d8 v=70 ref=0
+  true=61, 1eeac8 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eeac8 v=61 ref=8
+  true=52, 1ed890 false=60, 1eef58
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=2
+  true=51, 1f3fd0 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4940 v=61 ref=2
+  true=52, 1ed890 false=60, 1f4900
+
+Q: (ptr->)DDDnode 1f4818 v=59 ref=2
+  true=51, 1f3fd0 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+Extract a new path ... 
+P: (ptr->)DDDnode 1f64d8 v=70 ref=0
+  true=61, 1f4940 false=69, 1f4798
+
+Q: (ptr->)DDDnode 1f6498 v=70 ref=0
+  true=59, 1f4818 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (1/l8) (43) (-1/l10) (29) (-1/l10) (26) ,-17.3059
+number of terms generated: 121
+order: 4, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:6
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:7
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:8
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:9
+D: 43 parent(1): 50 stack size:1
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:2
+D: 51 parent(0): 52 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:10
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:11
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:12
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:13
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:14
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 23 parent(1): 32 stack size:5
+D: -1 parent(0): 32 stack size:15
+D: 23 parent(1): 34 stack size:6
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 43 stack size:1
+D: 41 parent(0): 43 stack size:2
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:2
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:16
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:17
+D: 52 parent(1): 59 stack size:1
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:1
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:18
+v: 61-> u: 68
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 34-> u: 43
+v: 41-> u: 43
+v: 23-> u: 34
+v: 32-> u: 34
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 51-> u: 52
+v: 43-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 33-> u: 44
+v: 34-> u: 43
+v: 34-> u: 41
+v: 38-> u: 41
+v: 35-> u: 38
+v: 33-> u: 43
+v: 42-> u: 43
+v: 41-> u: 42
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+v: -1-> u: 23
+Extract a new path ... 
+P: (ptr->)DDDnode 1f4980 v=68 ref=0
+  true=61, 1f4940 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4940 v=61 ref=2
+  true=52, 1ed890 false=60, 1f4900
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4900 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f48c0
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f48c0 v=59 ref=1
+  true=52, 1f46d8 false=56, 1ef028
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f46d8 v=52 ref=2
+  true=43, 1ec1f8 false=51, 1f4698
+
+Q: (ptr->)DDDnode 1f6558 v=51 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f4698 v=51 ref=1
+  true=43, 1f2e00 false=50, 1ed810
+
+Q: (ptr->)DDDnode 1f6558 v=51 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f2e00 v=43 ref=2
+  true=34, 1eaf70 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f3000 v=43 ref=2
+  true=34, 1eaf30 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6c20 v=51 ref=0
+  true=43, 1f3708 false=50, 1ed810
+
+f: pushed:(ptr->)DDDnode 1f6c60 v=52 ref=0
+  true=43, 1ec1f8 false=51, 1f6c20
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6ca0 v=59 ref=0
+  true=52, 1f6c60 false=56, 1ef028
+
+f: pushed:(ptr->)DDDnode 1f6ce0 v=60 ref=0
+  true=52, 1ed7d0 false=59, 1f6ca0
+
+f: pushed:(ptr->)DDDnode 1f6d20 v=61 ref=0
+  true=52, 1ed890 false=60, 1f6ce0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6d20 v=61 ref=1
+  true=52, 1ed890 false=60, 1f6ce0
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f6ce0 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f6ca0
+
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f6ca0 v=59 ref=1
+  true=52, 1f6c60 false=56, 1ef028
+
+v: 52-> u: 59
+relaxing node:(ptr->)DDDnode 1f6c60 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f6c20
+
+v: 51-> u: 52
+back relaxing node
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f6c20 v=51 ref=1
+  true=43, 1f3708 false=50, 1ed810
+
+v: 43-> u: 51
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6d20 v=61 ref=1
+  true=52, 1ed890 false=60, 1f6ce0
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6ce0 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f6ca0
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6ca0 v=59 ref=1
+  true=52, 1f6c60 false=56, 1ef028
+
+Q: (ptr->)DDDnode 1f6598 v=59 ref=1
+  true=51, 1f6558 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6c60 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f6c20
+
+Q: (ptr->)DDDnode 1f6558 v=51 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f6c20 v=51 ref=1
+  true=43, 1f3708 false=50, 1ed810
+
+Q: (ptr->)DDDnode 1f6558 v=51 ref=1
+  true=43, 1f3000 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f3708 v=43 ref=2
+  true=32, 1ea798 false=41, 1ec4c8
+
+Q: (ptr->)DDDnode 1f3000 v=43 ref=2
+  true=34, 1eaf30 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6c20 v=51 ref=1
+  true=43, 1f3708 false=50, 1ed810
+
+f: pushed:(ptr->)DDDnode 1f6c60 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f6c20
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6ca0 v=59 ref=1
+  true=52, 1f6c60 false=56, 1ef028
+
+f: pushed:(ptr->)DDDnode 1f6ce0 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f6ca0
+
+f: pushed:(ptr->)DDDnode 1f6d20 v=61 ref=1
+  true=52, 1ed890 false=60, 1f6ce0
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f6d20 v=61 ref=1
+  true=52, 1ed890 false=60, 1f6ce0
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f6ce0 v=60 ref=1
+  true=52, 1ed7d0 false=59, 1f6ca0
+
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f6ca0 v=59 ref=1
+  true=52, 1f6c60 false=56, 1ef028
+
+v: 52-> u: 59
+relaxing node:(ptr->)DDDnode 1f6c60 v=52 ref=1
+  true=43, 1ec1f8 false=51, 1f6c20
+
+v: 51-> u: 52
+back relaxing node
+v: 51-> u: 52
+relaxing node:(ptr->)DDDnode 1f6c20 v=51 ref=1
+  true=43, 1f3708 false=50, 1ed810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6d60 v=68 ref=0
+  true=61, 1f6d20 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f65d8 v=68 ref=0
+  true=59, 1f6598 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (1/l8) (43) (1/l10) (34) (1/l10) (23) ,15.7123
+number of terms generated: 131
+order: 5, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:11
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:2
+D: 60 parent(0): 61 stack size:1
+D: -1 parent(1): 24 stack size:3
+D: -1 parent(0): 24 stack size:12
+D: 24 point to one
+one stack size: 3
+D: 24 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:13
+D: 33 parent(1): 42 stack size:1
+D: -1 parent(0): 42 stack size:14
+D: 34 parent(1): 44 stack size:4
+D: -1 parent(0): 44 stack size:15
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:16
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 42 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 43 parent(1): 53 stack size:4
+D: -1 parent(0): 53 stack size:17
+D: 53 parent(1): 56 stack size:1
+D: -1 parent(0): 56 stack size:18
+D: 52 parent(1): 59 stack size:2
+D: 56 parent(0): 59 stack size:1
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 52 parent(1): 61 stack size:3
+D: 60 parent(0): 61 stack size:1
+D: 23 parent(1): 32 stack size:5
+D: -1 parent(0): 32 stack size:19
+D: 23 parent(1): 34 stack size:6
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:2
+D: 33 parent(1): 43 stack size:4
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:20
+D: 51 parent(1): 62 stack size:1
+D: -1 parent(0): 62 stack size:21
+D: 62 parent(1): 65 stack size:1
+D: -1 parent(0): 65 stack size:22
+D: 61 parent(1): 69 stack size:1
+D: 65 parent(0): 69 stack size:1
+D: 61 parent(1): 70 stack size:1
+D: 69 parent(0): 70 stack size:1
+v: 61-> u: 70
+v: 69-> u: 70
+v: 61-> u: 69
+v: 65-> u: 69
+v: 62-> u: 65
+v: 51-> u: 62
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 52-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 52-> u: 59
+v: 56-> u: 59
+v: 53-> u: 56
+v: 43-> u: 53
+v: 43-> u: 52
+v: 51-> u: 52
+v: 42-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 44
+v: 33-> u: 42
+v: 24-> u: 33
+v: -1-> u: 24
+v: 51-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 51-> u: 59
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 43-> u: 51
+v: 42-> u: 43
+v: 34-> u: 42
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+Extract a new path ... 
+P: (ptr->)DDDnode 1f5850 v=70 ref=0
+  true=61, 1eea88 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eea88 v=61 ref=6
+  true=51, 1ed180 false=60, 1ee848
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=3
+  true=51, 1f5610 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5990 v=61 ref=3
+  true=51, 1ed180 false=60, 1f5950
+
+Q: (ptr->)DDDnode 1f5890 v=59 ref=3
+  true=51, 1f5610 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6ea0 v=70 ref=0
+  true=61, 1f5990 false=69, 1f5810
+
+Q: (ptr->)DDDnode 1f6e60 v=70 ref=0
+  true=59, 1f5890 false=-1, 10f810
+
+	- (1/l2) (70) (1/l2) (59) (c5) (51) (c7) (42) (-1/l10) (29) (-1/l10) (26) ,-43.6149
+number of terms generated: 141
+order: 6, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 23 parent(1): 32 stack size:5
+D: -1 parent(0): 32 stack size:11
+D: 23 parent(1): 34 stack size:6
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:2
+D: 33 parent(1): 43 stack size:4
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:12
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:13
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:1
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 68 stack size:1
+D: -1 parent(0): 68 stack size:14
+v: 61-> u: 68
+v: 51-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 51-> u: 59
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 43-> u: 51
+v: 42-> u: 43
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+v: -1-> u: 23
+Extract a new path ... 
+P: (ptr->)DDDnode 1f59d0 v=68 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5990 v=61 ref=3
+  true=51, 1ed180 false=60, 1f5950
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5950 v=60 ref=1
+  true=52, 1ed890 false=59, 1f5910
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5910 v=59 ref=1
+  true=51, 1f5750 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5750 v=51 ref=2
+  true=43, 1f5710 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6f60 v=51 ref=1
+  true=42, 1f6f20 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5710 v=43 ref=1
+  true=33, 1eae70 false=42, 1f56d0
+
+Q: (ptr->)DDDnode 1f6f20 v=42 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f56d0 v=42 ref=1
+  true=34, 1eaf70 false=41, 1ebef8
+
+Q: (ptr->)DDDnode 1f6f20 v=42 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1eaf70 v=34 ref=2
+  true=23, 1ea698 false=32, 1ea798
+
+Q: (ptr->)DDDnode 1eaf30 v=34 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f7020 v=42 ref=0
+  true=32, 1ea798 false=41, 1ebef8
+
+f: pushed:(ptr->)DDDnode 1f7060 v=43 ref=0
+  true=33, 1eae70 false=42, 1f7020
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f70a0 v=51 ref=0
+  true=43, 1f7060 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f70e0 v=59 ref=0
+  true=51, 1f70a0 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f7120 v=60 ref=0
+  true=52, 1ed890 false=59, 1f70e0
+
+f: pushed:(ptr->)DDDnode 1f7160 v=61 ref=0
+  true=51, 1ed180 false=60, 1f7120
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f7160 v=61 ref=1
+  true=51, 1ed180 false=60, 1f7120
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f7120 v=60 ref=1
+  true=52, 1ed890 false=59, 1f70e0
+
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f70e0 v=59 ref=1
+  true=51, 1f70a0 false=-1, 10f810
+
+v: 51-> u: 59
+relaxing node:(ptr->)DDDnode 1f70a0 v=51 ref=1
+  true=43, 1f7060 false=-1, 10f810
+
+v: 43-> u: 51
+relaxing node:(ptr->)DDDnode 1f7060 v=43 ref=1
+  true=33, 1eae70 false=42, 1f7020
+
+v: 42-> u: 43
+back relaxing node
+v: 42-> u: 43
+relaxing node:(ptr->)DDDnode 1f7020 v=42 ref=1
+  true=32, 1ea798 false=41, 1ebef8
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f7160 v=61 ref=1
+  true=51, 1ed180 false=60, 1f7120
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f7120 v=60 ref=1
+  true=52, 1ed890 false=59, 1f70e0
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f70e0 v=59 ref=1
+  true=51, 1f70a0 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=1
+  true=51, 1f6f60 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f70a0 v=51 ref=1
+  true=43, 1f7060 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6f60 v=51 ref=1
+  true=42, 1f6f20 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f7060 v=43 ref=1
+  true=33, 1eae70 false=42, 1f7020
+
+Q: (ptr->)DDDnode 1f6f20 v=42 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f7020 v=42 ref=1
+  true=32, 1ea798 false=41, 1ebef8
+
+Q: (ptr->)DDDnode 1f6f20 v=42 ref=1
+  true=34, 1eaf30 false=-1, 10f810
+
+P: (ptr->)DDDnode 1ea798 v=32 ref=3
+  true=23, 1ea698 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1eaf30 v=34 ref=2
+  true=23, 1ea698 false=-1, 10f810
+
+Q is zero
+f: pushed:(ptr->)DDDnode 1f7020 v=42 ref=1
+  true=32, 1ea798 false=41, 1ebef8
+
+f: pushed:(ptr->)DDDnode 1f7060 v=43 ref=1
+  true=33, 1eae70 false=42, 1f7020
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f70a0 v=51 ref=1
+  true=43, 1f7060 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f70e0 v=59 ref=1
+  true=51, 1f70a0 false=-1, 10f810
+
+f: pushed:(ptr->)DDDnode 1f7120 v=60 ref=1
+  true=52, 1ed890 false=59, 1f70e0
+
+f: pushed:(ptr->)DDDnode 1f7160 v=61 ref=1
+  true=51, 1ed180 false=60, 1f7120
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+relaxing node:(ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+v: 61-> u: 68
+relaxing node:(ptr->)DDDnode 1f7160 v=61 ref=1
+  true=51, 1ed180 false=60, 1f7120
+
+v: 60-> u: 61
+relaxing node:(ptr->)DDDnode 1f7120 v=60 ref=1
+  true=52, 1ed890 false=59, 1f70e0
+
+v: 59-> u: 60
+relaxing node:(ptr->)DDDnode 1f70e0 v=59 ref=1
+  true=51, 1f70a0 false=-1, 10f810
+
+v: 51-> u: 59
+relaxing node:(ptr->)DDDnode 1f70a0 v=51 ref=1
+  true=43, 1f7060 false=-1, 10f810
+
+v: 43-> u: 51
+relaxing node:(ptr->)DDDnode 1f7060 v=43 ref=1
+  true=33, 1eae70 false=42, 1f7020
+
+v: 42-> u: 43
+back relaxing node
+v: 42-> u: 43
+relaxing node:(ptr->)DDDnode 1f7020 v=42 ref=1
+  true=32, 1ea798 false=41, 1ebef8
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+Extract a new path ... 
+P: (ptr->)DDDnode 1f71a0 v=68 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f6fe0 v=68 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (1/rs) (68) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,39.5988
+number of terms generated: 151
+order: 7, nfreq: 1
+Initlize for 2nd shortest path term generation method ...
+D: -1 parent(1): 23 stack size:1
+D: -1 parent(0): 23 stack size:1
+D: 23 point to one
+one stack size: 1
+D: 23 parent(1): 33 stack size:1
+D: -1 parent(0): 33 stack size:2
+D: -1 parent(1): 26 stack size:2
+D: -1 parent(0): 26 stack size:3
+D: 26 point to one
+one stack size: 2
+D: 26 parent(1): 29 stack size:1
+D: -1 parent(0): 29 stack size:4
+D: 23 parent(1): 32 stack size:2
+D: 29 parent(0): 32 stack size:1
+D: 23 parent(1): 34 stack size:3
+D: 32 parent(0): 34 stack size:1
+D: 33 parent(1): 41 stack size:1
+D: -1 parent(0): 41 stack size:5
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:1
+D: 33 parent(1): 43 stack size:2
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:6
+D: 23 parent(1): 35 stack size:4
+D: -1 parent(0): 35 stack size:7
+D: 35 parent(1): 38 stack size:1
+D: -1 parent(0): 38 stack size:8
+D: 34 parent(1): 41 stack size:2
+D: 38 parent(0): 41 stack size:1
+D: 34 parent(1): 43 stack size:3
+D: 41 parent(0): 43 stack size:1
+D: 33 parent(1): 44 stack size:3
+D: -1 parent(0): 44 stack size:9
+D: 44 parent(1): 47 stack size:1
+D: -1 parent(0): 47 stack size:10
+D: 43 parent(1): 50 stack size:2
+D: 47 parent(0): 50 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: 50 parent(0): 51 stack size:1
+D: 43 parent(1): 52 stack size:3
+D: 51 parent(0): 52 stack size:1
+D: 23 parent(1): 32 stack size:5
+D: -1 parent(0): 32 stack size:11
+D: 23 parent(1): 34 stack size:6
+D: 32 parent(0): 34 stack size:1
+D: 34 parent(1): 42 stack size:1
+D: 41 parent(0): 42 stack size:2
+D: 33 parent(1): 43 stack size:4
+D: 42 parent(0): 43 stack size:1
+D: 43 parent(1): 51 stack size:1
+D: -1 parent(0): 51 stack size:12
+D: 51 parent(1): 59 stack size:1
+D: -1 parent(0): 59 stack size:13
+D: 52 parent(1): 60 stack size:1
+D: 59 parent(0): 60 stack size:1
+D: 51 parent(1): 61 stack size:1
+D: 60 parent(0): 61 stack size:1
+D: 61 parent(1): 69 stack size:1
+D: -1 parent(0): 69 stack size:14
+v: 61-> u: 69
+v: 51-> u: 61
+v: 60-> u: 61
+v: 52-> u: 60
+v: 59-> u: 60
+v: 51-> u: 59
+v: 43-> u: 51
+v: 33-> u: 43
+v: 42-> u: 43
+v: 34-> u: 42
+v: 41-> u: 42
+v: 23-> u: 34
+v: 32-> u: 34
+v: 43-> u: 52
+v: 51-> u: 52
+v: 43-> u: 51
+v: 50-> u: 51
+v: 43-> u: 50
+v: 47-> u: 50
+v: 44-> u: 47
+v: 34-> u: 43
+v: 41-> u: 43
+v: 38-> u: 41
+v: 35-> u: 38
+v: 43-> u: 51
+v: 42-> u: 43
+v: 32-> u: 34
+v: 29-> u: 32
+v: 26-> u: 29
+v: -1-> u: 26
+v: -1-> u: 23
+Extract a new path ... 
+P: (ptr->)DDDnode 1f6058 v=69 ref=0
+  true=61, 1f5990 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f5990 v=61 ref=3
+  true=51, 1ed180 false=60, 1f5950
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=2
+  true=51, 1f6f60 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+P: (ptr->)DDDnode 1f7160 v=61 ref=2
+  true=51, 1ed180 false=60, 1f7120
+
+Q: (ptr->)DDDnode 1f6fa0 v=59 ref=2
+  true=51, 1f6f60 false=-1, 10f810
+
+P is zero
+f: pushed:(ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+back relaxing node
+relaxing node:(ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+Extract a new path ... 
+P: (ptr->)DDDnode 1f8130 v=69 ref=0
+  true=61, 1f7160 false=-1, 10f810
+
+Q: (ptr->)DDDnode 1f7ae8 v=69 ref=0
+  true=59, 1f6fa0 false=-1, 10f810
+
+	+ (c1) (69) (1/l2) (59) (c5) (51) (c7) (42) (1/l10) (34) (1/l10) (23) ,12.3906
+number of terms generated: 161
+number of terms generated: 161
+End of simplification 
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+[0:00.6u 0:00.4s 952k]
+[0:00.6u 0:00.4s 952k] SCAD3 done.

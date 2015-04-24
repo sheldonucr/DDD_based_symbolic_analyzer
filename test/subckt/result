@@ -1,0 +1,6 @@
+ckt		matrix size	#nonzero
+LP(linear)	31		121 
+LP(miller)	32		162
+
+BP(linear)	38		147
+BP(miller)	44		206

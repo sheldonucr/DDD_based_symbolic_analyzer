@@ -1,0 +1,69 @@
+
+
+	#####  Final partitioning report: sv.net ####
+	Total input nets: 25	real nets: 25
+	Total vertices: 44
+	Total pins : 88
+	Deviation Factor: 0
+	Average vertices on a net: 3.520000
+	Overall net density: 0.121901
+	Total Span : 4	Total cut nets: 2
+
+ 	** the #internal nets and #vertices in each subset.
+	set: 0 #internal nets : 7; vertices: 13;
+	set: 1 #internal nets : 9; vertices: 17;
+	set: 2 #internal nets : 7; vertices: 13;
+Boundary Signals for Partition: 0 
+11 ,The number of cuts is 1
+r2425 
+r2324 
+r2225 
+r2223 
+r2124 
+r2122 
+r2023 
+r2021 
+r1924 
+r1922 
+r1920 
+r1121 
+r1119 
+total #cell: 13
+Boundary Signals for Partition: 1 
+11 ,8 ,The number of cuts is 2
+r1718 
+r1617 
+r1518 
+r1516 
+r1417 
+r1415 
+r1316 
+r1314 
+r1217 
+r1215 
+r1213 
+r1014 
+r1012 
+r1011 
+r911 
+r910 
+r89 
+total #cell: 17
+Boundary Signals for Partition: 2 
+8 ,The number of cuts is 1
+r68 
+r67 
+r58 
+r57 
+r46 
+r45 
+r37 
+r34 
+r26 
+r25 
+r23 
+r14 
+r12 
+total #cell: 13
+All the boundary signals:
+11 ,8 ,The tolal number of cuts is 2

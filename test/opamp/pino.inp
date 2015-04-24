@@ -1,0 +1,36 @@
+PINO-MILLER-OPAMP
+*
+* MILLER opamp, pMOS input pair, n-well technology
+* ------------------------------------------------
+*
+* CIRCUIT DESCRIPTION
+*
+M1A 4 7 3 3 P
+M1B 5 8 3 3 P
+M2A 4 4 2 2 N
+M2B 5 4 2 2 N
+M3  6 5 2 2 N
+M4  6 9 1 1 P
+M5  3 9 1 1 P
+*
+CC 5 6 1P
+CL 6 0 10P
+RL 6 0 100K
+*
+VDD 1 0 DC 5
+VSS 2 0 DC -5
+V+  8 0
+V-  7 0
+VB  9 1 DC -2
+IOUT 0 6
+*
+* MODELS
+*
+.MODEL P PMOS LEVEL=2 CDB CSB
+.MODEL N NMOS LEVEL=2 CDB CSB
+*
+* CONTROL CARDS
+*
+.AC 10 1 100MEG
+.PRINT VDB(6)
+.END

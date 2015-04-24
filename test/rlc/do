@@ -1,0 +1,5 @@
+scad3 $1 <<! > $1.out
+run
+expddd
+simpcoeff
+!

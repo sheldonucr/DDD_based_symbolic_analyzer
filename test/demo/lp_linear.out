@@ -1,0 +1,300 @@
+Welcome to [1m SCAD3[m $Revision: 1.1 $ ---
+ 	[1mSymbolic Circuit Analysis with Determinant Decision Diagrams[m 
+	Copyright (c) 1998, XiangDong (Sheldon) Tan 
+	'h' for help
+: source lp_linear.sp
+subckt: opamp
+2 
+3 
+4 
+change current ckt
+subckt: fdnr
+1 
+begin cktcall -- 
+2 
+4 
+5 
+begin cktcall -- 
+6 
+4 
+3 
+change current ckt
+begin cktcall -- 
+1 
+begin cktcall -- 
+2 
+begin cktcall -- 
+3 
+begin cktcall -- 
+4 
+0.030000
+[0:00.0u 0:00.1s 2552k]
+: ! 'run' is to perform the symbolic and numerical analysis.
+: ! It first builds the MNA matrix and then derives the symbolic
+: ! expressions required in terms of DDDs. Finally, it performs
+: ! the numerical evluation on the resulting symbolic expressions.
+: ! The times used for DDD construation and numerical evluation
+: ! are also printed out.
+: run
+IMPLICIT NUMERICAL AC ANALYSIS ...
+Building MNA for subckt: opamp
+number of element is: 1
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0 ]
+(2) [  0   0   0   0 ]
+(3) [  0   0   0   0 ]
+(4) [  0   0   0   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0 ]
+(2) [  0   0   0   0 ]
+(3) [  0   0   0   0 ]
+(4) [  0   0   0   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 1
+#paths (DDD): 1
+row(real, index)
+---------------------
+row(2,1)  (1,1)+rii+ri1;(1,2)-rii;
+row(3,2)  (2,2)+rii+ri2;(2,1)-rii;
+row(4,3)  (3,4)+g2;(3,3)+rld;
+row(1,4)  (4,1)+g1;(4,2)-g1;(4,4)+c1+r1;
+---------------------
+
+end of build subckt: opamp
+Building MNA for subckt: fdnr
+process xop1
+Expand xop1(opamp) ...
+rii_xop1 2 4
+ri1_xop1 2 100
+ri2_xop1 4 100
+g1_xop1 101 100 2 4
+c1_xop1 101 100
+r1_xop1 101 100
+g2_xop1 5 100 101 100
+rld_xop1 5 100
+build expression for (2,2)
+NULL return!
+build expression for (2,4)
+NULL return!
+build expression for (2,5)
+NULL return!
+build expression for (4,2)
+NULL return!
+build expression for (4,4)
+NULL return!
+build expression for (4,5)
+NULL return!
+build expression for (5,2)
+BUILDING COFACTOR (4 4) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 0
+#paths (DDD): 1
+build expression for (5,4)
+build expression for (5,5)
+NULL return!
+process xop2
+Expand xop2(opamp) ...
+rii_xop2 6 4
+ri1_xop2 6 200
+ri2_xop2 4 200
+g1_xop2 201 200 6 4
+c1_xop2 201 200
+r1_xop2 201 200
+g2_xop2 3 200 201 200
+rld_xop2 3 200
+build expression for (6,6)
+NULL return!
+build expression for (6,4)
+NULL return!
+build expression for (6,3)
+NULL return!
+build expression for (4,6)
+NULL return!
+build expression for (4,4)
+NULL return!
+build expression for (4,3)
+NULL return!
+build expression for (3,6)
+build expression for (3,4)
+build expression for (3,3)
+NULL return!
+number of element is: 19
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0   1   1   1   0   0 ]
+(3) [  0   1   1   1   0   1 ]
+(4) [  0   1   1   1   1   1 ]
+(5) [  0   1   0   1   1   1 ]
+(6) [  0   0   0   1   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [  0   0   0   0   0   0 ]
+(2) [  0  16  19  15   0   0 ]
+(3) [  0  14  18  11   0  10 ]
+(4) [  0  13  17   9   6   5 ]
+(5) [  0  12   0   8   4   2 ]
+(6) [  0   0   0   7   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 37
+#paths (DDD): 31
+row(real, index)
+---------------------
+row(1,1)  (1,1)+r1;(1,2)-r1;
+row(2,2)  (2,2)+r1+c1+rii+ri1;(2,1)-r1;(2,3)-c1;(2,4)-rii;
+row(3,3)  (3,3)+c1+r2+rld;(3,2)-c1;(3,4)-r2;(3,6);
+row(4,4)  (4,4)+r2+r3+rii+ri2+rii+ri2;(4,2)-rii;(4,3)-r2;(4,5)-r3;(4,6)-rii;
+row(5,5)  (5,5)+r3+r4+rld;(5,2);(5,4)-r3;(5,6)-r4;
+row(6,6)  (6,6)+r4+c2+rii+ri1;(6,4)-rii;(6,5)-r4;
+---------------------
+
+end of build subckt: fdnr
+process x1
+Expand x1(fdnr) ...
+r1_x1 1 302
+c1_x1 302 303
+r2_x1 303 304
+r3_x1 304 305
+r4_x1 305 306
+c2_x1 306 300
+build expression for (1,1)
+BUILDING COFACTOR (2 2) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 19
+#paths (DDD): 10
+process x2
+Expand x2(fdnr) ...
+r1_x2 2 402
+c1_x2 402 403
+r2_x2 403 404
+r3_x2 404 405
+r4_x2 405 406
+c2_x2 406 400
+build expression for (2,2)
+process x3
+Expand x3(fdnr) ...
+r1_x3 3 502
+c1_x3 502 503
+r2_x3 503 504
+r3_x3 504 505
+r4_x3 505 506
+c2_x3 506 500
+build expression for (3,3)
+process x4
+Expand x4(fdnr) ...
+r1_x4 4 602
+c1_x4 602 603
+r2_x4 603 604
+r3_x4 604 605
+r4_x4 605 606
+c2_x4 606 600
+build expression for (4,4)
+number of element is: 16
+
+
+THE MNA BOOLEAN MATRIX 
+(1) [  1   1   0   0   0   0 ]
+(2) [  1   1   1   0   0   0 ]
+(3) [  0   1   1   1   0   0 ]
+(4) [  0   0   1   1   1   0 ]
+(5) [  0   0   0   1   1   1 ]
+(6) [  0   0   0   0   1   1 ]
+
+
+
+
+THE INDEX MATRIX 
+(1) [ 16  14   0   0   0   0 ]
+(2) [ 15  13  11   0   0   0 ]
+(3) [  0  12  10   8   0   0 ]
+(4) [  0   0   9   7   5   0 ]
+(5) [  0   0   0   6   4   2 ]
+(6) [  0   0   0   0   3   1 ]
+
+
+Init_label:0
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 16
+#paths (DDD): 13
+row(real, index)
+---------------------
+row(10,1)  (1,1)+rs;(1,2)-rs;
+row(1,2)  (2,2)+rs+r12+r1;(2,1)-rs;(2,3)-r12;
+row(2,3)  (3,3)+r12+r23+r1;(3,2)-r12;(3,4)-r23;
+row(3,4)  (4,4)+r23+r34+r1;(4,3)-r23;(4,5)-r34;
+row(4,5)  (5,5)+r34+r45+r1;(5,4)-r34;(5,6)-r45;
+row(20,6)  (6,6)+r45+c5;(6,5)-r45;
+---------------------
+
+DDD construction time: 0.02
+BUILDING SYMBOLIC EXPRESSIONS ...
+BUILDING COFACTOR (1 6) ...
+MATRIX EXPANSION IS PERFORMED...
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 5
+#paths (DDD): 1
+BUILDING COFACTOR (1 1) ...
+COFACTOR IS PRESENT.
+STATISTIC INFO FOR THE DDD
+#nodes (DDD): 13
+#paths (DDD): 8
+END OF BUILDING SYMBOLIC EXPRESSIONS
+FREQUENCY SWEEPING ...
+END OF FREQUENCY SWEEPING 
+Evaluation time time: 0.36
+END OF NUMERICAL AC ANALYSIS
+0.380000
+[0:00.6u 0:00.0s 2656k]
+: ! 'plot' uses xgraph to display the numerical evluation results.
+: plot
+0.020000
+[0:00.0u 0:00.0s 2680k]
+: ! 'status' displays some statisitic information. You can
+: ! find the #DDD information here.
+: stat
+----------------------
+Ckt: lp_linear.sp
+Title: * file flp9th.sp----9th order low-pass filter
+#nodes: 14
+#branch: 12
+#stimula: 1
+#output node: 1
+----------------------
+magnitude error(magerr): 0.1
+phase error(phserr): 0.1
+Rel_Threshold(relth): 0.9
+Rel_Threshold(for num coeff)(nrelth): 0.01
+Rel_Threshold(for den coeff)(drelth): 0.01
+coeff suppress th(alpha): 0.01
+---------------------
+#(top level)total nodes (DDD): 18
+#(top level)total paths (DDD): 0
+#total nodes (DDD): 1
+#total paths (DDD): 0
+#total nodes (DDD): 39
+#total paths (DDD): 0
+#total overall nodes (DDD): 58
+#total overall pathes (DDD): 0
+---------------------
+0.020000
+[0:00.0u 0:00.0s 2680k]
+: ! 'exit' quits from scad3
+[0:00.7u 0:00.1s 2680k] SCAD3 done.

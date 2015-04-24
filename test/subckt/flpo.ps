@@ -1,0 +1,590 @@
+%!PS-Adobe-1.0
+/localeprolog 0 def
+
+%!PS-Adobe-1.0
+%%Creator: Steve Holden
+%%Modified: John Macdonald, Rich Burridge, Rainer Klute
+%%Modified: Bertrand Decouty, Bjorn P. Brox
+%%Title: @(#)mp.pro.ps 3.3 93/03/11
+%%CreationDate: see above
+%%PageLength 60
+%%LineLength 80
+%%DocumentFonts: Courier Helvetica-BoldOblique Times-Bold Times-Roman
+%%Pages: (atend)
+%%EndComments
+
+%  @(#)mp.common.ps 3.1 92/04/03
+%
+%  Mp PostScript routines common to all prologue files.
+%
+%  The initial header comments are read (and output to stdout)
+%  from the individual prologue file, then the contents of this
+%  file are read (and output to stdout), then the remainder of
+%  the individual prologue file.
+
+/inch { 72 mul } bind def
+%
+%  IMPORTANT NOTE: The following two variables should be set correctly.
+%                  Reasonable values for fullwidth and fullheight are
+%                  8.5/11 inch for US Letter, and 8.5/11.4 inch for A4.
+%                  Since sites usually have one single format of paper,
+%                  mp should be installed with either the USLetter or A4
+%                  values.
+%
+/fullwidth 8.5 inch def
+/fullheight 11 inch def
+
+% Define /ISOLatin1Encoding only if it's not already there.
+/ISOLatin1Encoding where { pop save true }{ false } ifelse
+  /ISOLatin1Encoding [ StandardEncoding 0 45 getinterval aload pop /minus
+    StandardEncoding 46 98 getinterval aload pop /dotlessi /grave /acute
+    /circumflex /tilde /macron /breve /dotaccent /dieresis /.notdef /ring
+    /cedilla /.notdef /hungarumlaut /ogonek /caron /space /exclamdown /cent
+    /sterling /currency /yen /brokenbar /section /dieresis /copyright
+    /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+    /degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph
+    /periodcentered /cedilla /onesuperior /ordmasculine /guillemotright
+    /onequarter /onehalf /threequarters /questiondown /Agrave /Aacute
+    /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla /Egrave /Eacute
+    /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis /Eth
+    /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+    /Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn
+    /germandbls /agrave /aacute /acircumflex /atilde /adieresis /aring /ae
+    /ccedilla /egrave /eacute /ecircumflex /edieresis /igrave /iacute
+    /icircumflex /idieresis /eth /ntilde /ograve /oacute /ocircumflex
+    /otilde /odieresis /divide /oslash /ugrave /uacute /ucircumflex
+    /udieresis /yacute /thorn /ydieresis ] def
+{ restore } if
+
+%Title: backspacefont.ps suggested by Glenn Reid (Adobe Systems).
+
+/backspacefont {
+    /CourierISO findfont dup length dict begin
+        { %forall
+            1 index /FID eq { pop pop } { def } ifelse
+        } forall
+        currentdict /UniqueID known { %if
+              /UniqueID UniqueID 16#800000 xor def
+        } if
+        CharStrings length 1 add dict begin
+            CharStrings { def } forall
+          /backspace { -600 0 setcharwidth pop } bind def
+            currentdict
+      end
+        /CharStrings exch def
+        /Encoding Encoding 256 array copy def
+        Encoding 8 /backspace put
+        currentdict
+    end
+    definefont
+} bind def
+
+/reencodeISO { %def
+    findfont dup length dict begin
+    { 1 index /FID ne { def }{ pop pop } ifelse } forall
+    /Encoding ISOLatin1Encoding def
+    currentdict end definefont pop
+} bind def
+
+/fontHd_size 14 def
+/fontH2_size 10 def
+/fontNd_size 12 def
+
+/setmargin {
+  /leftedge 0 def
+  /bottomedge 0 def
+  fullheight fullwidth LandscapeMode { exch } if
+    /rightedge exch def
+    /topedge exch def
+  9 7 LandscapeMode { exch } if pop
+    /FontSize exch def
+
+  0 localeprolog eq
+  {
+  /font1d /Times-Bold           reencodeISO
+  /font2d /Times-Roman          reencodeISO
+  /CourierISO /Courier          reencodeISO
+  /fontHd /Helvetica-BoldOblique        reencodeISO
+  /fontH2 /Helvetica-BoldOblique        reencodeISO
+  /fontNd /Times-Bold           reencodeISO
+  /font3d backspacefont
+  /BoldFont      { /font1d findfont FontSize scalefont setfont } def
+  /pf            { /font2d findfont FontSize scalefont setfont } def
+  /sf            { /font3d findfont FontSize scalefont setfont } def
+  /fontH         { /fontHd findfont fontHd_size scalefont setfont } def
+  /fontD         { /fontH2 findfont fontH2_size scalefont setfont } def
+  /fontN         { /fontNd findfont fontNd_size scalefont setfont } def
+  }
+  {
+  /font1d /LC_Times-Bold def
+  /font2d /LC_Times-Roman def
+  /CourierISO /LC_Courier def
+  /fontHd /LC_Helvetica-BoldOblique def
+  /fontH2 /LC_Helvetica-BoldOblique def
+  /fontNd /LC_Times-Bold def
+  /font3d /LC_Courier def
+  /BoldFont      { font1d findfont FontSize scalefont setfont } def
+  /pf            { font2d findfont FontSize scalefont setfont } def
+  /sf            { font3d findfont FontSize scalefont setfont } def
+  /fontH         { fontHd findfont fontHd_size scalefont setfont } def
+  /fontD         { fontH2 findfont fontH2_size scalefont setfont } def
+  /fontN         { fontNd findfont fontNd_size scalefont setfont } def
+  }
+  ifelse
+
+} def
+
+/graybox	% grey x1 y1 x2 y2 graybox --
+{
+    newpath
+      4 -1 roll 2 copy			% y2 x1
+      10 sub exch moveto
+      4 -1 roll 2 copy			% x1 y1
+      10 180 270 arc
+      4 -1 roll 1 copy 3 -1 roll	% x2 y1
+      10 270 0 arc
+      3 -1 roll 1 copy 3 1 roll		% x1 y2 x2 y2
+      10 0 90 arc
+      10 90 180 arc
+    closepath
+    gsave
+      setgray fill
+    grestore
+    0 setgray stroke
+} bind def
+
+/endpage		% page_number endpage --
+{
+  gsave
+    % listing type, user, date across the top
+    0.88                                % gray level
+    leftedge  50 add topedge 56 sub     % bottom lt corner
+    rightedge 95 sub topedge 36 sub     % top rt corner
+    graybox
+
+    currentdict /sfactor known not
+    {
+      % determine a suitable factor to scale down the header text (done
+      % only once per document)
+      rightedge 95 sub leftedge 50 add sub % available space
+      fontD MailFor stringwidth pop
+      fontH User    stringwidth pop add
+            (  )    stringwidth pop add
+      fontD TimeNow stringwidth pop add    % total length of strings
+      div
+      dup 1 gt {pop 1} if                  % does it fit?
+      /sfactor exch def                    % if not scale down
+    }
+    if
+
+    leftedge 50 add topedge 50 sub moveto
+    gsave
+    sfactor dup scale
+    fontD MailFor show
+    fontH User    show
+          (  )    show
+    grestore
+    fontD
+    rightedge 95 sub TimeNow stringwidth pop sfactor mul sub
+    topedge 50 sub moveto
+    gsave
+    sfactor dup scale
+    TimeNow show
+    grestore
+    % page number to the top right corner
+    1                                   % gray level
+    rightedge 70 sub topedge 56 sub     % bottom lt
+    rightedge 50 sub topedge 36 sub     % top rt
+    graybox
+    fontD
+    (Page) dup stringwidth
+       topedge 40 sub exch sub                  % y-centered
+       exch 2 div rightedge 60 sub exch sub     % x-centered
+       exch moveto show
+    fontH
+    dup stringwidth
+       topedge 58 sub exch sub                  % y-centered
+       exch 2 div rightedge 60 sub exch sub     % x-centered
+       exch moveto show
+    0.88                                   % gray level
+    leftedge  50 add bottomedge 50 add     % bottom lt corner
+    rightedge 50 sub bottomedge 70 add     % top rt corner
+    graybox
+    fontH
+    % compute x pos for centring
+      % ((l+50) + (r-50)) / 2 is the page centre
+      leftedge rightedge add 2 div
+      % but we want to start at the beginning of the string, not the middle
+      Subject stringwidth pop 2 div sub
+    % y pos is simple
+      bottomedge 54 add
+      moveto
+    Subject show
+  grestore
+%  PageSave restore      % restore *always* before showpage
+  showpage		% display it
+} bind def
+
+/endcol			% page_number col_number endcol --
+{
+  pop			% get rid of col_number
+  pop                   % get rid of page_number
+  /ypos topedge 92 sub def
+  /xpos rightedge leftedge sub 2 div def
+  xpos ypos moveto
+} bind def
+
+/newpage	% page_number newpage --
+{
+  pop		% pageno
+%  /PageSave save def
+  LandscapeMode {setlandscape} if
+  /lct 0 def
+  /ypos topedge 92 sub def
+  /xpos leftedge 50 add def
+  xpos ypos moveto
+  sf
+} bind def
+
+/setlandscape
+{
+  612 0 translate
+  90 rotate
+} bind def
+
+/showline
+{
+  show
+  /ypos ypos FontSize sub def
+  xpos ypos moveto
+} bind def
+
+% see the trouble shooting section in the README for details on setscreen.
+106 45 {dup mul exch dup mul add 1.0 exch sub} setscreen
+
+/LandscapeMode false def
+
+setmargin
+%%EndProlog
+%%Page: ? 1
+1 newpage
+/MailFor (Listing for ) def
+/User (Xiangdong Tan) def
+/TimeNow (Fri Sep 19 11:46:59 1997) def
+/Subject () def
+sf (NUMERICAL AC ANALYSIS ...) showline
+(Building MNA for subckt: opamp) showline
+(Init_label:0) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 1) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 3) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 2) showline
+(#total node struture) showline
+(row\(real, index\)) showline
+(---------------------) showline
+(row\(2,1\)  \(1,1\)+rii+ri1;\(1,2\)-rii;) showline
+(row\(3,2\)  \(2,2\)+rii+ri2;\(2,1\)-rii;) showline
+(row\(4,3\)  \(3,4\)+g2;\(3,3\)+rld;) showline
+(row\(1,4\)  \(4,1\)+g1;\(4,2\)-g1;\(4,4\)+c1+r1;) showline
+(---------------------) showline
+() showline
+(end of build subckt: opamp) showline
+(Building MNA for subckt: fdnr) showline
+(process xop1) showline
+(build expression for \(2,2\)) showline
+(NULL return!) showline
+(build expression for \(2,4\)) showline
+(NULL return!) showline
+(build expression for \(2,5\)) showline
+(NULL return!) showline
+(build expression for \(4,2\)) showline
+(NULL return!) showline
+(build expression for \(4,4\)) showline
+(NULL return!) showline
+(build expression for \(4,5\)) showline
+(NULL return!) showline
+(build expression for \(5,2\)) showline
+(BUILDING COFACTOR \(4 4\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 0) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 3) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 2) showline
+(#total node struture) showline
+(Cofactor\(4,4\) sign:1) showline
+() showline
+(build expression for \(5,4\)) showline
+(BUILDING COFACTOR \(4 4\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 0) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 3) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 2) showline
+(#total node struture) showline
+(Cofactor\(4,4\) sign:1) showline
+() showline
+(build expression for \(5,5\)) showline
+(NULL return!) showline
+(process xop2) showline
+sf (1) 1 endcol
+(1) endpage
+%%Page: ? 2
+2 newpage
+/MailFor (Listing for ) def
+/User (Xiangdong Tan) def
+/TimeNow (Fri Sep 19 11:46:59 1997) def
+/Subject () def
+sf (build expression for \(6,6\)) showline
+(NULL return!) showline
+(build expression for \(6,4\)) showline
+(NULL return!) showline
+(build expression for \(6,3\)) showline
+(NULL return!) showline
+(build expression for \(4,6\)) showline
+(NULL return!) showline
+(build expression for \(4,4\)) showline
+(NULL return!) showline
+(build expression for \(4,3\)) showline
+(NULL return!) showline
+(build expression for \(3,6\)) showline
+(BUILDING COFACTOR \(4 4\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 0) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 3) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 2) showline
+(#total node struture) showline
+(Cofactor\(4,4\) sign:1) showline
+() showline
+(build expression for \(3,4\)) showline
+(BUILDING COFACTOR \(4 4\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 0) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 3) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 2) showline
+(#total node struture) showline
+(Cofactor\(4,4\) sign:1) showline
+() showline
+(build expression for \(3,3\)) showline
+(NULL return!) showline
+(Init_label:0) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 75) showline
+(#paths \(DDD\): 53) showline
+(#total nodes \(DDD\): 224) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 22) showline
+(#total node struture) showline
+(row\(real, index\)) showline
+(---------------------) showline
+(row\(1,1\)  \(1,1\)+r1;\(1,2\)-r1;) showline
+(row\(2,2\)  \(2,2\)+r1+c1+rii+ri1;\(2,1\)-r1;\(2,3\)-c1;\(2,4\)+rii+ri1;\(2,5\)+rii+ri1;) showline
+(row\(3,3\)  \(3,3\)+c1+r2+rld;\(3,2\)-c1;\(3,4\)-r2+rld;\(3,6\)+rld;) showline
+(row\(4,4\)  \(4,4\)+r2+r3+rii+ri2+rii+ri2;\(4,2\)+rii+ri2;\(4,3\)-r2+rii+ri2;\(4,5\)-r3+ri) showline
+(i+ri2;\(4,6\)+rii+ri2;) showline
+(row\(5,5\)  \(5,5\)+r3+r4+rld;\(5,2\)+rld;\(5,4\)-r3+rld;\(5,6\)-r4;) showline
+(row\(6,6\)  \(6,6\)+r4+c2+rii+ri1;\(6,3\)+rii+ri1;\(6,4\)+rii+ri1;\(6,5\)-r4;) showline
+(---------------------) showline
+() showline
+(end of build subckt: fdnr) showline
+(process x1) showline
+(build expression for \(1,1\)) showline
+sf (2) 1 endcol
+(2) endpage
+%%Page: ? 3
+3 newpage
+/MailFor (Listing for ) def
+/User (Xiangdong Tan) def
+/TimeNow (Fri Sep 19 11:46:59 1997) def
+/Subject () def
+sf (BUILDING COFACTOR \(2 2\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 25) showline
+(#paths \(DDD\): 14) showline
+(#total nodes \(DDD\): 224) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 22) showline
+(#total node struture) showline
+(Cofactor\(2,2\) sign:1) showline
+() showline
+(process x2) showline
+(build expression for \(2,2\)) showline
+(BUILDING COFACTOR \(2 2\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 25) showline
+(#paths \(DDD\): 14) showline
+(#total nodes \(DDD\): 224) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 22) showline
+(#total node struture) showline
+(Cofactor\(2,2\) sign:1) showline
+() showline
+(process x3) showline
+(build expression for \(3,3\)) showline
+(BUILDING COFACTOR \(2 2\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 25) showline
+(#paths \(DDD\): 14) showline
+(#total nodes \(DDD\): 224) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 22) showline
+(#total node struture) showline
+(Cofactor\(2,2\) sign:1) showline
+() showline
+(process x4) showline
+(build expression for \(4,4\)) showline
+(BUILDING COFACTOR \(2 2\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 25) showline
+(#paths \(DDD\): 14) showline
+(#total nodes \(DDD\): 224) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 22) showline
+(#total node struture) showline
+(Cofactor\(2,2\) sign:1) showline
+() showline
+(Init_label:0) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 16) showline
+(#paths \(DDD\): 13) showline
+(#total nodes \(DDD\): 56) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 17) showline
+(#total node struture) showline
+(row\(real, index\)) showline
+(---------------------) showline
+sf (3) 1 endcol
+(3) endpage
+%%Page: ? 4
+4 newpage
+/MailFor (Listing for ) def
+/User (Xiangdong Tan) def
+/TimeNow (Fri Sep 19 11:46:59 1997) def
+/Subject () def
+sf (row\(10,1\)  \(1,1\)+rs;\(1,2\)-rs;) showline
+(row\(1,2\)  \(2,2\)+rs+r12+r1;\(2,1\)-rs;\(2,3\)-r12;) showline
+(row\(2,3\)  \(3,3\)+r12+r23+r1;\(3,2\)-r12;\(3,4\)-r23;) showline
+(row\(3,4\)  \(4,4\)+r23+r34+r1;\(4,3\)-r23;\(4,5\)-r34;) showline
+(row\(4,5\)  \(5,5\)+r34+r45+r1;\(5,4\)-r34;\(5,6\)-r45;) showline
+(row\(20,6\)  \(6,6\)+r45+c5;\(6,5\)-r45;) showline
+(---------------------) showline
+() showline
+(BUILDING SYMBOLIC EXPRESSIONS ...) showline
+(BUILDING COFACTOR \(1 6\) ...) showline
+(MATRIX EXPANSION IS PERFORMED...) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 5) showline
+(#paths \(DDD\): 1) showline
+(#total nodes \(DDD\): 60) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 17) showline
+(#total node struture) showline
+(Cofactor\(1,6\) sign:-1) showline
+() showline
+(BUILDING COFACTOR \(1 1\) ...) showline
+(COFACTOR IS PRESENT.) showline
+(STATISTIC INFO FOR THE DDD) showline
+(#nodes \(DDD\): 13) showline
+(#paths \(DDD\): 8) showline
+(#total nodes \(DDD\): 60) showline
+(#total paths \(DDD\): 0) showline
+(#total inputs \(DDD\): 17) showline
+(#total node struture) showline
+(Cofactor\(1,1\) sign:1) showline
+() showline
+(END OF BUILDING SYMBOLIC EXPRESSIONS) showline
+(FREQUENCY SWEEPING ...) showline
+(END OF FREQUENCY SWEEPING ) showline
+(END OF NUMERICAL AC ANALYSIS) showline
+() showline
+() showline
+(THE MNA BOOLEAN MATRIX ) showline
+(\(1\) [  0   0   0   0 ]) showline
+(\(2\) [  0   0   0   0 ]) showline
+(\(3\) [  0   0   0   0 ]) showline
+(\(4\) [  0   0   0   1 ]) showline
+() showline
+() showline
+() showline
+() showline
+(THE INDEX MATRIX ) showline
+(\(1\) [  0   0   0   0 ]) showline
+(\(2\) [  0   0   0   0 ]) showline
+(\(3\) [  0   0   0   0 ]) showline
+(\(4\) [  0   0   0   1 ]) showline
+() showline
+() showline
+() showline
+() showline
+(THE MNA BOOLEAN MATRIX ) showline
+(\(1\) [  0   0   0   0   0   0 ]) showline
+(\(2\) [  0   1   1   1   1   0 ]) showline
+(\(3\) [  0   1   1   1   0   1 ]) showline
+(\(4\) [  0   1   1   1   1   1 ]) showline
+sf (4) 1 endcol
+(4) endpage
+%%Page: ? 5
+5 newpage
+/MailFor (Listing for ) def
+/User (Xiangdong Tan) def
+/TimeNow (Fri Sep 19 11:46:59 1997) def
+/Subject () def
+sf (\(5\) [  0   1   0   1   1   1 ]) showline
+(\(6\) [  0   0   1   1   1   1 ]) showline
+() showline
+() showline
+() showline
+() showline
+(THE INDEX MATRIX ) showline
+(\(1\) [  0   0   0   0   0   0 ]) showline
+(\(2\) [  0  21  17  16  15   0 ]) showline
+(\(3\) [  0  20  14  11   0  10 ]) showline
+(\(4\) [  0  18  13   9   6   5 ]) showline
+(\(5\) [  0  19   0   8   4   2 ]) showline
+(\(6\) [  0   0  12   7   3   1 ]) showline
+() showline
+() showline
+() showline
+() showline
+(THE MNA BOOLEAN MATRIX ) showline
+(\(1\) [  1   1   0   0   0   0 ]) showline
+(\(2\) [  1   1   1   0   0   0 ]) showline
+(\(3\) [  0   1   1   1   0   0 ]) showline
+(\(4\) [  0   0   1   1   1   0 ]) showline
+(\(5\) [  0   0   0   1   1   1 ]) showline
+(\(6\) [  0   0   0   0   1   1 ]) showline
+() showline
+() showline
+() showline
+() showline
+(THE INDEX MATRIX ) showline
+(\(1\) [ 16  14   0   0   0   0 ]) showline
+(\(2\) [ 15  13  11   0   0   0 ]) showline
+(\(3\) [  0  12  10   8   0   0 ]) showline
+(\(4\) [  0   0   9   7   5   0 ]) showline
+(\(5\) [  0   0   0   6   4   2 ]) showline
+(\(6\) [  0   0   0   0   3   1 ]) showline
+() showline
+() showline
+([0:03.5u 0:00.1s 2968k]) showline
+(: quit) showline
+([0:04.0u 0:00.6s 2968k] ISAD done. Bye!) showline
+sf (5) 1 endcol
+(5) endpage
+%%Trailer
+%%Pages: 5
