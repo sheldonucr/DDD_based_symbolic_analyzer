@@ -8,38 +8,39 @@
 
 
 
-This document describes the installation of SCAD3 1.1 on linux system.
+This document describes the installation of SCAD3 1.1 on Linux system.
 
-SCAD3 1.1 includes a main programs and examples
-in the software release package -- most of which like to live in their
-own directories.  The install script will build a standard hierarchy.
-Or, if you get the tar file off the ftp site, the hierarchy will be
-constructed automatically by tar.
+SCAD3 1.1 includes a main programs and examples in the software release package -- 
+most of which like to live in their own directories.  
+The install script will build a standard hierarchy. 
+Or, if you get the tar file from the ftp site, the hierarchy 
+will be constructed automatically by tar.
 
-     The SCAD3 executable (scad3) may be placed anywhere the user
-wishes but the install script places them in the bin directory created
+The SCAD3 executable (scad3) may be placed anywhere the user 
+wants but the install script places it in the bin directory created 
 during installation.
 
 1.0 ENVIRONMENT SETUP
 
-SCAD3 system requires the SUN WorkShop(2.0) development package. 
-You need to make sure the C++ compiler is put in your searching
-path. But it should compile for latest gnu C++ compiler.  
-To be able to use the SCAD3, you also need put "isad/bin" 
-in your searching path since all the executable files are
-located in this directory. Note "scad3" is the root directory where
-all the source code and example files are organized under this
-directory. You also can use different name for this default name.
+SCAD3 system requires the SUN WorkShop(2.0) development package. But it should 
+work with latest Linux development enviorment.   
+You need to make sure the C++ compiler is in your searching path. 
+But it should compile using atest gnu C++ compiler.   
+To be able to use the SCAD3, you also need put "scad3/bin" 
+in your searching path since all the executable files are 
+located in this directory. Note "scad3" is the root 
+directory where all the source code and example files are 
+organized under this directory. You also can use different 
+name for this default name.
 
 2.0 INSTALLATION
 
-This section is for UNIX users and describes the most convenient
-installation procedure. (if you get from github, you do not need to do the 
-following)
+This section is for UNIX users and describes the most convenient installation procedure. 
+(if you get from github, you can skip the 'tar' command part)
 
 FORMAT: scad3.tar
 
-To begin installation, place the scad3.tar file into the directory
+To begin installation, place the scad3.tar file into the directory 
 where you want to place a isad subdirectory.  Untar the file with
 
      tar xvf isad.tar
