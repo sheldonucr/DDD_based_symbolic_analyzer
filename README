@@ -10,6 +10,18 @@
 
 This document describes the installation of SCAD3 1.1 on Linux system.
 
+The program come from the following publications:
+                   
+ C.-J. Shi and X.-D. Tan,  “Symbolic analysis of large analog circuits by determinant decision diagrams,”  Proc. IEEE International Conference on Computer-Aided Design (ICCAD'97), San Jose, CA.  Nov. 1997, pp. 366-373.       
+
+ C.-J. Shi and X.-D. Tan.  “Canonical symbolic analysis of large analog circuits with determinant decision diagrams.”  IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 19, no. 1, pp. 1-18, 2000.
+
+ X.-D.  Tan and C.-J. Shi. “Hierarchical symbolic analysis of analog integrated circuits via determinant decision diagrams.”  IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 19, no. 4, pp. 401-412, 2000.  
+
+ C.-J. Shi and X.-D. Tan. “Compact representation and efficient generation of s-expanded symbolic network functions for computer-aided analog circuit design.” IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 20, no. 7, pp. 813-827, 2001.
+
+Sheldon X.-D. Tan, Ph.D. Thesis,  “Symbolic Analysis of Large Analog Circuits with Determinant Decision Diagrams”, University of Iowa, 1999.
+
 SCAD3 1.1 includes a main programs and examples in the software release package -- 
 most of which like to live in their own directories.  
 The install script will build a standard hierarchy. 
