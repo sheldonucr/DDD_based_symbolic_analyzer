@@ -8,7 +8,7 @@
 
                            Xiangdong(Sheldon) Tan 
 
-			        Richard. Shi
+			        Richard Shi
 
 
 
@@ -21,7 +21,7 @@ own directories.  The install script will build a standard hierarchy.
 Or, if you get the tar file off the ftp site, the hierarchy will be
 constructed automatically by tar.
 
-     The SCAD3 executables (isad) may be placed anywhere the user
+     The SCAD3 executables (scad3) may be placed anywhere the user
 wishes but the install script places them in the bin directory created
 during installation.
 
@@ -29,20 +29,22 @@ during installation.
 
 SCAD3 system requires the SUN WorkShop(2.0) development package. 
 You need to make sure the C++ compiler is put in your seaching
-path. To be able to use the SCAD3, you also need put "isad/bin"
+path. But it should compile for latest gnu C++ compiler.  
+To be able to use the SCAD3, you also need put "isad/bin" 
 in your searching path since all the executable files are
-located in this directory. Note "isad" is the root direactory where
+located in this directory. Note "scad3" is the root direactory where
 all the source code and exmaple files are organzied under this
 directory. You also can use different name for this default name.
 
 2.0 INSTALLATION
 
 This section is for UNIX users and describes the most convenient
-installation procedure.
+installation procedure. (if you get from github, you do not need to do the 
+following)
 
-FORMAT: isad.tar
+FORMAT: scad3.tar
 
-To begin installation, place the isad.tar file into the directory
+To begin installation, place the scad3.tar file into the directory
 where you want to place a isad subdirectory.  Untar the file with
 
      tar xvf isad.tar
@@ -63,10 +65,10 @@ and type
 
     make 
 
-The executable file isad will be generated in isad/bin directory.
+The executable file scad3 will be generated in scad3/bin directory.
 
 Note:  another exectuable file needed for SCAD3 is the plot display
-program `xgraph` which is in the isad/bin directory
+program `xgraph` which is in the scad3/bin directory
 
 For directory hierachical discripation and usage of SCAD3 system,
-refer to the ~isad/doc/manul
+refer to the ~scad3/doc/manul
